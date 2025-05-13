@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 222 30% 23%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 222 30% 23%;
+  --popover-foreground: 0 0% 98%;
+  --card: 222 30% 23%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --primary: 246 100% 69%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 346 100% 70%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 122 39% 49%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 246 100% 69%;
+  --radius: 0.5rem;
+
+  --chart-1: 246 100% 69%;
+  --chart-2: 346 100% 70%;
+  --chart-3: 122 39% 49%;
+  --chart-4: 48 96% 53%;
+  --chart-5: 200 100% 60%;
+
+  --warning: 48 96% 53%;
+  --danger: 0 84.2% 60.2%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    background-image: radial-gradient(circle at top right, rgba(108, 99, 255, 0.2), transparent 400px),
+                      radial-gradient(circle at bottom left, rgba(255, 101, 132, 0.15), transparent 400px);
+  }
+
+  .font-heading {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .font-prompt {
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+@layer components {
+  .card {
+    @apply backdrop-blur-md transition-transform duration-300;
+  }
+
+  .btn-primary {
+    @apply transition-all duration-200 ease-in-out hover:translate-y-[-2px] hover:shadow-lg hover:shadow-primary/30;
+  }
+
+  .btn-secondary {
+    @apply transition-all duration-200 ease-in-out hover:translate-y-[-2px] hover:shadow-lg hover:shadow-secondary/30;
+  }
+
+  .level-pill.active {
+    @apply scale-105 shadow-lg shadow-primary/50;
+  }
+
+  .intensity-option.active {
+    @apply scale-105 shadow-lg shadow-secondary/50;
+  }
+}

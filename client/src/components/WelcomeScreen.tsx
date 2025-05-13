@@ -1,0 +1,67 @@
+import { Button } from "@/components/ui/button";
+
+interface WelcomeScreenProps {
+  onStartGame: () => void;
+  onHowToPlay: () => void;
+}
+
+export default function WelcomeScreen({ onStartGame, onHowToPlay }: WelcomeScreenProps) {
+  return (
+    <div className="card bg-card/90 rounded-3xl p-8 mb-8 border border-primary/20 shadow-xl">
+      <div className="text-center mb-6">
+        <img 
+          src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&h=300&q=80" 
+          alt="Friends socializing" 
+          className="w-32 h-32 mx-auto mb-4 rounded-full object-cover border-4 border-secondary" 
+        />
+        <h1 className="font-heading font-bold text-4xl text-white mb-2">
+          Strangers<span className="text-secondary">:</span> <span className="text-primary">After Hours</span>
+        </h1>
+        <p className="text-lg text-gray-300">A party game for building connections</p>
+      </div>
+      
+      <div className="mb-8">
+        <p className="mb-4 text-gray-300">
+          Gather your friends and get ready for meaningful conversations ranging from lighthearted to deep and revealing.
+        </p>
+        
+        <div className="grid grid-cols-3 gap-3 mb-6">
+          <div className="text-center">
+            <div className="bg-primary/20 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-2">
+              <i className="ri-group-line text-xl"></i>
+            </div>
+            <p className="text-xs text-gray-300">Gather friends</p>
+          </div>
+          <div className="text-center">
+            <div className="bg-primary/20 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-2">
+              <i className="ri-question-line text-xl"></i>
+            </div>
+            <p className="text-xs text-gray-300">Answer prompts</p>
+          </div>
+          <div className="text-center">
+            <div className="bg-primary/20 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-2">
+              <i className="ri-chat-smile-3-line text-xl"></i>
+            </div>
+            <p className="text-xs text-gray-300">Connect deeper</p>
+          </div>
+        </div>
+      </div>
+      
+      <Button 
+        className="btn-primary w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 px-6 rounded-xl shadow-lg text-lg"
+        onClick={onStartGame}
+      >
+        Start New Game
+      </Button>
+      
+      <div className="mt-4 text-center">
+        <button 
+          className="text-primary underline text-sm"
+          onClick={onHowToPlay}
+        >
+          How to play
+        </button>
+      </div>
+    </div>
+  );
+}
