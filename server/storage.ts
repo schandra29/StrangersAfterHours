@@ -494,4 +494,8 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new MemStorage();
+import { DatabaseStorage } from "./storage.database";
+
+// Choose which storage implementation to use
+// For development or testing, you can switch between MemStorage and DatabaseStorage
+export const storage = new DatabaseStorage();
