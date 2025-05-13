@@ -1,0 +1,73 @@
+Core Concept: "Strangers: After Hours" - A Party Game for Building Connections
+
+This is a prompt-based game designed to be played in person, at social gatherings, with the primary goal of fostering deeper connections and encouraging vulnerable self-expression among relative strangers. The app acts as a facilitator for in-person social interactions, not as a standalone digital experience.
+
+Target Audience: Individuals attending social gatherings (parties, meetups, etc.) who are open to meeting new people and engaging in meaningful conversations, ranging from lighthearted to potentially deep and revealing.
+
+Core Gameplay Loop (Physical Interaction Driven):
+
+App Host Designation: A single person (or designated player) controls the app on their phone. The app is primarily a way to access the prompts, not for individual participation or tracking.
+
+Level & Intensity Selection (Group Decision):
+
+The group collectively decides on a starting Level:
+
+Level 1: Icebreakers: Lighthearted, general interest prompts to ease people into conversation.
+
+Level 2: Getting to Know You: Explores shared experiences, interests, and aspirations.
+
+Level 3: Deeper Dive: Examines values, beliefs, and personal philosophies.
+
+The app presents the Intensity Level options:
+
+Intensity 1: Mild: Family-friendly, generally safe and non-controversial.
+
+Intensity 2: Medium: Encourages vulnerability and self-reflection, but avoids highly sensitive topics.
+
+Intensity 3: Wild: Explores potentially sensitive, controversial, or deeply personal subjects (with strong disclaimers and safeguards).
+
+The group votes or agrees on the Intensity Level.
+
+Prompt Display (App Host): The App Host displays a randomly selected prompt on their phone screen.
+
+Verbal Sharing (All Players): Players take turns answering the prompt verbally within the group. This is the core of the game – the in-person sharing and discussion.
+
+Optional Challenges (Social Interaction):
+
+After someone answers, other players have the option to issue a Challenge. These challenges are designed to be lighthearted and fun, tailored to a physical social setting. Examples include:
+
+Truth or Dare: The group chooses a truth or dare for the player to perform.
+
+Act-Out: The player has to act out something related to their answer.
+
+The answering player can choose to:
+
+Accept the Challenge
+
+Pass (and face a pre-agreed upon consequence that will be decided by the game or other players)
+
+Consequence Alternation The default choice for a challenge is to take a sip of an alcoholic beverage, but that default setting is only chosen with consent as it will affect the dynamic of the game.
+
+Group Discussion: The group engages in further discussion based on the answers and challenges, building on each other's responses.
+
+Progression Vote (App Host or Designated Player):
+
+The App Host (or another designated player) decides whether to increase the intensity level for the next round, but only with the consent of the game.
+
+Level change has to be voted on
+
+Loop Repeat: Steps 3-8 are repeated, with the phone passed around the circle or a new App Host chosen.
+
+Key Features & Design Considerations:
+
+Emphasis on Verbal Communication: The app should facilitate and encourage in-person conversation, not replace it.
+
+Limited App Functionality: The app's primary function is to randomly select and display prompts and present challenges. Keep it simple.
+
+Clear Visual Hierarchy: The app should have a clean and intuitive user interface, with clear visual cues to guide users through the gameplay loop.
+
+Prominent Disclaimers: The app must display clear and prominent disclaimers about the potentially sensitive nature of the prompts, especially at higher Intensity Levels.
+
+Customization (Optional): Consider allowing App Hosts to add their own custom prompts or challenges to personalize the game.
+
+Physical Setting Focus: Remember that the game is designed for a physical setting. Don't rely on features that require individual screens or constant app interaction.
