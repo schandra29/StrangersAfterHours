@@ -1,4 +1,4 @@
-// Import the prompts directly using fetch
+// Import challenges from a CSV file
 
 import fs from 'fs';
 import path from 'path';
@@ -9,14 +9,14 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Determine which CSV file to use
-const csvFileName = process.argv[2] || 'sample-prompts.csv';
+const csvFileName = process.argv[2] || 'challenges-template.csv';
 const csvPath = path.join(__dirname, csvFileName);
 console.log(`Using CSV file: ${csvPath}`);
 const csvContent = fs.readFileSync(csvPath, 'utf8');
 const lines = csvContent.split('\n');
 
 // Skip header row
-const prompts = [];
+const challenges = [];
 for (let i = 1; i < lines.length; i++) {
   const line = lines[i].trim();
   if (!line) continue;
@@ -24,7 +24,12 @@ for (let i = 1; i < lines.length; i++) {
   // Simple parsing for our known CSV format
   const parts = line.split(',');
   if (parts.length >= 3) {
-    const level = parseInt(parts[0]);
+    // Extract the type (might be in quotes)
+    let type = parts[0];
+    if (type.startsWith('"') && type.endsWith('"')) {
+      type = type.slice(1, -1);
+    }
+    
     const intensity = parseInt(parts[1]);
     
     // Extract the text which might contain commas and be in quotes
@@ -33,57 +38,40 @@ for (let i = 1; i < lines.length; i++) {
       text = text.slice(1, -1);
     }
     
-    // Extract category if available
-    let category;
-    if (text.includes('","')) {
-      const lastQuotePos = text.lastIndexOf('","');
-      category = text.substring(lastQuotePos + 3, text.length - 1);
-      text = text.substring(0, lastQuotePos);
-    } else {
-      // Default category based on level
-      switch (level) {
-        case 1: category = "Icebreaker"; break;
-        case 2: category = "Getting to Know You"; break;
-        case 3: category = "Deeper Dive"; break;
-        default: category = "Icebreaker";
-      }
-    }
-    
-    prompts.push({
-      text,
-      level,
+    challenges.push({
+      type,
       intensity,
-      category,
+      text,
       isCustom: false,
       userId: null
     });
   }
 }
 
-console.log(`Parsed ${prompts.length} prompts from CSV`);
+console.log(`Parsed ${challenges.length} challenges from CSV`);
 
-// Function to import prompts in batches
-async function importPrompts() {
+// Function to import challenges in batches
+async function importChallenges() {
   const batchSize = 10; // Import 10 at a time to avoid issues
   let imported = 0;
   
-  for (let i = 0; i < prompts.length; i += batchSize) {
-    const batch = prompts.slice(i, i + batchSize);
-    console.log(`Importing batch ${i/batchSize + 1}/${Math.ceil(prompts.length/batchSize)}...`);
+  for (let i = 0; i < challenges.length; i += batchSize) {
+    const batch = challenges.slice(i, i + batchSize);
+    console.log(`Importing batch ${i/batchSize + 1}/${Math.ceil(challenges.length/batchSize)}...`);
     
     try {
-      const response = await fetch('http://localhost:5000/api/import/prompts', {
+      const response = await fetch('http://localhost:5000/api/import/challenges', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ prompts: batch }),
+        body: JSON.stringify({ challenges: batch }),
       });
       
       const data = await response.json();
       imported += data.count || 0;
       
-      console.log(`Batch imported: ${data.count} prompts`);
+      console.log(`Batch imported: ${data.count} challenges`);
     } catch (err) {
       console.error('Error importing batch:', err);
     }
@@ -92,9 +80,9 @@ async function importPrompts() {
     await new Promise(resolve => setTimeout(resolve, 100));
   }
   
-  console.log(`Total imported: ${imported} prompts`);
+  console.log(`Total imported: ${imported} challenges`);
 }
 
-importPrompts().catch(err => {
+importChallenges().catch(err => {
   console.error('Import failed:', err);
 });
