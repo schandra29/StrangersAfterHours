@@ -27,7 +27,14 @@ export class DatabaseStorage implements IStorage {
 
   // Prompt methods
   async createPrompt(insertPrompt: InsertPrompt): Promise<Prompt> {
-    const [prompt] = await db.insert(prompts).values(insertPrompt).returning();
+    // Ensure default values are set for required fields
+    const promptData = {
+      ...insertPrompt,
+      isCustom: insertPrompt.isCustom ?? false,
+      userId: insertPrompt.userId ?? null
+    };
+    
+    const [prompt] = await db.insert(prompts).values(promptData).returning();
     return prompt;
   }
 
@@ -56,7 +63,14 @@ export class DatabaseStorage implements IStorage {
 
   // Challenge methods
   async createChallenge(insertChallenge: InsertChallenge): Promise<Challenge> {
-    const [challenge] = await db.insert(challenges).values(insertChallenge).returning();
+    // Ensure default values are set for required fields
+    const challengeData = {
+      ...insertChallenge,
+      isCustom: insertChallenge.isCustom ?? false,
+      userId: insertChallenge.userId ?? null
+    };
+    
+    const [challenge] = await db.insert(challenges).values(challengeData).returning();
     return challenge;
   }
 
@@ -89,10 +103,16 @@ export class DatabaseStorage implements IStorage {
 
   // Game session methods
   async createGameSession(insertSession: InsertGameSession): Promise<GameSession> {
-    const [session] = await db.insert(gameSessions).values({
+    // Make sure all required fields are present with defaults
+    const sessionData = {
       ...insertSession,
-      usedPromptIds: []
-    }).returning();
+      usedPromptIds: [],
+      currentLevel: insertSession.currentLevel ?? 1,
+      currentIntensity: insertSession.currentIntensity ?? 1,
+      isDrinkingGame: insertSession.isDrinkingGame ?? false
+    };
+    
+    const [session] = await db.insert(gameSessions).values(sessionData).returning();
     return session;
   }
 
@@ -119,14 +139,28 @@ export class DatabaseStorage implements IStorage {
   async batchImportPrompts(promptsToImport: InsertPrompt[]): Promise<number> {
     if (promptsToImport.length === 0) return 0;
     
-    const result = await db.insert(prompts).values(promptsToImport).returning({ id: prompts.id });
+    // Ensure all prompts have the required fields with default values
+    const promptsWithDefaults = promptsToImport.map(prompt => ({
+      ...prompt,
+      isCustom: prompt.isCustom ?? false,
+      userId: prompt.userId ?? null
+    }));
+    
+    const result = await db.insert(prompts).values(promptsWithDefaults).returning({ id: prompts.id });
     return result.length;
   }
 
   async batchImportChallenges(challengesToImport: InsertChallenge[]): Promise<number> {
     if (challengesToImport.length === 0) return 0;
     
-    const result = await db.insert(challenges).values(challengesToImport).returning({ id: challenges.id });
+    // Ensure all challenges have the required fields with default values
+    const challengesWithDefaults = challengesToImport.map(challenge => ({
+      ...challenge,
+      isCustom: challenge.isCustom ?? false,
+      userId: challenge.userId ?? null
+    }));
+    
+    const result = await db.insert(challenges).values(challengesWithDefaults).returning({ id: challenges.id });
     return result.length;
   }
 }
