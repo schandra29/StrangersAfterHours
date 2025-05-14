@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { type Prompt } from "@shared/schema";
 import Confetti from "react-confetti";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { getLevelName, getIntensityName } from "@/lib/gameData";
 
 interface GameScreenProps {
   currentLevel: number;
@@ -105,14 +106,6 @@ export default function GameScreen({
     const remainingSeconds = seconds % 60;
     return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
   };
-  const getIntensityText = (intensity: number): string => {
-    switch (intensity) {
-      case 1: return "Mild";
-      case 2: return "Medium";
-      case 3: return "Wild";
-      default: return "Mild";
-    }
-  };
 
   return (
     <>
@@ -131,10 +124,10 @@ export default function GameScreen({
       <div className="flex justify-between items-center mb-4">
         <div className="flex gap-2">
           <span className="bg-primary/20 text-white px-3 py-1 rounded-full text-sm font-medium">
-            Level: <span>{currentLevel}</span>
+            Level: <span>{getLevelName(currentLevel)}</span>
           </span>
           <span className="bg-secondary/20 text-white px-3 py-1 rounded-full text-sm font-medium">
-            Intensity: <span>{getIntensityText(currentIntensity)}</span>
+            Intensity: <span>{getIntensityName(currentIntensity)}</span>
           </span>
         </div>
         <button 
