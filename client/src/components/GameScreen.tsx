@@ -62,6 +62,13 @@ export default function GameScreen({
   // Handle full house celebration
   const handleFullHouse = () => {
     if (onFullHouse) {
+      // Stop the timer if it's running and record the time
+      if (isTimerRunning && onRecordTimeSpent) {
+        stopTimer();
+        onRecordTimeSpent(timeElapsed);
+      }
+      
+      // Show confetti and trigger the full house celebration
       setShowConfetti(true);
       onFullHouse();
       
