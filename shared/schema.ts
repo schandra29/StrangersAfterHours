@@ -51,6 +51,11 @@ export const gameSessions = pgTable("game_sessions", {
   isDrinkingGame: boolean("is_drinking_game").notNull().default(false),
   usedPromptIds: jsonb("used_prompt_ids").notNull().default([]),
   createdAt: text("created_at").notNull(),
+  // Game statistics
+  totalTimeSpent: integer("total_time_spent").default(0), // Total time in seconds
+  promptsAnswered: integer("prompts_answered").default(0),
+  fullHouseMoments: integer("full_house_moments").default(0),
+  levelStats: jsonb("level_stats").default({}),
 });
 
 export const insertGameSessionSchema = createInsertSchema(gameSessions).omit({

@@ -31,6 +31,11 @@ export interface IStorage {
   createGameSession(session: InsertGameSession): Promise<GameSession>;
   getGameSession(id: number): Promise<GameSession | undefined>;
   updateGameSession(id: number, data: Partial<GameSession>): Promise<GameSession>;
+  // Game statistics operations
+  incrementFullHouseMoments(id: number): Promise<GameSession>;
+  incrementPromptsAnswered(id: number): Promise<GameSession>;
+  updateTotalTimeSpent(id: number, timeSpent: number): Promise<GameSession>;
+  updateLevelStats(id: number, level: number, intensity: number): Promise<GameSession>;
 }
 
 export class MemStorage implements IStorage {
@@ -176,6 +181,57 @@ export class MemStorage implements IStorage {
       ...data
     };
     
+    this.gameSessions.set(id, updatedSession);
+    return updatedSession;
+  }
+  
+  async incrementFullHouseMoments(id: number): Promise<GameSession> {
+    const session = this.gameSessions.get(id);
+    if (!session) {
+      throw new Error(`Game session with id ${id} not found`);
+    }
+    
+    const fullHouseMoments = (session.fullHouseMoments || 0) + 1;
+    const updatedSession = { ...session, fullHouseMoments };
+    this.gameSessions.set(id, updatedSession);
+    return updatedSession;
+  }
+
+  async incrementPromptsAnswered(id: number): Promise<GameSession> {
+    const session = this.gameSessions.get(id);
+    if (!session) {
+      throw new Error(`Game session with id ${id} not found`);
+    }
+    
+    const promptsAnswered = (session.promptsAnswered || 0) + 1;
+    const updatedSession = { ...session, promptsAnswered };
+    this.gameSessions.set(id, updatedSession);
+    return updatedSession;
+  }
+
+  async updateTotalTimeSpent(id: number, timeSpent: number): Promise<GameSession> {
+    const session = this.gameSessions.get(id);
+    if (!session) {
+      throw new Error(`Game session with id ${id} not found`);
+    }
+    
+    const totalTimeSpent = (session.totalTimeSpent || 0) + timeSpent;
+    const updatedSession = { ...session, totalTimeSpent };
+    this.gameSessions.set(id, updatedSession);
+    return updatedSession;
+  }
+
+  async updateLevelStats(id: number, level: number, intensity: number): Promise<GameSession> {
+    const session = this.gameSessions.get(id);
+    if (!session) {
+      throw new Error(`Game session with id ${id} not found`);
+    }
+    
+    const key = `${level}-${intensity}`;
+    const levelStats = session.levelStats as Record<string, number> || {};
+    levelStats[key] = (levelStats[key] || 0) + 1;
+    
+    const updatedSession = { ...session, levelStats };
     this.gameSessions.set(id, updatedSession);
     return updatedSession;
   }
