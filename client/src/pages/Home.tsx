@@ -168,8 +168,9 @@ export default function Home() {
           intensity={game.currentIntensity}
           isDrinkingGame={game.isDrinkingGame}
           onChallengeComplete={() => {
-            // Get a new prompt when challenge is completed
+            // Get a new prompt when challenge is completed and record completion
             game.getNextPrompt();
+            game.recordPromptComplete(); // Also record this prompt as completed
           }}
         />
         

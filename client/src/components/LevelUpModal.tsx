@@ -57,6 +57,8 @@ export default function LevelUpModal({
       // Get a new prompt that matches the new level/intensity
       setTimeout(() => {
         game.getNextPrompt();
+        // No need to record prompt completion here since this is just changing levels,
+        // not answering a prompt
       }, 100); // Small delay to ensure state updates first
     }
     
