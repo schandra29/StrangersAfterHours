@@ -122,13 +122,13 @@ export default function CustomChallengeForm({ isOpen, onClose, onSuccess }: Cust
               value={text}
               onChange={(e) => setText(e.target.value)}
               placeholder={type === "Dare" 
-                ? "TRUTH: Ask a truth question OR DARE: Describe your dare" 
+                ? "Describe your dare challenge" 
                 : "Describe what to act out"}
               className="h-24 bg-white/10 border-white/20 text-white"
             />
             <p className="text-xs text-gray-400">
               {type === "Dare" 
-                ? "For Dares, include both a TRUTH option and a DARE option." 
+                ? "For Dares, describe an interesting or challenging task for players to perform." 
                 : "For Act It Out, describe what the player should act out."}
             </p>
           </div>
