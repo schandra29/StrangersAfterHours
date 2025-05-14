@@ -52,14 +52,8 @@ export default function Home() {
   };
 
   const handleConfirmLevelUp = (type: "level" | "intensity") => {
-    // We need to pass the updated level and intensity from the modal to the game state
-    if (type === "level") {
-      game.setLevel(game.currentLevel);
-    } else if (type === "intensity") {
-      game.setIntensity(game.currentIntensity);
-    }
-    
-    // Get a new prompt for the updated level/intensity
+    // The level and intensity have already been updated in the LevelUpModal component
+    // through the game context, so we just need to get a new prompt
     game.getNextPrompt();
   };
 

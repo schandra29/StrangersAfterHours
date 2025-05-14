@@ -18,15 +18,20 @@ export default function LevelUpModal({
   currentIntensity,
   onConfirm
 }: LevelUpModalProps) {
+  const game = useGame();
   const [selectedLevel, setSelectedLevel] = useState<number>(currentLevel);
   const [selectedIntensity, setSelectedIntensity] = useState<number>(currentIntensity);
   
   // Reset selections when modal opens
-  const handleOpenChange = (open: boolean) => {
-    if (open) {
+  useEffect(() => {
+    if (isOpen) {
       setSelectedLevel(currentLevel);
       setSelectedIntensity(currentIntensity);
-    } else {
+    }
+  }, [isOpen, currentLevel, currentIntensity]);
+  
+  const handleOpenChange = (open: boolean) => {
+    if (!open) {
       onClose();
     }
   };
@@ -34,13 +39,13 @@ export default function LevelUpModal({
   const handleApply = () => {
     // Apply level changes
     if (selectedLevel !== currentLevel) {
-      // We'll pass this to the parent component to update the game state
+      game.setLevel(selectedLevel);
       onConfirm("level");
     }
     
     // Apply intensity changes
     if (selectedIntensity !== currentIntensity) {
-      // We'll pass this to the parent component to update the game state
+      game.setIntensity(selectedIntensity);
       onConfirm("intensity");
     }
     
