@@ -181,6 +181,11 @@ export function useGame() {
         : '';
       
       const response = await apiRequest("GET", `/api/prompts/random${excludeIdsParam}`);
+      
+      if (!response.ok) {
+        throw new Error(`Server returned ${response.status}`);
+      }
+      
       const randomPrompt: Prompt = await response.json();
       
       if (randomPrompt) {
@@ -204,21 +209,19 @@ export function useGame() {
           });
         }
         
-        // Show toast
-        toast({
-          title: "Random Prompt",
-          description: `Switched to ${getLevelName(randomPrompt.level)} prompt with intensity ${randomPrompt.intensity}`,
-        });
+        return true; // Successfully got a random prompt
       }
+      return false;
     } catch (error) {
+      console.error("Random prompt error:", error);
       toast({
         title: "Error",
         description: "Failed to fetch a random prompt",
         variant: "destructive",
       });
       
-      // Fallback to normal getNextPrompt if the random API fails
-      getNextPrompt();
+      // Don't fallback to getNextPrompt to avoid duplicate toasts
+      return false;
     }
   };
   

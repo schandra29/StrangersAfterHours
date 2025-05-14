@@ -61,7 +61,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // If all prompts have been used (and none are available), reset and get any random prompt
       if (!randomPrompt && excludeIds.length > 0) {
-        randomPrompt = await storage.getRandomPrompt();
+        randomPrompt = await storage.getRandomPrompt([]);
       }
       
       if (!randomPrompt) {
@@ -70,6 +70,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       res.json(randomPrompt);
     } catch (error) {
+      console.error("Error fetching random prompt:", error);
       res.status(500).json({ message: "Failed to fetch random prompt" });
     }
   });

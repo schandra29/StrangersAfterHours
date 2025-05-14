@@ -10,6 +10,7 @@ import CustomChallengeForm from "@/components/CustomChallengeForm";
 import GameSummaryModal from "@/components/GameSummaryModal";
 import { useGame } from "@/hooks/useGame";
 import { useToast } from "@/hooks/use-toast";
+import { getLevelName } from "@/lib/gameData";
 
 type Screen = "welcome" | "setup" | "game";
 
@@ -48,8 +49,14 @@ export default function Home() {
     setShowLevelUp(true);
   };
   
-  const handleRandomPrompt = () => {
-    game.getRandomPrompt();
+  const handleRandomPrompt = async () => {
+    const success = await game.getRandomPrompt();
+    if (success) {
+      toast({
+        title: "Random Prompt",
+        description: `Switched to ${getLevelName(game.currentLevel)} prompt with intensity ${game.currentIntensity}`,
+      });
+    }
   };
 
   const handleRestartGame = () => {
