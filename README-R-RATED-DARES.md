@@ -4,16 +4,20 @@ This document explains how to create and import R-Rated dares for the Strangers:
 
 ## CSV Format
 
-R-Rated dares are stored in a simple CSV file with just the text of each dare:
+R-Rated dares are stored in a CSV file with an ID and the text of each dare:
 
 ```
-text
-"Share an awkward dating story that you've never told anyone"
+Dare ID,Dare Text
+1,"Whisper a secret to another person."
+2,"Call people pet names and see how they react."
 ```
 
 The import script will automatically:
 - Set the type to "R-Rated Dare"
-- Assign a random intensity level (1-3)
+- Assign intensity levels based on ID ranges:
+  - IDs 1-33: Intensity level 1 (mild)
+  - IDs 34-66: Intensity level 2 (moderate)
+  - IDs 67-100: Intensity level 3 (spicy)
 
 ## Adding Your Own R-Rated Dares
 

@@ -28,16 +28,22 @@ function parseCSV(filePath) {
     for (let i = 1; i < lines.length; i++) {
       const line = lines[i].trim();
       
-      // Remove surrounding quotes if present
-      const text = line.replace(/^"(.*)"$/, '$1');
+      // Extract ID and text from the CSV format
+      const match = line.match(/^(\d+),(?:"([^"]*)"|(.*))$/);
       
-      if (text) {
-        // Create a challenge object with default values
-        result.push({
-          text: text,
-          type: "R-Rated Dare",
-          intensity: Math.floor(Math.random() * 3) + 1 // Random intensity between 1-3
-        });
+      if (match) {
+        const id = match[1];
+        // Match[2] is for quoted text, match[3] is for unquoted text
+        const text = match[2] || match[3];
+        
+        if (text) {
+          // Create a challenge object with default values
+          result.push({
+            text: text,
+            type: "R-Rated Dare",
+            intensity: Math.min(Math.ceil(parseInt(id) / 33), 3) // Distribute intensities: 1-33 -> 1, 34-66 -> 2, 67-100 -> 3
+          });
+        }
       }
     }
     
@@ -58,7 +64,7 @@ async function importDares(dares) {
     const response = await fetch('http://localhost:5000/api/challenges/import', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ challenges: dares })
+      body: JSON.stringify(dares) // Send the array directly, not as a property
     });
     
     if (!response.ok) {
