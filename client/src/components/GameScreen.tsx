@@ -5,9 +5,10 @@ interface GameScreenProps {
   currentLevel: number;
   currentIntensity: number;
   currentPrompt: Prompt | null;
+  isDrinkingGame: boolean;
   onMenu: () => void;
   onNextPrompt: () => void;
-  onChallenge: (type: "Truth or Dare" | "Act It Out") => void;
+  onChallenge: (type: "Truth or Dare" | "Act It Out" | "Take a Sip") => void;
   onLevelUp: () => void;
 }
 
@@ -15,6 +16,7 @@ export default function GameScreen({
   currentLevel,
   currentIntensity,
   currentPrompt,
+  isDrinkingGame,
   onMenu,
   onNextPrompt,
   onChallenge,
@@ -73,7 +75,7 @@ export default function GameScreen({
         <h3 className="font-heading font-bold text-xl text-white mb-4">If you don't want to answer, select one of these options</h3>
         <p className="text-gray-300 mb-4">Instead of answering the prompt, you can choose to:</p>
         
-        <div className="grid grid-cols-2 gap-3 mb-4">
+        <div className={`grid ${isDrinkingGame ? 'grid-cols-3' : 'grid-cols-2'} gap-3 mb-4`}>
           <button 
             className="bg-secondary/20 hover:bg-secondary/30 text-white py-3 px-4 rounded-xl text-center"
             onClick={() => onChallenge("Truth or Dare")}
@@ -88,6 +90,15 @@ export default function GameScreen({
             <i className="ri-emotion-laugh-line mb-1 text-xl block"></i>
             <span className="block font-medium">Act It Out</span>
           </button>
+          {isDrinkingGame && (
+            <button 
+              className="bg-secondary/20 hover:bg-secondary/30 text-white py-3 px-4 rounded-xl text-center"
+              onClick={() => onChallenge("Take a Sip")}
+            >
+              <i className="ri-goblet-line mb-1 text-xl block"></i>
+              <span className="block font-medium">Take a Sip</span>
+            </button>
+          )}
         </div>
         
         <div className="text-sm text-center text-gray-400">

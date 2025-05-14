@@ -2,11 +2,12 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useQuery } from "@tanstack/react-query";
+import { type Challenge } from "@shared/schema";
 
 interface ChallengeModalProps {
   isOpen: boolean;
   onClose: () => void;
-  type: "Truth or Dare" | "Act It Out";
+  type: "Truth or Dare" | "Act It Out" | "Take a Sip";
   intensity: number;
   isDrinkingGame: boolean;
 }
@@ -20,17 +21,19 @@ export default function ChallengeModal({
 }: ChallengeModalProps) {
   const [challenge, setChallenge] = useState<string | null>(null);
 
-  const { data: challenges } = useQuery({
+  const { data: challenges } = useQuery<Challenge[]>({
     queryKey: [`/api/challenges?type=${encodeURIComponent(type)}&intensity=${intensity}`],
-    enabled: isOpen,
+    enabled: isOpen && type !== "Take a Sip",
   });
 
   useEffect(() => {
-    if (challenges && challenges.length > 0) {
+    if (type === "Take a Sip") {
+      setChallenge("Take a sip of your drink!");
+    } else if (challenges && challenges.length > 0) {
       const randomIndex = Math.floor(Math.random() * challenges.length);
       setChallenge(challenges[randomIndex].text);
     }
-  }, [challenges, isOpen]);
+  }, [challenges, isOpen, type]);
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
