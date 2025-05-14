@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { type Prompt } from "@shared/schema";
+import Confetti from "react-confetti";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface GameScreenProps {
   currentLevel: number;
@@ -12,6 +14,9 @@ interface GameScreenProps {
   onChallenge: (type: "Dare" | "Act It Out" | "Take a Sip") => void;
   onLevelChange: (type: "level" | "intensity") => void;
   onRandomPrompt: () => void;
+  onFullHouse?: () => void;
+  onEndGame?: () => void;
+  onRecordTimeSpent?: (seconds: number) => void;
 }
 
 export default function GameScreen({
@@ -23,8 +28,13 @@ export default function GameScreen({
   onNextPrompt,
   onChallenge,
   onLevelChange,
-  onRandomPrompt
+  onRandomPrompt,
+  onFullHouse,
+  onEndGame,
+  onRecordTimeSpent
 }: GameScreenProps) {
+  const isMobile = useIsMobile();
+  const [showConfetti, setShowConfetti] = useState(false);
   const [isTimerRunning, setIsTimerRunning] = useState(false);
   const [timeElapsed, setTimeElapsed] = useState(0);
   const timerInterval = useRef<number | null>(null);
@@ -40,9 +50,27 @@ export default function GameScreen({
 
   // Reset timer when moving to a new prompt
   useEffect(() => {
+    // Record the time spent on the previous prompt if there was any
+    if (timeElapsed > 0 && onRecordTimeSpent) {
+      onRecordTimeSpent(timeElapsed);
+    }
+    
     stopTimer();
     setTimeElapsed(0);
   }, [currentPrompt]);
+  
+  // Handle full house celebration
+  const handleFullHouse = () => {
+    if (onFullHouse) {
+      setShowConfetti(true);
+      onFullHouse();
+      
+      // Hide confetti after 5 seconds
+      setTimeout(() => {
+        setShowConfetti(false);
+      }, 5000);
+    }
+  };
 
   const startTimer = () => {
     if (timerInterval.current) clearInterval(timerInterval.current);
@@ -79,6 +107,17 @@ export default function GameScreen({
 
   return (
     <>
+      {/* Confetti effect for full house moments */}
+      {showConfetti && (
+        <Confetti
+          width={isMobile ? window.innerWidth : window.innerWidth * 0.8}
+          height={window.innerHeight}
+          recycle={false}
+          numberOfPieces={isMobile ? 100 : 200}
+          gravity={0.2}
+        />
+      )}
+    
       {/* Game Status Bar */}
       <div className="flex justify-between items-center mb-4">
         <div className="flex gap-2">
@@ -141,6 +180,14 @@ export default function GameScreen({
             <i className="ri-stop-circle-line mr-2"></i> Stop Timer
           </Button>
         )}
+        
+        {/* Full house celebration button */}
+        <Button
+          className="btn-secondary w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg flex items-center justify-center mb-4"
+          onClick={handleFullHouse}
+        >
+          <i className="ri-group-line mr-2"></i> Full-house!
+        </Button>
         
         <Button
           className="btn-primary w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 px-6 rounded-xl shadow-lg flex items-center justify-center"
@@ -207,9 +254,20 @@ export default function GameScreen({
           </button>
         </div>
         
-        <p className="text-gray-300 text-sm text-center">
+        <p className="text-gray-300 text-sm text-center mb-6">
           Change the experience or get a completely random prompt
         </p>
+        
+        {/* End Game Button */}
+        {onEndGame && (
+          <Button
+            variant="outline"
+            className="w-full border-red-500/50 text-red-400 hover:bg-red-500/10 font-semibold py-3 px-4"
+            onClick={onEndGame}
+          >
+            <i className="ri-award-line mr-2"></i> End Game & View Summary
+          </Button>
+        )}
       </div>
     </>
   );

@@ -7,7 +7,9 @@ import GameMenuModal from "@/components/GameMenuModal";
 import ChallengeModal from "@/components/ChallengeModal";
 import LevelUpModal from "@/components/LevelUpModal";
 import CustomChallengeForm from "@/components/CustomChallengeForm";
+import GameSummaryModal from "@/components/GameSummaryModal";
 import { useGame } from "@/hooks/useGame";
+import { useToast } from "@/hooks/use-toast";
 
 type Screen = "welcome" | "setup" | "game";
 
@@ -18,8 +20,10 @@ export default function Home() {
   const [showChallenge, setShowChallenge] = useState(false);
   const [showLevelUp, setShowLevelUp] = useState(false);
   const [showCustomChallengeForm, setShowCustomChallengeForm] = useState(false);
+  const [showGameSummary, setShowGameSummary] = useState(false);
   const [selectedChallengeType, setSelectedChallengeType] = useState<"Dare" | "Act It Out" | "Take a Sip">("Dare");
   
+  const { toast } = useToast();
   const game = useGame();
 
   const handleStartGame = () => {
@@ -62,6 +66,36 @@ export default function Home() {
   const handleAddCustomChallenge = () => {
     setShowCustomChallengeForm(true);
     setShowGameMenu(false); // Close the menu when opening the form
+  };
+  
+  // Handle full house moments - when everyone has participated
+  const handleFullHouseMoment = () => {
+    game.recordFullHouseMoment();
+    toast({
+      title: "Full House!",
+      description: "Everyone participated! Great job!",
+    });
+  };
+  
+  // Handle end game and show summary
+  const handleEndGame = () => {
+    // If the timer is running, stop it and record the time
+    if (game.sessionId) {
+      setShowGameSummary(true);
+    } else {
+      toast({
+        title: "Error",
+        description: "No active game session found",
+        variant: "destructive",
+      });
+    }
+  };
+  
+  // Record time spent on prompts
+  const handleRecordTimeSpent = (seconds: number) => {
+    if (seconds > 0) {
+      game.recordTimeSpent(seconds);
+    }
   };
 
   return (
