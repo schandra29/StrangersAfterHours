@@ -22,13 +22,25 @@ function ProtectedRoute({ component: Component, ...rest }: any) {
 
   // Redirect to access code screen if not authenticated
   if (!isAuthenticated) {
-    return <Redirect to="/access" />;
+    // Use more forceful redirect to ensure it happens
+    window.location.href = "/access";
+    return null;
   }
 
   return <Component {...rest} />;
 }
 
 function Router() {
+  const { isAuthenticated } = useAuth();
+  
+  // If authenticated, redirect from /access to home
+  if (isAuthenticated && window.location.pathname === "/access") {
+    window.location.replace("/");
+    return <div className="flex items-center justify-center min-h-screen">
+      <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-primary"></div>
+    </div>;
+  }
+  
   return (
     <Switch>
       <Route path="/access" component={AccessCodeScreen} />
