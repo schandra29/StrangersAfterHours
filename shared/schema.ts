@@ -1,4 +1,4 @@
-import { pgTable, text, serial, integer, boolean, jsonb } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, boolean, jsonb, timestamp } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -79,3 +79,23 @@ export type InsertChallenge = z.infer<typeof insertChallengeSchema>;
 
 export type GameSession = typeof gameSessions.$inferSelect;
 export type InsertGameSession = z.infer<typeof insertGameSessionSchema>;
+
+// Access codes for limiting application access
+export const accessCodes = pgTable("access_codes", {
+  id: serial("id").primaryKey(),
+  code: text("code").notNull().unique(),
+  description: text("description"),
+  isActive: boolean("is_active").default(true).notNull(),
+  usageCount: integer("usage_count").default(0).notNull(),
+  maxUsages: integer("max_usages").default(10), // null means unlimited
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const insertAccessCodeSchema = createInsertSchema(accessCodes).omit({
+  id: true,
+  usageCount: true,
+  createdAt: true,
+});
+
+export type AccessCode = typeof accessCodes.$inferSelect;
+export type InsertAccessCode = z.infer<typeof insertAccessCodeSchema>;

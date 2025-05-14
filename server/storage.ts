@@ -2,7 +2,8 @@ import {
   users, type User, type InsertUser,
   prompts, type Prompt, type InsertPrompt,
   challenges, type Challenge, type InsertChallenge,
-  gameSessions, type GameSession, type InsertGameSession
+  gameSessions, type GameSession, type InsertGameSession,
+  accessCodes, type AccessCode, type InsertAccessCode
 } from "@shared/schema";
 
 export interface IStorage {
@@ -36,6 +37,12 @@ export interface IStorage {
   incrementPromptsAnswered(id: number): Promise<GameSession>;
   updateTotalTimeSpent(id: number, timeSpent: number): Promise<GameSession>;
   updateLevelStats(id: number, level: number, intensity: number): Promise<GameSession>;
+  
+  // Access code operations
+  createAccessCode(accessCode: InsertAccessCode): Promise<AccessCode>;
+  getAccessCodeByCode(code: string): Promise<AccessCode | undefined>;
+  validateAccessCode(code: string): Promise<boolean>;
+  incrementAccessCodeUsage(id: number): Promise<AccessCode>;
 }
 
 export class MemStorage implements IStorage {
@@ -43,20 +50,24 @@ export class MemStorage implements IStorage {
   private prompts: Map<number, Prompt>;
   private challenges: Map<number, Challenge>;
   private gameSessions: Map<number, GameSession>;
+  private accessCodes: Map<number, AccessCode>;
   private userIdCounter: number;
   private promptIdCounter: number;
   private challengeIdCounter: number;
   private sessionIdCounter: number;
+  private accessCodeIdCounter: number;
 
   constructor() {
     this.users = new Map();
     this.prompts = new Map();
     this.challenges = new Map();
     this.gameSessions = new Map();
+    this.accessCodes = new Map();
     this.userIdCounter = 1;
     this.promptIdCounter = 1;
     this.challengeIdCounter = 1;
     this.sessionIdCounter = 1;
+    this.accessCodeIdCounter = 1;
     
     // Initialize with default prompts and challenges
     this.initializeDefaultPrompts();
