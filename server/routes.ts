@@ -259,6 +259,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Health check endpoint for deployment
+  app.get('/health', (req, res) => {
+    res.status(200).send('OK');
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }
