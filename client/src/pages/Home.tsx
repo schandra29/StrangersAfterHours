@@ -128,10 +128,16 @@ export default function Home() {
             currentPrompt={game.currentPrompt}
             isDrinkingGame={game.isDrinkingGame}
             onMenu={() => setShowGameMenu(true)}
-            onNextPrompt={game.getNextPrompt}
+            onNextPrompt={() => {
+              game.getNextPrompt();
+              game.recordPromptComplete(); // Record that a prompt was answered
+            }}
             onChallenge={handleOpenChallenge}
             onLevelChange={handleLevelChange}
             onRandomPrompt={handleRandomPrompt}
+            onFullHouse={handleFullHouseMoment}
+            onEndGame={handleEndGame}
+            onRecordTimeSpent={handleRecordTimeSpent}
           />
         )}
         
@@ -176,6 +182,16 @@ export default function Home() {
           onClose={() => setShowCustomChallengeForm(false)}
           onSuccess={() => {
             // Show a success message or refresh challenges if needed
+          }}
+        />
+        
+        <GameSummaryModal
+          isOpen={showGameSummary}
+          onClose={() => setShowGameSummary(false)}
+          sessionId={game.sessionId}
+          onStartNewGame={() => {
+            setShowGameSummary(false);
+            handleRestartGame();
           }}
         />
       </div>
