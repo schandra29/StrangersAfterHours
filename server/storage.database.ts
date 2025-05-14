@@ -2,7 +2,8 @@ import {
   users, type User, type InsertUser,
   prompts, type Prompt, type InsertPrompt,
   challenges, type Challenge, type InsertChallenge,
-  gameSessions, type GameSession, type InsertGameSession
+  gameSessions, type GameSession, type InsertGameSession,
+  accessCodes, type AccessCode, type InsertAccessCode
 } from "@shared/schema";
 import { IStorage } from "./storage";
 import { db } from "./db";

@@ -611,6 +611,76 @@ export class MemStorage implements IStorage {
       isCustom: false,
       userId: null
     });
+    
+    // Create a default access code
+    this.createAccessCode({
+      code: "TESTCODE",
+      description: "Default test access code",
+      isActive: true,
+      maxUsages: 100
+    });
+  }
+  
+  // Access code operations
+  async createAccessCode(accessCode: InsertAccessCode): Promise<AccessCode> {
+    const id = this.accessCodeIdCounter++;
+    const now = new Date().toISOString();
+    const newAccessCode: AccessCode = {
+      id,
+      code: accessCode.code,
+      description: accessCode.description || null,
+      isActive: accessCode.isActive !== undefined ? accessCode.isActive : true,
+      usageCount: 0,
+      maxUsages: accessCode.maxUsages || 10,
+      createdAt: now
+    };
+    
+    this.accessCodes.set(id, newAccessCode);
+    return newAccessCode;
+  }
+  
+  async getAccessCodeByCode(code: string): Promise<AccessCode | undefined> {
+    for (const accessCode of this.accessCodes.values()) {
+      if (accessCode.code === code) {
+        return accessCode;
+      }
+    }
+    return undefined;
+  }
+  
+  async validateAccessCode(code: string): Promise<boolean> {
+    const accessCode = await this.getAccessCodeByCode(code);
+    
+    if (!accessCode) {
+      return false;
+    }
+    
+    // Check if code is active
+    if (!accessCode.isActive) {
+      return false;
+    }
+    
+    // Check if code has reached max usages
+    if (accessCode.maxUsages !== null && accessCode.usageCount >= accessCode.maxUsages) {
+      return false;
+    }
+    
+    return true;
+  }
+  
+  async incrementAccessCodeUsage(id: number): Promise<AccessCode> {
+    const accessCode = this.accessCodes.get(id);
+    if (!accessCode) {
+      throw new Error(`Access code with ID ${id} not found`);
+    }
+    
+    const updatedAccessCode = {
+      ...accessCode,
+      usageCount: accessCode.usageCount + 1
+    };
+    
+    this.accessCodes.set(id, updatedAccessCode);
+    return updatedAccessCode;
   }
 }
 
