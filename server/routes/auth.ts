@@ -19,6 +19,7 @@ const accessCodeSchema = z.object({
 
 // Get current authentication status
 authRouter.get("/status", (req, res) => {
+  console.log("Session check:", req.session.id, req.session.isAuthenticated);
   return res.json({
     isAuthenticated: !!req.session.isAuthenticated,
   });
@@ -64,5 +65,17 @@ authRouter.post("/logout", (req, res) => {
     }
     
     return res.status(200).json({ message: "Logout successful" });
+  });
+});
+
+// Reset session (for testing)
+authRouter.get("/reset", (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error("Session reset error:", err);
+      return res.status(500).json({ message: "Failed to reset session" });
+    }
+    
+    return res.redirect('/access');
   });
 });
