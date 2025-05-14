@@ -96,8 +96,8 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getChallengesByType(type: string, intensity: number): Promise<Challenge[]> {
-    // For "Dare" type, return all dares regardless of intensity level
-    if (type === "Dare") {
+    // For "Dare" and "R-Rated Dare" types, return all dares regardless of intensity level
+    if (type === "Dare" || type === "R-Rated Dare") {
       return db.select().from(challenges).where(
         eq(challenges.type, type)
       );

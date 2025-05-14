@@ -32,8 +32,14 @@ export default function ChallengeModal({
   const streamRef = useRef<MediaStream | null>(null);
   const chunksRef = useRef<Blob[]>([]);
 
+  // For R-Rated Dares, we get all of them regardless of intensity
+  // For regular Dares, we filter by intensity
+  const queryKey = type === "R-Rated Dare"
+    ? `/api/challenges?type=${encodeURIComponent(type)}`
+    : `/api/challenges?type=${encodeURIComponent(type)}&intensity=${intensity}`;
+    
   const { data: challenges } = useQuery<Challenge[]>({
-    queryKey: [`/api/challenges?type=${encodeURIComponent(type)}&intensity=${intensity}`],
+    queryKey: [queryKey],
     enabled: isOpen && type !== "Take a Sip",
   });
 
