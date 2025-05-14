@@ -109,15 +109,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Game session routes
   app.post("/api/sessions", async (req, res) => {
     try {
-      const data = {
-        ...req.body,
-        createdAt: new Date().toISOString(),
-      };
-      
-      const validatedData = insertGameSessionSchema.parse(data);
+      // The createdAt field is now sent from the client
+      const validatedData = insertGameSessionSchema.parse(req.body);
       const session = await storage.createGameSession(validatedData);
       res.status(201).json(session);
     } catch (error) {
+      console.error("Error creating session:", error);
       res.status(400).json({ message: "Invalid session data" });
     }
   });

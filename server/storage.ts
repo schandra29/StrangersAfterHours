@@ -160,7 +160,12 @@ export class MemStorage implements IStorage {
     const session: GameSession = { 
       ...insertSession, 
       id, 
-      usedPromptIds: [] 
+      usedPromptIds: [],
+      // Initialize the new game statistics fields
+      totalTimeSpent: 0,
+      promptsAnswered: 0,
+      fullHouseMoments: 0,
+      levelStats: {} 
     };
     this.gameSessions.set(id, session);
     return session;

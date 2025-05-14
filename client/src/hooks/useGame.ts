@@ -25,7 +25,12 @@ export function useGame() {
   // Create new game session
   const createSession = useMutation({
     mutationFn: async (data: { currentLevel: number; currentIntensity: number; isDrinkingGame: boolean }) => {
-      const res = await apiRequest("POST", "/api/sessions", data);
+      // Include the createdAt field
+      const sessionData = {
+        ...data,
+        createdAt: new Date().toISOString()
+      };
+      const res = await apiRequest("POST", "/api/sessions", sessionData);
       return res.json();
     },
     onSuccess: (data: GameSession) => {

@@ -61,6 +61,10 @@ export const gameSessions = pgTable("game_sessions", {
 export const insertGameSessionSchema = createInsertSchema(gameSessions).omit({
   id: true,
   usedPromptIds: true,
+  totalTimeSpent: true,
+  promptsAnswered: true,
+  fullHouseMoments: true,
+  levelStats: true,
 });
 
 // Types
