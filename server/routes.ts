@@ -152,6 +152,81 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({ message: "Failed to update session" });
     }
   });
+  
+  // Game statistics routes
+  app.post("/api/sessions/:id/full-house", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const session = await storage.getGameSession(id);
+      
+      if (!session) {
+        return res.status(404).json({ message: "Session not found" });
+      }
+      
+      const updatedSession = await storage.incrementFullHouseMoments(id);
+      res.json(updatedSession);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to update full-house moments" });
+    }
+  });
+  
+  app.post("/api/sessions/:id/prompt-answered", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const session = await storage.getGameSession(id);
+      
+      if (!session) {
+        return res.status(404).json({ message: "Session not found" });
+      }
+      
+      const updatedSession = await storage.incrementPromptsAnswered(id);
+      res.json(updatedSession);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to update prompts answered" });
+    }
+  });
+  
+  app.post("/api/sessions/:id/time-spent", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const { timeSpent } = req.body;
+      
+      if (typeof timeSpent !== 'number' || isNaN(timeSpent)) {
+        return res.status(400).json({ message: "Time spent must be a number" });
+      }
+      
+      const session = await storage.getGameSession(id);
+      if (!session) {
+        return res.status(404).json({ message: "Session not found" });
+      }
+      
+      const updatedSession = await storage.updateTotalTimeSpent(id, timeSpent);
+      res.json(updatedSession);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to update time spent" });
+    }
+  });
+  
+  app.post("/api/sessions/:id/level-stats", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const { level, intensity } = req.body;
+      
+      if (!level || !intensity) {
+        return res.status(400).json({ message: "Level and intensity are required" });
+      }
+      
+      const session = await storage.getGameSession(id);
+      if (!session) {
+        return res.status(404).json({ message: "Session not found" });
+      }
+      
+      const updatedSession = await storage.updateLevelStats(id, level, intensity);
+      res.json(updatedSession);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to update level statistics" });
+    }
+  });
 
   const httpServer = createServer(app);
   return httpServer;

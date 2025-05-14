@@ -171,6 +171,74 @@ export function useGame() {
       getNextPrompt();
     }
   };
+  
+  // Game statistics mutations
+  const recordFullHouse = useMutation({
+    mutationFn: async () => {
+      if (!sessionId) return null;
+      const res = await apiRequest("POST", `/api/sessions/${sessionId}/full-house`, {});
+      return res.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Full House!",
+        description: "Everyone has shared! Great participation!",
+      });
+      
+      if (sessionId) {
+        queryClient.invalidateQueries({ queryKey: [`/api/sessions/${sessionId}`] });
+      }
+    },
+    onError: () => {
+      toast({
+        title: "Error",
+        description: "Failed to record full house moment",
+        variant: "destructive",
+      });
+    },
+  });
+  
+  const recordPromptAnswered = useMutation({
+    mutationFn: async () => {
+      if (!sessionId) return null;
+      const res = await apiRequest("POST", `/api/sessions/${sessionId}/prompt-answered`, {});
+      return res.json();
+    },
+    onSuccess: () => {
+      if (sessionId) {
+        queryClient.invalidateQueries({ queryKey: [`/api/sessions/${sessionId}`] });
+      }
+    },
+  });
+  
+  const updateTimeSpent = useMutation({
+    mutationFn: async (timeSpent: number) => {
+      if (!sessionId) return null;
+      const res = await apiRequest("POST", `/api/sessions/${sessionId}/time-spent`, { timeSpent });
+      return res.json();
+    },
+    onSuccess: () => {
+      if (sessionId) {
+        queryClient.invalidateQueries({ queryKey: [`/api/sessions/${sessionId}`] });
+      }
+    },
+  });
+  
+  const updateLevelStatistics = useMutation({
+    mutationFn: async () => {
+      if (!sessionId) return null;
+      const res = await apiRequest("POST", `/api/sessions/${sessionId}/level-stats`, { 
+        level: currentLevel, 
+        intensity: currentIntensity 
+      });
+      return res.json();
+    },
+    onSuccess: () => {
+      if (sessionId) {
+        queryClient.invalidateQueries({ queryKey: [`/api/sessions/${sessionId}`] });
+      }
+    },
+  });
 
   // Toggle drinking game setting
   const toggleDrinkingGame = () => {
@@ -195,6 +263,47 @@ export function useGame() {
     }
   }, [prompts, currentPrompt]);
 
+  // Get the most engaged intensity level from the game stats
+  const getMostEngagedIntensity = (session: GameSession): number => {
+    const levelStats = session.levelStats as Record<string, number> || {};
+    let maxCount = 0;
+    let mostEngagedIntensity = 1;
+    
+    // Analyze all level-intensity combinations
+    Object.entries(levelStats).forEach(([key, count]) => {
+      // Key format is "level-intensity"
+      const intensity = parseInt(key.split('-')[1]);
+      if (count > maxCount) {
+        maxCount = count;
+        mostEngagedIntensity = intensity;
+      }
+    });
+    
+    return mostEngagedIntensity;
+  };
+  
+  // Record prompt time spent
+  const recordTimeSpent = (seconds: number) => {
+    if (sessionId && seconds > 0) {
+      updateTimeSpent.mutate(seconds);
+    }
+  };
+  
+  // Record full house moment with confetti celebration
+  const recordFullHouseMoment = () => {
+    if (sessionId) {
+      recordFullHouse.mutate();
+      updateLevelStatistics.mutate();
+    }
+  };
+  
+  // Record when a prompt is answered and the group moves to the next one
+  const recordPromptComplete = () => {
+    if (sessionId) {
+      recordPromptAnswered.mutate();
+    }
+  };
+
   return {
     currentLevel,
     currentIntensity,
@@ -202,11 +311,16 @@ export function useGame() {
     currentPrompt,
     usedPromptIds,
     isLoadingPrompts,
+    sessionId,
     startNewGame,
     getNextPrompt,
     getRandomPrompt,
     setLevel,
     setIntensity,
     toggleDrinkingGame,
+    recordTimeSpent,
+    recordFullHouseMoment,
+    recordPromptComplete,
+    getMostEngagedIntensity
   };
 }

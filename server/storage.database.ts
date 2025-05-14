@@ -154,6 +154,77 @@ export class DatabaseStorage implements IStorage {
     
     return updatedSession;
   }
+  
+  // Game statistics methods
+  async incrementFullHouseMoments(id: number): Promise<GameSession> {
+    const session = await this.getGameSession(id);
+    if (!session) {
+      throw new Error(`Game session with id ${id} not found`);
+    }
+    
+    const currentValue = session.fullHouseMoments || 0;
+    
+    const [updatedSession] = await db
+      .update(gameSessions)
+      .set({ fullHouseMoments: currentValue + 1 })
+      .where(eq(gameSessions.id, id))
+      .returning();
+      
+    return updatedSession;
+  }
+  
+  async incrementPromptsAnswered(id: number): Promise<GameSession> {
+    const session = await this.getGameSession(id);
+    if (!session) {
+      throw new Error(`Game session with id ${id} not found`);
+    }
+    
+    const currentValue = session.promptsAnswered || 0;
+    
+    const [updatedSession] = await db
+      .update(gameSessions)
+      .set({ promptsAnswered: currentValue + 1 })
+      .where(eq(gameSessions.id, id))
+      .returning();
+      
+    return updatedSession;
+  }
+  
+  async updateTotalTimeSpent(id: number, timeSpent: number): Promise<GameSession> {
+    const session = await this.getGameSession(id);
+    if (!session) {
+      throw new Error(`Game session with id ${id} not found`);
+    }
+    
+    const currentValue = session.totalTimeSpent || 0;
+    
+    const [updatedSession] = await db
+      .update(gameSessions)
+      .set({ totalTimeSpent: currentValue + timeSpent })
+      .where(eq(gameSessions.id, id))
+      .returning();
+      
+    return updatedSession;
+  }
+  
+  async updateLevelStats(id: number, level: number, intensity: number): Promise<GameSession> {
+    const session = await this.getGameSession(id);
+    if (!session) {
+      throw new Error(`Game session with id ${id} not found`);
+    }
+    
+    const key = `${level}-${intensity}`;
+    const levelStats = session.levelStats as Record<string, number> || {};
+    levelStats[key] = (levelStats[key] || 0) + 1;
+    
+    const [updatedSession] = await db
+      .update(gameSessions)
+      .set({ levelStats })
+      .where(eq(gameSessions.id, id))
+      .returning();
+      
+    return updatedSession;
+  }
 
   // Batch import methods for large prompt sets
   async batchImportPrompts(promptsToImport: InsertPrompt[]): Promise<number> {
