@@ -54,8 +54,10 @@ export default function GameScreen({
       {/* Prompt Card */}
       <div className="card bg-card/90 rounded-3xl p-8 mb-6 border border-primary/20 shadow-xl">
         <div className="text-center mb-8">
-          <div className="inline-block bg-primary/20 rounded-full px-6 py-1 text-sm text-white font-medium mb-4 w-auto">
-            <span className="whitespace-nowrap">{currentPrompt?.category || "Icebreaker"}</span>
+          <div className="flex justify-center mb-4">
+            <div className="bg-primary/20 rounded-full py-1 px-4 text-sm text-white font-bold">
+              {currentPrompt?.category || "Icebreaker"}
+            </div>
           </div>
           <h2 className="font-prompt font-semibold text-3xl text-white leading-tight">
             {currentPrompt?.text || "If you could have dinner with any historical figure, who would it be and why?"}
