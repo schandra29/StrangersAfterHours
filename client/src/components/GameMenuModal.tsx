@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
 interface GameMenuModalProps {
   isOpen: boolean;
@@ -37,15 +37,9 @@ export default function GameMenuModal({
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="bg-card rounded-3xl p-6 max-w-sm mx-4 border border-primary shadow-xl">
-        <div className="flex justify-between items-center mb-6">
-          <h3 className="font-heading font-bold text-2xl text-white">Game Menu</h3>
-          <button 
-            className="text-gray-400 hover:text-white"
-            onClick={onClose}
-          >
-            <i className="ri-close-line text-xl"></i>
-          </button>
-        </div>
+        <DialogTitle className="font-heading font-bold text-2xl text-white mb-6">
+          Game Menu
+        </DialogTitle>
         
         <div className="grid grid-cols-1 gap-3 mb-6">
           {menuOptions.map((option, index) => (
