@@ -130,6 +130,14 @@ export class MemStorage implements IStorage {
   }
 
   async getChallengesByType(type: string, intensity: number): Promise<Challenge[]> {
+    // For "Dare" type, return all dares regardless of intensity level
+    if (type === "Dare") {
+      return Array.from(this.challenges.values()).filter(
+        (challenge) => challenge.type === type
+      );
+    }
+    
+    // For other challenge types, continue to respect intensity level
     return Array.from(this.challenges.values()).filter(
       (challenge) => challenge.type === type && challenge.intensity <= intensity
     );
