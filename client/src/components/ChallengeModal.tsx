@@ -5,7 +5,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useQuery } from "@tanstack/react-query";
 import { type Challenge } from "@shared/schema";
 
-type ChallengeView = "challenge" | "consent" | "recording";
+type ChallengeView = "challenge" | "consent" | "recording" | "completion";
 
 interface ChallengeModalProps {
   isOpen: boolean;
@@ -156,7 +156,7 @@ export default function ChallengeModal({
   
   const handleFinishRecording = () => {
     stopRecording();
-    onClose();
+    setCurrentView("completion");
   };
   
   const handlePass = () => {
@@ -298,12 +298,69 @@ export default function ChallengeModal({
     </>
   );
 
+  const renderCompletionView = () => (
+    <>
+      <DialogTitle className="sr-only">Challenge Completion</DialogTitle>
+      <div className="text-center mb-6">
+        <div className="bg-green-500/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+          <i className="ri-trophy-line text-green-500 text-3xl"></i>
+        </div>
+        <h3 className="font-heading font-bold text-2xl text-white mb-2">Congratulations!</h3>
+        <p className="text-gray-300">Your brave performance deserves recognition</p>
+      </div>
+      
+      <div className="bg-white/10 rounded-xl p-4 mb-6">
+        <p className="text-white text-center">
+          For your courage, you can now assign a challenge to someone else! 
+          Choose someone in the group to complete a:
+        </p>
+      </div>
+      
+      <div className="grid grid-cols-1 gap-3">
+        <Button 
+          className="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 rounded-xl"
+          onClick={onClose}
+        >
+          <i className="ri-questionnaire-line mr-2"></i>
+          Assign a Dare
+        </Button>
+        
+        <Button 
+          className="bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-xl"
+          onClick={onClose}
+        >
+          <i className="ri-emotion-laugh-line mr-2"></i>
+          Assign Act It Out
+        </Button>
+        
+        {isDrinkingGame && (
+          <Button 
+            className="bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-xl"
+            onClick={onClose}
+          >
+            <i className="ri-goblet-line mr-2"></i>
+            Assign Take a Sip
+          </Button>
+        )}
+        
+        <Button 
+          variant="outline"
+          className="bg-transparent border border-gray-600 text-gray-300 font-bold py-3 rounded-xl"
+          onClick={onClose}
+        >
+          Skip and Continue
+        </Button>
+      </div>
+    </>
+  );
+
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="bg-card rounded-3xl p-6 max-w-sm mx-4 border border-secondary shadow-xl">
         {currentView === "challenge" && renderChallengeView()}
         {currentView === "consent" && renderConsentView()}
         {currentView === "recording" && renderRecordingView()}
+        {currentView === "completion" && renderCompletionView()}
       </DialogContent>
     </Dialog>
   );
