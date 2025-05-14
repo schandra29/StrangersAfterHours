@@ -59,7 +59,9 @@ function parseCSV(filePath) {
 // Function to import challenges to the API
 async function importDares(dares) {
   try {
-    const response = await fetch('http://localhost:5000/api/import/challenges/import', {
+    console.log(`Attempting to import ${dares.length} dares...`);
+    
+    const response = await fetch('http://localhost:5000/api/challenges/import', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -88,7 +90,9 @@ async function main() {
     const dares = parseCSV(templatePath);
     console.log(`Found ${dares.length} dares in the CSV file.`);
     
+    // Log a sample dare to verify the parsing
     if (dares.length > 0) {
+      console.log('Sample dare:', JSON.stringify(dares[0]));
       await importDares(dares);
     }
   } catch (error) {
