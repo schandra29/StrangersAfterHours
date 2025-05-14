@@ -10,7 +10,7 @@ type ChallengeView = "challenge" | "consent" | "recording" | "completion";
 interface ChallengeModalProps {
   isOpen: boolean;
   onClose: () => void;
-  type: "Dare" | "Act It Out" | "Take a Sip";
+  type: "Dare" | "R-Rated Dare" | "Take a Sip";
   intensity: number;
   isDrinkingGame: boolean;
 }

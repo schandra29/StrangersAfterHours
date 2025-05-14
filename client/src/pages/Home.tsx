@@ -39,7 +39,7 @@ export default function Home() {
     setCurrentScreen("game");
   };
 
-  const handleOpenChallenge = (type: "Dare" | "Act It Out" | "Take a Sip") => {
+  const handleOpenChallenge = (type: "Dare" | "R-Rated Dare" | "Take a Sip") => {
     setSelectedChallengeType(type);
     setShowChallenge(true);
   };

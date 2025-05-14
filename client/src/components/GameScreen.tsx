@@ -11,7 +11,7 @@ interface GameScreenProps {
   isDrinkingGame: boolean;
   onMenu: () => void;
   onNextPrompt: () => void;
-  onChallenge: (type: "Dare" | "Act It Out" | "Take a Sip") => void;
+  onChallenge: (type: "Dare" | "R-Rated Dare" | "Take a Sip") => void;
   onLevelChange: (type: "level" | "intensity") => void;
   onRandomPrompt: () => void;
   onFullHouse?: () => void;
@@ -219,10 +219,10 @@ export default function GameScreen({
           </button>
           <button 
             className="bg-secondary/20 hover:bg-secondary/30 text-white py-3 px-4 rounded-xl text-center"
-            onClick={() => onChallenge("Act It Out")}
+            onClick={() => onChallenge("R-Rated Dare")}
           >
-            <i className="ri-emotion-laugh-line mb-1 text-xl block"></i>
-            <span className="block font-medium">Act It Out</span>
+            <i className="ri-fire-line mb-1 text-xl block"></i>
+            <span className="block font-medium">R-Rated Dare</span>
           </button>
           {isDrinkingGame && (
             <button 
