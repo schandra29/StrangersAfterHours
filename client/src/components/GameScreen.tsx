@@ -114,20 +114,13 @@ export default function GameScreen({
       <div className="card bg-primary/10 rounded-3xl p-6 border border-primary/20">
         <h3 className="font-heading font-bold text-xl text-white mb-4">Change Level or Intensity</h3>
         
-        <div className="grid grid-cols-3 gap-3 mb-4">
+        <div className="grid grid-cols-2 gap-3 mb-4">
           <button 
             className="bg-primary/20 hover:bg-primary/30 text-white py-3 px-4 rounded-xl text-center"
             onClick={() => onLevelChange("level")}
           >
-            <i className="ri-bar-chart-line mb-1 text-xl block"></i>
-            <span className="block font-medium">Select Level</span>
-          </button>
-          <button 
-            className="bg-primary/20 hover:bg-primary/30 text-white py-3 px-4 rounded-xl text-center"
-            onClick={() => onLevelChange("intensity")}
-          >
-            <i className="ri-fire-line mb-1 text-xl block"></i>
-            <span className="block font-medium">Select Intensity</span>
+            <i className="ri-settings-line mb-1 text-xl block"></i>
+            <span className="block font-medium">Select Level/Intensity</span>
           </button>
           <button 
             className="bg-primary/20 hover:bg-primary/30 text-white py-3 px-4 rounded-xl text-center"

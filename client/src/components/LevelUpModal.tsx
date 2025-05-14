@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { useGame } from "@/hooks/useGame";
 
 interface LevelUpModalProps {
   isOpen: boolean;
@@ -17,63 +18,92 @@ export default function LevelUpModal({
   currentIntensity,
   onConfirm
 }: LevelUpModalProps) {
-  const [selectedOption, setSelectedOption] = useState<"level" | "intensity" | null>(null);
+  const [selectedLevel, setSelectedLevel] = useState<number>(currentLevel);
+  const [selectedIntensity, setSelectedIntensity] = useState<number>(currentIntensity);
   
-  const canIncreaseLevel = currentLevel < 3;
-  const canIncreaseIntensity = currentIntensity < 3;
-
+  // Reset selections when modal opens
+  const handleOpenChange = (open: boolean) => {
+    if (open) {
+      setSelectedLevel(currentLevel);
+      setSelectedIntensity(currentIntensity);
+    } else {
+      onClose();
+    }
+  };
+  
+  const handleApply = () => {
+    // Apply level changes
+    if (selectedLevel !== currentLevel) {
+      // We'll pass this to the parent component to update the game state
+      onConfirm("level");
+    }
+    
+    // Apply intensity changes
+    if (selectedIntensity !== currentIntensity) {
+      // We'll pass this to the parent component to update the game state
+      onConfirm("intensity");
+    }
+    
+    onClose();
+  };
+  
+  const hasChanges = selectedLevel !== currentLevel || selectedIntensity !== currentIntensity;
+  
   return (
-    <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
+    <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       <DialogContent className="bg-card rounded-3xl p-6 max-w-sm mx-4 border border-primary shadow-xl">
+        <DialogTitle className="sr-only">Select Level and Intensity</DialogTitle>
         <div className="text-center mb-6">
           <div className="bg-primary/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-            <i className="ri-arrow-up-line text-primary text-3xl"></i>
+            <i className="ri-settings-line text-primary text-3xl"></i>
           </div>
-          <h3 className="font-heading font-bold text-2xl text-white mb-2">Level Up!</h3>
-          <p className="text-gray-300">Take a vote with your group</p>
+          <h3 className="font-heading font-bold text-2xl text-white mb-2">Select Level/Intensity</h3>
+          <p className="text-gray-300">Choose your desired game settings</p>
         </div>
         
+        {/* Level Selection */}
         <div className="mb-6">
-          <div className="grid grid-cols-1 gap-3">
-            <button 
-              className={`bg-primary/20 hover:bg-primary/30 text-white py-3 px-4 rounded-xl text-left ${!canIncreaseLevel ? 'opacity-50 cursor-not-allowed' : ''} ${selectedOption === 'level' ? 'ring-2 ring-primary' : ''}`}
-              onClick={() => canIncreaseLevel && setSelectedOption("level")}
-              disabled={!canIncreaseLevel}
-            >
-              <div className="flex items-center">
-                <div className="bg-primary/30 rounded-full w-10 h-10 flex items-center justify-center mr-3">
-                  <i className="ri-bar-chart-line text-white"></i>
+          <h4 className="font-heading font-bold text-lg text-white mb-3">Game Level</h4>
+          <div className="grid grid-cols-3 gap-3">
+            {[1, 2, 3].map((level) => (
+              <button
+                key={`level-${level}`}
+                className={`p-3 rounded-xl text-center ${
+                  selectedLevel === level 
+                    ? 'bg-primary text-white' 
+                    : 'bg-primary/20 hover:bg-primary/30 text-gray-300'
+                }`}
+                onClick={() => setSelectedLevel(level)}
+              >
+                <div className="text-xl font-bold">{level}</div>
+                <div className="text-xs">
+                  {level === 1 ? 'Casual' : level === 2 ? 'Personal' : 'Deep'}
                 </div>
-                <div>
-                  <h4 className="font-heading font-bold">Increase Level</h4>
-                  <p className="text-sm text-gray-300">
-                    {canIncreaseLevel 
-                      ? "Move to deeper conversation topics" 
-                      : "Already at maximum level"}
-                  </p>
+              </button>
+            ))}
+          </div>
+        </div>
+        
+        {/* Intensity Selection */}
+        <div className="mb-6">
+          <h4 className="font-heading font-bold text-lg text-white mb-3">Intensity</h4>
+          <div className="grid grid-cols-3 gap-3">
+            {[1, 2, 3].map((intensity) => (
+              <button
+                key={`intensity-${intensity}`}
+                className={`p-3 rounded-xl text-center ${
+                  selectedIntensity === intensity 
+                    ? 'bg-secondary text-white' 
+                    : 'bg-secondary/20 hover:bg-secondary/30 text-gray-300'
+                }`}
+                onClick={() => setSelectedIntensity(intensity)}
+              >
+                <div className="text-xl font-bold">{intensity}</div>
+                <div className="text-xs">
+                  {intensity === 1 ? 'Mild' : intensity === 2 ? 'Medium' : 'Wild'}
                 </div>
-              </div>
-            </button>
-            
-            <button 
-              className={`bg-secondary/20 hover:bg-secondary/30 text-white py-3 px-4 rounded-xl text-left ${!canIncreaseIntensity ? 'opacity-50 cursor-not-allowed' : ''} ${selectedOption === 'intensity' ? 'ring-2 ring-secondary' : ''}`}
-              onClick={() => canIncreaseIntensity && setSelectedOption("intensity")}
-              disabled={!canIncreaseIntensity}
-            >
-              <div className="flex items-center">
-                <div className="bg-secondary/30 rounded-full w-10 h-10 flex items-center justify-center mr-3">
-                  <i className="ri-fire-line text-white"></i>
-                </div>
-                <div>
-                  <h4 className="font-heading font-bold">Increase Intensity</h4>
-                  <p className="text-sm text-gray-300">
-                    {canIncreaseIntensity 
-                      ? "Make current topics more revealing" 
-                      : "Already at maximum intensity"}
-                  </p>
-                </div>
-              </div>
-            </button>
+              </button>
+            ))}
           </div>
         </div>
         
@@ -87,10 +117,10 @@ export default function LevelUpModal({
           </Button>
           <Button 
             className="bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-xl"
-            onClick={() => selectedOption && onConfirm(selectedOption)}
-            disabled={!selectedOption}
+            onClick={handleApply}
+            disabled={!hasChanges}
           >
-            Confirm
+            Apply Changes
           </Button>
         </div>
       </DialogContent>

@@ -52,12 +52,15 @@ export default function Home() {
   };
 
   const handleConfirmLevelUp = (type: "level" | "intensity") => {
-    if (type === "level" && game.currentLevel < 3) {
-      game.setLevel(game.currentLevel + 1);
-    } else if (type === "intensity" && game.currentIntensity < 3) {
-      game.setIntensity(game.currentIntensity + 1);
+    // We need to pass the updated level and intensity from the modal to the game state
+    if (type === "level") {
+      game.setLevel(game.currentLevel);
+    } else if (type === "intensity") {
+      game.setIntensity(game.currentIntensity);
     }
-    setShowLevelUp(false);
+    
+    // Get a new prompt for the updated level/intensity
+    game.getNextPrompt();
   };
 
   return (
