@@ -7,6 +7,7 @@ interface GameMenuModalProps {
   onRestart: () => void;
   onSettings: () => void;
   onHowToPlay: () => void;
+  onAddCustomChallenge?: () => void;
 }
 
 export default function GameMenuModal({
@@ -14,7 +15,8 @@ export default function GameMenuModal({
   onClose,
   onRestart,
   onSettings,
-  onHowToPlay
+  onHowToPlay,
+  onAddCustomChallenge
 }: GameMenuModalProps) {
   const menuOptions = [
     {
