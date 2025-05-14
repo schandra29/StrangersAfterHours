@@ -19,9 +19,20 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const level = parseInt(req.query.level as string) || 1;
       const intensity = parseInt(req.query.intensity as string) || 1;
+      const excludeIds = req.query.excludeIds ? 
+        (Array.isArray(req.query.excludeIds) 
+          ? req.query.excludeIds.map(id => parseInt(id as string))
+          : [parseInt(req.query.excludeIds as string)]) 
+        : [];
       
       const prompts = await storage.getPromptsByLevelAndIntensity(level, intensity);
-      res.json(prompts);
+      
+      // Filter out excluded prompts if any were provided
+      const filteredPrompts = excludeIds.length > 0
+        ? prompts.filter(prompt => !excludeIds.includes(prompt.id))
+        : prompts;
+        
+      res.json(filteredPrompts);
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch prompts" });
     }
@@ -29,7 +40,20 @@ export async function registerRoutes(app: Express): Promise<Server> {
   
   app.get("/api/prompts/random", async (req, res) => {
     try {
-      const randomPrompt = await storage.getRandomPrompt();
+      const excludeIds = req.query.excludeIds ? 
+        (Array.isArray(req.query.excludeIds) 
+          ? req.query.excludeIds.map(id => parseInt(id as string))
+          : [parseInt(req.query.excludeIds as string)]) 
+        : [];
+      
+      // First try to get a random prompt excluding the used ones
+      let randomPrompt = await storage.getRandomPrompt(excludeIds);
+      
+      // If all prompts have been used (and none are available), reset and get any random prompt
+      if (!randomPrompt && excludeIds.length > 0) {
+        randomPrompt = await storage.getRandomPrompt();
+      }
+      
       if (!randomPrompt) {
         return res.status(404).json({ message: "No prompts available" });
       }

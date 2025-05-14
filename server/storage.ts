@@ -14,7 +14,7 @@ export interface IStorage {
   // Prompt operations
   createPrompt(prompt: InsertPrompt): Promise<Prompt>;
   getPromptsByLevelAndIntensity(level: number, intensity: number): Promise<Prompt[]>;
-  getRandomPrompt(): Promise<Prompt | undefined>;
+  getRandomPrompt(excludeIds?: number[]): Promise<Prompt | undefined>;
   getPromptById(id: number): Promise<Prompt | undefined>;
   getCustomPromptsByUser(userId: number): Promise<Prompt[]>;
   batchImportPrompts(prompts: InsertPrompt[]): Promise<number>; // Returns count of imported prompts
