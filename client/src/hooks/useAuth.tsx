@@ -25,6 +25,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const { data: authStatus, refetch } = useQuery<{ isAuthenticated: boolean }>({
     queryKey: ['/api/auth/status'],
     enabled: true,
+    retry: 3,
+    retryDelay: 1000,
+    refetchOnWindowFocus: true,
+    refetchOnMount: true,
+    staleTime: 0,
   });
   
   useEffect(() => {
@@ -40,13 +45,21 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ accessCode }),
+        credentials: 'include', // Important for cookies to be sent
       });
       
       const data = await response.json();
       
       if (response.ok) {
-        await refetch(); // Refresh auth status
-        queryClient.invalidateQueries(); // Invalidate queries that might depend on auth
+        // Multiple attempts to ensure auth state is updated
+        await refetch(); // First immediate refetch
+        
+        // Second refetch after a short delay
+        setTimeout(async () => {
+          await refetch();
+          queryClient.invalidateQueries(); // Invalidate all queries
+        }, 500);
+        
         return { success: true };
       } else {
         return { success: false, message: data.message || 'Login failed' };
@@ -62,6 +75,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       await fetch('/api/auth/logout', {
         method: 'POST',
+        credentials: 'include',
       });
       
       await refetch(); // Refresh auth status

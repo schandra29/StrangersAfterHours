@@ -36,16 +36,15 @@ export default function AccessCodeScreen() {
           description: "Welcome to Strangers: After Hours!",
         });
         
-        // Ensure the auth state is updated before redirecting
-        setTimeout(() => {
-          window.location.href = "/"; // Use window.location for a full page refresh
-        }, 1000);
+        // Force a hard page reload to the root to ensure proper authentication state
+        window.location.replace("/");
       } else {
         toast({
           title: "Access Denied",
           description: result.message || "Invalid access code. Please try again.",
           variant: "destructive",
         });
+        setIsSubmitting(false);
       }
     } catch (error) {
       toast({
@@ -53,7 +52,6 @@ export default function AccessCodeScreen() {
         description: "An unexpected error occurred. Please try again.",
         variant: "destructive",
       });
-    } finally {
       setIsSubmitting(false);
     }
   };

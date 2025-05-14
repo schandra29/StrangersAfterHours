@@ -16,12 +16,12 @@ export const sessionMiddleware = session({
     createTableIfMissing: true
   }),
   secret: SESSION_SECRET,
-  resave: false,
-  saveUninitialized: false,
+  resave: true,
+  saveUninitialized: true,
   cookie: {
     maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
+    secure: false, // Set to false for both dev and prod for easier testing
     sameSite: 'lax'
   }
 });
