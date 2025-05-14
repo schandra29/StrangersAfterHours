@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { useGame } from "@/hooks/useGame";
+import { useQueryClient } from "@tanstack/react-query";
 
 interface LevelUpModalProps {
   isOpen: boolean;
@@ -19,6 +20,7 @@ export default function LevelUpModal({
   onConfirm
 }: LevelUpModalProps) {
   const game = useGame();
+  const queryClient = useQueryClient();
   const [selectedLevel, setSelectedLevel] = useState<number>(currentLevel);
   const [selectedIntensity, setSelectedIntensity] = useState<number>(currentIntensity);
   
@@ -42,24 +44,42 @@ export default function LevelUpModal({
     
     // Only update if something has changed
     if (levelChanged || intensityChanged) {
-      // Apply level changes
+      console.log(`Changing from Level ${currentLevel}/Intensity ${currentIntensity} to Level ${selectedLevel}/Intensity ${selectedIntensity}`);
+      
+      // Save the selected values before applying changes
+      const newLevel = selectedLevel;
+      const newIntensity = selectedIntensity;
+      
+      // Apply level changes first
       if (levelChanged) {
-        game.setLevel(selectedLevel);
+        game.setLevel(newLevel);
       }
       
-      // Apply intensity changes
+      // Apply intensity changes next
       if (intensityChanged) {
-        game.setIntensity(selectedIntensity);
+        game.setIntensity(newIntensity);
       }
       
-      // Update the session with new values
+      // Update the session in the database
       if (game.sessionId) {
-        // Force an immediate update with the new values
-        game.updateSessionLevelIntensity(selectedLevel, selectedIntensity);
+        game.updateSessionLevelIntensity(newLevel, newIntensity);
       }
       
-      // Notify parent component that changes were made
-      onConfirm(levelChanged ? "level" : "intensity");
+      // Invalidate the query to force reload of prompts with the new level/intensity
+      queryClient.invalidateQueries({
+        queryKey: [`/api/prompts?level=${newLevel}&intensity=${newIntensity}`],
+      });
+      
+      // Ensure any cached data is refreshed
+      queryClient.refetchQueries({
+        queryKey: [`/api/prompts?level=${newLevel}&intensity=${newIntensity}`],
+      });
+      
+      // Give everything time to update before continuing
+      setTimeout(() => {
+        // Notify parent component that changes were made
+        onConfirm(levelChanged ? "level" : "intensity");
+      }, 200);
     }
     
     onClose();

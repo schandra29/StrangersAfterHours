@@ -66,13 +66,19 @@ export default function Home() {
 
   const handleConfirmLevelUp = (type: "level" | "intensity") => {
     // The level and intensity have already been updated in the LevelUpModal component
-    // through the game context, so we just need to get a new prompt
-    game.getNextPrompt();
+    // We'll get a new prompt with the current selected level/intensity
+    console.log(`Confirmed level change to Level ${game.currentLevel}/Intensity ${game.currentIntensity}`);
     
-    // Update session with current level and intensity
-    if (game.sessionId) {
-      game.updateSessionLevelIntensity(game.currentLevel, game.currentIntensity);
-    }
+    // Add a toast to confirm the change to the user
+    toast({
+      title: "Settings Updated",
+      description: `Now showing ${getLevelName(game.currentLevel)} prompts with intensity ${game.currentIntensity}`,
+    });
+    
+    // Force fetching a new prompt with the updated level/intensity
+    setTimeout(() => {
+      game.getNextPrompt();
+    }, 100);
   };
   
   const handleAddCustomChallenge = () => {

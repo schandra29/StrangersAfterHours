@@ -105,6 +105,8 @@ export function useGame() {
   const getNextPrompt = () => {
     let availablePrompts: Prompt[] = [];
     
+    console.log(`Getting next prompt for Level ${currentLevel}/Intensity ${currentIntensity}`);
+    
     if (prompts && prompts.length > 0) {
       // Filter prompts not yet used in the current session
       availablePrompts = prompts.filter(
@@ -160,9 +162,11 @@ export function useGame() {
       // Track in localStorage for long-term persistence
       markPromptAsUsed(newPrompt.id);
       
-      // Update session in backend
+      // Update session in backend with current level/intensity and used prompt IDs
       if (sessionId) {
         updateSession.mutate({ 
+          currentLevel,
+          currentIntensity,
           usedPromptIds: [...usedPromptIds, newPrompt.id] 
         });
       }
