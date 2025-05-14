@@ -9,7 +9,8 @@ interface GameScreenProps {
   onMenu: () => void;
   onNextPrompt: () => void;
   onChallenge: (type: "Dare" | "Act It Out" | "Take a Sip") => void;
-  onLevelUp: () => void;
+  onLevelChange: (type: "level" | "intensity") => void;
+  onRandomPrompt: () => void;
 }
 
 export default function GameScreen({
@@ -20,7 +21,8 @@ export default function GameScreen({
   onMenu,
   onNextPrompt,
   onChallenge,
-  onLevelUp
+  onLevelChange,
+  onRandomPrompt
 }: GameScreenProps) {
   const getIntensityText = (intensity: number): string => {
     switch (intensity) {
@@ -110,17 +112,34 @@ export default function GameScreen({
       
       {/* Level Up Section */}
       <div className="card bg-primary/10 rounded-3xl p-6 border border-primary/20">
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="font-heading font-bold text-xl text-white">Ready to level up?</h3>
+        <h3 className="font-heading font-bold text-xl text-white mb-4">Change Level or Intensity</h3>
+        
+        <div className="grid grid-cols-3 gap-3 mb-4">
           <button 
-            className="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center"
-            onClick={onLevelUp}
+            className="bg-primary/20 hover:bg-primary/30 text-white py-3 px-4 rounded-xl text-center"
+            onClick={() => onLevelChange("level")}
           >
-            <i className="ri-arrow-up-line"></i>
+            <i className="ri-bar-chart-line mb-1 text-xl block"></i>
+            <span className="block font-medium">Select Level</span>
+          </button>
+          <button 
+            className="bg-primary/20 hover:bg-primary/30 text-white py-3 px-4 rounded-xl text-center"
+            onClick={() => onLevelChange("intensity")}
+          >
+            <i className="ri-fire-line mb-1 text-xl block"></i>
+            <span className="block font-medium">Select Intensity</span>
+          </button>
+          <button 
+            className="bg-primary/20 hover:bg-primary/30 text-white py-3 px-4 rounded-xl text-center"
+            onClick={() => onRandomPrompt()}
+          >
+            <i className="ri-dice-line mb-1 text-xl block"></i>
+            <span className="block font-medium">Take a Chance</span>
           </button>
         </div>
-        <p className="text-gray-300 text-sm">
-          Take a group vote to increase the level or intensity for deeper conversations
+        
+        <p className="text-gray-300 text-sm text-center">
+          Change the experience or get a completely random prompt
         </p>
       </div>
     </>

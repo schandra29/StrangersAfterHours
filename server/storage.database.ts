@@ -6,7 +6,7 @@ import {
 } from "@shared/schema";
 import { IStorage } from "./storage";
 import { db } from "./db";
-import { eq, and, lte } from "drizzle-orm";
+import { eq, and, lte, sql } from "drizzle-orm";
 
 export class DatabaseStorage implements IStorage {
   // User methods
@@ -45,6 +45,18 @@ export class DatabaseStorage implements IStorage {
         lte(prompts.intensity, intensity)
       )
     );
+  }
+
+  async getRandomPrompt(): Promise<Prompt | undefined> {
+    // Fetch a random prompt from the database
+    // In PostgreSQL, we can use ORDER BY RANDOM() LIMIT 1 to get a random row
+    const [prompt] = await db
+      .select()
+      .from(prompts)
+      .orderBy(sql`RANDOM()`)
+      .limit(1);
+    
+    return prompt;
   }
 
   async getPromptById(id: number): Promise<Prompt | undefined> {
