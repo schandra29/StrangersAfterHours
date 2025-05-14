@@ -45,21 +45,21 @@ export default function LevelUpModal({
       // Apply level changes
       if (levelChanged) {
         game.setLevel(selectedLevel);
-        onConfirm("level");
       }
       
       // Apply intensity changes
       if (intensityChanged) {
         game.setIntensity(selectedIntensity);
-        onConfirm("intensity");
       }
       
-      // Get a new prompt that matches the new level/intensity
-      setTimeout(() => {
-        game.getNextPrompt();
-        // No need to record prompt completion here since this is just changing levels,
-        // not answering a prompt
-      }, 100); // Small delay to ensure state updates first
+      // Update the session with new values
+      if (game.sessionId) {
+        // Force an immediate update with the new values
+        game.updateSessionLevelIntensity(selectedLevel, selectedIntensity);
+      }
+      
+      // Notify parent component that changes were made
+      onConfirm(levelChanged ? "level" : "intensity");
     }
     
     onClose();

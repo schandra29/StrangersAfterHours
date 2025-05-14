@@ -298,16 +298,24 @@ export function useGame() {
     setIsDrinkingGame(prev => !prev);
   };
 
-  // Effect to update session when level or intensity changes
+  // Explicitly update session with level and intensity
+  const updateSessionLevelIntensity = (level: number, intensity: number) => {
+    if (sessionId) {
+      updateSession.mutate({ 
+        currentLevel: level, 
+        currentIntensity: intensity
+      });
+    }
+  };
+  
+  // Effect to update session when drinking game setting changes
   useEffect(() => {
     if (sessionId) {
       updateSession.mutate({ 
-        currentLevel, 
-        currentIntensity,
-        isDrinkingGame,
+        isDrinkingGame
       });
     }
-  }, [currentLevel, currentIntensity, isDrinkingGame, sessionId]);
+  }, [isDrinkingGame, sessionId]);
 
   // Effect to update prompt when prompts are loaded
   useEffect(() => {
@@ -371,6 +379,7 @@ export function useGame() {
     setLevel,
     setIntensity,
     toggleDrinkingGame,
+    updateSessionLevelIntensity,
     recordTimeSpent,
     recordFullHouseMoment,
     recordPromptComplete,

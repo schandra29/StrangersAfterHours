@@ -68,6 +68,11 @@ export default function Home() {
     // The level and intensity have already been updated in the LevelUpModal component
     // through the game context, so we just need to get a new prompt
     game.getNextPrompt();
+    
+    // Update session with current level and intensity
+    if (game.sessionId) {
+      game.updateSessionLevelIntensity(game.currentLevel, game.currentIntensity);
+    }
   };
   
   const handleAddCustomChallenge = () => {
