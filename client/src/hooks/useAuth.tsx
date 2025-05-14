@@ -1,82 +1,91 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 
+// Create authentication context
 interface AuthContextType {
   isAuthenticated: boolean;
   isLoading: boolean;
-  login: (accessCode: string) => Promise<boolean>;
-  logout: () => Promise<void>;
-  error: string | null;
+  login: (accessCode: string) => Promise<{ success: boolean; message?: string }>;
+  logout: () => void;
 }
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+const AuthContext = createContext<AuthContextType>({
+  isAuthenticated: false,
+  isLoading: true,
+  login: async () => ({ success: false }),
+  logout: () => {},
+});
 
+// Auth provider component
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
-
-  // Check authentication status on mount
+  const [isLoading, setIsLoading] = useState(true);
+  const queryClient = useQueryClient();
+  
+  // Check authentication status
+  const { data: authStatus, refetch } = useQuery<{ isAuthenticated: boolean }>({
+    queryKey: ['/api/auth/status'],
+    enabled: true,
+  });
+  
   useEffect(() => {
-    const checkAuthStatus = async () => {
-      try {
-        const response = await fetch('/api/auth/status');
-        const data = await response.json();
-        setIsAuthenticated(data.isAuthenticated);
-      } catch (err) {
-        console.error('Auth check failed:', err);
-        setIsAuthenticated(false);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    checkAuthStatus();
-  }, []);
-
-  const login = async (accessCode: string): Promise<boolean> => {
-    setError(null);
+    setIsLoading(false);
+  }, [authStatus]);
+  
+  // Login function
+  const login = async (accessCode: string) => {
     try {
-      const response = await fetch('/api/auth/access-code/validate', {
+      const response = await fetch('/api/auth/login', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ code: accessCode }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ accessCode }),
       });
-
+      
+      const data = await response.json();
+      
       if (response.ok) {
-        setIsAuthenticated(true);
-        return true;
+        await refetch(); // Refresh auth status
+        queryClient.invalidateQueries(); // Invalidate queries that might depend on auth
+        return { success: true };
       } else {
-        const data = await response.json();
-        setError(data.message || 'Invalid access code');
-        return false;
+        return { success: false, message: data.message || 'Login failed' };
       }
-    } catch (err) {
-      console.error('Login failed:', err);
-      setError('Login failed. Please try again.');
-      return false;
+    } catch (error) {
+      console.error('Login error:', error);
+      return { success: false, message: 'Network error. Please try again.' };
     }
   };
-
-  const logout = async (): Promise<void> => {
+  
+  // Logout function
+  const logout = async () => {
     try {
-      await fetch('/api/auth/logout', { method: 'POST' });
-      setIsAuthenticated(false);
-    } catch (err) {
-      console.error('Logout failed:', err);
+      await fetch('/api/auth/logout', {
+        method: 'POST',
+      });
+      
+      await refetch(); // Refresh auth status
+      queryClient.invalidateQueries(); // Invalidate queries that might depend on auth
+    } catch (error) {
+      console.error('Logout error:', error);
     }
   };
-
+  
   return (
-    <AuthContext.Provider value={{ isAuthenticated, isLoading, login, logout, error }}>
+    <AuthContext.Provider
+      value={{
+        isAuthenticated: !!authStatus?.isAuthenticated,
+        isLoading,
+        login,
+        logout,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
 }
 
+// Custom hook to use auth context
 export function useAuth() {
-  const context = useContext(AuthContext);
-  if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
-  return context;
+  return useContext(AuthContext);
 }

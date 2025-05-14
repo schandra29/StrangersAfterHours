@@ -14,56 +14,55 @@ export const authRouter = Router();
 
 // Schema for validating access code
 const accessCodeSchema = z.object({
-  code: z.string().min(4).max(20)
+  accessCode: z.string().min(1, "Access code is required"),
 });
 
-// Endpoint to validate access code
-authRouter.post("/access-code/validate", async (req, res) => {
+// Get current authentication status
+authRouter.get("/status", (req, res) => {
+  return res.json({
+    isAuthenticated: !!req.session.isAuthenticated,
+  });
+});
+
+// Login with access code
+authRouter.post("/login", async (req, res) => {
   try {
-    // Validate request body
-    const { code } = accessCodeSchema.parse(req.body);
+    const { accessCode } = accessCodeSchema.parse(req.body);
     
-    // Check if code is valid
-    const isValid = await storage.validateAccessCode(code);
+    // Validate access code
+    const isValid = await storage.validateAccessCode(accessCode);
     
-    if (!isValid) {
-      return res.status(401).json({ message: "Invalid access code" });
+    if (isValid) {
+      // Get the access code record to increment usage
+      const accessCodeRecord = await storage.getAccessCodeByCode(accessCode);
+      
+      if (accessCodeRecord) {
+        // Increment usage count
+        await storage.incrementAccessCodeUsage(accessCodeRecord.id);
+        
+        // Set authenticated session
+        req.session.accessCode = accessCode;
+        req.session.isAuthenticated = true;
+        
+        return res.status(200).json({ message: "Login successful" });
+      }
     }
     
-    // Get the access code object
-    const accessCode = await storage.getAccessCodeByCode(code);
-    
-    if (!accessCode) {
-      return res.status(500).json({ message: "Access code not found after validation" });
-    }
-    
-    // Increment usage count
-    await storage.incrementAccessCodeUsage(accessCode.id);
-    
-    // Store access code in session
-    req.session.accessCode = code;
-    req.session.isAuthenticated = true;
-    
-    return res.status(200).json({ message: "Access code validated successfully" });
+    return res.status(401).json({ message: "Invalid access code" });
   } catch (error) {
-    console.error("Error validating access code:", error);
+    console.error("Login error:", error);
     return res.status(400).json({ message: "Invalid request" });
   }
 });
 
-// Endpoint to check if user is authenticated
-authRouter.get("/status", (req, res) => {
-  const isAuthenticated = req.session.isAuthenticated === true;
-  return res.status(200).json({ isAuthenticated });
-});
-
-// Endpoint to log out
+// Logout
 authRouter.post("/logout", (req, res) => {
   req.session.destroy((err) => {
     if (err) {
-      console.error("Error destroying session:", err);
-      return res.status(500).json({ message: "Error logging out" });
+      console.error("Logout error:", err);
+      return res.status(500).json({ message: "Failed to logout" });
     }
-    return res.status(200).json({ message: "Logged out successfully" });
+    
+    return res.status(200).json({ message: "Logout successful" });
   });
 });
