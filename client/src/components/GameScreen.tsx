@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { type Prompt } from "@shared/schema";
 
@@ -24,6 +25,49 @@ export default function GameScreen({
   onLevelChange,
   onRandomPrompt
 }: GameScreenProps) {
+  const [isTimerRunning, setIsTimerRunning] = useState(false);
+  const [timeElapsed, setTimeElapsed] = useState(0);
+  const timerInterval = useRef<number | null>(null);
+
+  // Clean up timer when component unmounts
+  useEffect(() => {
+    return () => {
+      if (timerInterval.current) {
+        clearInterval(timerInterval.current);
+      }
+    };
+  }, []);
+
+  // Reset timer when moving to a new prompt
+  useEffect(() => {
+    stopTimer();
+    setTimeElapsed(0);
+  }, [currentPrompt]);
+
+  const startTimer = () => {
+    if (timerInterval.current) clearInterval(timerInterval.current);
+    
+    setIsTimerRunning(true);
+    const startTime = Date.now() - timeElapsed * 1000;
+    
+    timerInterval.current = window.setInterval(() => {
+      setTimeElapsed(Math.floor((Date.now() - startTime) / 1000));
+    }, 1000);
+  };
+
+  const stopTimer = () => {
+    if (timerInterval.current) {
+      clearInterval(timerInterval.current);
+      timerInterval.current = null;
+    }
+    setIsTimerRunning(false);
+  };
+
+  const formatTime = (seconds: number): string => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+  };
   const getIntensityText = (intensity: number): string => {
     switch (intensity) {
       case 1: return "Mild";
@@ -65,6 +109,38 @@ export default function GameScreen({
             {currentPrompt?.text || "If you could have dinner with any historical figure, who would it be and why?"}
           </h2>
         </div>
+        
+        {/* Timer Display */}
+        {timeElapsed > 0 && (
+          <div className="bg-gray-800/50 rounded-lg p-2 mb-4 flex justify-center">
+            <div className="text-2xl font-mono text-white">
+              {formatTime(timeElapsed)}
+            </div>
+          </div>
+        )}
+        
+        {/* Timer Controls */}
+        {!isTimerRunning ? (
+          timeElapsed === 0 ? (
+            <Button
+              className="btn-secondary w-full bg-secondary hover:bg-secondary/90 text-white font-bold py-4 px-6 rounded-xl shadow-lg flex items-center justify-center mb-4"
+              onClick={startTimer}
+            >
+              <i className="ri-timer-line mr-2"></i> Start Timer
+            </Button>
+          ) : (
+            <div className="mb-4">
+              <p className="text-center text-white mb-2">Timer stopped at {formatTime(timeElapsed)}</p>
+            </div>
+          )
+        ) : (
+          <Button
+            className="btn-secondary w-full bg-red-500 hover:bg-red-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg flex items-center justify-center mb-4"
+            onClick={stopTimer}
+          >
+            <i className="ri-stop-circle-line mr-2"></i> Stop Timer
+          </Button>
+        )}
         
         <Button
           className="btn-primary w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 px-6 rounded-xl shadow-lg flex items-center justify-center"
