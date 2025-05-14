@@ -9,6 +9,7 @@ interface GameScreenProps {
   currentIntensity: number;
   currentPrompt: Prompt | null;
   isDrinkingGame: boolean;
+  isLoadingPrompts: boolean; // Added to show loading state
   onMenu: () => void;
   onNextPrompt: () => void;
   onChallenge: (type: "Dare" | "R-Rated Dare" | "Take a Sip") => void;
@@ -24,6 +25,7 @@ export default function GameScreen({
   currentIntensity,
   currentPrompt,
   isDrinkingGame,
+  isLoadingPrompts,
   onMenu,
   onNextPrompt,
   onChallenge,
@@ -151,9 +153,16 @@ export default function GameScreen({
               {currentPrompt?.category || "Icebreaker"}
             </div>
           </div>
-          <h2 className="font-prompt font-semibold text-3xl text-white leading-tight">
-            {currentPrompt?.text || "If you could have dinner with any historical figure, who would it be and why?"}
-          </h2>
+          {isLoadingPrompts ? (
+            <div className="flex flex-col items-center justify-center py-6">
+              <div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4"></div>
+              <p className="text-gray-300">Loading new prompt...</p>
+            </div>
+          ) : (
+            <h2 className="font-prompt font-semibold text-3xl text-white leading-tight">
+              {currentPrompt?.text || "If you could have dinner with any historical figure, who would it be and why?"}
+            </h2>
+          )}
         </div>
         
         {/* Timer Display */}

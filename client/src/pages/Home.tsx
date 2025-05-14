@@ -127,6 +127,7 @@ export default function Home() {
             currentIntensity={game.currentIntensity}
             currentPrompt={game.currentPrompt}
             isDrinkingGame={game.isDrinkingGame}
+            isLoadingPrompts={game.isLoadingPrompts}
             onMenu={() => setShowGameMenu(true)}
             onNextPrompt={() => {
               game.getNextPrompt();
