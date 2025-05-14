@@ -1,5 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { useState } from "react";
+import PromptStatsModal from "./PromptStatsModal";
+import { resetUsedPrompts } from "@/lib/utils";
+import { toast } from "@/hooks/use-toast";
 
 interface GameMenuModalProps {
   isOpen: boolean;
@@ -18,6 +22,17 @@ export default function GameMenuModal({
   onHowToPlay,
   onAddCustomChallenge
 }: GameMenuModalProps) {
+  const [isPromptStatsOpen, setIsPromptStatsOpen] = useState(false);
+  
+  // Handle resetting the game (clear used prompts)
+  const handleReset = () => {
+    resetUsedPrompts();
+    toast({
+      title: "Game Reset",
+      description: "All used prompts have been reset. You'll now see all prompts again.",
+    });
+  };
+  
   const menuOptions = [
     {
       icon: "ri-restart-line",
@@ -33,6 +48,16 @@ export default function GameMenuModal({
       icon: "ri-question-line",
       label: "How to Play",
       action: onHowToPlay
+    },
+    {
+      icon: "ri-bar-chart-2-line",
+      label: "View Prompt Progress",
+      action: () => setIsPromptStatsOpen(true)
+    },
+    {
+      icon: "ri-refresh-line",
+      label: "Reset Used Prompts",
+      action: handleReset
     }
   ];
   
@@ -46,32 +71,40 @@ export default function GameMenuModal({
   }
 
   return (
-    <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="bg-card rounded-3xl p-6 max-w-sm mx-4 border border-primary shadow-xl">
-        <DialogTitle className="font-heading font-bold text-2xl text-white mb-6">
-          Game Menu
-        </DialogTitle>
-        
-        <div className="grid grid-cols-1 gap-3 mb-6">
-          {menuOptions.map((option, index) => (
-            <button 
-              key={index}
-              className="bg-white/10 hover:bg-white/20 text-white py-3 px-4 rounded-xl text-left flex items-center"
-              onClick={option.action}
-            >
-              <i className={`${option.icon} text-primary mr-3 text-xl`}></i>
-              <span>{option.label}</span>
-            </button>
-          ))}
-        </div>
-        
-        <Button 
-          className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-xl"
-          onClick={onClose}
-        >
-          Resume Game
-        </Button>
-      </DialogContent>
-    </Dialog>
+    <>
+      <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
+        <DialogContent className="bg-card rounded-3xl p-6 max-w-sm mx-4 border border-primary shadow-xl">
+          <DialogTitle className="font-heading font-bold text-2xl text-white mb-6">
+            Game Menu
+          </DialogTitle>
+          
+          <div className="grid grid-cols-1 gap-3 mb-6">
+            {menuOptions.map((option, index) => (
+              <button 
+                key={index}
+                className="bg-white/10 hover:bg-white/20 text-white py-3 px-4 rounded-xl text-left flex items-center"
+                onClick={option.action}
+              >
+                <i className={`${option.icon} text-primary mr-3 text-xl`}></i>
+                <span>{option.label}</span>
+              </button>
+            ))}
+          </div>
+          
+          <Button 
+            className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-xl"
+            onClick={onClose}
+          >
+            Resume Game
+          </Button>
+        </DialogContent>
+      </Dialog>
+      
+      {/* Prompt Stats Modal */}
+      <PromptStatsModal 
+        isOpen={isPromptStatsOpen} 
+        onClose={() => setIsPromptStatsOpen(false)} 
+      />
+    </>
   );
 }

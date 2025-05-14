@@ -47,15 +47,17 @@ export class DatabaseStorage implements IStorage {
     );
   }
 
-  async getRandomPrompt(): Promise<Prompt | undefined> {
-    // Fetch a random prompt from the database
+  async getRandomPrompt(excludeIds: number[] = []): Promise<Prompt | undefined> {
+    // Fetch a random prompt from the database, excluding the specified IDs
     // In PostgreSQL, we can use ORDER BY RANDOM() LIMIT 1 to get a random row
-    const [prompt] = await db
-      .select()
-      .from(prompts)
-      .orderBy(sql`RANDOM()`)
-      .limit(1);
+    let query = db.select().from(prompts);
     
+    // If we have IDs to exclude, add a where condition
+    if (excludeIds.length > 0) {
+      query = query.where(sql`id NOT IN (${excludeIds.join(',')})`);
+    }
+    
+    const [prompt] = await query.orderBy(sql`RANDOM()`).limit(1);
     return prompt;
   }
 
