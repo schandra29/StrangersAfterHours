@@ -8,6 +8,7 @@ import {
 } from "@shared/schema";
 import { importRouter } from "./routes/import";
 import { authRouter } from "./routes/auth";
+import { adminRouter } from "./routes/admin";
 import { sessionMiddleware, isAuthenticated } from "./session";
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -17,11 +18,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Auth routes (not protected)
   app.use("/api/auth", authRouter);
   
+  // Admin routes (protected with admin key)
+  app.use("/api/admin", adminRouter);
+  
   // Import routes
   app.use("/api", importRouter);
   
-  // Prompt routes
-  app.get("/api/prompts", async (req, res) => {
+  // Prompt routes (protected)
+  app.get("/api/prompts", isAuthenticated, async (req, res) => {
     try {
       const level = parseInt(req.query.level as string) || 1;
       const intensity = parseInt(req.query.intensity as string) || 1;
@@ -44,7 +48,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
   
-  app.get("/api/prompts/random", async (req, res) => {
+  app.get("/api/prompts/random", isAuthenticated, async (req, res) => {
     try {
       const excludeIds = req.query.excludeIds ? 
         (Array.isArray(req.query.excludeIds) 

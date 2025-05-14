@@ -2,6 +2,14 @@ import { Router } from "express";
 import { storage } from "../storage";
 import { z } from "zod";
 
+// Add custom properties to express-session
+declare module 'express-session' {
+  interface SessionData {
+    accessCode?: string;
+    isAuthenticated?: boolean;
+  }
+}
+
 export const authRouter = Router();
 
 // Schema for validating access code
