@@ -7,7 +7,7 @@
  *   10 = Optional max usage count
  */
 
-const fetch = require('node-fetch');
+import fetch from 'node-fetch';
 
 async function createAccessCode() {
   const [,, code, description = "", maxUsages = 10] = process.argv;
@@ -48,4 +48,5 @@ async function createAccessCode() {
   }
 }
 
+// Execute the function
 createAccessCode();
