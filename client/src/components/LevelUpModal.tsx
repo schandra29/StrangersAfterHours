@@ -46,32 +46,29 @@ export default function LevelUpModal({
     if (levelChanged || intensityChanged) {
       console.log(`Changing from Level ${currentLevel}/Intensity ${currentIntensity} to Level ${selectedLevel}/Intensity ${selectedIntensity}`);
       
-      // Save the selected values before applying changes
+      // Save the selected values
       const newLevel = selectedLevel;
       const newIntensity = selectedIntensity;
       
-      // Apply level changes first
+      // Apply both changes at once to ensure consistency
       if (levelChanged) {
         game.setLevel(newLevel);
       }
       
-      // Apply intensity changes next
       if (intensityChanged) {
         game.setIntensity(newIntensity);
       }
       
-      // Update the session in the database
+      // Update the session in the database to ensure persistence
       if (game.sessionId) {
         game.updateSessionLevelIntensity(newLevel, newIntensity);
       }
       
-      // Invalidate the query to force reload of prompts with the new level/intensity
-      queryClient.invalidateQueries({
-        queryKey: [`/api/prompts?level=${newLevel}&intensity=${newIntensity}`],
-      });
-      
-      // Pass the explicit new values to the parent for proper updating
-      onConfirm(levelChanged ? "level" : "intensity");
+      // Give the state time to update before notifying parent
+      setTimeout(() => {
+        // Notify parent component that changes were made for UI updates
+        onConfirm(levelChanged ? "level" : "intensity");
+      }, 50);
     }
     
     onClose();

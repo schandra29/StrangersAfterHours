@@ -408,8 +408,8 @@ export function useGame() {
     startNewGame,
     getNextPrompt,
     getRandomPrompt,
-    setLevel,
-    setIntensity,
+    setLevel: setLevelCustom,  // Use our custom function with side effects
+    setIntensity: setIntensityCustom,  // Use our custom function with side effects
     toggleDrinkingGame,
     updateSessionLevelIntensity,
     recordTimeSpent,

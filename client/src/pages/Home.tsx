@@ -74,8 +74,16 @@ export default function Home() {
       description: `Now showing ${getLevelName(game.currentLevel)} prompts with intensity ${game.currentIntensity}`,
     });
     
+    // Force update the session in the backend to ensure consistency
+    if (game.sessionId) {
+      game.updateSessionLevelIntensity(game.currentLevel, game.currentIntensity);
+    }
+    
     // Force fetching a new prompt with the updated level/intensity
-    game.getNextPrompt();
+    setTimeout(() => {
+      // This ensures the game screen is updated with the new level/intensity
+      game.getNextPrompt();
+    }, 100);
   };
   
   const handleAddCustomChallenge = () => {
