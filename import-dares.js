@@ -23,15 +23,26 @@ function parseCSV(filePath) {
   
   // Start from line 1 (skipping the header)
   for (let i = 1; i < lines.length; i++) {
-    if (!lines[i].trim()) continue; // Skip empty lines
+    const line = lines[i].trim();
+    if (!line) continue; // Skip empty lines
     
-    // Get the text of the dare
-    const text = lines[i].trim();
-    if (!text) continue;
+    // The CSV has format: Dare ID,Dare text
+    // We need to parse the CSV correctly to extract the text
+    const match = line.match(/^(\d+),(.+)$/);
+    
+    if (!match) continue; // Skip if doesn't match the pattern
+    
+    // Extract the text portion (which might be quoted)
+    let text = match[2].trim();
+    
+    // Remove surrounding quotes if present
+    if (text.startsWith('"') && text.endsWith('"')) {
+      text = text.substring(1, text.length - 1);
+    }
     
     // Create a challenge object with all required fields
     const challenge = {
-      text: text.replace(/^"|"$/g, ''), // Remove quotes if present
+      text: text,
       type: "Dare",
       // Assign intensity level 1 to make it accessible at all intensity levels
       intensity: 1,
@@ -48,7 +59,7 @@ function parseCSV(filePath) {
 // Function to import challenges to the API
 async function importDares(dares) {
   try {
-    const response = await fetch('http://localhost:5000/api/challenges/import', {
+    const response = await fetch('http://localhost:5000/api/import/challenges/import', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
