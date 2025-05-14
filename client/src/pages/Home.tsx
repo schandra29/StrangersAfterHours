@@ -21,7 +21,7 @@ export default function Home() {
   const [showLevelUp, setShowLevelUp] = useState(false);
   const [showCustomChallengeForm, setShowCustomChallengeForm] = useState(false);
   const [showGameSummary, setShowGameSummary] = useState(false);
-  const [selectedChallengeType, setSelectedChallengeType] = useState<"Dare" | "Act It Out" | "Take a Sip">("Dare");
+  const [selectedChallengeType, setSelectedChallengeType] = useState<"Dare" | "R-Rated Dare" | "Take a Sip">("Dare");
   
   const { toast } = useToast();
   const game = useGame();

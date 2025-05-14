@@ -199,7 +199,7 @@ export default function ChallengeModal({
           Accept
         </Button>
         
-        {(type === "Dare" || type === "Act It Out") && (
+        {(type === "Dare" || type === "R-Rated Dare") && (
           <Button 
             className="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 rounded-xl"
             onClick={handleAcceptAndRecord}
