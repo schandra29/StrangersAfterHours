@@ -2,8 +2,8 @@
  * This script imports R-Rated dares from a CSV file.
  * 
  * CSV format:
- * type,intensity,text
- * R-Rated Dare,1,"Share an awkward dating story that you've never told anyone"
+ * text
+ * "Share an awkward dating story that you've never told anyone"
  * 
  * Usage:
  * 1. Edit the r-rated-dares-template.csv file with your dares
@@ -22,45 +22,23 @@ function parseCSV(filePath) {
   try {
     const content = fs.readFileSync(filePath, 'utf8');
     const lines = content.trim().split('\n');
-    const headers = lines[0].split(',');
     
+    // Skip the header row (index 0)
     const result = [];
     for (let i = 1; i < lines.length; i++) {
-      const line = lines[i];
+      const line = lines[i].trim();
       
-      // Handle quoted values that may contain commas
-      const values = [];
-      let currentValue = '';
-      let inQuotes = false;
+      // Remove surrounding quotes if present
+      const text = line.replace(/^"(.*)"$/, '$1');
       
-      for (let char of line) {
-        if (char === '"') {
-          inQuotes = !inQuotes;
-        } else if (char === ',' && !inQuotes) {
-          values.push(currentValue);
-          currentValue = '';
-        } else {
-          currentValue += char;
-        }
+      if (text) {
+        // Create a challenge object with default values
+        result.push({
+          text: text,
+          type: "R-Rated Dare",
+          intensity: Math.floor(Math.random() * 3) + 1 // Random intensity between 1-3
+        });
       }
-      values.push(currentValue); // Add the last value
-      
-      // Create object from headers and values
-      const obj = {};
-      for (let j = 0; j < headers.length; j++) {
-        const header = headers[j].trim();
-        const value = values[j]?.trim() || '';
-        
-        // Remove surrounding quotes if present
-        obj[header] = value.replace(/^"(.*)"$/, '$1');
-        
-        // Convert intensity to number
-        if (header === 'intensity') {
-          obj[header] = parseInt(obj[header]);
-        }
-      }
-      
-      result.push(obj);
     }
     
     return result;

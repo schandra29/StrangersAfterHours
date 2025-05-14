@@ -4,16 +4,16 @@ This document explains how to create and import R-Rated dares for the Strangers:
 
 ## CSV Format
 
-R-Rated dares are stored in a CSV file with the following columns:
+R-Rated dares are stored in a simple CSV file with just the text of each dare:
 
 ```
-type,intensity,text
-R-Rated Dare,1,"Share an awkward dating story that you've never told anyone"
+text
+"Share an awkward dating story that you've never told anyone"
 ```
 
-- **type**: Always "R-Rated Dare"
-- **intensity**: 1 (mild), 2 (moderate), or 3 (spicy)
-- **text**: The text of the dare/challenge
+The import script will automatically:
+- Set the type to "R-Rated Dare"
+- Assign a random intensity level (1-3)
 
 ## Adding Your Own R-Rated Dares
 
@@ -36,31 +36,22 @@ This will:
 
 ## Guidelines for Creating R-Rated Dares
 
-When creating R-Rated dares, consider:
-
-- **Level 1 (Mild)**: Slightly flirtatious or mildly embarrassing dares
-- **Level 2 (Moderate)**: More personal questions or somewhat embarrassing dares
-- **Level 3 (Spicy)**: Dares that push comfort zones but remain respectful
-
-Remember that all R-Rated dares should:
+When creating R-Rated dares, remember that they should:
 - Be consensual
 - Respect boundaries
 - Not involve anything illegal or harmful
 - Be fun rather than humiliating
 
-## Examples by Intensity
+## Example Dares
 
-### Level 1 (Mild)
+Here are some examples of R-Rated dares that you can use or modify:
+
 - "Share an awkward dating story that you've never told anyone"
 - "Describe your ideal romantic partner in detail"
 - "Share your first kiss story with the group"
-
-### Level 2 (Moderate)
 - "Show the most embarrassing photo on your phone"
 - "Re-enact your best flirting technique"
 - "Share your most embarrassing romantic rejection story"
-
-### Level 3 (Spicy)
 - "Send a flirty text to the last person you texted"
 - "Show the group your dating app profile (if you have one)"
 - "Share the most awkward physical interaction you've had with someone you were attracted to"
