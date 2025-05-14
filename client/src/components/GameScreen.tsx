@@ -119,14 +119,14 @@ export default function GameScreen({
             className="bg-primary/20 hover:bg-primary/30 text-white py-3 px-4 rounded-xl text-center"
             onClick={() => onLevelChange("level")}
           >
-            <i className="ri-settings-line mb-1 text-xl block"></i>
+            <i className="ri-game-line mb-1 text-xl block"></i>
             <span className="block font-medium">Select Level/Intensity</span>
           </button>
           <button 
             className="bg-primary/20 hover:bg-primary/30 text-white py-3 px-4 rounded-xl text-center"
             onClick={() => onRandomPrompt()}
           >
-            <i className="ri-dice-line mb-1 text-xl block"></i>
+            <i className="ri-magic-line mb-1 text-xl block"></i>
             <span className="block font-medium">Take a Chance</span>
           </button>
         </div>
