@@ -1,16 +1,20 @@
 /**
  * This script creates an access code for the application
- * Usage: node tools/create-access-code.js MYCODE "My description" 10
+ * Usage: node tools/create-access-code.js MYCODE "My description" 5
  * Where:
  *   MYCODE = The access code to create
  *   "My description" = Optional description of the code
- *   10 = Optional max usage count
+ *   5 = Optional max usage count (default is 5 if not specified)
+ * 
+ * Examples:
+ *   node tools/create-access-code.js TESTER1 "For tester group 1"
+ *   node tools/create-access-code.js BETAUSER "Beta test participant" 3
  */
 
 import fetch from 'node-fetch';
 
 async function createAccessCode() {
-  const [,, code, description = "", maxUsages = 10] = process.argv;
+  const [,, code, description = "", maxUsages = 5] = process.argv;
   
   if (!code) {
     console.error('Usage: node create-access-code.js CODE [DESCRIPTION] [MAX_USAGES]');
