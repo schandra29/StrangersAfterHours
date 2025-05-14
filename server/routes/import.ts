@@ -1,64 +1,36 @@
 import { Router } from "express";
 import { storage } from "../storage";
-import { insertPromptSchema, insertChallengeSchema } from "@shared/schema";
 import { z } from "zod";
+import { insertChallengeSchema, insertPromptSchema } from "@shared/schema";
 
-const importRouter = Router();
+export const importRouter = Router();
 
-// Schema for batch prompt import
-const batchPromptImportSchema = z.object({
-  prompts: z.array(insertPromptSchema)
-});
+// Schema for bulk importing prompts
+const importPromptsSchema = z.array(insertPromptSchema);
 
-// Schema for batch challenge import
-const batchChallengeImportSchema = z.object({
-  challenges: z.array(insertChallengeSchema)
-});
+// Schema for bulk importing challenges
+const importChallengesSchema = z.array(insertChallengeSchema);
 
-// Endpoint for batch importing prompts
-importRouter.post("/prompts", async (req, res) => {
+// Route for importing prompts
+importRouter.post("/prompts/import", async (req, res) => {
   try {
-    const { prompts } = batchPromptImportSchema.parse(req.body);
-    
-    // Check if we have prompts to import
-    if (prompts.length === 0) {
-      return res.status(400).json({ message: "No prompts to import" });
-    }
-    
-    // Use batch import method from DatabaseStorage
+    const prompts = importPromptsSchema.parse(req.body);
     const count = await storage.batchImportPrompts(prompts);
-    
-    res.status(201).json({ 
-      message: `Successfully imported ${count} prompts`,
-      count 
-    });
+    res.status(201).json({ count });
   } catch (error) {
     console.error("Error importing prompts:", error);
-    res.status(400).json({ message: "Invalid prompt data for batch import" });
+    res.status(400).json({ error: "Invalid prompt data" });
   }
 });
 
-// Endpoint for batch importing challenges
-importRouter.post("/challenges", async (req, res) => {
+// Route for importing challenges
+importRouter.post("/challenges/import", async (req, res) => {
   try {
-    const { challenges } = batchChallengeImportSchema.parse(req.body);
-    
-    // Check if we have challenges to import
-    if (challenges.length === 0) {
-      return res.status(400).json({ message: "No challenges to import" });
-    }
-    
-    // Use batch import method from DatabaseStorage
+    const challenges = importChallengesSchema.parse(req.body);
     const count = await storage.batchImportChallenges(challenges);
-    
-    res.status(201).json({ 
-      message: `Successfully imported ${count} challenges`,
-      count 
-    });
+    res.status(201).json({ count });
   } catch (error) {
     console.error("Error importing challenges:", error);
-    res.status(400).json({ message: "Invalid challenge data for batch import" });
+    res.status(400).json({ error: "Invalid challenge data" });
   }
 });
-
-export default importRouter;

@@ -6,13 +6,13 @@ import {
   insertChallengeSchema, 
   insertGameSessionSchema 
 } from "@shared/schema";
-import importRouter from "./routes/import";
+import { importRouter } from "./routes/import";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // prefix all routes with /api
   
   // Import routes
-  app.use("/api/import", importRouter);
+  app.use("/api", importRouter);
   
   // Prompt routes
   app.get("/api/prompts", async (req, res) => {
