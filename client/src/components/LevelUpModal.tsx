@@ -37,16 +37,27 @@ export default function LevelUpModal({
   };
   
   const handleApply = () => {
-    // Apply level changes
-    if (selectedLevel !== currentLevel) {
-      game.setLevel(selectedLevel);
-      onConfirm("level");
-    }
+    const levelChanged = selectedLevel !== currentLevel;
+    const intensityChanged = selectedIntensity !== currentIntensity;
     
-    // Apply intensity changes
-    if (selectedIntensity !== currentIntensity) {
-      game.setIntensity(selectedIntensity);
-      onConfirm("intensity");
+    // Only update if something has changed
+    if (levelChanged || intensityChanged) {
+      // Apply level changes
+      if (levelChanged) {
+        game.setLevel(selectedLevel);
+        onConfirm("level");
+      }
+      
+      // Apply intensity changes
+      if (intensityChanged) {
+        game.setIntensity(selectedIntensity);
+        onConfirm("intensity");
+      }
+      
+      // Get a new prompt that matches the new level/intensity
+      setTimeout(() => {
+        game.getNextPrompt();
+      }, 100); // Small delay to ensure state updates first
     }
     
     onClose();
