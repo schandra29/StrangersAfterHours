@@ -20,7 +20,6 @@ async function pushDb() {
   
   console.log("Connecting to database...");
   const pool = new Pool({ connectionString: process.env.DATABASE_URL });
-  const db = drizzle(pool, { schema });
   
   // Push all tables
   console.log("Creating tables...");
