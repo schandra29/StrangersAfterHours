@@ -137,20 +137,27 @@ export function useGame() {
       const randomPrompt: Prompt = await response.json();
       
       if (randomPrompt) {
+        // Set the current prompt
         setCurrentPrompt(randomPrompt);
         setUsedPromptIds(prev => [...prev, randomPrompt.id]);
+        
+        // Update the level and intensity to match the random prompt
+        setLevel(randomPrompt.level);
+        setIntensity(randomPrompt.intensity);
         
         // Update session in backend
         if (sessionId) {
           updateSession.mutate({ 
-            usedPromptIds: [...usedPromptIds, randomPrompt.id] 
+            usedPromptIds: [...usedPromptIds, randomPrompt.id],
+            currentLevel: randomPrompt.level,
+            currentIntensity: randomPrompt.intensity
           });
         }
         
         // Show toast
         toast({
           title: "Random Prompt",
-          description: `This is a ${getLevelName(randomPrompt.level)} prompt with intensity ${randomPrompt.intensity}`,
+          description: `Switched to ${getLevelName(randomPrompt.level)} prompt with intensity ${randomPrompt.intensity}`,
         });
       }
     } catch (error) {
