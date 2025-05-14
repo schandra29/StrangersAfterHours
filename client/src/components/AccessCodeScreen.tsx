@@ -35,7 +35,11 @@ export default function AccessCodeScreen() {
           title: "Access Granted",
           description: "Welcome to Strangers: After Hours!",
         });
-        setLocation("/");
+        
+        // Ensure the auth state is updated before redirecting
+        setTimeout(() => {
+          window.location.href = "/"; // Use window.location for a full page refresh
+        }, 1000);
       } else {
         toast({
           title: "Access Denied",
