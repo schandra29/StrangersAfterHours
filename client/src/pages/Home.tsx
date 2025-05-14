@@ -50,13 +50,59 @@ export default function Home() {
   };
   
   const handleRandomPrompt = async () => {
-    const success = await game.getRandomPrompt();
-    if (success) {
+    // First show a loading toast to indicate we're getting a random prompt
+    const loadingToast = toast({
+      title: "Taking a Chance...",
+      description: "Getting a random prompt from any level or intensity",
+    });
+    
+    // Call the API to get a random prompt
+    try {
+      const response = await fetch('/api/prompts/random');
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch random prompt');
+      }
+      
+      // Get the random prompt data
+      const randomPrompt = await response.json();
+      
+      // Check if we got a valid prompt
+      if (randomPrompt && randomPrompt.id) {
+        console.log("Got random prompt directly:", randomPrompt);
+        
+        // Explicitly update our game state with the new level/intensity from the prompt
+        const newLevel = randomPrompt.level;
+        const newIntensity = randomPrompt.intensity;
+        
+        // Update game state
+        game.setLevel(newLevel);
+        game.setIntensity(newIntensity);
+        
+        // Add a small delay to allow the state to update
+        setTimeout(() => {
+          // Force refresh with the new prompt
+          toast({
+            title: "Random Prompt",
+            description: `Switched to ${getLevelName(newLevel)} (Level ${newLevel}) with intensity ${newIntensity}`,
+          });
+          
+          // Force the UI to reflect the new prompt
+          game.getNextPrompt();
+        }, 100);
+        
+        return true;
+      }
+    } catch (error) {
+      console.error("Error getting random prompt:", error);
       toast({
-        title: "Random Prompt",
-        description: `Switched to ${getLevelName(game.currentLevel)} prompt with intensity ${game.currentIntensity}`,
+        title: "Error",
+        description: "Failed to get a random prompt. Please try again.",
+        variant: "destructive",
       });
     }
+    
+    return false;
   };
 
   const handleRestartGame = () => {
