@@ -64,24 +64,27 @@ export default function Home() {
     setShowGameMenu(false);
   };
 
-  const handleConfirmLevelUp = (type: "level" | "intensity") => {
-    // Get the final values AFTER they've been applied in the modal
-    // This ensures we're showing the user the actual values that will be used
-    setTimeout(() => {
-      const finalLevel = game.currentLevel;
-      const finalIntensity = game.currentIntensity;
-      
-      console.log(`Level/Intensity confirmed as: Level ${finalLevel}/Intensity ${finalIntensity}`);
-      
-      // Add a toast to confirm the change to the user
-      toast({
-        title: "Settings Updated",
-        description: `Now showing ${getLevelName(finalLevel)} prompts with intensity ${finalIntensity}`,
-      });
-      
-      // Force a fresh prompt with the updated settings 
-      game.getNextPrompt();
-    }, 100); // Small delay to ensure state has been updated
+  const handleConfirmLevelUp = (type: "level" | "intensity", newLevel: number, newIntensity: number) => {
+    // Get the new values directly from the modal component
+    console.log(`Applying changes: Level ${newLevel}, Intensity ${newIntensity}`);
+    
+    // Update game state with the new values
+    game.setLevel(newLevel);
+    game.setIntensity(newIntensity);
+    
+    // Update the backend
+    if (game.sessionId) {
+      game.updateSessionLevelIntensity(newLevel, newIntensity);
+    }
+    
+    // Show confirmation toast to the user
+    toast({
+      title: "Settings Updated",
+      description: `Now showing ${getLevelName(newLevel)} prompts with intensity ${newIntensity}`,
+    });
+    
+    // Get a new prompt with the updated settings
+    game.getNextPrompt();
   };
   
   const handleAddCustomChallenge = () => {

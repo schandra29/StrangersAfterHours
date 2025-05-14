@@ -2,14 +2,13 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { useGame } from "@/hooks/useGame";
-import { useQueryClient } from "@tanstack/react-query";
 
 interface LevelUpModalProps {
   isOpen: boolean;
   onClose: () => void;
   currentLevel: number;
   currentIntensity: number;
-  onConfirm: (type: "level" | "intensity") => void;
+  onConfirm: (type: "level" | "intensity", newLevel: number, newIntensity: number) => void;
 }
 
 export default function LevelUpModal({
@@ -19,12 +18,10 @@ export default function LevelUpModal({
   currentIntensity,
   onConfirm
 }: LevelUpModalProps) {
-  const game = useGame();
-  const queryClient = useQueryClient();
   const [selectedLevel, setSelectedLevel] = useState<number>(currentLevel);
   const [selectedIntensity, setSelectedIntensity] = useState<number>(currentIntensity);
   
-  // Reset selections when modal opens
+  // Reset selections when modal opens to ensure we start with current values
   useEffect(() => {
     if (isOpen) {
       setSelectedLevel(currentLevel);
@@ -32,60 +29,34 @@ export default function LevelUpModal({
     }
   }, [isOpen, currentLevel, currentIntensity]);
   
-  const handleOpenChange = (open: boolean) => {
-    if (!open) {
-      onClose();
-    }
+  const handleClose = () => {
+    onClose();
   };
   
   const handleApply = () => {
-    const levelChanged = selectedLevel !== currentLevel;
-    const intensityChanged = selectedIntensity !== currentIntensity;
+    const hasChanged = selectedLevel !== currentLevel || selectedIntensity !== currentIntensity;
     
-    // Only update if something has changed
-    if (levelChanged || intensityChanged) {
-      console.log(`Changing from Level ${currentLevel}/Intensity ${currentIntensity} to Level ${selectedLevel}/Intensity ${selectedIntensity}`);
+    if (hasChanged) {
+      // Log the change for debugging
+      console.log(`Applying change: Level ${currentLevel} → ${selectedLevel}, Intensity ${currentIntensity} → ${selectedIntensity}`);
       
-      // IMPORTANT: Create local variables to ensure we're using the correct values
-      const newLevel = selectedLevel;
-      const newIntensity = selectedIntensity;
-      
-      // First close the modal to avoid UI interruptions
+      // First close the modal
       onClose();
       
-      // Synchronize changes with important sequence:
-      
-      // 1. First update the session - do this before changing the game state
-      //    This ensures the backend has the correct values
-      if (game.sessionId) {
-        game.updateSessionLevelIntensity(newLevel, newIntensity);
-      }
-      
-      // 2. Then update the local game state
-      //    This is critical to be in the right order
-      if (levelChanged) {
-        game.setLevel(newLevel);
-      }
-      
-      if (intensityChanged) {
-        game.setIntensity(newIntensity);
-      }
-      
-      // 3. Finally, notify the parent with reliable level/intensity values
-      //    Use a short timeout to ensure all state updates have propagated
-      setTimeout(() => {
-        onConfirm(levelChanged ? "level" : "intensity");
-      }, 200);
+      // Then pass the new values directly to the parent
+      // This ensures the parent has control over applying the changes
+      onConfirm("level", selectedLevel, selectedIntensity);
     } else {
-      // Just close if no changes
+      // No changes, just close
       onClose();
     }
   };
   
+  // Determine if there are unsaved changes
   const hasChanges = selectedLevel !== currentLevel || selectedIntensity !== currentIntensity;
   
   return (
-    <Dialog open={isOpen} onOpenChange={handleOpenChange}>
+    <Dialog open={isOpen} onOpenChange={(open) => !open && handleClose()}>
       <DialogContent className="bg-card rounded-3xl p-6 max-w-sm mx-4 border border-primary shadow-xl">
         <DialogTitle className="sr-only">Select Level and Intensity</DialogTitle>
         <div className="text-center mb-6">
@@ -109,6 +80,7 @@ export default function LevelUpModal({
                     : 'bg-primary/20 hover:bg-primary/30 text-gray-300'
                 }`}
                 onClick={() => setSelectedLevel(level)}
+                type="button"
               >
                 <div className="text-xl font-bold">{level}</div>
                 <div className="text-xs">
@@ -132,6 +104,7 @@ export default function LevelUpModal({
                     : 'bg-secondary/20 hover:bg-secondary/30 text-gray-300'
                 }`}
                 onClick={() => setSelectedIntensity(intensity)}
+                type="button"
               >
                 <div className="text-xl font-bold">{intensity}</div>
                 <div className="text-xs">
@@ -146,7 +119,8 @@ export default function LevelUpModal({
           <Button 
             variant="outline"
             className="bg-transparent border border-gray-600 text-gray-300 font-bold py-3 rounded-xl"
-            onClick={onClose}
+            onClick={handleClose}
+            type="button"
           >
             Cancel
           </Button>
@@ -154,6 +128,7 @@ export default function LevelUpModal({
             className="bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-xl"
             onClick={handleApply}
             disabled={!hasChanges}
+            type="button"
           >
             Apply Changes
           </Button>

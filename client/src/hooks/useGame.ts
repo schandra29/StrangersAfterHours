@@ -178,8 +178,7 @@ export function useGame() {
   // Get a completely random prompt (from any level or intensity)
   const getRandomPrompt = async () => {
     try {
-      // Important: Don't pass any excludeIds parameter at all to simplify
-      // and avoid the SQL error we were seeing
+      // Simplified call to random endpoint with no parameters to avoid SQL errors
       const response = await apiRequest("GET", `/api/prompts/random`);
       
       if (!response.ok) {
@@ -191,24 +190,30 @@ export function useGame() {
       if (randomPrompt) {
         console.log("Got random prompt:", randomPrompt);
         
-        // Set the current prompt
+        // FIRST update the level and intensity BEFORE setting the current prompt
+        // This ensures UI consistency
+        
+        // Save the values from the random prompt
+        const newLevel = randomPrompt.level;
+        const newIntensity = randomPrompt.intensity;
+        
+        // 1. First update the state variables directly
+        setLevel(newLevel);
+        setIntensity(newIntensity);
+        
+        // 2. Then update the current prompt
         setCurrentPrompt(randomPrompt);
         setUsedPromptIds(prev => [...prev, randomPrompt.id]);
         
-        // Mark as used in localStorage for long-term persistence
+        // 3. Update persistent storage
         markPromptAsUsed(randomPrompt.id);
         
-        // Update the level and intensity to match the random prompt
-        // This is crucial - we need to update these values to match what we got
-        setLevelCustom(randomPrompt.level);
-        setIntensityCustom(randomPrompt.intensity);
-        
-        // Update session in backend
+        // 4. Finally update the backend if we have a session
         if (sessionId) {
           updateSession.mutate({ 
             usedPromptIds: [...usedPromptIds, randomPrompt.id],
-            currentLevel: randomPrompt.level,
-            currentIntensity: randomPrompt.intensity
+            currentLevel: newLevel,
+            currentIntensity: newIntensity
           });
         }
         
@@ -223,7 +228,6 @@ export function useGame() {
         variant: "destructive",
       });
       
-      // Don't fallback to getNextPrompt to avoid duplicate toasts
       return false;
     }
   };
