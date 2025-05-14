@@ -257,4 +257,62 @@ export class DatabaseStorage implements IStorage {
     const result = await db.insert(challenges).values(challengesWithDefaults).returning({ id: challenges.id });
     return result.length;
   }
+
+  // Access code operations
+  async createAccessCode(insertAccessCode: InsertAccessCode): Promise<AccessCode> {
+    const [accessCode] = await db
+      .insert(accessCodes)
+      .values({
+        ...insertAccessCode,
+        usageCount: 0,
+      })
+      .returning();
+    
+    return accessCode;
+  }
+  
+  async getAccessCodeByCode(code: string): Promise<AccessCode | undefined> {
+    const [accessCode] = await db
+      .select()
+      .from(accessCodes)
+      .where(eq(accessCodes.code, code));
+    
+    return accessCode;
+  }
+  
+  async validateAccessCode(code: string): Promise<boolean> {
+    const accessCode = await this.getAccessCodeByCode(code);
+    
+    if (!accessCode) {
+      return false;
+    }
+    
+    // Check if code is active
+    if (!accessCode.isActive) {
+      return false;
+    }
+    
+    // Check if code has reached max usages
+    if (accessCode.maxUsages !== null && accessCode.usageCount >= accessCode.maxUsages) {
+      return false;
+    }
+    
+    return true;
+  }
+  
+  async incrementAccessCodeUsage(id: number): Promise<AccessCode> {
+    const [accessCode] = await db
+      .update(accessCodes)
+      .set({
+        usageCount: sql`${accessCodes.usageCount} + 1`
+      })
+      .where(eq(accessCodes.id, id))
+      .returning();
+    
+    if (!accessCode) {
+      throw new Error(`Access code with ID ${id} not found`);
+    }
+    
+    return accessCode;
+  }
 }

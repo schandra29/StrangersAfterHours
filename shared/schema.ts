@@ -91,6 +91,13 @@ export const accessCodes = pgTable("access_codes", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
+// Session storage for express-session with connect-pg-simple
+export const sessions = pgTable("sessions", {
+  sid: text("sid").primaryKey(),
+  sess: jsonb("sess").notNull(),
+  expire: timestamp("expire").notNull(),
+});
+
 export const insertAccessCodeSchema = createInsertSchema(accessCodes).omit({
   id: true,
   usageCount: true,

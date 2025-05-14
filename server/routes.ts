@@ -7,9 +7,15 @@ import {
   insertGameSessionSchema 
 } from "@shared/schema";
 import { importRouter } from "./routes/import";
+import { authRouter } from "./routes/auth";
+import { sessionMiddleware, isAuthenticated } from "./session";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // prefix all routes with /api
+  // Set up session middleware
+  app.use(sessionMiddleware);
+  
+  // Auth routes (not protected)
+  app.use("/api/auth", authRouter);
   
   // Import routes
   app.use("/api", importRouter);
