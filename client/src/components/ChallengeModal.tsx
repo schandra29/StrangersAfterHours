@@ -13,6 +13,7 @@ interface ChallengeModalProps {
   type: "Dare" | "R-Rated Dare" | "Take a Sip";
   intensity: number;
   isDrinkingGame: boolean;
+  onChallengeComplete?: () => void; // Callback for when challenge is completed
 }
 
 export default function ChallengeModal({
@@ -20,7 +21,8 @@ export default function ChallengeModal({
   onClose,
   type,
   intensity,
-  isDrinkingGame
+  isDrinkingGame,
+  onChallengeComplete
 }: ChallengeModalProps) {
   const [challenge, setChallenge] = useState<string | null>(null);
   const [currentView, setCurrentView] = useState<ChallengeView>("challenge");
@@ -64,12 +66,19 @@ export default function ChallengeModal({
   }, [isOpen]);
   
   const handleAccept = () => {
+    // Call the challenge complete callback before closing
+    if (onChallengeComplete) {
+      onChallengeComplete();
+    }
     onClose();
   };
   
   const handleAcceptAndRecord = () => {
     if (type === "Take a Sip") {
       // Don't show recording option for "Take a Sip"
+      if (onChallengeComplete) {
+        onChallengeComplete();
+      }
       onClose();
       return;
     }
@@ -166,6 +175,10 @@ export default function ChallengeModal({
   };
   
   const handlePass = () => {
+    // Call the challenge complete callback before closing
+    if (onChallengeComplete) {
+      onChallengeComplete();
+    }
     onClose();
   };
   
@@ -325,7 +338,12 @@ export default function ChallengeModal({
       <div className="grid grid-cols-1 gap-3">
         <Button 
           className="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 rounded-xl"
-          onClick={onClose}
+          onClick={() => {
+            if (onChallengeComplete) {
+              onChallengeComplete();
+            }
+            onClose();
+          }}
         >
           <i className="ri-questionnaire-line mr-2"></i>
           Assign a Dare
@@ -333,7 +351,12 @@ export default function ChallengeModal({
         
         <Button 
           className="bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-xl"
-          onClick={onClose}
+          onClick={() => {
+            if (onChallengeComplete) {
+              onChallengeComplete();
+            }
+            onClose();
+          }}
         >
           <i className="ri-emotion-laugh-line mr-2"></i>
           Assign Act It Out
@@ -342,7 +365,12 @@ export default function ChallengeModal({
         {isDrinkingGame && (
           <Button 
             className="bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-xl"
-            onClick={onClose}
+            onClick={() => {
+              if (onChallengeComplete) {
+                onChallengeComplete();
+              }
+              onClose();
+            }}
           >
             <i className="ri-goblet-line mr-2"></i>
             Assign Take a Sip
@@ -352,7 +380,12 @@ export default function ChallengeModal({
         <Button 
           variant="outline"
           className="bg-transparent border border-gray-600 text-gray-300 font-bold py-3 rounded-xl"
-          onClick={onClose}
+          onClick={() => {
+            if (onChallengeComplete) {
+              onChallengeComplete();
+            }
+            onClose();
+          }}
         >
           Skip and Continue
         </Button>

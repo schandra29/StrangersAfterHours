@@ -167,6 +167,10 @@ export default function Home() {
           type={selectedChallengeType}
           intensity={game.currentIntensity}
           isDrinkingGame={game.isDrinkingGame}
+          onChallengeComplete={() => {
+            // Get a new prompt when challenge is completed
+            game.getNextPrompt();
+          }}
         />
         
         <LevelUpModal 
