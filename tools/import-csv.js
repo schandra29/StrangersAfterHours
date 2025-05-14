@@ -111,14 +111,14 @@ async function importPrompts(prompts) {
     console.log(`Importing batch ${i + 1}/${batches.length} (${batch.length} prompts)...`);
     
     // Make the API request
-    const requestData = JSON.stringify({ prompts: batch });
+    const requestData = JSON.stringify(batch);
     
     // Create a Promise for the HTTP request
     const importBatch = new Promise((resolve, reject) => {
       const options = {
         hostname: 'localhost',
         port: 5000,
-        path: '/api/import/prompts',
+        path: '/api/import/prompts/import',
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
