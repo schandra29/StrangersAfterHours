@@ -4,6 +4,7 @@ import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { type Prompt, type GameSession } from "@shared/schema";
 import { fallbackPrompts, getLevelName } from "@/lib/gameData";
+import { getUsedPromptIds, markPromptAsUsed } from "@/lib/utils";
 
 export function useGame() {
   const [currentLevel, setLevel] = useState<number>(1);
@@ -15,11 +16,29 @@ export function useGame() {
   
   const { toast } = useToast();
   const queryClient = useQueryClient();
+  
+  // Load used prompts from localStorage on mount
+  useEffect(() => {
+    const storedIds = getUsedPromptIds();
+    setUsedPromptIds(storedIds);
+  }, []);
 
-  // Fetch prompts
+  // Fetch prompts, excluding already used ones
   const { data: prompts, isLoading: isLoadingPrompts } = useQuery<Prompt[]>({
-    queryKey: [`/api/prompts?level=${currentLevel}&intensity=${currentIntensity}`],
+    queryKey: [`/api/prompts?level=${currentLevel}&intensity=${currentIntensity}`, usedPromptIds],
     enabled: !!currentLevel && !!currentIntensity,
+    queryFn: async () => {
+      // Convert used prompt IDs to a query string
+      const excludeIdsParam = usedPromptIds.length > 0 
+        ? `&excludeIds=${usedPromptIds.join('&excludeIds=')}` 
+        : '';
+      
+      const response = await apiRequest(
+        "GET", 
+        `/api/prompts?level=${currentLevel}&intensity=${currentIntensity}${excludeIdsParam}`
+      );
+      return response.json();
+    }
   });
 
   // Create new game session
@@ -87,16 +106,28 @@ export function useGame() {
     let availablePrompts: Prompt[] = [];
     
     if (prompts && prompts.length > 0) {
-      // Filter prompts not yet used
+      // Filter prompts not yet used in the current session
       availablePrompts = prompts.filter(
         prompt => !usedPromptIds.includes(prompt.id)
       );
     }
     
-    // If we run out of prompts, reset used IDs but avoid the most recent one
+    // If we run out of prompts in the current session, reset session IDs but avoid the most recent one
     if (availablePrompts.length === 0) {
       const mostRecentId = currentPrompt?.id;
       setUsedPromptIds(mostRecentId ? [mostRecentId] : []);
+      
+      // Check if we've seen all prompts in this level/intensity in localStorage
+      const storedUsedIds = getUsedPromptIds();
+      const allUsedInLocalStorage = prompts && prompts.every(prompt => storedUsedIds.includes(prompt.id));
+      
+      if (allUsedInLocalStorage && prompts && prompts.length > 0) {
+        // Show toast message that all prompts have been seen at this level
+        toast({
+          title: "All prompts seen!",
+          description: `You've seen all prompts at this level and intensity. Consider increasing the level or intensity, or reset used prompts in the Game Menu.`,
+        });
+      }
       
       if (prompts && prompts.length > 0) {
         availablePrompts = prompts.filter(
@@ -126,6 +157,9 @@ export function useGame() {
       setCurrentPrompt(newPrompt);
       setUsedPromptIds(prev => [...prev, newPrompt.id]);
       
+      // Track in localStorage for long-term persistence
+      markPromptAsUsed(newPrompt.id);
+      
       // Update session in backend
       if (sessionId) {
         updateSession.mutate({ 
@@ -138,13 +172,24 @@ export function useGame() {
   // Get a completely random prompt (from any level or intensity)
   const getRandomPrompt = async () => {
     try {
-      const response = await apiRequest("GET", "/api/prompts/random");
+      // Get used prompt IDs from localStorage to exclude
+      const storedUsedIds = getUsedPromptIds();
+      
+      // Construct the query to exclude used prompts
+      const excludeIdsParam = storedUsedIds.length > 0 
+        ? `?excludeIds=${storedUsedIds.join('&excludeIds=')}` 
+        : '';
+      
+      const response = await apiRequest("GET", `/api/prompts/random${excludeIdsParam}`);
       const randomPrompt: Prompt = await response.json();
       
       if (randomPrompt) {
         // Set the current prompt
         setCurrentPrompt(randomPrompt);
         setUsedPromptIds(prev => [...prev, randomPrompt.id]);
+        
+        // Mark as used in localStorage for long-term persistence
+        markPromptAsUsed(randomPrompt.id);
         
         // Update the level and intensity to match the random prompt
         setLevel(randomPrompt.level);
