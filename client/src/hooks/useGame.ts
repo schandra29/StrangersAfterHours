@@ -100,7 +100,7 @@ export function useGame() {
       } else {
         // Use fallback prompts if API fails
         availablePrompts = fallbackPrompts
-          .filter(p => p.level === currentLevel && p.intensity <= currentIntensity)
+          .filter(p => p.level === currentLevel && (p.intensity || 1) <= currentIntensity)
           .map((p, index) => ({
             id: index,
             text: p.text || "Prompt not available",
@@ -127,6 +127,41 @@ export function useGame() {
           usedPromptIds: [...usedPromptIds, newPrompt.id] 
         });
       }
+    }
+  };
+  
+  // Get a completely random prompt (from any level or intensity)
+  const getRandomPrompt = async () => {
+    try {
+      const response = await apiRequest("GET", "/api/prompts/random");
+      const randomPrompt: Prompt = await response.json();
+      
+      if (randomPrompt) {
+        setCurrentPrompt(randomPrompt);
+        setUsedPromptIds(prev => [...prev, randomPrompt.id]);
+        
+        // Update session in backend
+        if (sessionId) {
+          updateSession.mutate({ 
+            usedPromptIds: [...usedPromptIds, randomPrompt.id] 
+          });
+        }
+        
+        // Show toast
+        toast({
+          title: "Random Prompt",
+          description: `This is a ${getLevelName(randomPrompt.level)} prompt with intensity ${randomPrompt.intensity}`,
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to fetch a random prompt",
+        variant: "destructive",
+      });
+      
+      // Fallback to normal getNextPrompt if the random API fails
+      getNextPrompt();
     }
   };
 
@@ -162,6 +197,7 @@ export function useGame() {
     isLoadingPrompts,
     startNewGame,
     getNextPrompt,
+    getRandomPrompt,
     setLevel,
     setIntensity,
     toggleDrinkingGame,

@@ -27,6 +27,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
   
+  app.get("/api/prompts/random", async (req, res) => {
+    try {
+      const randomPrompt = await storage.getRandomPrompt();
+      if (!randomPrompt) {
+        return res.status(404).json({ message: "No prompts available" });
+      }
+      
+      res.json(randomPrompt);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch random prompt" });
+    }
+  });
+  
   app.post("/api/prompts", async (req, res) => {
     try {
       const validatedData = insertPromptSchema.parse(req.body);

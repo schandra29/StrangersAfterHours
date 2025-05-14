@@ -38,8 +38,12 @@ export default function Home() {
     setShowChallenge(true);
   };
 
-  const handleLevelUp = () => {
+  const handleLevelChange = (type: "level" | "intensity") => {
     setShowLevelUp(true);
+  };
+  
+  const handleRandomPrompt = () => {
+    game.getRandomPrompt();
   };
 
   const handleRestartGame = () => {
@@ -88,7 +92,8 @@ export default function Home() {
             onMenu={() => setShowGameMenu(true)}
             onNextPrompt={game.getNextPrompt}
             onChallenge={handleOpenChallenge}
-            onLevelUp={handleLevelUp}
+            onLevelChange={handleLevelChange}
+            onRandomPrompt={handleRandomPrompt}
           />
         )}
         

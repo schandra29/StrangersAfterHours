@@ -88,6 +88,17 @@ export class MemStorage implements IStorage {
     );
   }
 
+  async getRandomPrompt(): Promise<Prompt | undefined> {
+    const allPrompts = Array.from(this.prompts.values());
+    if (allPrompts.length === 0) {
+      return undefined;
+    }
+    
+    // Get a random prompt from the entire collection
+    const randomIndex = Math.floor(Math.random() * allPrompts.length);
+    return allPrompts[randomIndex];
+  }
+
   async getPromptById(id: number): Promise<Prompt | undefined> {
     return this.prompts.get(id);
   }
