@@ -35,6 +35,15 @@ export default function GameMenuModal({
       action: onHowToPlay
     }
   ];
+  
+  // Add the custom challenge option if the handler is provided
+  if (onAddCustomChallenge) {
+    menuOptions.push({
+      icon: "ri-add-line",
+      label: "Add Custom Challenge",
+      action: onAddCustomChallenge
+    });
+  }
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>

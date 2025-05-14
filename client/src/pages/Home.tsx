@@ -6,6 +6,7 @@ import HowToPlayModal from "@/components/HowToPlayModal";
 import GameMenuModal from "@/components/GameMenuModal";
 import ChallengeModal from "@/components/ChallengeModal";
 import LevelUpModal from "@/components/LevelUpModal";
+import CustomChallengeForm from "@/components/CustomChallengeForm";
 import { useGame } from "@/hooks/useGame";
 
 type Screen = "welcome" | "setup" | "game";
@@ -16,6 +17,7 @@ export default function Home() {
   const [showGameMenu, setShowGameMenu] = useState(false);
   const [showChallenge, setShowChallenge] = useState(false);
   const [showLevelUp, setShowLevelUp] = useState(false);
+  const [showCustomChallengeForm, setShowCustomChallengeForm] = useState(false);
   const [selectedChallengeType, setSelectedChallengeType] = useState<"Dare" | "Act It Out" | "Take a Sip">("Dare");
   
   const game = useGame();
@@ -55,6 +57,11 @@ export default function Home() {
     // The level and intensity have already been updated in the LevelUpModal component
     // through the game context, so we just need to get a new prompt
     game.getNextPrompt();
+  };
+  
+  const handleAddCustomChallenge = () => {
+    setShowCustomChallengeForm(true);
+    setShowGameMenu(false); // Close the menu when opening the form
   };
 
   return (
@@ -111,6 +118,7 @@ export default function Home() {
             setShowHowToPlay(true);
             setShowGameMenu(false);
           }}
+          onAddCustomChallenge={handleAddCustomChallenge}
         />
         
         <ChallengeModal 
@@ -127,6 +135,14 @@ export default function Home() {
           currentLevel={game.currentLevel}
           currentIntensity={game.currentIntensity}
           onConfirm={handleConfirmLevelUp}
+        />
+        
+        <CustomChallengeForm
+          isOpen={showCustomChallengeForm}
+          onClose={() => setShowCustomChallengeForm(false)}
+          onSuccess={() => {
+            // Show a success message or refresh challenges if needed
+          }}
         />
       </div>
     </div>
