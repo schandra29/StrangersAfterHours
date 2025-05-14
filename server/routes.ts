@@ -50,19 +50,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
   
   app.get("/api/prompts/random", isAuthenticated, async (req, res) => {
     try {
-      const excludeIds = req.query.excludeIds ? 
-        (Array.isArray(req.query.excludeIds) 
-          ? req.query.excludeIds.map(id => parseInt(id as string))
-          : [parseInt(req.query.excludeIds as string)]) 
-        : [];
-      
-      // First try to get a random prompt excluding the used ones
-      let randomPrompt = await storage.getRandomPrompt(excludeIds);
-      
-      // If all prompts have been used (and none are available), reset and get any random prompt
-      if (!randomPrompt && excludeIds.length > 0) {
-        randomPrompt = await storage.getRandomPrompt([]);
-      }
+      // Simplify: just get any random prompt without filtering
+      // This is a temporary measure to ensure functionality
+      const randomPrompt = await storage.getRandomPrompt([]);
       
       if (!randomPrompt) {
         return res.status(404).json({ message: "No prompts available" });

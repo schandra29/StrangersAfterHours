@@ -46,32 +46,38 @@ export default function LevelUpModal({
     if (levelChanged || intensityChanged) {
       console.log(`Changing from Level ${currentLevel}/Intensity ${currentIntensity} to Level ${selectedLevel}/Intensity ${selectedIntensity}`);
       
-      // Save the selected values
+      // Save the selected values to local variables to ensure they're captured correctly
       const newLevel = selectedLevel;
       const newIntensity = selectedIntensity;
       
-      // Apply both changes at once to ensure consistency
-      if (levelChanged) {
-        game.setLevel(newLevel);
+      // Make a direct callback to parent first before any async operations
+      if (levelChanged || intensityChanged) {
+        // Close modal first to avoid visual interruptions
+        onClose();
+        
+        // First update the game state completely
+        if (levelChanged) {
+          game.setLevel(newLevel);
+        }
+        
+        if (intensityChanged) {
+          game.setIntensity(newIntensity);
+        }
+        
+        // Update backend
+        if (game.sessionId) {
+          game.updateSessionLevelIntensity(newLevel, newIntensity);
+        }
+        
+        // Notify parent with a slight delay to ensure state propagation
+        setTimeout(() => {
+          onConfirm(levelChanged ? "level" : "intensity");
+        }, 100);
       }
-      
-      if (intensityChanged) {
-        game.setIntensity(newIntensity);
-      }
-      
-      // Update the session in the database to ensure persistence
-      if (game.sessionId) {
-        game.updateSessionLevelIntensity(newLevel, newIntensity);
-      }
-      
-      // Give the state time to update before notifying parent
-      setTimeout(() => {
-        // Notify parent component that changes were made for UI updates
-        onConfirm(levelChanged ? "level" : "intensity");
-      }, 50);
+    } else {
+      // Just close if no changes
+      onClose();
     }
-    
-    onClose();
   };
   
   const hasChanges = selectedLevel !== currentLevel || selectedIntensity !== currentIntensity;

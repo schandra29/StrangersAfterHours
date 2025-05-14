@@ -65,25 +65,20 @@ export default function Home() {
   };
 
   const handleConfirmLevelUp = (type: "level" | "intensity") => {
-    // Log the current values used (from the game state)
-    console.log(`Level/Intensity updated to: Level ${game.currentLevel}/Intensity ${game.currentIntensity}`);
+    // Get updated values directly from the game state
+    const updatedLevel = game.currentLevel;
+    const updatedIntensity = game.currentIntensity;
+    
+    console.log(`Level/Intensity updated to: Level ${updatedLevel}/Intensity ${updatedIntensity}`);
     
     // Add a toast to confirm the change to the user
     toast({
       title: "Settings Updated",
-      description: `Now showing ${getLevelName(game.currentLevel)} prompts with intensity ${game.currentIntensity}`,
+      description: `Now showing ${getLevelName(updatedLevel)} prompts with intensity ${updatedIntensity}`,
     });
     
-    // Force update the session in the backend to ensure consistency
-    if (game.sessionId) {
-      game.updateSessionLevelIntensity(game.currentLevel, game.currentIntensity);
-    }
-    
-    // Force fetching a new prompt with the updated level/intensity
-    setTimeout(() => {
-      // This ensures the game screen is updated with the new level/intensity
-      game.getNextPrompt();
-    }, 100);
+    // Get a new prompt with the updated settings (this already happens inside the game logic)
+    game.getNextPrompt();
   };
   
   const handleAddCustomChallenge = () => {
