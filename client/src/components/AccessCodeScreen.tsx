@@ -36,8 +36,10 @@ export default function AccessCodeScreen() {
           description: "Welcome to Strangers: After Hours!",
         });
         
-        // Force a hard page reload to the root to ensure proper authentication state
-        window.location.replace("/");
+        // Wait for toast to be visible, then redirect using React router
+        setTimeout(() => {
+          setLocation("/");
+        }, 500);
       } else {
         toast({
           title: "Access Denied",

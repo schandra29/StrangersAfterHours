@@ -31,19 +31,30 @@ function ProtectedRoute({ component: Component, ...rest }: any) {
 }
 
 function Router() {
-  const { isAuthenticated } = useAuth();
-  
-  // If authenticated, redirect from /access to home
-  if (isAuthenticated && window.location.pathname === "/access") {
-    window.location.replace("/");
-    return <div className="flex items-center justify-center min-h-screen">
-      <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-primary"></div>
-    </div>;
-  }
+  const { isAuthenticated, isLoading } = useAuth();
   
   return (
     <Switch>
-      <Route path="/access" component={AccessCodeScreen} />
+      <Route path="/access">
+        {() => {
+          // If loading, show loading screen
+          if (isLoading) {
+            return (
+              <div className="flex items-center justify-center min-h-screen">
+                <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-primary"></div>
+              </div>
+            );
+          }
+          
+          // If authenticated, redirect to home page
+          if (isAuthenticated) {
+            return <Redirect to="/" />;
+          }
+          
+          // If not authenticated, show access code screen
+          return <AccessCodeScreen />;
+        }}
+      </Route>
       <Route path="/">
         {(params) => <ProtectedRoute component={Home} params={params} />}
       </Route>
