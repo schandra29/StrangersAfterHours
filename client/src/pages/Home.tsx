@@ -16,7 +16,7 @@ export default function Home() {
   const [showGameMenu, setShowGameMenu] = useState(false);
   const [showChallenge, setShowChallenge] = useState(false);
   const [showLevelUp, setShowLevelUp] = useState(false);
-  const [selectedChallengeType, setSelectedChallengeType] = useState<"Truth or Dare" | "Act It Out">("Truth or Dare");
+  const [selectedChallengeType, setSelectedChallengeType] = useState<"Truth or Dare" | "Act It Out" | "Take a Sip">("Truth or Dare");
   
   const game = useGame();
 
@@ -33,7 +33,7 @@ export default function Home() {
     setCurrentScreen("game");
   };
 
-  const handleOpenChallenge = (type: "Truth or Dare" | "Act It Out") => {
+  const handleOpenChallenge = (type: "Truth or Dare" | "Act It Out" | "Take a Sip") => {
     setSelectedChallengeType(type);
     setShowChallenge(true);
   };
@@ -84,6 +84,7 @@ export default function Home() {
             currentLevel={game.currentLevel}
             currentIntensity={game.currentIntensity}
             currentPrompt={game.currentPrompt}
+            isDrinkingGame={game.isDrinkingGame}
             onMenu={() => setShowGameMenu(true)}
             onNextPrompt={game.getNextPrompt}
             onChallenge={handleOpenChallenge}
