@@ -21,7 +21,7 @@ export default function WelcomeScreen({ onStartGame, onHowToPlay }: WelcomeScree
       </div>
       
       <div className="mb-8">
-        <p className="mb-4 text-gray-300 text-center">
+        <p className="mb-6 text-gray-300 text-center">
           Gather your friends and get ready for meaningful conversations ranging from lighthearted to deep and revealing.
         </p>
         
