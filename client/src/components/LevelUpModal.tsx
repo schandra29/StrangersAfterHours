@@ -46,34 +46,36 @@ export default function LevelUpModal({
     if (levelChanged || intensityChanged) {
       console.log(`Changing from Level ${currentLevel}/Intensity ${currentIntensity} to Level ${selectedLevel}/Intensity ${selectedIntensity}`);
       
-      // Save the selected values to local variables to ensure they're captured correctly
+      // IMPORTANT: Create local variables to ensure we're using the correct values
       const newLevel = selectedLevel;
       const newIntensity = selectedIntensity;
       
-      // Make a direct callback to parent first before any async operations
-      if (levelChanged || intensityChanged) {
-        // Close modal first to avoid visual interruptions
-        onClose();
-        
-        // First update the game state completely
-        if (levelChanged) {
-          game.setLevel(newLevel);
-        }
-        
-        if (intensityChanged) {
-          game.setIntensity(newIntensity);
-        }
-        
-        // Update backend
-        if (game.sessionId) {
-          game.updateSessionLevelIntensity(newLevel, newIntensity);
-        }
-        
-        // Notify parent with a slight delay to ensure state propagation
-        setTimeout(() => {
-          onConfirm(levelChanged ? "level" : "intensity");
-        }, 100);
+      // First close the modal to avoid UI interruptions
+      onClose();
+      
+      // Synchronize changes with important sequence:
+      
+      // 1. First update the session - do this before changing the game state
+      //    This ensures the backend has the correct values
+      if (game.sessionId) {
+        game.updateSessionLevelIntensity(newLevel, newIntensity);
       }
+      
+      // 2. Then update the local game state
+      //    This is critical to be in the right order
+      if (levelChanged) {
+        game.setLevel(newLevel);
+      }
+      
+      if (intensityChanged) {
+        game.setIntensity(newIntensity);
+      }
+      
+      // 3. Finally, notify the parent with reliable level/intensity values
+      //    Use a short timeout to ensure all state updates have propagated
+      setTimeout(() => {
+        onConfirm(levelChanged ? "level" : "intensity");
+      }, 200);
     } else {
       // Just close if no changes
       onClose();

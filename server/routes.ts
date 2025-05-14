@@ -10,6 +10,7 @@ import { importRouter } from "./routes/import";
 import { authRouter } from "./routes/auth";
 import { adminRouter } from "./routes/admin";
 import { sessionMiddleware, isAuthenticated } from "./session";
+import { pool } from "./db";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Set up session middleware
@@ -50,14 +51,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
   
   app.get("/api/prompts/random", isAuthenticated, async (req, res) => {
     try {
-      // Simplify: just get any random prompt without filtering
-      // This is a temporary measure to ensure functionality
-      const randomPrompt = await storage.getRandomPrompt([]);
+      // Simplified approach: just get a random prompt without any filtering
+      // Don't use excludeIds since that was causing SQL errors
       
-      if (!randomPrompt) {
+      // Create a simple SQL query directly
+      const result = await pool.query('SELECT * FROM prompts ORDER BY RANDOM() LIMIT 1');
+      
+      if (!result.rows || result.rows.length === 0) {
         return res.status(404).json({ message: "No prompts available" });
       }
       
+      const randomPrompt = result.rows[0];
       res.json(randomPrompt);
     } catch (error) {
       console.error("Error fetching random prompt:", error);

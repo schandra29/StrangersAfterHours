@@ -178,15 +178,9 @@ export function useGame() {
   // Get a completely random prompt (from any level or intensity)
   const getRandomPrompt = async () => {
     try {
-      // Get used prompt IDs from localStorage to exclude
-      const storedUsedIds = getUsedPromptIds();
-      
-      // Construct the query to exclude used prompts
-      const excludeIdsParam = storedUsedIds.length > 0 
-        ? `?excludeIds=${storedUsedIds.join('&excludeIds=')}` 
-        : '';
-      
-      const response = await apiRequest("GET", `/api/prompts/random${excludeIdsParam}`);
+      // Important: Don't pass any excludeIds parameter at all to simplify
+      // and avoid the SQL error we were seeing
+      const response = await apiRequest("GET", `/api/prompts/random`);
       
       if (!response.ok) {
         throw new Error(`Server returned ${response.status}`);
@@ -195,6 +189,8 @@ export function useGame() {
       const randomPrompt: Prompt = await response.json();
       
       if (randomPrompt) {
+        console.log("Got random prompt:", randomPrompt);
+        
         // Set the current prompt
         setCurrentPrompt(randomPrompt);
         setUsedPromptIds(prev => [...prev, randomPrompt.id]);
@@ -203,8 +199,9 @@ export function useGame() {
         markPromptAsUsed(randomPrompt.id);
         
         // Update the level and intensity to match the random prompt
-        setLevel(randomPrompt.level);
-        setIntensity(randomPrompt.intensity);
+        // This is crucial - we need to update these values to match what we got
+        setLevelCustom(randomPrompt.level);
+        setIntensityCustom(randomPrompt.intensity);
         
         // Update session in backend
         if (sessionId) {
