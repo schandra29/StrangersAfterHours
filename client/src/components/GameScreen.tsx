@@ -70,8 +70,8 @@ export default function GameScreen({
       
       {/* Challenge Section */}
       <div className="card bg-secondary/10 rounded-3xl p-6 mb-6 border border-secondary/20">
-        <h3 className="font-heading font-bold text-xl text-white mb-4">Want to challenge someone?</h3>
-        <p className="text-gray-300 mb-4">After someone answers, you can challenge them to:</p>
+        <h3 className="font-heading font-bold text-xl text-white mb-4">If you don't want to answer, select one of these options</h3>
+        <p className="text-gray-300 mb-4">Instead of answering the prompt, you can choose to:</p>
         
         <div className="grid grid-cols-2 gap-3 mb-4">
           <button 
@@ -91,7 +91,7 @@ export default function GameScreen({
         </div>
         
         <div className="text-sm text-center text-gray-400">
-          They can choose to accept or pass
+          You can return to answering the prompt anytime
         </div>
       </div>
       
