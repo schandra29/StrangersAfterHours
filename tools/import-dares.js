@@ -10,9 +10,10 @@
  * 2. Run: node tools/import-dares.js ../dares-template.csv
  */
 
-const fs = require('fs');
-const path = require('path');
-const fetch = require('node-fetch');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import fetch from 'node-fetch';
 
 // Function to parse the CSV file
 function parseCSV(filePath) {
@@ -84,6 +85,9 @@ async function main() {
     console.log('Usage: node import-dares.js <csv-file-path>');
     process.exit(1);
   }
+  
+  // Get current file directory (equivalent to __dirname in CommonJS)
+  const __dirname = path.dirname(fileURLToPath(import.meta.url));
   
   const filePath = process.argv[2];
   const resolvedPath = path.resolve(__dirname, filePath);

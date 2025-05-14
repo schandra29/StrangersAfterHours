@@ -17,6 +17,7 @@ export interface IStorage {
   getRandomPrompt(): Promise<Prompt | undefined>;
   getPromptById(id: number): Promise<Prompt | undefined>;
   getCustomPromptsByUser(userId: number): Promise<Prompt[]>;
+  batchImportPrompts(prompts: InsertPrompt[]): Promise<number>; // Returns count of imported prompts
   
   // Challenge operations
   createChallenge(challenge: InsertChallenge): Promise<Challenge>;
@@ -24,6 +25,7 @@ export interface IStorage {
   getChallengeById(id: number): Promise<Challenge | undefined>;
   getChallengesByType(type: string, intensity: number): Promise<Challenge[]>;
   getCustomChallengesByUser(userId: number): Promise<Challenge[]>;
+  batchImportChallenges(challenges: InsertChallenge[]): Promise<number>; // Returns count of imported challenges
   
   // Game session operations
   createGameSession(session: InsertGameSession): Promise<GameSession>;
@@ -168,6 +170,24 @@ export class MemStorage implements IStorage {
     
     this.gameSessions.set(id, updatedSession);
     return updatedSession;
+  }
+  
+  async batchImportPrompts(promptsToImport: InsertPrompt[]): Promise<number> {
+    let count = 0;
+    for (const prompt of promptsToImport) {
+      await this.createPrompt(prompt);
+      count++;
+    }
+    return count;
+  }
+  
+  async batchImportChallenges(challengesToImport: InsertChallenge[]): Promise<number> {
+    let count = 0;
+    for (const challenge of challengesToImport) {
+      await this.createChallenge(challenge);
+      count++;
+    }
+    return count;
   }
 
   // Helper methods to initialize default data
