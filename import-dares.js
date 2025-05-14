@@ -33,8 +33,8 @@ function parseCSV(filePath) {
     const challenge = {
       text: text.replace(/^"|"$/g, ''), // Remove quotes if present
       type: "Dare",
-      // Assign random intensity between 1-3
-      intensity: Math.floor(Math.random() * 3) + 1,
+      // Assign intensity level 1 to make it accessible at all intensity levels
+      intensity: 1,
       isCustom: false,
       userId: null
     };
