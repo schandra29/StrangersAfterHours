@@ -7,7 +7,7 @@ import { type Challenge } from "@shared/schema";
 interface ChallengeModalProps {
   isOpen: boolean;
   onClose: () => void;
-  type: "Truth or Dare" | "Act It Out" | "Take a Sip";
+  type: "Dare" | "Act It Out" | "Take a Sip";
   intensity: number;
   isDrinkingGame: boolean;
 }
@@ -49,7 +49,7 @@ export default function ChallengeModal({
         <div className="bg-white/10 rounded-xl p-4 mb-6">
           <p className="text-white font-medium">
             {challenge || "Loading challenge..."}
-            {isDrinkingGame && type === "Truth or Dare" && challenge && (
+            {isDrinkingGame && type === "Dare" && challenge && (
               <span className="block mt-2 text-sm text-secondary">
                 (If passing, take a sip of your drink)
               </span>

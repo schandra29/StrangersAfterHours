@@ -8,7 +8,7 @@ interface GameScreenProps {
   isDrinkingGame: boolean;
   onMenu: () => void;
   onNextPrompt: () => void;
-  onChallenge: (type: "Truth or Dare" | "Act It Out" | "Take a Sip") => void;
+  onChallenge: (type: "Dare" | "Act It Out" | "Take a Sip") => void;
   onLevelUp: () => void;
 }
 
@@ -78,10 +78,10 @@ export default function GameScreen({
         <div className={`grid ${isDrinkingGame ? 'grid-cols-3' : 'grid-cols-2'} gap-3 mb-4`}>
           <button 
             className="bg-secondary/20 hover:bg-secondary/30 text-white py-3 px-4 rounded-xl text-center"
-            onClick={() => onChallenge("Truth or Dare")}
+            onClick={() => onChallenge("Dare")}
           >
             <i className="ri-questionnaire-line mb-1 text-xl block"></i>
-            <span className="block font-medium">Truth or Dare</span>
+            <span className="block font-medium">Dare</span>
           </button>
           <button 
             className="bg-secondary/20 hover:bg-secondary/30 text-white py-3 px-4 rounded-xl text-center"
