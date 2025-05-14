@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
 interface HowToPlayModalProps {
   isOpen: boolean;
@@ -18,15 +18,9 @@ export default function HowToPlayModal({ isOpen, onClose }: HowToPlayModalProps)
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="bg-card rounded-3xl p-6 max-w-sm mx-4 border border-primary shadow-xl">
-        <div className="flex justify-between items-center mb-4">
-          <h3 className="font-heading font-bold text-2xl text-white">How to Play</h3>
-          <button 
-            className="text-gray-400 hover:text-white"
-            onClick={onClose}
-          >
-            <i className="ri-close-line text-xl"></i>
-          </button>
-        </div>
+        <DialogTitle className="font-heading font-bold text-2xl text-white mb-4">
+          How to Play
+        </DialogTitle>
         
         <div className="mb-6 space-y-4">
           {steps.map((step, index) => (
