@@ -123,7 +123,7 @@ async function importPrompts(prompts) {
         `(${i + idx + 1}, '${p.text.replace(/'/g, "''")}', ${p.level}, ${p.intensity}, '${p.category.replace(/'/g, "''")}', ${p.isCustom}, ${p.userId === null ? 'NULL' : p.userId})`
       ).join(',');
       
-      const query = `INSERT INTO prompts (id, text, level, intensity, category, "isCustom", "userId") VALUES ${values}`;
+      const query = `INSERT INTO prompts (id, text, level, intensity, category, is_custom, user_id) VALUES ${values}`;
       await pool.query(query);
       successCount += batch.length;
     } catch (err) {
