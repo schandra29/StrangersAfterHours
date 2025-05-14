@@ -17,11 +17,10 @@ This document provides instructions on how to add new dares to the "Strangers: A
 For adding multiple dares at once, you can use the CSV import utility:
 
 1. Open the `dares-template.csv` file in a text editor or spreadsheet program
-2. Each line should have the format: `Dare,intensity,text`
-   - The first column should always be "Dare"
-   - The second column should be the intensity level (1, 2, or 3)
-   - The third column should be the text of the dare
-3. Add as many dares as you want, one per line
+2. Add your dares to the file, one per line
+   - Simply write the text of the dare (e.g., "Do your best impression of a celebrity")
+   - The system will randomly assign an intensity level (1-3) to each dare
+3. Add as many dares as you want, each on a new line
 4. Save the file
 5. Run the import script: `node import-dares.js`
 

@@ -18,41 +18,26 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 function parseCSV(filePath) {
   const csvContent = fs.readFileSync(filePath, 'utf8');
   const lines = csvContent.split('\n');
-  const headers = lines[0].split(',');
   
   const challenges = [];
   
+  // Start from line 1 (skipping the header)
   for (let i = 1; i < lines.length; i++) {
     if (!lines[i].trim()) continue; // Skip empty lines
     
-    // Handle quoted values with commas inside them
-    const values = [];
-    let currentValue = '';
-    let inQuote = false;
+    // Get the text of the dare
+    const text = lines[i].trim();
+    if (!text) continue;
     
-    for (let char of lines[i]) {
-      if (char === '"') {
-        inQuote = !inQuote;
-      } else if (char === ',' && !inQuote) {
-        values.push(currentValue);
-        currentValue = '';
-      } else {
-        currentValue += char;
-      }
-    }
-    values.push(currentValue); // Add the last value
-    
-    const challenge = {};
-    for (let j = 0; j < headers.length; j++) {
-      challenge[headers[j].trim()] = values[j].replace(/^"|"$/g, '').trim();
-    }
-    
-    // Convert intensity to number
-    challenge.intensity = parseInt(challenge.intensity, 10);
-    
-    // Add default values needed for the database
-    challenge.isCustom = false;
-    challenge.userId = null;
+    // Create a challenge object with all required fields
+    const challenge = {
+      text: text.replace(/^"|"$/g, ''), // Remove quotes if present
+      type: "Dare",
+      // Assign random intensity between 1-3
+      intensity: Math.floor(Math.random() * 3) + 1,
+      isCustom: false,
+      userId: null
+    };
     
     challenges.push(challenge);
   }
