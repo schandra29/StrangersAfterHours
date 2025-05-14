@@ -24,7 +24,7 @@ export function useGame() {
   }, []);
 
   // Fetch prompts, excluding already used ones
-  const { data: prompts, isLoading: isLoadingPrompts } = useQuery<Prompt[]>({
+  const { data: prompts, isLoading: isLoadingPrompts, refetch: refetchPrompts } = useQuery<Prompt[]>({
     queryKey: [`/api/prompts?level=${currentLevel}&intensity=${currentIntensity}`, usedPromptIds],
     enabled: !!currentLevel && !!currentIntensity,
     queryFn: async () => {
@@ -32,6 +32,8 @@ export function useGame() {
       const excludeIdsParam = usedPromptIds.length > 0 
         ? `&excludeIds=${usedPromptIds.join('&excludeIds=')}` 
         : '';
+      
+      console.log(`Fetching prompts for Level ${currentLevel}/Intensity ${currentIntensity}`);
       
       const response = await apiRequest(
         "GET", 
@@ -302,6 +304,32 @@ export function useGame() {
     setIsDrinkingGame(prev => !prev);
   };
 
+  // Custom setLevel function with side effects
+  const setLevelCustom = (level: number) => {
+    console.log(`Setting level to ${level}`);
+    // Update the state
+    setLevel(level);
+    // Invalidate the query to force refresh
+    queryClient.invalidateQueries({
+      queryKey: [`/api/prompts?level=${level}&intensity=${currentIntensity}`],
+    });
+    // Refresh prompts immediately
+    refetchPrompts();
+  };
+  
+  // Custom setIntensity function with side effects
+  const setIntensityCustom = (intensity: number) => {
+    console.log(`Setting intensity to ${intensity}`);
+    // Update the state
+    setIntensity(intensity);
+    // Invalidate the query to force refresh
+    queryClient.invalidateQueries({
+      queryKey: [`/api/prompts?level=${currentLevel}&intensity=${intensity}`],
+    });
+    // Refresh prompts immediately
+    refetchPrompts();
+  };
+  
   // Explicitly update session with level and intensity
   const updateSessionLevelIntensity = (level: number, intensity: number) => {
     if (sessionId) {

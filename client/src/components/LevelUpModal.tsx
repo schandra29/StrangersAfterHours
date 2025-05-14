@@ -70,16 +70,8 @@ export default function LevelUpModal({
         queryKey: [`/api/prompts?level=${newLevel}&intensity=${newIntensity}`],
       });
       
-      // Ensure any cached data is refreshed
-      queryClient.refetchQueries({
-        queryKey: [`/api/prompts?level=${newLevel}&intensity=${newIntensity}`],
-      });
-      
-      // Give everything time to update before continuing
-      setTimeout(() => {
-        // Notify parent component that changes were made
-        onConfirm(levelChanged ? "level" : "intensity");
-      }, 200);
+      // Pass the explicit new values to the parent for proper updating
+      onConfirm(levelChanged ? "level" : "intensity");
     }
     
     onClose();
