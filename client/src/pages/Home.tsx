@@ -114,6 +114,12 @@ export default function Home() {
     // Get the new values directly from the modal component
     console.log(`Applying changes: Level ${newLevel}, Intensity ${newIntensity}`);
     
+    // Show a loading toast
+    const loadingToast = toast({
+      title: "Updating...",
+      description: "Getting a new prompt with your updated settings",
+    });
+    
     // Update game state with the new values
     game.setLevel(newLevel);
     game.setIntensity(newIntensity);
@@ -123,14 +129,17 @@ export default function Home() {
       game.updateSessionLevelIntensity(newLevel, newIntensity);
     }
     
-    // Show confirmation toast to the user
-    toast({
-      title: "Settings Updated",
-      description: `Now showing ${getLevelName(newLevel)} prompts with intensity ${newIntensity}`,
-    });
-    
-    // Get a new prompt with the updated settings
-    game.getNextPrompt();
+    // Wait a small moment for state updates to process
+    setTimeout(() => {
+      // Get a new prompt with the updated settings
+      game.getNextPrompt();
+      
+      // Show confirmation toast to the user
+      toast({
+        title: "✨ New Prompt Ready",
+        description: `Now showing ${getLevelName(newLevel)} prompts with intensity ${newIntensity}`,
+      });
+    }, 100);
   };
   
   const handleAddCustomChallenge = () => {

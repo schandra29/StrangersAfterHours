@@ -125,12 +125,19 @@ export default function LevelUpModal({
             Cancel
           </Button>
           <Button 
-            className="bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-xl"
+            className="bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-xl relative"
             onClick={handleApply}
             disabled={!hasChanges}
             type="button"
           >
-            Apply Changes
+            {hasChanges ? (
+              <>
+                <span className="block">Apply & Get New Prompt</span>
+                <span className="text-xs block opacity-80">Changes will refresh the prompt area</span>
+              </>
+            ) : (
+              "Apply Changes"
+            )}
           </Button>
         </div>
       </DialogContent>
