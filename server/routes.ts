@@ -12,11 +12,6 @@ import { adminRouter } from "./routes/admin";
 import { sessionMiddleware, isAuthenticated } from "./session";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Health check endpoint
-  app.get('/', (_req, res) => {
-    res.status(200).send('OK');
-  });
-
   // Set up session middleware
   app.use(sessionMiddleware);
   
