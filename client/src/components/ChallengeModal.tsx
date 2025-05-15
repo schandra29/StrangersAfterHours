@@ -4,6 +4,7 @@ import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useQuery } from "@tanstack/react-query";
 import { type Challenge } from "@shared/schema";
+import { Flame, Video, FlipHorizontal, Check, X } from "lucide-react";
 
 type ChallengeView = "challenge" | "consent" | "recording" | "completion";
 
@@ -206,7 +207,7 @@ export default function ChallengeModal({
       <DialogTitle className="sr-only">Challenge</DialogTitle>
       <div className="text-center mb-6">
         <div className="bg-secondary/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-          <i className="ri-fire-line text-secondary text-3xl"></i>
+          <Flame className="text-secondary w-8 h-8" />
         </div>
         <h3 className="font-heading font-bold text-2xl text-white mb-2">Challenge!</h3>
         <p className="text-gray-300">{type} challenge</p>
@@ -429,7 +430,7 @@ export default function ChallengeModal({
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="bg-card rounded-3xl p-6 max-w-sm mx-4 border border-secondary shadow-xl">
+      <DialogContent className="bg-card rounded-3xl p-6 max-w-sm mx-auto border border-secondary shadow-xl">
         {currentView === "challenge" && renderChallengeView()}
         {currentView === "consent" && renderConsentView()}
         {currentView === "recording" && renderRecordingView()}
