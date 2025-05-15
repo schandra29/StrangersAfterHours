@@ -239,7 +239,7 @@ export default function GameScreen({
             onClick={() => onLevelChange("level")}
           >
             <i className="ri-game-line mb-1 text-xl block"></i>
-            <span className="block font-medium">Select Level/Intensity</span>
+            <span className="block text-sm font-medium leading-tight">Select Level/<wbr/>Intensity</span>
           </button>
           <button 
             className="bg-primary/20 hover:bg-primary/30 text-white py-3 px-4 rounded-xl text-center relative overflow-hidden group"
@@ -247,7 +247,7 @@ export default function GameScreen({
           >
             <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-20 transition-opacity"></div>
             <i className="ri-magic-line mb-1 text-xl block relative z-10"></i>
-            <span className="block font-medium relative z-10">Take a Chance</span>
+            <span className="block text-sm font-medium leading-tight relative z-10">Take a Chance</span>
           </button>
         </div>
       </div>
