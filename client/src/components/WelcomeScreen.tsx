@@ -11,8 +11,8 @@ export default function WelcomeScreen({ onStartGame, onHowToPlay, onAboutGame }:
     <div className="card bg-card/90 rounded-3xl p-8 mb-8 border border-primary/20 shadow-xl">
       <div className="text-center mb-6">
         <img 
-          src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&h=300&q=80" 
-          alt="Friends socializing" 
+          src="/images/thumbnail.jpg" 
+          alt="Friends socializing at a party" 
           className="w-32 h-32 mx-auto mb-4 rounded-full object-cover border-4 border-secondary" 
         />
         <h1 className="font-heading font-bold text-4xl text-white mb-2">
