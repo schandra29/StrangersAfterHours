@@ -236,8 +236,8 @@ async function importPrompts(prompts) {
     const importBatch = new Promise((resolve, reject) => {
       const options = {
         hostname: 'localhost',
-        port: 5000,
-        path: '/api/import/prompts/import',
+        port: 3000, // Updated to match Replit's standard port
+        path: '/api/prompts/import', // Updated to match actual route
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -306,16 +306,9 @@ async function main() {
     fs.writeFileSync(jsonFilePath, JSON.stringify(uniquePrompts, null, 2));
     console.log(`Saved formatted JSON backup to ${jsonFilePath}`);
     
-    // Ask for confirmation
+    // Skip user confirmation
     console.log('\nReady to import prompts to the database.');
-    console.log('Press Enter to continue or Ctrl+C to cancel...');
-    
-    // Wait for user confirmation
-    await new Promise(resolve => {
-      process.stdin.once('data', () => {
-        resolve();
-      });
-    });
+    console.log('Proceeding with import automatically...');
     
     // Import the prompts
     const importedCount = await importPrompts(uniquePrompts);
