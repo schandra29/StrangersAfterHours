@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import WelcomeScreen from "@/components/WelcomeScreen";
 import SetupScreen from "@/components/SetupScreen";
 import GameScreen from "@/components/GameScreen";
@@ -9,6 +9,7 @@ import LevelUpModal from "@/components/LevelUpModal";
 import CustomChallengeForm from "@/components/CustomChallengeForm";
 import GameSummaryModal from "@/components/GameSummaryModal";
 import PromptStatsModal from "@/components/PromptStatsModal";
+import { SpecialWelcomeMessage } from "@/components/SpecialWelcomeMessage";
 import { useGame } from "@/hooks/useGame";
 import { useToast } from "@/hooks/use-toast";
 import { getLevelName } from "@/lib/gameData";
@@ -18,6 +19,8 @@ type Screen = "welcome" | "setup" | "game";
 export default function Home() {
   const [currentScreen, setCurrentScreen] = useState<Screen>("welcome");
   const [showHowToPlay, setShowHowToPlay] = useState(false);
+  const [showSpecialWelcome, setShowSpecialWelcome] = useState(false);
+  const [specialCodeType, setSpecialCodeType] = useState<string | null>(null);
   const [showGameMenu, setShowGameMenu] = useState(false);
   const [showChallenge, setShowChallenge] = useState(false);
   const [showLevelUp, setShowLevelUp] = useState(false);
@@ -197,9 +200,33 @@ export default function Home() {
       game.recordTimeSpent(seconds);
     }
   };
+  
+  // Check for special access code on component mount
+  useEffect(() => {
+    const specialCode = localStorage.getItem('specialCodeType');
+    if (specialCode) {
+      setSpecialCodeType(specialCode);
+      setShowSpecialWelcome(true);
+    }
+  }, []);
+  
+  // Handle closing special welcome message
+  const handleCloseSpecialWelcome = () => {
+    setShowSpecialWelcome(false);
+    // Remove from localStorage so it only shows once per session
+    localStorage.removeItem('specialCodeType');
+  };
 
   return (
     <div className="min-h-screen text-foreground font-body">
+      {/* Special Welcome Message - shown on top of everything else */}
+      {showSpecialWelcome && specialCodeType && (
+        <SpecialWelcomeMessage 
+          type={specialCodeType} 
+          onClose={handleCloseSpecialWelcome} 
+        />
+      )}
+    
       <div className="container mx-auto px-4 py-8 max-w-md">
         {currentScreen === "welcome" && (
           <WelcomeScreen 
