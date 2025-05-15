@@ -56,6 +56,7 @@ export default function Home() {
     const loadingToast = toast({
       title: "Taking a Chance...",
       description: "Getting a random prompt from any level or intensity",
+      duration: 1000, // Only show for 1 second
     });
     
     // Call the API to get a random prompt
@@ -87,6 +88,7 @@ export default function Home() {
           toast({
             title: "Random Prompt",
             description: `Switched to ${getLevelName(newLevel)} (Level ${newLevel}) with intensity ${newIntensity}`,
+            duration: 1000, // Only show for 1 second
           });
           
           // Force the UI to reflect the new prompt
@@ -101,6 +103,7 @@ export default function Home() {
         title: "Error",
         description: "Failed to get a random prompt. Please try again.",
         variant: "destructive",
+        duration: 3000, // Keep error messages a bit longer
       });
     }
     
@@ -120,6 +123,7 @@ export default function Home() {
     const loadingToast = toast({
       title: "Updating...",
       description: "Getting a new prompt with your updated settings",
+      duration: 1000, // Only show for 1 second
     });
     
     // Update game state with the new values
@@ -140,6 +144,7 @@ export default function Home() {
       toast({
         title: "✨ New Prompt Ready",
         description: `Now showing ${getLevelName(newLevel)} prompts with intensity ${newIntensity}`,
+        duration: 1000, // Only show for 1 second
       });
     }, 100);
   };
@@ -155,6 +160,7 @@ export default function Home() {
     toast({
       title: "Full House!",
       description: "Everyone participated! Great job!",
+      duration: 1000, // Only show for 1 second
     });
   };
   
