@@ -8,6 +8,7 @@ import ChallengeModal from "@/components/ChallengeModal";
 import LevelUpModal from "@/components/LevelUpModal";
 import CustomChallengeForm from "@/components/CustomChallengeForm";
 import GameSummaryModal from "@/components/GameSummaryModal";
+import PromptStatsModal from "@/components/PromptStatsModal";
 import { useGame } from "@/hooks/useGame";
 import { useToast } from "@/hooks/use-toast";
 import { getLevelName } from "@/lib/gameData";
@@ -22,6 +23,7 @@ export default function Home() {
   const [showLevelUp, setShowLevelUp] = useState(false);
   const [showCustomChallengeForm, setShowCustomChallengeForm] = useState(false);
   const [showGameSummary, setShowGameSummary] = useState(false);
+  const [showPromptStats, setShowPromptStats] = useState(false);
   const [selectedChallengeType, setSelectedChallengeType] = useState<"Dare" | "R-Rated Dare" | "Take a Sip">("Dare");
   
   const { toast } = useToast();
@@ -218,6 +220,7 @@ export default function Home() {
             onFullHouse={handleFullHouseMoment}
             onEndGame={handleEndGame}
             onRecordTimeSpent={handleRecordTimeSpent}
+            onShowStats={() => setShowPromptStats(true)}
           />
         )}
         
@@ -278,6 +281,11 @@ export default function Home() {
             setShowGameSummary(false);
             handleRestartGame();
           }}
+        />
+        
+        <PromptStatsModal
+          isOpen={showPromptStats}
+          onClose={() => setShowPromptStats(false)}
         />
       </div>
     </div>

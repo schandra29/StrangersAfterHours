@@ -4,6 +4,8 @@ import { type Prompt } from "@shared/schema";
 import Confetti from "react-confetti";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { getLevelName, getIntensityName } from "@/lib/gameData";
+import { getCompletionPercentage } from "@/lib/utils";
+import { Progress } from "@/components/ui/progress";
 
 interface GameScreenProps {
   currentLevel: number;
@@ -19,6 +21,7 @@ interface GameScreenProps {
   onFullHouse?: () => void;
   onEndGame?: () => void;
   onRecordTimeSpent?: (seconds: number) => void;
+  onShowStats?: () => void; // Added for stats modal
 }
 
 export default function GameScreen({
@@ -34,13 +37,15 @@ export default function GameScreen({
   onRandomPrompt,
   onFullHouse,
   onEndGame,
-  onRecordTimeSpent
+  onRecordTimeSpent,
+  onShowStats
 }: GameScreenProps) {
   const isMobile = useIsMobile();
   const [showConfetti, setShowConfetti] = useState(false);
   const [isTimerRunning, setIsTimerRunning] = useState(false);
   const [timeElapsed, setTimeElapsed] = useState(0);
   const timerInterval = useRef<number | null>(null);
+  const [progressPercentage, setProgressPercentage] = useState(getCompletionPercentage());
 
   // Clean up timer when component unmounts
   useEffect(() => {
@@ -50,6 +55,13 @@ export default function GameScreen({
       }
     };
   }, []);
+  
+  // Update progress percentage when a new prompt is loaded
+  useEffect(() => {
+    if (!isLoadingPrompts && currentPrompt) {
+      setProgressPercentage(getCompletionPercentage());
+    }
+  }, [isLoadingPrompts, currentPrompt]);
 
   // Reset timer when moving to a new prompt
   useEffect(() => {
@@ -118,6 +130,21 @@ export default function GameScreen({
           numberOfPieces={isMobile ? 100 : 200}
           gravity={0.2}
         />
+      )}
+      
+      {/* Floating Progress Indicator */}
+      {onShowStats && (
+        <button 
+          onClick={onShowStats}
+          className="fixed bottom-6 right-6 z-50 bg-primary/90 text-white rounded-full w-14 h-14 flex flex-col items-center justify-center shadow-lg hover:bg-primary transition-colors"
+          aria-label="View Progress"
+        >
+          <div className="text-xs font-semibold">{progressPercentage}%</div>
+          <Progress 
+            value={progressPercentage} 
+            className="w-8 h-1.5 mt-1 bg-white/20" 
+          />
+        </button>
       )}
     
       {/* Game Status Bar */}
