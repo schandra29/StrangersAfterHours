@@ -43,27 +43,27 @@ export default function GameMenuModal({
   
   const menuOptions = [
     {
-      icon: "ri-restart-line",
+      Icon: RefreshCw,
       label: "Restart Game",
       action: onRestart
     },
     {
-      icon: "ri-settings-4-line",
+      Icon: Settings,
       label: "Change Settings",
       action: onSettings
     },
     {
-      icon: "ri-question-line",
+      Icon: HelpCircle,
       label: "How to Play",
       action: onHowToPlay
     },
     {
-      icon: "ri-bar-chart-2-line",
+      Icon: BarChart2,
       label: "View Prompt Progress",
       action: () => setIsPromptStatsOpen(true)
     },
     {
-      icon: "ri-refresh-line",
+      Icon: RotateCcw,
       label: "Reset Used Prompts",
       action: handleReset
     }
@@ -72,7 +72,7 @@ export default function GameMenuModal({
   // Add the custom challenge option if the handler is provided
   if (onAddCustomChallenge) {
     menuOptions.push({
-      icon: "ri-add-line",
+      Icon: Plus,
       label: "Add Custom Challenge",
       action: onAddCustomChallenge
     });
@@ -93,7 +93,7 @@ export default function GameMenuModal({
                 className="bg-white/10 hover:bg-white/20 text-white py-3 px-4 rounded-xl text-left flex items-center"
                 onClick={option.action}
               >
-                <i className={`${option.icon} text-primary mr-3 text-xl`}></i>
+                <option.Icon className="text-primary mr-3 w-5 h-5" />
                 <span>{option.label}</span>
               </button>
             ))}

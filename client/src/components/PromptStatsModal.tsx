@@ -61,7 +61,7 @@ export default function PromptStatsModal({ isOpen, onClose }: PromptStatsModalPr
   
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-lg">
+      <DialogContent className="max-w-lg mx-auto">
         <DialogHeader>
           <DialogTitle>Prompt Collection Progress</DialogTitle>
           <DialogDescription>
