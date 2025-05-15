@@ -1,0 +1,5930 @@
+[
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's the most interesting thing you've learned recently?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's your favorite way to spend a free afternoon?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's a skill you'd love to learn?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's your go-to comfort food?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's the best concert you've ever been to?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's a book, movie, or TV show you'd recommend to everyone?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's your favorite travel destination (or one you'd love to visit)?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's a hobby you're passionate about?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's a small act of kindness you've witnessed recently?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's the most fun thing you've done this past week?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What’s your favorite animal and why?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "If you could have any superpower, what would it be and why?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "If you were a teacher, what subject would you want to teach?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What is the best purchase you have ever made?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What is your favorite outdoor activity?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What is the most useful app on your phone?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "If you could eat dinner with anyone, dead or alive, who would it be?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's the craziest thing you've ever done on a dare?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "If you could only bring three things with you to a deserted island, what would they be?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What job would you be terrible at?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What’s the weirdest tradition your family has?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "If animals could talk, which would be the rudest?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What is your biggest pet peeve?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "If you were a ghost, who would you haunt?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What fictional place would you most like to go?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What is something that a lot of people are obsessed with but you just don’t get?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What is one thing you wish you knew when you were younger?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What’s the dumbest way you’ve ever been injured?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What’s the most interesting thing you can see out your window right now?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What song do you have completely memorized?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What app do you waste the most time on?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What is the most embarrassing thing you've ever worn?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What did you name your first pet?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What is one thing that makes you laugh no matter what?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What’s the most annoying habit someone can have?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What is the strangest dream you have ever had?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What is one thing you are irrationally afraid of?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What is the worst pickup line you have ever heard?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What do you look for in a friend?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "Have you traveled abroad?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What are you studying?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What are you hoping to do in life?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "Is there a book that has changed your point of view?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What is your favorite song?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What do you value?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What would you like to learn about someone before considering friendship?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What’s the one thing you could eat for the rest of your life?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "If you could trade places with any celebrity for a day, who would it be and why?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "If you could have any animal as a pet (real or fictional), what would it be?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's your go-to dance move when nobody's watching?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's a skill you'd love to learn if you had the time and resources?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's the worst movie you secretly love?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's the weirdest thing you've ever seen someone do in public?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "If you could only eat one type of cuisine for the rest of your life, what would it be?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's your favorite board game or card game?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's the most spontaneous thing you've ever done?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's a song that always makes you want to dance?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's your favorite holiday tradition?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's the most interesting place you've ever traveled to?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's your favorite way to spend a lazy Sunday?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's the best gift you've ever received?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's a small thing that always makes you happy?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's the most interesting fact you know?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's a trend you just don't understand?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's your favorite season and why?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's your favorite type of weather?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What kind of music makes you want to dance?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What are you hoping to get out of life?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What’s the biggest item you could fit in your pockets?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What did you want to be when you grew up?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What is something that you think should be taught in schools?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What is the best piece of technology you have ever used?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "Are you a traveler?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "Do you consider yourself to be an introvert or extrovert?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "Are you comfortable speaking in large groups?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What is something that you value in a friend?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What do you think makes you unique?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's your favorite thing to do on a rainy day?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's the most overrated travel destination?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's a movie that always makes you cry?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's the most impressive thing you know how to cook?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's one thing you're grateful for today?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's a small thing that instantly makes your day better?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's one place you'd love to travel to someday?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's a book that changed your perspective?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's a hobby you've always wanted to try?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 1,
+    "text": "What's one piece of advice you'd give to your younger self?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a goal you're currently working towards?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What's a silly thing you do when you're trying to cheer yourself up?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What's a small risk you're glad you took?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What's a time you felt truly proud of yourself?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What's the most embarrassing song on your playlist?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What's a hobby that is often misconstrued?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What's the most exciting day of your life?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What’s the one superpower you would choose?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What’s the last song that made you cry?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What movie always makes you feel good?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "If you could instantly learn anything, what would it be?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "Where is the coolest place that you have ever traveled?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What’s your hidden talent?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "When did you last step outside of your comfort zone?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What is a song you listen to when you’re sad?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What is one thing you would change about the area that you grew up in?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What are you passionate about creating?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What are the small things that make you feel happy or at peace?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What job do you secretly find fascinating?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "If you could have any animal as a pet, what would it be and why?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What is the best party you have ever been to and why was it so great?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What is your hidden talent?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What song makes you dance every time you hear it?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What fictional world do you wish was real?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What is the best movie of all time?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "Do you believe in fate?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What is something you want to learn to do well?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What do you secretly judge other people for?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What would your ideal vacation look like?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "Do you think that you can still live without friends, family or partners?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What makes someone a good person?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "How good are you at giving advice?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What do you consider to be one of your best traits?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What are you looking forward to this week?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What is a goal that seems hard to get to, but still has hope of getting there?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "Have you ever had a brush with the law?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "Does fame scare you, or fascinate you?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "Do you like helping other people, why or why not?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What life achievement are you most proud of?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "Does a lack of money worry you?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "Do you find it hard to open up to others?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "If you could give up one of your senses, what would you give up?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What is the best compliment you’ve ever received?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What is the most beautiful piece of nature that you have ever seen?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "How are the people you care about most different from you?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What would make your heart the happiest?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What is something that the world needs more of?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "Where is a place that makes you feel at peace?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What do you do to make the world a better place?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What do you do when you are feeling down?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What are you passionate about?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What do you think you’ll never understand about other people?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "Why do you think some people are cruel?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "Why is the world in this state right now?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What kind of animal do you think defines you the best and why?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "If you could only watch one movie for the rest of your life, what would it be?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What type of music do you enjoy the most?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What is something that you are looking forward to this year?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "Why do you believe there’s a need for friendship?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What is something small that you find funny?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "When do you find people to be their most authentic?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What makes you feel secure?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What does the perfect life look like to you?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "How would you like to be remembered?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "When was a time you felt you were right about something, but couldn’t prove it?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What is something that you would want for free?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What has been your luckiest encounter in life?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "How do you act differently around new people?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "When do you think you are the most productive?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "Where is the most amazing place that you have ever been?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "If your life was a movie, what would the title be?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What is something that makes you different from anyone else in this room?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What brings you the most joy when hanging out with your family?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What is one word that you would never say?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "How old do you feel most of the time?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "Does what you see on the internet scare you at all?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "Does the end ever justify the means?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What small thing has helped you through a really hard time?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "Who makes you want to be a better person?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "When was the last time that you felt proud of yourself?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What quality is more important, love or luck?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What skill is on the top of your list to learn?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "Do you like to be spontaneous or do you prefer routines?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "If you were a professional athlete, what sport would you want to play?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 2,
+    "text": "What is your favorite thing that you did as a child?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What made you decide to be in this group of friends?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "When have you lost faith in humanity?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "When was a time that you felt you should've made a different choice?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "Where did you travel that felt life changing?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What is one thing you need to forgive yourself for?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "When was the last time you cried in public?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "Who has shaped you the most in your life?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What do you believe is the key to success in love?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What is something that everyone loves that you find annoying?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What is a habit or trait that you get on very well with?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "When did you realize something needed to change in your life?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "Do you think you appreciate art more or less than others?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What is a social issue you think everyone needs to be more aware of?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What keeps you up at night?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What is a topic that you wish you understood better?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "Who is someone you want to be more like?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "In what parts of your life are you content with mediocrity?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What is a trend or a fad that you just can't get on board with?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What are you good at that has little to no practical use?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What has been the best day of your life so far?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "How often do you step back and analyze the decisions that you have been making?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What has been the most embarrassing moment in your life so far?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What do you admire in those closet to you?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What personality traits help you deal with the harsh parts of life?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What are you most afraid of and why?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "How have you been kind to yourself recently?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What have you found to be the greatest way of connecting to others?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What do you find to be the most confusing aspects of others?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "Where do you feel the safest?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "How do you feel you have helped those in your life to become more comfortable with themselves?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What do you do to keep from getting bored?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "Are there any beliefs from your childhood that no longer make sense?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What do you need to change about yourself to live a better life?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "Is being on time important to you or are you usually running late?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What has a stranger done for you that you have never forgotten?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What is one way you would change yourself to be better liked?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What do you think makes you the happiest as a person?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "How do you think the world is going to change after you’re gone?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What does it mean to be respected by others?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What are you most curious about and want to find out in your life?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "Do you think that the world can change with one individual?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What do you do to give back to the world around you?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What kind of activities do you find enjoyable that you think would be frowned upon by those who know you best?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What has been your favorite job or school experience and why did you like it so much?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What do you think is most missing from today’s music?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "Who is someone that has changed your life the most?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "If you could recommend three things to try?",
+    "category": " what would you suggest?",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "How do you deal with grief and pain?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "How do you deal with people that think they know more than you do about your business?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What part of this world are you most scared about?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "Are there any habits you want to ditch in your everyday life?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What kind of impression do you leave on others upon the first meeting?,Icebreaker?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "Do you think it is worth the cost to do the right thing even if you suffer a lot in the process?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "How do you see yourself in the mirror?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "Does it bother you knowing how much of history has been lost over time?,Icebreaker?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 1,
+    "intensity": 3,
+    "text": "What kind of art do you most connect with?,Icebreaker?",
+    "category": "Icebreaker",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a skill you're currently trying to improve?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a podcast you're currently enjoying?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a random act of kindness you've done for a stranger?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a tradition from your childhood that you cherish?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a hobby you'd recommend to others and why?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a small accomplishment you're proud of?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a small thing you do to brighten someone's day?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a topic you're eager to learn more about?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a quality you admire in your friends?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a goal you're determined to achieve this year?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What are some of your greatest memories?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What song always makes you smile?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What makes you happy?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What is the greatest gift you have ever received?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What is the most amazing thing in the world to you?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What small thing is guaranteed to make you smile every time?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What is your idea of a perfect day?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What is a happy memory you think about often?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What is something you have accomplished that you are most proud of?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What makes you the most happy?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What activities do you enjoy doing?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What one thing makes you laugh the hardest?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What is your definition of happiness?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "Where is your happy place?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "Who are you most grateful for and why?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What is the greatest compliment you have ever received?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What do you do to relax?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What are you most looking forward to in the next 30 days?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What does the phrase “living in the moment” mean to you?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What is the best way to spend quality time with friends and family?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What’s a book that everyone should read?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What is the most beautiful place on earth in your opinion?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What job were you definitely unqualified for, but got hired anyway?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's one thing you're willing to spend more money on to make your life easier?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What odd skill or talent do you have that you’re secretly good at?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What always brings a smile to your face?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What do you value most in a friendship?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What is your definition of success?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What is a skill you would like to learn?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What is one thing you are most proud of in your life?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's your biggest motivator in life?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "Who is someone you admire and why?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a challenge you're currently working on overcoming?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a skill you're currently trying to master?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a book, movie, or TV show that has had a profound impact on you?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a place you've always dreamed of visiting, and why?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a cause that's important to you, and what are you doing to support it?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a goal you're working toward that excites you?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a time you stepped outside your comfort zone, and what did you learn?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a small act of kindness you've witnessed or experienced recently?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a habit you're trying to develop?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a piece of advice you've received that's really stuck with you?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a skill you're proud to have learned?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a tradition you'd like to start with your friends or family?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a cause you're passionate about?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a place you'd love to live someday?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a dream you're actively pursuing?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a quality you admire in others?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a goal you've already achieved that you're proud of?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a lesson you've learned that you think everyone should know?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "If you were to donate a million dollars, who would you donate it to?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What are you most passionate about in life?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What motivates you to work hard?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "Who is someone that you admire, and why?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What is something that you are good at?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What is something that you know a lot about?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What is something that you value a lot?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What makes you, you?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What is your mission in life?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What is a value that is important in your life?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What are you good at?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What is something that you appreciate about yourself?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What is a personal goal you want to work towards?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What does it mean to be authentic?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What kind of energy do you like to bring to a room?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "How important is it to you to be your authentic self with others?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What is something that you like to do for self care?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What motivates you in the morning?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What is a small win that you had this week?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's something you're looking forward to in the future?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's something that makes you feel fulfilled?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a value that guides your decision-making?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's something you're learning right now?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a skill that makes you feel empowered?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a place that holds special meaning for you?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a memory that always makes you smile?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a lesson you've learned that's helped you grow?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a goal you're excited to achieve?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's something you're grateful for today?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What’s more important?",
+    "category": " love or happiness?",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What makes you so proud to be who you are?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What about being alone scares you the most?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What personal motto are you living by at the moment?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's a story you've always wanted to tell?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "How do you think you are going to change the world?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What are some small things that you look forward to in your day?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What's one thing you wish more people understood?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 1,
+    "text": "What part of your culture do you feel most connected to?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What’s a habit you’re trying to break and why?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "When was a time you had to make a difficult decision that had negative consequences?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What has a friendship positively impacted your life?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What is the perfect way to receive a compliment?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What value do you never compromise on?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What's the best day you have ever had?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What is your favorite song and why does it move you?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "How often do you check up on the people in your life?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "Are you generally a nice person?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "Can you be described as thoughtful or insightful?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What is a tradition you hope to start when you create a family?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What kind of job do you think will lead to a more fulfilling life?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "If you were guaranteed to be a success in any field you choose?",
+    "category": " what would it be?,Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What is your proudest decision?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "Has anyone ever been so wrong that it made you think you were in a different world?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "Who knows you best?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "Have you felt that there was a time in your life when you lost yourself?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What do you think people look for the most in a friend?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What is something small that you find funny?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "When do you feel you are most authentic?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "Does fame bother you more or less?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "Are you in your lifetime what makes you the happiest?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What kind of person do you find to be the most inspiring?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "Do you find yourself apathetic?",
+    "category": " or empathetic to people’s feelings?,Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What is the moment that you realized what you wanted to do in life?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "Have you always wanted what you have or have you made something out of very little?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What is something small that most people take advantage of?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "Is there one thing that someone could say to hurt you the most?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What is the best way to get over an embarrassment?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "Are you comfortable being upfront with your partners or family?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What have you had to work hardest to acquire?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "Are there any secrets you wish that you could get away with telling?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What is the greatest adventure that you have been on so far?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What has helped you make it through a difficult time?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What is something you wish that you were good at?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What has made you the most comfortable with yourself?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "If you could go back in time to change one thing?",
+    "category": " what would you change?,Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What have you learned about the world that you wish you never found out?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "Where do you see yourself in 5 years?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What are some values that you prioritize in life?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "Have you ever had to decide between love and responsibility?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "Are you more proud of being intelligent?",
+    "category": " beautiful",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What are you most grateful for?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "When did you make a mistake that had the biggest consequence?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "If you could have one superpower what would it be and why?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What do you think the universe is made of?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "How many people do you think know the real you?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What do you try to teach every person you meet?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "If the world was ending what song would you want to listen to?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "Do you consider yourself a leader or follower?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What motivates you when you’re feeling down and hopeless?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What do you believe is the key to a successful relationship?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "Does true love exist?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "Are you more analytical or emotional?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What small things impact your mood the most?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What do you think is the biggest misconception about you?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What advice that you’ve received has stuck with you the most?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What is something about someone that you need to know before becoming friends?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What is something that you want to accomplish but may never get around to?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "As a kid, what did you think you'd be doing at your age now?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "What's your most unrealistic goal?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "Are you more afraid of being alone or being in a bad relationship?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 2,
+    "text": "If you were to get a tattoo, what would it be of and where would you get it?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What's your most controversial opinion about relationships?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What's something you're secretly judgmental about?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What's a time you felt like you were treated unfairly because of your race, gender, or sexual orientation?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What's your opinion on affirmative action?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What's a time you felt conflicted between your values and your desires?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What's your biggest fear about getting older?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What's your opinion on the role of government in healthcare?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What's a time you felt like you were treated unfairly by the justice system?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What's your opinion on the use of animals in scientific research?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What do you think is the key to a successful relationship?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What’s the best sexual experience you’ve ever had?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Do you believe in polyamory?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What do you consider unforgivable in a partner?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What's your honest opinion of your best friend’s significant other?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What are you looking for in a partner that you haven't found yet?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "If you could change one thing about your family, what would it be?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What are you most afraid to tell your parents?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What has someone said about you that has affected you the most?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "How do you want to be remembered?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Are you concerned that the people in your life are bad influences on you?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What's your stance on open relationships?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What are your thoughts on cultural appropriation?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Have you ever experienced or witnessed racism or prejudice?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "How do you feel about the wage gap between men and women?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What are your thoughts on capital punishment?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Have you ever been unfaithful in a relationship, and how did it affect you?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What is something you wish you could change about the world?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What do you think is the biggest threat to society today?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What are your thoughts on cancel culture?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Are some people bad and without hope of redemption?",
+    "category": " why or why not",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What personality trait gets you mad at others?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What keeps you inspired on your darkest days?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What do you consider unforgivable in a relationship?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What has made you the most fearful of death?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What is something about your family that you can’t stand?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What has gotten you the angriest that you can remember?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Has it ever felt like you have a darkness inside you that you can’t get rid of?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Do you care more about others or about yourself?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Where do you see yourself in 10 years and how will you get there?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What do you think is your biggest advantage in life?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Are you concerned about anything happening to your mind as you age?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Is true love rare?",
+    "category": " or can everyone experience the same level of satisfaction with another",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What are things that you will make fun of with other but actually don’t appreciate?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Are there any thoughts that you are too afraid to ever say to others?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What type of person would make you stop speaking to them no matter your history?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Did you lose your faith when tragedy struck?",
+    "category": " or does it still carry you through it all?",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What are your true opinions about the concept of working and the economic structures behind that?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Are you afraid of dying alone?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Have you ever had someone who wasn’t your family or partner make you feel at home?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Did you meet your parent's expectations in life so far?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "How long do you think it will be before the world ends?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "In your opinion?",
+    "category": " is the world getting better or getting worse?,Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "When it comes to your most embarrassing memories?",
+    "category": " can you laugh about them now?,Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What do you believe is the greatest failure that you have had?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Can you tell when people are not being sincere with you?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What are some values that you want instilled in your children?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Do you believe that anyone will miss you when you are gone?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Do you believe you are on the right path to be the best version of yourself?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Have your dreams kept you from enjoying the present moment?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Can animals feel happiness in a way that we can perceive?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Where do you turn for advice when you feel unsure?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What do you think has been the reason that you haven’t found love yet?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Why do you value your closest friends so much?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "When did you start seeing the world in a new light?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Can you always see the good in other people?",
+    "category": " or does it depend on them?,Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "When did you start to feel like an adult?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Is there one thing that always seems to get you out of bed in the morning?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Does it worry you that the future is unpredictable?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What is the biggest lesson that your mother has ever taught you?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Do you value power more than wealth?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What kind of people do you just not get along with?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Do you consider yourself to be more intelligent or more wise?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "If you could get rid of one habit that you have what would it be?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "How hard is it for you to express your feelings honestly?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What terrible event has lead you to feel most afraid?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Where do you feel has been the best place that you have ever gone to relax?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Have you accomplished more or less than you thought you would have at this point in your life?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What has been the most embarrassing thing to happen to you on a date?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Do you ever feel like you aren't enough of a person?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What has driven you to chase money?",
+    "category": " or chase power as a source of happiness?,Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "How do you plan on making the world a better place?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "When was the last time you felt fulfilled and completely at peace?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What piece of yourself do you struggle to manage?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Who is one celebrity you would change places with and why?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Does anyone think that you are strange or out of touch with reality?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Are you mostly focused on thinking about the past or the future?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Do you have any irrational phobias or fears?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Do you find it hard to be truthful with others even when you are trying to protect them?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What value do you think you should focus on to improve as a person?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Does it bother you if no one ever remembers you or if you fade into history?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Do you think there is ever too much love?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What has been the most dangerous situation you have ever been in?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Does the truth set you free?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Do you think the world is on the verge of destruction?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What do you think is humanity’s purpose?",
+    "category": " or do you think there isn’t one?,Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Would you rather have world peace or be rich?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "Are the people in your life good influences or bad influences?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What is the biggest thing you want to get rid of about your life right now?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 2,
+    "intensity": 3,
+    "text": "What is an achievement that has meant the most to you?,Getting to Know You?",
+    "category": "Getting to Know You",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "If you had to be a kind of element?",
+    "category": " what would you want to be",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Is the world ever fair?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Are you happy with who you have become?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Is it better to be at peace or have ambition?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What do you think the next revolution will consist of and why?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Would you have a strong code to live by or allow yourself to adapt as life goes on?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Is it more admirable to be intelligent?",
+    "category": " creative",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What do you think has been your greatest impact on others?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "If you were to create a religion?",
+    "category": " what would it be about?",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Are all people equal and should be treated with a general sense of respect?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What did you have to give up when you found what you wanted to do in life?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "How do you want the world to remember you after you are gone?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What is more interesting to you?",
+    "category": " the world or its inhabitants?",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Do you believe that you know people better than they know themselves?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What do you value more than most people?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "How much should we focus on preparing for the future?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "How grateful are you for your place in the world?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "If you could be saved from anything?",
+    "category": " what would you pick?",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "How big of a fan are you of art?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "How kind are you to yourself?",
+    "category": " really?",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What type of challenges do you always run from?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What are some bad choices you have made over the last few years?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What has been your best accomplishment so far?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What is a bad habit you hope to overcome?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "How do you recharge when you are feeling drained?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Where did you last travel and how did that change you?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Who makes you want to become a better person?",
+    "category": " Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "How good are you at standing up for your friends?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What inspires you to want to learn and to keep moving forward?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What makes you a good partner or spouse?",
+    "category": " or will make you a great one someday?",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Does anything stop you from giving to others when you feel that you have enough?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Are you more concerned about your past?",
+    "category": " present",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Where do you see yourself putting your life?",
+    "category": " if you can only pick one goal to put all your effort to?",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Have you always been comfortable with yourself or do you continue to struggle with it even now?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Are you at peace with the place where your life is at currently?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What is something you are the most proud of that you think other people don’t notice about you?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What is your happiest memory and why is it something you value so much?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Do you make plans and schedules or just let life carry you away?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What is something that you have learned to let go in your life?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "If you could be granted one goal in your life?",
+    "category": " what would it be?,Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What keeps you inspired in life?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What are you doing that you feel is more important than anything?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Does it ever make you sad thinking about people who have passed on and lost out on today?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Who has had the biggest impact on how you turned out in life?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "How do you balance making sure you are taken care of with caring for others who may need you as well?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What have you been trying to find purpose in lately?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What has made you change your mind most recently?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What lesson would you teach your kids and why is that one your biggest priority?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Can someone truly have an ego and still be a good person to be around?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Has time had any effect on your morals and how you feel about certain aspects of the world?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What about yourself do you refuse to ever change?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "If you could have one question to be answered about yourself what would you pick to know for sure?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Does religion scare you or bring you to a better place,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "In general what do you look for in a partner?",
+    "category": " Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Can you describe one of your biggest turning points to this very day?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What are you doing that gives others a sense of awe?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Why have you had the friendships you have been a part of end and move on through life?",
+    "category": " Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What is an experience that you think everyone should do in their life?",
+    "category": " Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "If you had more money how would you try and leave this world behind in a better position?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What is the silliest thing that you think other people are so serious about?",
+    "category": " Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "How often do you practice self care and what has that helped you with?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Do you find it easier to love yourself or to have other people love you?",
+    "category": " Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Where do you see yourself being the happiest if you were to settle down permanently,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What can you do to bring yourself back up when you feel like you're heading towards a spiral downward?",
+    "category": " Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What is one value that has gotten you where you are today as a person?",
+    "category": " Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What part of your childhood do you think shaped who you are and why?",
+    "category": " Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What is something about yourself that you have always wanted to change for the better?",
+    "category": " Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What song always picks you up and puts you in a better mood?",
+    "category": " Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Are you the most honest with yourself or do you find yourself hiding a lot of the truth?",
+    "category": " Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Would you rather have all the money or all the friends?",
+    "category": " and why ",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "When was the last time that you were humbled by what another has accomplished?",
+    "category": " Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "How do you maintain a good moral code to do what is correct even in the face of hardship?",
+    "category": " Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What’s something that keeps you motivated every day?",
+    "category": " Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Is there a dream you’re still chasing?",
+    "category": " or has the sun set on all your biggest ambitions?",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "If you could leave the world in a better place than you found it?",
+    "category": " what would you do?",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What is the most amazing vacation that you have ever taken and why do you consider it to be so amazing?",
+    "category": " Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What does a perfect night look like for you?",
+    "category": " Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Are you chasing peace of mind? Happiness? Something else entirely?",
+    "category": " Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What piece of history do you wish you could have been a part of and why?",
+    "category": " Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Do you have a favorite quote that you always turn to?, Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What has it taught you the most about yourself so far this year?",
+    "category": " Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What has been your biggest accomplishment so far this year?, Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What is the kindest thing that someone has ever done for you in this year?",
+    "category": " Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Who do you look up to the most in your life right now?, Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "How do you cope with your own failures and mistakes to continue to move on and to improve yourself for the better?, Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What do you do to maintain a healthy relationship with yourself?",
+    "category": " Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "What steps do you take to ensure that you will have a good life well into the future?",
+    "category": " Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Have you gotten to the point where you have found what you want out of life? If so?",
+    "category": " what is it?",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 1,
+    "text": "Do you believe in the power of random acts of kindness? If so?",
+    "category": " what small things do you do on a regular basis?",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What is a moment when you realized someone cared about you?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What makes you feel like you are at peace?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Is there someone who you admire and respect?",
+    "category": " but they wouldn’t give you the time of day? ",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Do you have more reasons to love the world?",
+    "category": " or to hate the world?",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What is something that you wish you had handled differently in your past and what did you learn from it?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What causes you the biggest source of anxiety?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Are you still in touch with the person who caused you the most pain?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Do you tend to look for what could be better in your life or to be happy with what you have?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Do you think that you're happy enough at this moment in your life?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Have you come to terms with the path that your life has taken?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "If you could make your best friend stay by your side forever?",
+    "category": " would you do it or let them grow in their way? ",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Would you say that you are more creative or more logical and how do you feel that has benefited your life the most?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What does beauty mean to you?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "In what small ways do you try to treat yourself nicely on a daily basis?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Do you want to have kids and would you be a good parent?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What do you most seek from someone that you are going to commit to long-term?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Who or what do you feel the most indebted to?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What gets you excited to wake up and begin your day?",
+    "category": " or do you think you may be missing that inspiration entirely?",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Which of your memories make you smile just thinking about it?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Would you say that you look more towards your past for wisdom?",
+    "category": " or the future for inspiration?,Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What small kindness has someone done for you that you will never forget?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Are you easy to read or do you think people have a hard time telling how you feel?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What do you do to try and take care of yourself emotionally?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What do you expect to feel as you approach the end of your life?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "When you have been in a tough place?",
+    "category": " who has been someone that you leaned on the most?,Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Do you believe in fate or do you trust in luck?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What is the one thing that you remember most from your childhood?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Has more happened to you by chance or by planning?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What is the most important value that you try to live by and why is it that one specifically?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Does it ever make you feel sad that you don’t know everything?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Is there a topic you would love to discuss with someone but it never seems to come up with your friends and family?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What is one small thing that someone can do that means a lot to you?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What moment in your life has made you grow the most?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What makes you consider yourself worthy of being loved?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What is a part of your culture you wish more people understood?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "If you could only save one thing from a fire what would you grab?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Does it make you afraid knowing that your life will one day cease?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "If you could leave one message for the future?",
+    "category": " what would it be?,Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What one thing could make this world a little bit better?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Does there ever feel like something that is missing from your life?",
+    "category": " and if so what?,Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "How do you want people to describe you to others?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What are some little things in life that always make you feel at peace and relaxed?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "When have you had to take the most difficult leap of faith?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Has it been difficult to learn to listen to your heart instead of your mind?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Have you learned to forgive those who did you wrong,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Is money the root of all evil or has that belief been overblown by people who weren’t able to obtain it anyway?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What do you struggle to do for yourself that others find so easy?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Have you come to terms with your own mortality?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Do you let the world control you?",
+    "category": " or do you find yourself easily breaking the rules laid out by society?,Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "In what ways have your opinions on the world changed as you've become older?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What motivates you to try new things when you would much rather stay inside your comfort zone?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Can you think of one thing that would make society better if it was changed immediately?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Has there been an event in your life that changed you for the worse?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What memory do you find yourself drifting back to no matter how hard you try to change the subject in your mind?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Do you consider the world to be a cruel place?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What are some beliefs that you think are very important for a friendship?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Which of your friends do you confide in the most and why did you pick them to trust that much?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What song makes you feel like you want to take on the world?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What are some things that you consider to be the most valuable about humanity?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "If your life was a movie?",
+    "category": " who would you want to play you and why would they be perfect for the role?,Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Does living with other people wear you down?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What are you most insecure about when meeting someone for the first time?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What would you do if you knew that everything you said for the rest of your life would be taken as fact by others?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Has it been difficult or easy for you to meet new people throughout your life?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Do you think there is an objective way to define something as beautiful?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What small things do you look for to know that you can trust someone?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What has it been like dealing with change and evolution in your life?",
+    "category": " or do you tend to stick with what you know?,Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Is there anything that you think we need to lose as a society to be better?",
+    "category": " even if it is hard to part with?,Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What do you think about when you want to escape your current reality and the life that you are living?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What do you think has the greatest impact on the world?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "How would you like your life story to be taught in schools to children many years from now?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Would you rather have more money to follow your dreams or have more friends to experience your life?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Have you ever felt like you were betraying yourself by following the path that was laid out by others around you?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "What have you learned from love?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Are you good at giving advice?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "When was a time that you felt like you were someone other than yourself?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Are you comfortable with the idea that there are people in this world who will hate you simply for existing?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Have you found any good ways to handle stress and improve your mental well being?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "Is there anyone that you truly think you can trust with everything that you are?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "If you were to give some advice to your parents?",
+    "category": " what would it be?,Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "When did you realize how important family really is?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 2,
+    "text": "When was the first time that you felt true guilt?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "To this day?",
+    "category": " do you hold a grudge for something?",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "Who is a person you are quick to judge?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "How do you feel about humanity’s inevitable doom?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "Does religion have an impact on your life in the slightest?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What do you expect from me to continue this relationship?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "At what point does someone go from your friend to your enemy?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "Is there anything you have to stop yourself from doing from time to time?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What is something you are afraid to ask?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "How would you describe yourself after you’ve been drinking?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What do you think is one of your biggest flaws in life?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "Where will we all end up when we fade away?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "If you could start a cult with any value that comes to mind what would you pick?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What is your greatest act of deception?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "Are you a follower of God?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What would your ideal death be and where would you go?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "Can you describe a moment where you felt completely alone without anyone knowing?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What are your biggest fears on a daily basis?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What traits do you think are a product of privilege in the world?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "Do you think that fate is involved in what happens in our daily lives?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "If you had one wish that would change the world?",
+    "category": " but it would take a lot away as well",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What belief makes you sleep at night?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What are your options about friendship in general?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "Are you afraid to grow old?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "Who would you want to be after death?",
+    "category": " if that was a possible choice?,Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What traits could I get rid of to be viewed as a perfect individual?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "Do you hold a deep-seated sense of hatred for any people?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "Would the world be better off if everyone was the same?",
+    "category": " or would that cause it to collapse?,Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "If you could save another person?",
+    "category": " would you be able to make the ultimate sacrifice and give your life for them?,Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What do you think is the most shocking fact that someone should know?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "Is it too late for our world to recover in your opinion?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "Does it ever make you wonder if your friends are secretly laughing at you when you're not around?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "How has your life changed as you have drifted further away from your childhood?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What are your opinions about war and death?",
+    "category": " are they both bad to you?,Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What do you feel you need to have a better hold on to get to where you want to be?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What about life confuses you the most?",
+    "category": " or do you think you get it all?,Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "Who is a person that you wish you could simply take out of this world?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What makes you cry most of the time?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "When did you make a deal with the devil?",
+    "category": " even if metaphorically?,Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "Does it give you anxiety or comfort knowing how small we are in the grand scheme of it all?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What would you like people to forget about you if that was an option?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What was the last time that you thought about taking your own life and why?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "Who is the person you most wish you could reach out to from the past? What would you say?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "Do you think that anyone you know is a bad person? If so?",
+    "category": " what has led you to that conclusion?,Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What belief about the world do you think is stupid and ridiculous? What do you think is a reality that people won’t accept?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What makes you lose hope?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What is a secret you have never shared?",
+    "category": " because you are afraid of how you would be judged?,Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "When did you feel like you had to give up on a friendship?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What is something that you can do right now to be a better person?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "If you could have more of anything what would you want? Why would you pick that one in particular?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What is the one moment in your life that you think defines you as a human being?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "If you had an animal version of yourself what would they be doing?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "Have you ever gone through any abuse? And how has this experience impacted you in your life?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "If you were to be brutally honest about any single moment of your life with what you know now?",
+    "category": " what would it be?,Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What event do you think you will not be able to escape when you die?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "Do you find it difficult to trust others?",
+    "category": " or do you fall for people too easily?,Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "Is there anything you don’t do because you are afraid of looking silly?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "If you could go back and change the trajectory of your life to have better finances?",
+    "category": " would you",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What do you think will happen to the world after you are gone?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "If you could pick one world to make a reality?",
+    "category": " what would you choose?,Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "Do you put on a face for the world?",
+    "category": " or are you honest no matter the situation?,Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "Do you value wealth?",
+    "category": " power",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "Where do you think you will find yourself going when you die?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "Does it bother you that someone will not remember who you are down the line?",
+    "category": " or that history may be unkind to you?,Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "How would you try to take over the world?",
+    "category": " if you could do so without any backlash?,Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What do you hate?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What do you hope for?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What do you believe in?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What is your biggest fear?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What is your biggest challenge?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What inspires you?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What do you dream about?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What makes you feel alive?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What do you regret the most?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What is your greatest achievement?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What is your definition of success?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What do you value most?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What is your life's purpose?,Deeper Dive?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What are you most afraid of?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What are you doing to make the world a better place?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What do you need to be happy?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What do you want to accomplish before you die?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  },
+  {
+    "level": 3,
+    "intensity": 3,
+    "text": "What is a belief you would die for?",
+    "category": "Deeper Dive",
+    "isCustom": false,
+    "userId": null
+  }
+]
