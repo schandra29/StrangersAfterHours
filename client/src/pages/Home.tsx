@@ -3,6 +3,7 @@ import WelcomeScreen from "@/components/WelcomeScreen";
 import SetupScreen from "@/components/SetupScreen";
 import GameScreen from "@/components/GameScreen";
 import HowToPlayModal from "@/components/HowToPlayModal";
+import AboutGameModal from "@/components/AboutGameModal";
 import GameMenuModal from "@/components/GameMenuModal";
 import ChallengeModal from "@/components/ChallengeModal";
 import LevelUpModal from "@/components/LevelUpModal";
@@ -19,6 +20,7 @@ type Screen = "welcome" | "setup" | "game";
 export default function Home() {
   const [currentScreen, setCurrentScreen] = useState<Screen>("welcome");
   const [showHowToPlay, setShowHowToPlay] = useState(false);
+  const [showAboutGame, setShowAboutGame] = useState(false);
   const [showSpecialWelcome, setShowSpecialWelcome] = useState(false);
   const [specialCodeType, setSpecialCodeType] = useState<string | null>(null);
   const [showGameMenu, setShowGameMenu] = useState(false);
