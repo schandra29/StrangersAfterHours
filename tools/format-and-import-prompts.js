@@ -236,7 +236,7 @@ async function importPrompts(prompts) {
     const importBatch = new Promise((resolve, reject) => {
       const options = {
         hostname: 'localhost',
-        port: 3000, // Updated to match Replit's standard port
+        port: 5000, // Updated to match server's actual port
         path: '/api/prompts/import', // Updated to match actual route
         method: 'POST',
         headers: {
