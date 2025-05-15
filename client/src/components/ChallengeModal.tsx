@@ -333,11 +333,11 @@ export default function ChallengeModal({
         <div className="text-xs text-gray-400">
           {usingFrontCamera ? (
             <div className="inline-flex items-center">
-              <i className="ri-user-line mr-1"></i> Using front camera (selfie mode)
+              <User className="w-3 h-3 mr-1" /> Using front camera (selfie mode)
             </div>
           ) : (
             <div className="inline-flex items-center">
-              <i className="ri-camera-line mr-1"></i> Using rear camera
+              <Camera className="w-3 h-3 mr-1" /> Using rear camera
             </div>
           )}
         </div>
