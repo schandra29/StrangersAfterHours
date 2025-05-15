@@ -28,6 +28,7 @@ export default function ChallengeModal({
   const [currentView, setCurrentView] = useState<ChallengeView>("challenge");
   const [isRecording, setIsRecording] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [usingFrontCamera, setUsingFrontCamera] = useState(false);
   
   const videoRef = useRef<HTMLVideoElement>(null);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
@@ -59,9 +60,11 @@ export default function ChallengeModal({
     if (isOpen) {
       setCurrentView("challenge");
       setErrorMessage(null);
+      setUsingFrontCamera(false); // Reset camera state
     } else {
       // Stop recording and clean up when modal closes
       stopRecording();
+      setUsingFrontCamera(false); // Reset camera state
     }
   }, [isOpen]);
   
@@ -90,11 +93,24 @@ export default function ChallengeModal({
     setCurrentView("recording");
     
     try {
-      // Request camera and microphone access
-      const stream = await navigator.mediaDevices.getUserMedia({ 
-        video: { facingMode: "user" }, 
-        audio: true 
-      });
+      let stream;
+      
+      try {
+        // First try to get the rear-facing camera
+        stream = await navigator.mediaDevices.getUserMedia({ 
+          video: { facingMode: "environment" }, // Use rear camera first
+          audio: true 
+        });
+        setUsingFrontCamera(false); // Using rear camera
+      } catch (error) {
+        console.log("Couldn't access rear camera, falling back to front camera:", error);
+        // If rear camera fails, fall back to front camera
+        stream = await navigator.mediaDevices.getUserMedia({ 
+          video: { facingMode: "user" }, 
+          audio: true 
+        });
+        setUsingFrontCamera(true); // Using front camera
+      }
       
       streamRef.current = stream;
       
@@ -167,6 +183,9 @@ export default function ChallengeModal({
     if (videoRef.current) {
       videoRef.current.srcObject = null;
     }
+    
+    // Reset camera state
+    setUsingFrontCamera(false);
   };
   
   const handleFinishRecording = () => {
@@ -260,6 +279,9 @@ export default function ChallengeModal({
           <li>The recording will be saved only to your device</li>
           <li>The app does not store or transmit any recordings</li>
         </ul>
+        <div className="mt-3 p-2 bg-secondary/10 rounded-lg text-sm text-gray-300">
+          <p><i className="ri-camera-line mr-1"></i> The app will try to use your device's rear camera to record others performing the dare. If unavailable, it will fall back to the front camera.</p>
+        </div>
       </div>
       
       <div className="grid grid-cols-2 gap-3">
@@ -299,14 +321,26 @@ export default function ChallengeModal({
         />
       </div>
       
-      {isRecording && (
-        <div className="text-center mb-4">
+      <div className="text-center mb-4 flex flex-col items-center gap-2">
+        {isRecording && (
           <div className="inline-flex items-center bg-red-500/20 text-red-500 px-3 py-1 rounded-full">
             <span className="w-2 h-2 rounded-full bg-red-500 mr-2 animate-pulse"></span>
             Recording
           </div>
+        )}
+        
+        <div className="text-xs text-gray-400">
+          {usingFrontCamera ? (
+            <div className="inline-flex items-center">
+              <i className="ri-user-line mr-1"></i> Using front camera (selfie mode)
+            </div>
+          ) : (
+            <div className="inline-flex items-center">
+              <i className="ri-camera-line mr-1"></i> Using rear camera
+            </div>
+          )}
         </div>
-      )}
+      </div>
       
       <Button 
         className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-xl"
