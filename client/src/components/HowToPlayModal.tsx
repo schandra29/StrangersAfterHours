@@ -42,6 +42,11 @@ export default function HowToPlayModal({ isOpen, onClose }: HowToPlayModalProps)
       description: "Use the timer to keep track of how long your group spends on deep conversations. Start it when someone begins answering and it will be recorded in your session statistics."
     },
     {
+      title: "Prompt Tracking & Reset",
+      icon: "history-line",
+      description: "The game automatically tracks prompts you've seen to avoid repetition. With 900 unique prompts across different levels and intensities, you can enjoy many game sessions without seeing the same prompts twice! Use the 'Reset Game' button in the menu to start fresh."
+    },
+    {
       title: "Challenges",
       icon: "fire-line",
       description: "If someone doesn't want to answer a prompt, they can choose a Dare, R-Rated Dare, or Take a Sip (in drinking mode). This keeps the game flowing and adds variety."
