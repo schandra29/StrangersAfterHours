@@ -30,6 +30,7 @@ export default function ChallengeModal({
   const [isRecording, setIsRecording] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [usingFrontCamera, setUsingFrontCamera] = useState(false);
+  const [isRefreshing, setIsRefreshing] = useState(false);
   
   const videoRef = useRef<HTMLVideoElement>(null);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
@@ -47,13 +48,25 @@ export default function ChallengeModal({
     enabled: isOpen && type !== "Take a Sip",
   });
 
+  // Function to get a random challenge from available challenges
+  const getRandomChallenge = () => {
+    // Show refreshing animation
+    setIsRefreshing(true);
+    
+    // Short delay for visual feedback
+    setTimeout(() => {
+      if (type === "Take a Sip") {
+        setChallenge("Take a sip of your drink!");
+      } else if (challenges && challenges.length > 0) {
+        const randomIndex = Math.floor(Math.random() * challenges.length);
+        setChallenge(challenges[randomIndex].text);
+      }
+      setIsRefreshing(false);
+    }, 300);
+  };
+
   useEffect(() => {
-    if (type === "Take a Sip") {
-      setChallenge("Take a sip of your drink!");
-    } else if (challenges && challenges.length > 0) {
-      const randomIndex = Math.floor(Math.random() * challenges.length);
-      setChallenge(challenges[randomIndex].text);
-    }
+    getRandomChallenge();
   }, [challenges, isOpen, type]);
   
   // Reset view when modal opens/closes
@@ -213,13 +226,22 @@ export default function ChallengeModal({
         <p className="text-gray-300">{type} challenge</p>
       </div>
       
-      <div className="bg-white/10 rounded-xl p-4 mb-6">
+      <div className={`bg-white/10 rounded-xl p-4 mb-6 ${isRefreshing ? 'animate-pulse' : ''}`}>
         <p className="text-white font-medium">
-          {challenge || "Loading challenge..."}
-          {isDrinkingGame && type === "Dare" && challenge && (
-            <span className="block mt-2 text-sm text-secondary">
-              (If passing, take a sip of your drink)
+          {isRefreshing ? (
+            <span className="flex items-center justify-center py-2">
+              <i className="ri-refresh-line text-xl animate-spin mr-2"></i>
+              Finding new challenge...
             </span>
+          ) : (
+            <>
+              {challenge || "Loading challenge..."}
+              {isDrinkingGame && type === "Dare" && challenge && (
+                <span className="block mt-2 text-sm text-secondary">
+                  (If passing, take a sip of your drink)
+                </span>
+              )}
+            </>
           )}
         </p>
       </div>
@@ -245,6 +267,16 @@ export default function ChallengeModal({
           >
             <Video className="w-4 h-4 mr-2" />
             Accept and Record
+          </Button>
+        )}
+
+        {(type === "Dare" || type === "R-Rated Dare") && (
+          <Button 
+            className="bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-xl"
+            onClick={getRandomChallenge}
+          >
+            <i className="ri-refresh-line mr-2"></i>
+            Pick Another
           </Button>
         )}
         
