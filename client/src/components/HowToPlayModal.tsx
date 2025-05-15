@@ -1,6 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { useState } from "react";
+import { 
+  Settings, 
+  Users, 
+  Timer, 
+  History, 
+  Flame, 
+  Sparkles, 
+  Video, 
+  BarChart2, 
+  Info 
+} from "lucide-react";
 
 interface HowToPlayModalProps {
   isOpen: boolean;
@@ -11,7 +22,7 @@ interface HowToPlayModalProps {
 interface FeatureItem {
   title: string;
   description: string;
-  icon: string;
+  Icon: React.ElementType; // Component type for Lucide icons
 }
 
 export default function HowToPlayModal({ isOpen, onClose }: HowToPlayModalProps) {
@@ -28,42 +39,42 @@ export default function HowToPlayModal({ isOpen, onClose }: HowToPlayModalProps)
   const features: FeatureItem[] = [
     {
       title: "Levels & Intensity",
-      icon: "settings-line",
+      Icon: Settings,
       description: "Levels (1-3) control conversation depth from casual to deep. Intensity (1-3) controls how revealing questions are. Use the 'Select Level/Intensity' button to customize your experience."
     },
     {
       title: "Full-house Button",
-      icon: "group-line",
+      Icon: Users,
       description: "Click this when everyone in your group has participated in answering a prompt. This tracks group participation and builds a sense of accomplishment. The game keeps score of these moments!"
     },
     {
       title: "Timer",
-      icon: "timer-line",
+      Icon: Timer,
       description: "Use the timer to keep track of how long your group spends on deep conversations. Start it when someone begins answering and it will be recorded in your session statistics."
     },
     {
       title: "Prompt Tracking & Reset",
-      icon: "history-line",
+      Icon: History,
       description: "The game automatically tracks prompts you've seen to avoid repetition. With 900 unique prompts across different levels and intensities, you can enjoy many game sessions without seeing the same prompts twice! Use the 'Reset Game' button in the menu to start fresh."
     },
     {
       title: "Challenges",
-      icon: "fire-line",
+      Icon: Flame,
       description: "If someone doesn't want to answer a prompt, they can choose a Dare, R-Rated Dare, or Take a Sip (in drinking mode). This keeps the game flowing and adds variety."
     },
     {
       title: "Take a Chance",
-      icon: "magic-line",
+      Icon: Sparkles,
       description: "Click this button to get a completely random prompt from any level or intensity. Great for mixing things up!"
     },
     {
       title: "Recording Features",
-      icon: "record-circle-line",
+      Icon: Video,
       description: "When accepting dares, you can record the performance using your device's camera. These recordings are saved only to your device and are never uploaded anywhere."
     },
     {
       title: "Game Summary",
-      icon: "bar-chart-line",
+      Icon: BarChart2,
       description: "At the end of your session, review statistics about your group's engagement, most popular conversation depth, and total time spent connecting with each other."
     }
   ];
@@ -96,8 +107,8 @@ export default function HowToPlayModal({ isOpen, onClose }: HowToPlayModalProps)
           <div className="space-y-4">
             {features.map((feature, index) => (
               <div className="bg-primary/10 rounded-xl p-4" key={index}>
-                <h4 className="font-heading font-bold text-lg text-white mb-1">
-                  <i className={`ri-${feature.icon} mr-2`}></i>
+                <h4 className="font-heading font-bold text-lg text-white mb-1 flex items-center">
+                  <feature.Icon className="w-5 h-5 mr-2 text-primary" />
                   {feature.title}
                 </h4>
                 <p className="text-gray-300 text-sm">{feature.description}</p>
@@ -109,7 +120,7 @@ export default function HowToPlayModal({ isOpen, onClose }: HowToPlayModalProps)
         {/* Safety Note */}
         <div className="bg-warning/20 rounded-xl p-4 mb-6">
           <div className="flex">
-            <i className="ri-information-line text-warning mr-3 text-xl"></i>
+            <Info className="text-warning mr-3 w-5 h-5 mt-0.5 shrink-0" />
             <p className="text-sm text-gray-300">
               Remember, everyone should feel comfortable. Anyone can skip a prompt or challenge at any time. 
               This game is designed to build connections, not embarrass participants.
