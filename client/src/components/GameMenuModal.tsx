@@ -4,6 +4,14 @@ import { useState } from "react";
 import PromptStatsModal from "./PromptStatsModal";
 import { resetUsedPrompts } from "@/lib/utils";
 import { toast } from "@/hooks/use-toast";
+import { 
+  RefreshCw, 
+  Settings, 
+  HelpCircle, 
+  BarChart2, 
+  RotateCcw,
+  Plus
+} from "lucide-react";
 
 interface GameMenuModalProps {
   isOpen: boolean;
@@ -73,7 +81,7 @@ export default function GameMenuModal({
   return (
     <>
       <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-        <DialogContent className="bg-card rounded-3xl p-6 max-w-sm mx-4 border border-primary shadow-xl">
+        <DialogContent className="bg-card rounded-3xl p-6 max-w-sm mx-auto border border-primary shadow-xl">
           <DialogTitle className="font-heading font-bold text-2xl text-white mb-6">
             Game Menu
           </DialogTitle>

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { useGame } from "@/hooks/useGame";
+import { Settings } from "lucide-react";
 
 interface LevelUpModalProps {
   isOpen: boolean;
@@ -57,11 +58,11 @@ export default function LevelUpModal({
   
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && handleClose()}>
-      <DialogContent className="bg-card rounded-3xl p-6 max-w-sm mx-4 border border-primary shadow-xl">
+      <DialogContent className="bg-card rounded-3xl p-6 max-w-sm mx-auto border border-primary shadow-xl">
         <DialogTitle className="sr-only">Select Level and Intensity</DialogTitle>
         <div className="text-center mb-6">
           <div className="bg-primary/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-            <i className="ri-settings-line text-primary text-3xl"></i>
+            <Settings className="text-primary w-8 h-8" />
           </div>
           <h3 className="font-heading font-bold text-2xl text-white mb-2">Select Level/Intensity</h3>
           <p className="text-gray-300">Choose your desired game settings</p>

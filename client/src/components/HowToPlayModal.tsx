@@ -81,7 +81,7 @@ export default function HowToPlayModal({ isOpen, onClose }: HowToPlayModalProps)
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="bg-card rounded-3xl p-6 max-w-lg mx-4 border border-primary shadow-xl overflow-auto max-h-[85vh]">
+      <DialogContent className="bg-card rounded-3xl p-6 max-w-lg mx-auto border border-primary shadow-xl overflow-auto max-h-[85vh]">
         <DialogTitle className="font-heading font-bold text-2xl text-white mb-4 text-center">
           How to Play
         </DialogTitle>
