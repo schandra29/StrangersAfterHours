@@ -3,9 +3,10 @@ import { Button } from "@/components/ui/button";
 interface WelcomeScreenProps {
   onStartGame: () => void;
   onHowToPlay: () => void;
+  onAboutGame: () => void;
 }
 
-export default function WelcomeScreen({ onStartGame, onHowToPlay }: WelcomeScreenProps) {
+export default function WelcomeScreen({ onStartGame, onHowToPlay, onAboutGame }: WelcomeScreenProps) {
   return (
     <div className="card bg-card/90 rounded-3xl p-8 mb-8 border border-primary/20 shadow-xl">
       <div className="text-center mb-6">
@@ -54,12 +55,18 @@ export default function WelcomeScreen({ onStartGame, onHowToPlay }: WelcomeScree
         Start New Game
       </Button>
       
-      <div className="mt-4 text-center">
+      <div className="mt-4 flex justify-center space-x-6">
         <button 
-          className="text-primary underline text-sm"
+          className="text-primary underline text-sm hover:text-primary/80 transition-colors"
           onClick={onHowToPlay}
         >
-          How to play
+          How to Play
+        </button>
+        <button 
+          className="text-primary underline text-sm hover:text-primary/80 transition-colors"
+          onClick={onAboutGame}
+        >
+          About this Game
         </button>
       </div>
     </div>

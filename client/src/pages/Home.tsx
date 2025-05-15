@@ -233,7 +233,8 @@ export default function Home() {
         {currentScreen === "welcome" && (
           <WelcomeScreen 
             onStartGame={handleStartGame} 
-            onHowToPlay={() => setShowHowToPlay(true)} 
+            onHowToPlay={() => setShowHowToPlay(true)}
+            onAboutGame={() => setShowAboutGame(true)}
           />
         )}
         
@@ -277,6 +278,11 @@ export default function Home() {
           onClose={() => setShowHowToPlay(false)} 
         />
         
+        <AboutGameModal
+          isOpen={showAboutGame}
+          onClose={() => setShowAboutGame(false)}
+        />
+        
         <GameMenuModal 
           isOpen={showGameMenu} 
           onClose={() => setShowGameMenu(false)}
@@ -287,6 +293,10 @@ export default function Home() {
           }}
           onHowToPlay={() => {
             setShowHowToPlay(true);
+            setShowGameMenu(false);
+          }}
+          onAboutGame={() => {
+            setShowAboutGame(true);
             setShowGameMenu(false);
           }}
           onAddCustomChallenge={handleAddCustomChallenge}

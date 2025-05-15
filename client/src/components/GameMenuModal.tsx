@@ -10,7 +10,8 @@ import {
   HelpCircle, 
   BarChart2, 
   RotateCcw,
-  Plus
+  Plus,
+  Heart
 } from "lucide-react";
 
 interface GameMenuModalProps {
@@ -19,6 +20,7 @@ interface GameMenuModalProps {
   onRestart: () => void;
   onSettings: () => void;
   onHowToPlay: () => void;
+  onAboutGame: () => void;
   onAddCustomChallenge?: () => void;
 }
 
@@ -28,6 +30,7 @@ export default function GameMenuModal({
   onRestart,
   onSettings,
   onHowToPlay,
+  onAboutGame,
   onAddCustomChallenge
 }: GameMenuModalProps) {
   const [isPromptStatsOpen, setIsPromptStatsOpen] = useState(false);
@@ -56,6 +59,11 @@ export default function GameMenuModal({
       Icon: HelpCircle,
       label: "How to Play",
       action: onHowToPlay
+    },
+    {
+      Icon: Heart,
+      label: "About this Game",
+      action: onAboutGame
     },
     {
       Icon: BarChart2,
