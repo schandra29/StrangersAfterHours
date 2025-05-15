@@ -5,7 +5,12 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 interface AuthContextType {
   isAuthenticated: boolean;
   isLoading: boolean;
-  login: (accessCode: string) => Promise<{ success: boolean; message?: string }>;
+  login: (accessCode: string) => Promise<{ 
+    success: boolean; 
+    message?: string;
+    specialCode?: boolean;
+    codeType?: string | null;
+  }>;
   logout: () => void;
 }
 
@@ -60,7 +65,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           queryClient.invalidateQueries(); // Invalidate all queries
         }, 500);
         
-        return { success: true };
+        // Check for special access code info
+        const specialCodeType = data.specialCode ? data.codeType : null;
+        
+        // If this is a special code, store it in localStorage to persist across page refreshes
+        if (specialCodeType) {
+          localStorage.setItem('specialCodeType', specialCodeType);
+        }
+        
+        return { 
+          success: true,
+          specialCode: data.specialCode,
+          codeType: specialCodeType
+        };
       } else {
         return { success: false, message: data.message || 'Login failed' };
       }

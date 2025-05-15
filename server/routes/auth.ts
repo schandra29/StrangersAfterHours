@@ -45,6 +45,15 @@ authRouter.post("/login", async (req, res) => {
         req.session.accessCode = accessCode;
         req.session.isAuthenticated = true;
         
+        // Return additional data for special access codes
+        if (accessCode === "VIVEKG") {
+          return res.status(200).json({ 
+            message: "Login successful",
+            specialCode: true,
+            codeType: "vivek"
+          });
+        }
+        
         return res.status(200).json({ message: "Login successful" });
       }
     }
