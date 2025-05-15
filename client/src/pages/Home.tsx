@@ -157,10 +157,23 @@ export default function Home() {
   // Handle full house moments - when everyone has participated
   const handleFullHouseMoment = () => {
     game.recordFullHouseMoment();
+    
+    // Array of more engaging full house messages
+    const fullHouseMessages = [
+      "Wow! The chemistry in this room is electric! You all rock at opening up! 🙌",
+      "This group's on fire! Love how everyone's bringing their A-game! ✨",
+      "Look at y'all connecting! This is what authentic bonding looks like! 💯",
+      "Squad goals achieved! Your willingness to share is making magic happen!",
+      "That's what I'm talking about! This crew knows how to keep it real!"
+    ];
+    
+    // Pick a random message
+    const randomIndex = Math.floor(Math.random() * fullHouseMessages.length);
+    
     toast({
-      title: "Full House!",
-      description: "Everyone participated! Great job!",
-      duration: 1000, // Only show for 1 second
+      title: "Full House! 🎉",
+      description: fullHouseMessages[randomIndex],
+      duration: 1500, // Show for 1.5 seconds since message is longer
     });
   };
   
