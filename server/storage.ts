@@ -15,6 +15,7 @@ export interface IStorage {
   // Prompt operations
   createPrompt(prompt: InsertPrompt): Promise<Prompt>;
   getPromptsByLevelAndIntensity(level: number, intensity: number): Promise<Prompt[]>;
+  getAllPrompts(): Promise<Prompt[]>; // Get all prompts for stats calculation
   getRandomPrompt(excludeIds?: number[]): Promise<Prompt | undefined>;
   getPromptById(id: number): Promise<Prompt | undefined>;
   getCustomPromptsByUser(userId: number): Promise<Prompt[]>;
@@ -109,6 +110,10 @@ export class MemStorage implements IStorage {
     return Array.from(this.prompts.values()).filter(
       (prompt) => prompt.level === level && prompt.intensity <= intensity
     );
+  }
+  
+  async getAllPrompts(): Promise<Prompt[]> {
+    return Array.from(this.prompts.values());
   }
 
   async getRandomPrompt(excludeIds: number[] = []): Promise<Prompt | undefined> {

@@ -47,6 +47,10 @@ export class DatabaseStorage implements IStorage {
       )
     );
   }
+  
+  async getAllPrompts(): Promise<Prompt[]> {
+    return db.select().from(prompts);
+  }
 
   async getRandomPrompt(excludeIds: number[] = []): Promise<Prompt | undefined> {
     try {

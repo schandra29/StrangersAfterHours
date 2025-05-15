@@ -28,6 +28,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Prompt routes (protected)
   app.get("/api/prompts", isAuthenticated, async (req, res) => {
     try {
+      // If all=true, return all prompts (used for stats calculation)
+      if (req.query.all === 'true') {
+        const allPrompts = await storage.getAllPrompts();
+        return res.json(allPrompts);
+      }
+      
       const level = parseInt(req.query.level as string) || 1;
       const intensity = parseInt(req.query.intensity as string) || 1;
       const excludeIds = req.query.excludeIds ? 
@@ -45,6 +51,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         
       res.json(filteredPrompts);
     } catch (error) {
+      console.error("Error fetching prompts:", error);
       res.status(500).json({ message: "Failed to fetch prompts" });
     }
   });

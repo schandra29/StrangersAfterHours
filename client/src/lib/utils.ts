@@ -88,7 +88,7 @@ export async function updatePromptStats(): Promise<void> {
     const usedIds = getUsedPromptIds()
     
     // Fetch all the prompts from the API to get their levels
-    const response = await fetch('/api/prompts')
+    const response = await fetch('/api/prompts?all=true')
     if (!response.ok) {
       throw new Error('Failed to fetch prompts for stats')
     }
@@ -100,7 +100,7 @@ export async function updatePromptStats(): Promise<void> {
       level1: 0,
       level2: 0,
       level3: 0,
-      total: usedIds.length
+      total: 0 // We'll calculate this accurately below
     }
     
     // Count total prompts by level
@@ -108,28 +108,36 @@ export async function updatePromptStats(): Promise<void> {
       level1: 0,
       level2: 0,
       level3: 0,
-      total: prompts.length
+      total: 0 // We'll calculate this accurately below
     }
     
-    // Process each prompt
+    // Process each prompt and count accurately
     prompts.forEach((prompt: any) => {
-      // Update total counts
-      if (prompt.level === 1) total.level1++
-      else if (prompt.level === 2) total.level2++
-      else if (prompt.level === 3) total.level3++
-      
-      // Update used counts if this prompt has been used
-      if (usedIds.includes(prompt.id)) {
-        if (prompt.level === 1) used.level1++
-        else if (prompt.level === 2) used.level2++
-        else if (prompt.level === 3) used.level3++
+      // Only count standard prompts (not challenges or custom prompts)
+      if (prompt.level >= 1 && prompt.level <= 3) {
+        // Update total counts
+        if (prompt.level === 1) total.level1++
+        else if (prompt.level === 2) total.level2++
+        else if (prompt.level === 3) total.level3++
+        
+        // Update used counts if this prompt has been used
+        if (usedIds.includes(prompt.id)) {
+          if (prompt.level === 1) used.level1++
+          else if (prompt.level === 2) used.level2++
+          else if (prompt.level === 3) used.level3++
+        }
       }
     })
+    
+    // Calculate totals
+    total.total = total.level1 + total.level2 + total.level3
+    used.total = used.level1 + used.level2 + used.level3
     
     // Save the updated stats
     const stats: PromptStats = { total, used }
     localStorage.setItem(STORAGE_KEYS.PROMPT_STATS, JSON.stringify(stats))
     
+    console.log('Updated prompt stats:', stats)
   } catch (error) {
     console.error('Error updating prompt stats:', error)
   }
