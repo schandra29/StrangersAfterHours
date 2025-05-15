@@ -4,7 +4,7 @@ import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useQuery } from "@tanstack/react-query";
 import { type Challenge } from "@shared/schema";
-import { Flame, Video, FlipHorizontal, Check, X } from "lucide-react";
+import { Flame, Video, FlipHorizontal, Check, X, Trophy, Wine, User, Camera } from "lucide-react";
 
 type ChallengeView = "challenge" | "consent" | "recording" | "completion";
 
@@ -243,7 +243,7 @@ export default function ChallengeModal({
             className="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 rounded-xl"
             onClick={handleAcceptAndRecord}
           >
-            <i className="ri-record-circle-line mr-2"></i>
+            <Video className="w-4 h-4 mr-2" />
             Accept and Record
           </Button>
         )}
@@ -357,7 +357,7 @@ export default function ChallengeModal({
       <DialogTitle className="sr-only">Challenge Completion</DialogTitle>
       <div className="text-center mb-6">
         <div className="bg-green-500/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-          <i className="ri-trophy-line text-green-500 text-3xl"></i>
+          <Trophy className="text-green-500 w-8 h-8" />
         </div>
         <h3 className="font-heading font-bold text-2xl text-white mb-2">Congratulations!</h3>
         <p className="text-gray-300">Your brave performance deserves recognition</p>
@@ -407,7 +407,7 @@ export default function ChallengeModal({
               onClose();
             }}
           >
-            <i className="ri-goblet-line mr-2"></i>
+            <Wine className="w-4 h-4 mr-2" />
             Assign Take a Sip
           </Button>
         )}
