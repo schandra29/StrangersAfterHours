@@ -199,11 +199,30 @@ export default function GameScreen({
         </Button>
         
         <Button
-          className="btn-primary w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 px-6 rounded-xl shadow-lg flex items-center justify-center"
+          className="btn-primary w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 px-6 rounded-xl shadow-lg flex items-center justify-center mb-3"
           onClick={onNextPrompt}
         >
           <i className="ri-arrow-right-line mr-2"></i> Next Prompt
         </Button>
+        
+        {/* Game Controls */}
+        <div className="grid grid-cols-2 gap-3">
+          <button 
+            className="bg-primary/20 hover:bg-primary/30 text-white py-3 px-4 rounded-xl text-center"
+            onClick={() => onLevelChange("level")}
+          >
+            <i className="ri-game-line mb-1 text-xl block"></i>
+            <span className="block font-medium">Select Level/Intensity</span>
+          </button>
+          <button 
+            className="bg-primary/20 hover:bg-primary/30 text-white py-3 px-4 rounded-xl text-center relative overflow-hidden group"
+            onClick={() => onRandomPrompt()}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-20 transition-opacity"></div>
+            <i className="ri-magic-line mb-1 text-xl block relative z-10"></i>
+            <span className="block font-medium relative z-10">Take a Chance</span>
+          </button>
+        </div>
       </div>
       
       {/* Challenge Section */}
@@ -242,33 +261,8 @@ export default function GameScreen({
         </div>
       </div>
       
-      {/* Level Up Section */}
-      <div className="card bg-primary/10 rounded-3xl p-6 border border-primary/20">
-        <h3 className="font-heading font-bold text-xl text-white mb-4">Change Level or Intensity</h3>
-        
-        <div className="grid grid-cols-2 gap-3 mb-4">
-          <button 
-            className="bg-primary/20 hover:bg-primary/30 text-white py-3 px-4 rounded-xl text-center"
-            onClick={() => onLevelChange("level")}
-          >
-            <i className="ri-game-line mb-1 text-xl block"></i>
-            <span className="block font-medium">Select Level/Intensity</span>
-          </button>
-          <button 
-            className="bg-primary/20 hover:bg-primary/30 text-white py-3 px-4 rounded-xl text-center relative overflow-hidden group"
-            onClick={() => onRandomPrompt()}
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-20 transition-opacity"></div>
-            <i className="ri-magic-line mb-1 text-xl block relative z-10"></i>
-            <span className="block font-medium relative z-10">Take a Chance</span>
-            <div className="text-xs text-gray-300 mt-1 relative z-10">Get any level/intensity</div>
-          </button>
-        </div>
-        
-        <p className="text-gray-300 text-sm text-center mb-6">
-          Change the experience or get a completely random prompt
-        </p>
-        
+      {/* End Game Section */}
+      <div className="card bg-primary/10 rounded-3xl p-4 border border-primary/20">
         {/* End Game Button */}
         {onEndGame && (
           <Button
