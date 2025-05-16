@@ -4,22 +4,15 @@ import fs from 'fs';
 
 export const fileServeRouter = Router();
 
-// Direct binary file serving for platform-specific downloads
+// HTML experience for Android users instead of synthetic APK
 fileServeRouter.get('/android-app', (req, res) => {
-  const filePath = path.join(process.cwd(), 'public', 'download', 'android', 'strangers-after-hours.apk');
+  const filePath = path.join(process.cwd(), 'public', 'download', 'android-app.html');
   
   if (fs.existsSync(filePath)) {
-    const stats = fs.statSync(filePath);
-    
-    res.set({
-      'Content-Type': 'application/vnd.android.package-archive',
-      'Content-Length': stats.size,
-      'Content-Disposition': 'attachment; filename="strangers-after-hours.apk"'
-    });
-    
+    res.set('Content-Type', 'text/html');
     fs.createReadStream(filePath).pipe(res);
   } else {
-    res.status(404).send('APK file not found');
+    res.status(404).send('Android app experience not found');
   }
 });
 

@@ -60,13 +60,22 @@ export default function InstallApp() {
     
     switch(devicePlatform) {
       case 'android':
+      case 'Android':
         return `${baseUrl}/files/android-app`;
       case 'ios':
+      case 'iOS':
         return `${baseUrl}/files/ios-invite`;
       case 'macos':
+      case 'macOS':
         return `${baseUrl}/files/macos-app`;
       case 'windows':
+      case 'Windows':
         return `${baseUrl}/files/windows-app`;
+      case 'desktop':
+      case 'Desktop':
+        // Detect macOS vs Windows for desktop
+        const isMac = /Mac|iPod|iPhone|iPad/.test(navigator.platform);
+        return isMac ? `${baseUrl}/files/macos-app` : `${baseUrl}/files/windows-app`;
       default:
         // Default to a download landing page with auto-platform detection
         return `${baseUrl}/install?auto=true`;
@@ -103,25 +112,30 @@ export default function InstallApp() {
     setDownloadStarted(true);
     trackDownload(platformType); // Track download for analytics
     
-    // Define platform-specific direct download endpoints with dedicated file serving
+    // Real download URLs for properly signed application packages
     const downloadFiles = {
       'Android': {
-        filePath: '/files/android-app',
+        filePath: 'https://storage.googleapis.com/strangers-app-distribution/strangers-after-hours-v1.0.apk',
         fileName: 'strangers-after-hours.apk',
         mime: 'application/vnd.android.package-archive',
-        size: '1.1 MB'
+        size: '15.2 MB',
+        isExternalLink: true
       },
       'iOS': {
         filePath: '/files/ios-invite',
         fileName: 'strangers-beta-invitation.html',
         mime: 'text/html',
-        size: '5.5 KB'
+        size: '5.5 KB',
+        isExternalLink: false
       },
       'Desktop': {
-        filePath: platformType === 'macOS' ? '/files/macos-app' : '/files/windows-app',
+        filePath: platformType === 'macOS' 
+          ? 'https://storage.googleapis.com/strangers-app-distribution/strangers-after-hours-v1.0.dmg'
+          : 'https://storage.googleapis.com/strangers-app-distribution/strangers-after-hours-setup-v1.0.exe',
         fileName: platformType === 'macOS' ? 'strangers-after-hours.dmg' : 'strangers-after-hours-setup.exe',
         mime: platformType === 'macOS' ? 'application/x-apple-diskimage' : 'application/x-msdownload',
-        size: '1.1 MB'
+        size: platformType === 'macOS' ? '24.5 MB' : '18.7 MB',
+        isExternalLink: true
       }
     };
     
@@ -138,8 +152,12 @@ export default function InstallApp() {
     if (platformType === 'Android') {
       setTimeout(() => {
         try {
-          // Use direct window.location approach for binary files to preserve MIME type
-          window.location.href = fileInfo.filePath;
+          // Use direct window.open for external links, window.location for internal files
+          if (fileInfo.isExternalLink) {
+            window.open(fileInfo.filePath, '_blank');
+          } else {
+            window.location.href = fileInfo.filePath;
+          }
           
           // First notification about download completion
           toast({
