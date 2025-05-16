@@ -170,7 +170,7 @@ export default function GameScreen({
       </div>
       
       {/* Prompt Card */}
-      <div className="card bg-card/90 rounded-3xl p-8 mb-6 border border-primary/20 shadow-xl">
+      <div className="card game-prompt-card bg-card/90 rounded-3xl p-8 mb-6 border border-primary/20 shadow-xl">
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
             <div className="bg-primary/20 rounded-full py-1 px-4 text-sm text-white font-bold">
@@ -183,7 +183,7 @@ export default function GameScreen({
               <p className="text-gray-300">Loading new prompt...</p>
             </div>
           ) : (
-            <h2 className="font-prompt font-semibold text-3xl text-white leading-tight">
+            <h2 className="font-prompt font-semibold text-3xl text-white leading-tight prompt-text">
               {currentPrompt?.text || "If you could have dinner with any historical figure, who would it be and why?"}
             </h2>
           )}

@@ -44,6 +44,63 @@
     background-image: radial-gradient(circle at top right, rgba(108, 99, 255, 0.2), transparent 400px),
                       radial-gradient(circle at bottom left, rgba(255, 101, 132, 0.15), transparent 400px);
   }
+  
+  /* Landscape mode optimizations for screencast and display devices */
+  @media (orientation: landscape) {
+    body {
+      overflow-x: hidden;
+    }
+    
+    .container {
+      max-width: 90vw !important;
+      margin: 0 auto;
+    }
+    
+    .card {
+      max-width: 90% !important;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Game screen optimizations for landscape/screencast mode */
+    .game-prompt-card {
+      max-width: 80% !important;
+      margin: 0 auto;
+      font-size: 1.5rem !important;
+    }
+    
+    .game-controls {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .challenge-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    
+    /* Ensure text is readable on larger displays */
+    .prompt-text {
+      font-size: 1.75rem !important;
+      line-height: 2.25rem !important;
+      text-align: center;
+    }
+    
+    /* Game level indicator for landscape mode */
+    .level-indicator {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.25rem;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      background-color: rgba(108, 99, 255, 0.2);
+    }
+  }
 
   .font-heading {
     font-family: 'Poppins', sans-serif;
