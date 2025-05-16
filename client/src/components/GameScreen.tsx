@@ -6,6 +6,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { getLevelName, getIntensityName } from "@/lib/gameData";
 import { getCompletionPercentage } from "@/lib/utils";
 import { Progress } from "@/components/ui/progress";
+import ScreenCastButton from "./ScreenCastButton";
 
 interface GameScreenProps {
   currentLevel: number;
@@ -157,12 +158,15 @@ export default function GameScreen({
             Intensity: <span>{getIntensityName(currentIntensity)}</span>
           </span>
         </div>
-        <button 
-          className="text-white bg-card/50 rounded-full p-2"
-          onClick={onMenu}
-        >
-          <i className="ri-menu-line"></i>
-        </button>
+        <div className="flex items-center gap-2">
+          <ScreenCastButton className="text-white bg-card/50 hover:bg-card/70" />
+          <button 
+            className="text-white bg-card/50 rounded-full p-2 hover:bg-card/70"
+            onClick={onMenu}
+          >
+            <i className="ri-menu-line"></i>
+          </button>
+        </div>
       </div>
       
       {/* Prompt Card */}

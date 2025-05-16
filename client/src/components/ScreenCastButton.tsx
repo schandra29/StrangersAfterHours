@@ -12,13 +12,16 @@ export default function ScreenCastButton({ className }: ScreenCastButtonProps) {
   const [isAvailable, setIsAvailable] = useState<boolean>(false);
   const [isCasting, setIsCasting] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [presentationRequest, setPresentationRequest] = useState<PresentationRequest | null>(null);
-  const [presentationConnection, setPresentationConnection] = useState<PresentationConnection | null>(null);
+  const [presentationRequest, setPresentationRequest] = useState<any | null>(null);
+  const [presentationConnection, setPresentationConnection] = useState<any | null>(null);
   const { toast } = useToast();
 
-  // Check if the browser supports the Presentation API
+  // Check if the browser supports the Presentation API or Chrome casting
   useEffect(() => {
-    if (typeof navigator.presentation !== 'undefined') {
+    // Modern browser support for Presentation API
+    if (navigator && 
+        (typeof (navigator as any).presentation !== 'undefined' || 
+         typeof (window as any).chrome?.cast !== 'undefined')) {
       setIsAvailable(true);
     } else {
       setIsAvailable(false);
@@ -29,39 +32,80 @@ export default function ScreenCastButton({ className }: ScreenCastButtonProps) {
   useEffect(() => {
     if (!isAvailable) return;
 
-    try {
-      // Create a presentation request for the current page
-      const request = new PresentationRequest([window.location.href]);
-      
-      // Listen for connect events
-      request.addEventListener('connectionavailable', (event: any) => {
-        const connection = event.connection;
-        setPresentationConnection(connection);
-        setIsCasting(true);
-        setIsLoading(false);
+    // Chrome Cast support
+    if (typeof (window as any).chrome?.cast !== 'undefined') {
+      // Initialize Chrome Cast API
+      const initializeCastApi = () => {
+        const cast = (window as any).chrome.cast;
         
-        // Listen for connection changes
-        connection.addEventListener('close', () => {
-          setPresentationConnection(null);
-          setIsCasting(false);
+        cast.initialize(
+          new cast.ApiConfig(
+            new cast.SessionRequest(cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID),
+            sessionListener,
+            receiverListener
+          )
+        );
+      };
+      
+      const sessionListener = (session: any) => {
+        setPresentationConnection(session);
+        setIsCasting(true);
+      };
+      
+      const receiverListener = (availability: string) => {
+        if (availability === 'available') {
+          setIsAvailable(true);
+        }
+      };
+      
+      // Wait for Cast API to be available
+      if ((window as any).__onGCastApiAvailable) {
+        (window as any).__onGCastApiAvailable = (isAvailable: boolean) => {
+          if (isAvailable) {
+            initializeCastApi();
+          }
+        };
+      }
+      
+      return;
+    }
+
+    // Presentation API support
+    try {
+      if (typeof (navigator as any).presentation !== 'undefined') {
+        // Create a presentation request for the current page
+        const request = new (window as any).PresentationRequest([window.location.href]);
+        
+        // Listen for connect events
+        request.addEventListener('connectionavailable', (event: any) => {
+          const connection = event.connection;
+          setPresentationConnection(connection);
+          setIsCasting(true);
+          setIsLoading(false);
+          
+          // Listen for connection changes
+          connection.addEventListener('close', () => {
+            setPresentationConnection(null);
+            setIsCasting(false);
+            toast({
+              title: "Casting stopped",
+              description: "Your screen is no longer being cast to the external display.",
+            });
+          });
+          
+          connection.addEventListener('terminate', () => {
+            setPresentationConnection(null);
+            setIsCasting(false);
+          });
+          
           toast({
-            title: "Casting stopped",
-            description: "Your screen is no longer being cast to the external display.",
+            title: "Casting started",
+            description: "Your screen is now being cast to the external display!",
           });
         });
         
-        connection.addEventListener('terminate', () => {
-          setPresentationConnection(null);
-          setIsCasting(false);
-        });
-        
-        toast({
-          title: "Casting started",
-          description: "Your screen is now being cast to the external display!",
-        });
-      });
-      
-      setPresentationRequest(request);
+        setPresentationRequest(request);
+      }
     } catch (error) {
       console.error('Failed to create presentation request:', error);
       setIsAvailable(false);
@@ -70,21 +114,61 @@ export default function ScreenCastButton({ className }: ScreenCastButtonProps) {
 
   // Handle start casting
   const startCasting = async () => {
-    if (!presentationRequest) return;
-    
     setIsLoading(true);
     
     try {
-      // Check if there's already an active connection
-      const activeConnection = await presentationRequest.getAvailability();
+      // Chrome Cast
+      if (typeof (window as any).chrome?.cast !== 'undefined') {
+        (window as any).chrome.cast.requestSession(
+          (session: any) => {
+            setPresentationConnection(session);
+            setIsCasting(true);
+            setIsLoading(false);
+            
+            toast({
+              title: "Casting started",
+              description: "Your screen is now being cast to the external display!",
+            });
+          },
+          (error: any) => {
+            console.error('Failed to start Chrome casting:', error);
+            toast({
+              title: "Casting failed",
+              description: error.description || "Unable to connect to the display",
+              variant: "destructive",
+            });
+            setIsLoading(false);
+          }
+        );
+        return;
+      }
       
-      if (activeConnection.value) {
-        // Start the presentation
-        await presentationRequest.start();
+      // Presentation API
+      if (presentationRequest) {
+        try {
+          // Start the presentation
+          await presentationRequest.start();
+        } catch (error: any) {
+          if (error.name === 'NotFoundError') {
+            toast({
+              title: "No displays found",
+              description: "We couldn't find any compatible displays. Make sure your TV or display device is on the same network.",
+              variant: "destructive",
+            });
+          } else {
+            toast({
+              title: "Casting failed",
+              description: "Unable to connect to the display. Please check your network and try again.",
+              variant: "destructive",
+            });
+          }
+          setIsLoading(false);
+        }
       } else {
+        // Fallback if no casting solution is available
         toast({
-          title: "No displays found",
-          description: "We couldn't find any compatible displays. Make sure your TV or display device is on the same network.",
+          title: "Casting not available",
+          description: "Your browser doesn't support screen casting. Please try using Chrome or Edge.",
           variant: "destructive",
         });
         setIsLoading(false);
@@ -103,19 +187,59 @@ export default function ScreenCastButton({ className }: ScreenCastButtonProps) {
   // Handle stop casting
   const stopCasting = () => {
     if (presentationConnection) {
-      presentationConnection.terminate();
-      setPresentationConnection(null);
-      setIsCasting(false);
-      toast({
-        title: "Casting stopped",
-        description: "Your screen is no longer being cast to the external display.",
-      });
+      // Chrome Cast
+      if (typeof (window as any).chrome?.cast !== 'undefined' && 
+          presentationConnection.disconnect) {
+        presentationConnection.disconnect();
+        setPresentationConnection(null);
+        setIsCasting(false);
+        toast({
+          title: "Casting stopped",
+          description: "Your screen is no longer being cast to the external display.",
+        });
+        return;
+      }
+      
+      // Presentation API
+      if (presentationConnection.terminate) {
+        presentationConnection.terminate();
+        setPresentationConnection(null);
+        setIsCasting(false);
+        toast({
+          title: "Casting stopped",
+          description: "Your screen is no longer being cast to the external display.",
+        });
+      }
     }
   };
 
-  // If the API is not available, don't render anything
+  // If neither API is available, still render the button but show a toast explaining compatibility
   if (!isAvailable) {
-    return null;
+    return (
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button
+              variant="outline"
+              size="icon"
+              className={className}
+              onClick={() => {
+                toast({
+                  title: "Screen casting not supported",
+                  description: "Your browser doesn't support screen casting. Please try using Chrome or Edge for this feature.",
+                  variant: "destructive",
+                });
+              }}
+            >
+              <Cast className="h-4 w-4" />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Cast to TV (not supported in this browser)</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+    );
   }
 
   return (
