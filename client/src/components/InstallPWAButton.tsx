@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { Download } from "lucide-react";
+import { Download, ExternalLink, Copy, CheckCircle2 } from "lucide-react";
 import { isRunningAsPWA } from '@/lib/registerSW';
+import { useToast } from "@/hooks/use-toast";
 import {
   Dialog,
   DialogContent,
@@ -29,6 +30,8 @@ export default function InstallPWAButton({
   const [isOpen, setIsOpen] = useState(false);
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const [isInstalling, setIsInstalling] = useState(false);
+  const [copySuccess, setCopySuccess] = useState(false);
+  const { toast } = useToast();
   
   // Check if already running as PWA
   useEffect(() => {
@@ -49,10 +52,21 @@ export default function InstallPWAButton({
     };
   }, []);
   
+  // Reset copy success state after 2 seconds
+  useEffect(() => {
+    if (copySuccess) {
+      const timer = setTimeout(() => {
+        setCopySuccess(false);
+      }, 2000);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [copySuccess]);
+  
   // If running as PWA, don't show the button
   if (isPWA) return null;
   
-  // Install the app
+  // Install the app directly using the native prompt
   const handleInstall = async () => {
     if (!deferredPrompt) return;
     
@@ -69,14 +83,52 @@ export default function InstallPWAButton({
       // Clear the saved prompt since it can't be used again
       setDeferredPrompt(null);
       localStorage.setItem('pwa-installed', 'true');
+      
+      // Show success toast
+      toast({
+        title: "App installed!",
+        description: "The app has been added to your home screen.",
+      });
     }
     
     setIsInstalling(false);
     setIsOpen(false);
   };
   
-  // Detect iOS Safari
+  // Open browser menu automatically on Android (Chrome only)
+  const openChromeMenu = () => {
+    // This is not a real API, but we're showing instructions
+    toast({
+      title: "Tap the menu button →",
+      description: "Look for the ⋮ icon in the top-right corner of your browser",
+      duration: 5000,
+    });
+  };
+  
+  // Open direct install instructions for iOS
+  const openIOSInstructions = () => {
+    window.open("https://www.macrumors.com/how-to/add-a-web-site-to-iphone-home-screen/", "_blank");
+  };
+  
+  // Detect device type
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
+  const isAndroid = /Android/.test(navigator.userAgent);
+  
+  // Copy installation link to clipboard
+  const copyInstallLink = () => {
+    navigator.clipboard.writeText(window.location.href)
+      .then(() => {
+        setCopySuccess(true);
+        toast({
+          title: "Link copied!",
+          description: "Share this link with others to install the app",
+          duration: 3000,
+        });
+      })
+      .catch(err => {
+        console.error('Could not copy text: ', err);
+      });
+  };
   
   // Get the button style based on variant
   const getButtonStyle = () => {
@@ -88,7 +140,7 @@ export default function InstallPWAButton({
       case "outline":
         return "border border-primary text-primary hover:bg-primary/10";
       case "menu":
-        return "w-full justify-start px-2 py-1.5 text-muted-foreground hover:text-primary hover:bg-primary/10 rounded-md";
+        return "w-full justify-start px-2 py-1.5 text-white hover:text-primary hover:bg-primary/10 rounded-md";
       default:
         return "bg-primary hover:bg-primary/90 text-white";
     }
@@ -108,154 +160,139 @@ export default function InstallPWAButton({
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Install Strangers: After Hours</DialogTitle>
-            <DialogDescription>
-              Install this app to your home screen for the best experience
-            </DialogDescription>
+            <DialogTitle className="flex items-center justify-center text-xl">
+              <Download className="h-5 w-5 mr-2" />
+              Install Strangers: After Hours
+            </DialogTitle>
           </DialogHeader>
           
-          {isIOS ? (
-            // iOS installation instructions
-            <div className="space-y-4 py-4">
-              <p className="text-center font-medium">Follow these steps to install on your iPhone or iPad:</p>
-              
-              <div className="grid grid-cols-3 gap-4 text-center">
-                <div className="flex flex-col items-center">
-                  <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center mb-2">
-                    <span className="text-xl">1</span>
-                  </div>
-                  <p className="text-sm">Tap the share button</p>
-                  <div className="mt-2 bg-gray-100 dark:bg-gray-800 rounded-lg p-2 flex justify-center">
-                    <svg width="24" height="32" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 22V8M12 8L6 14M12 8L18 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      <rect x="2" y="26" width="20" height="2" rx="1" fill="currentColor"/>
-                    </svg>
-                  </div>
-                </div>
-                
-                <div className="flex flex-col items-center">
-                  <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center mb-2">
-                    <span className="text-xl">2</span>
-                  </div>
-                  <p className="text-sm">Scroll and tap "Add to Home Screen"</p>
-                  <div className="mt-2 bg-gray-100 dark:bg-gray-800 rounded-lg p-2 flex justify-center">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" strokeWidth="2"/>
-                      <path d="M12 6V12M12 12V18M12 12H18M12 12H6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                    </svg>
-                  </div>
-                </div>
-                
-                <div className="flex flex-col items-center">
-                  <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center mb-2">
-                    <span className="text-xl">3</span>
-                  </div>
-                  <p className="text-sm">Tap "Add" in the top-right</p>
-                  <div className="mt-2 bg-gray-100 dark:bg-gray-800 rounded-lg p-2 flex justify-center">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                      <path d="M12 5V19" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="mt-4 p-4 bg-primary/10 rounded-lg">
-                <p className="text-sm text-center">
-                  After installation, you'll find the app on your home screen with its own icon.
+          <div className="py-4">
+            {/* Direct Installation Button (Chrome/Edge/Android) */}
+            {deferredPrompt && (
+              <div className="mb-6">
+                <Button 
+                  onClick={handleInstall} 
+                  className="w-full bg-primary hover:bg-primary/90 text-white py-6 text-lg"
+                  disabled={isInstalling}
+                >
+                  {isInstalling ? 'Installing...' : 'Install App with One Click'}
+                </Button>
+                <p className="text-center text-sm mt-2 text-muted-foreground">
+                  This will add the app to your home screen
                 </p>
               </div>
-            </div>
-          ) : (
-            // Android/Chrome installation instructions
-            <div className="space-y-4 py-4">
-              {deferredPrompt ? (
-                <div className="text-center">
-                  <div className="h-20 w-20 mx-auto bg-primary/20 rounded-xl flex items-center justify-center mb-4">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      <path d="M7 10L12 15L17 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      <path d="M12 15V3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                  <p className="text-lg font-medium mb-2">One-click installation</p>
-                  <p className="text-sm text-muted-foreground mb-6">
-                    Get the full-screen experience with faster load times and offline access
-                  </p>
-                </div>
-              ) : (
-                <div className="text-center space-y-4">
-                  <p className="font-medium">Install the app using your browser menu:</p>
-                  
-                  <div className="grid grid-cols-3 gap-4 text-center">
-                    <div className="flex flex-col items-center">
-                      <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center mb-2">
-                        <span className="text-xl">1</span>
-                      </div>
-                      <p className="text-sm">Tap the menu in your browser</p>
-                      <div className="mt-2 bg-gray-100 dark:bg-gray-800 rounded-lg p-2 flex justify-center">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                        </svg>
-                      </div>
+            )}
+            
+            {/* Platform-specific options */}
+            <div className="space-y-3 mt-4">
+              <h3 className="font-medium text-center">
+                {deferredPrompt 
+                 ? "Alternative installation methods:" 
+                 : "Choose how to install:"}
+              </h3>
+              
+              {/* iOS Option */}
+              {isIOS && (
+                <Button
+                  variant="outline"
+                  className="w-full justify-between py-6 text-left"
+                  onClick={() => {
+                    toast({
+                      title: "Tap the share button ↑",
+                      description: "Look for the Share icon at the bottom of your screen",
+                      duration: 5000,
+                    });
+                  }}
+                >
+                  <div className="flex items-center">
+                    <div className="bg-primary/10 p-2 rounded-full mr-3">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 5V19M12 5L18 11M12 5L6 11" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
                     </div>
-                    
-                    <div className="flex flex-col items-center">
-                      <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center mb-2">
-                        <span className="text-xl">2</span>
-                      </div>
-                      <p className="text-sm">Tap "Install App" or "Add to Home Screen"</p>
-                      <div className="mt-2 bg-gray-100 dark:bg-gray-800 rounded-lg p-2 flex justify-center">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2"/>
-                          <path d="M12 8V16M8 12H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                        </svg>
-                      </div>
-                    </div>
-                    
-                    <div className="flex flex-col items-center">
-                      <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center mb-2">
-                        <span className="text-xl">3</span>
-                      </div>
-                      <p className="text-sm">Confirm installation</p>
-                      <div className="mt-2 bg-gray-100 dark:bg-gray-800 rounded-lg p-2 flex justify-center">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M5 12L10 17L20 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
-                      </div>
+                    <div>
+                      <p className="font-medium">Tap the Share button</p>
+                      <p className="text-sm text-muted-foreground">Then select "Add to Home Screen"</p>
                     </div>
                   </div>
-                </div>
+                  <ExternalLink className="h-4 w-4 flex-shrink-0" />
+                </Button>
               )}
+              
+              {/* Android Option */}
+              {isAndroid && !deferredPrompt && (
+                <Button
+                  variant="outline"
+                  className="w-full justify-between py-6 text-left"
+                  onClick={openChromeMenu}
+                >
+                  <div className="flex items-center">
+                    <div className="bg-primary/10 p-2 rounded-full mr-3">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="font-medium">Tap the menu button</p>
+                      <p className="text-sm text-muted-foreground">Then select "Add to Home Screen"</p>
+                    </div>
+                  </div>
+                  <ExternalLink className="h-4 w-4 flex-shrink-0" />
+                </Button>
+              )}
+              
+              {/* General Option */}
+              <Button
+                variant="outline"
+                className="w-full justify-between py-6 text-left"
+                onClick={copyInstallLink}
+              >
+                <div className="flex items-center">
+                  <div className="bg-primary/10 p-2 rounded-full mr-3">
+                    {copySuccess ? (
+                      <CheckCircle2 className="h-5 w-5 text-green-500" />
+                    ) : (
+                      <Copy className="h-5 w-5" />
+                    )}
+                  </div>
+                  <div>
+                    <p className="font-medium">Copy installation link</p>
+                    <p className="text-sm text-muted-foreground">Share with friends or open on your phone</p>
+                  </div>
+                </div>
+                {copySuccess ? (
+                  <span className="text-xs text-green-500">Copied!</span>
+                ) : (
+                  <Copy className="h-4 w-4 flex-shrink-0" />
+                )}
+              </Button>
             </div>
-          )}
+            
+            {/* Visual of the app on home screen */}
+            <div className="flex justify-center mt-6">
+              <div className="bg-gray-800 p-2 rounded-2xl shadow-lg w-32">
+                <div className="bg-gray-900 rounded-xl p-2 flex flex-col items-center">
+                  <div className="w-16 h-16 bg-primary rounded-xl mb-1 flex items-center justify-center overflow-hidden">
+                    <img 
+                      src="/icons/icon-192x192.png" 
+                      alt="App icon" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <span className="text-xs text-white">Strangers</span>
+                </div>
+              </div>
+            </div>
+          </div>
           
-          <DialogFooter className="flex justify-between sm:justify-between">
+          <DialogFooter>
             <Button
               variant="outline"
               onClick={() => setIsOpen(false)}
+              className="w-full"
             >
-              Maybe Later
+              Later
             </Button>
-            
-            {!isIOS && deferredPrompt && (
-              <Button
-                onClick={handleInstall}
-                disabled={isInstalling}
-                className="bg-primary hover:bg-primary/90"
-              >
-                {isInstalling ? 'Installing...' : 'Install Now'}
-              </Button>
-            )}
-            
-            {isIOS && (
-              <Button
-                onClick={() => setIsOpen(false)}
-                className="bg-primary hover:bg-primary/90"
-              >
-                Got it
-              </Button>
-            )}
           </DialogFooter>
         </DialogContent>
       </Dialog>
