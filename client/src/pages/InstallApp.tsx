@@ -93,7 +93,7 @@ export default function InstallApp() {
         filePath: '/download/strangers-beta-invitation.html',
         fileName: 'strangers-beta-invitation.html',
         mime: 'text/html',
-        size: '4 KB'
+        size: '5.5 KB'
       },
       'Desktop': {
         filePath: `/download/desktop/${platformType === 'macOS' ? 'strangers-after-hours.dmg' : 'strangers-after-hours-setup.exe'}`,
@@ -116,16 +116,8 @@ export default function InstallApp() {
     if (platformType === 'Android') {
       setTimeout(() => {
         try {
-          // Create a download link element with proper attributes to preserve file extension
-          const downloadLink = document.createElement('a');
-          downloadLink.href = fileInfo.filePath;
-          downloadLink.setAttribute('download', fileInfo.fileName); // Force download with correct filename
-          downloadLink.setAttribute('type', fileInfo.mime); // Set MIME type
-          
-          // Trigger the download
-          document.body.appendChild(downloadLink); // Needed for Firefox
-          downloadLink.click();
-          document.body.removeChild(downloadLink);
+          // Use direct window.location approach for binary files to preserve MIME type
+          window.location.href = fileInfo.filePath;
           
           // First notification about download completion
           toast({
