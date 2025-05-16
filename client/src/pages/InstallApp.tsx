@@ -81,22 +81,22 @@ export default function InstallApp() {
     setDownloadStarted(true);
     trackDownload(platformType); // Track download for analytics
     
-    // Define platform-specific file paths and proper MIME types to ensure correct file extensions
+    // Define platform-specific direct download endpoints with dedicated file serving
     const downloadFiles = {
       'Android': {
-        filePath: '/download/android/strangers-after-hours.apk',
+        filePath: '/files/android-app',
         fileName: 'strangers-after-hours.apk',
         mime: 'application/vnd.android.package-archive',
         size: '1.1 MB'
       },
       'iOS': {
-        filePath: '/download/strangers-beta-invitation.html',
+        filePath: '/files/ios-invite',
         fileName: 'strangers-beta-invitation.html',
         mime: 'text/html',
         size: '5.5 KB'
       },
       'Desktop': {
-        filePath: `/download/desktop/${platformType === 'macOS' ? 'strangers-after-hours.dmg' : 'strangers-after-hours-setup.exe'}`,
+        filePath: platformType === 'macOS' ? '/files/macos-app' : '/files/windows-app',
         fileName: platformType === 'macOS' ? 'strangers-after-hours.dmg' : 'strangers-after-hours-setup.exe',
         mime: platformType === 'macOS' ? 'application/x-apple-diskimage' : 'application/x-msdownload',
         size: '1.1 MB'
