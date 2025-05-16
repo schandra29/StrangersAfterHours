@@ -101,9 +101,17 @@ export default function AccessCodeScreen() {
           </CardFooter>
         </form>
       </Card>
-      <p className="mt-4 text-sm text-muted-foreground">
-        This is a private beta. Contact the team if you need an access code.
-      </p>
+      <div className="mt-6 flex flex-col gap-3">
+        <p className="text-center text-sm">Want a better experience?</p>
+        <InstallPWAButton 
+          variant="outline" 
+          fullWidth 
+          text="Install App to Home Screen" 
+        />
+        <p className="mt-2 text-sm text-muted-foreground text-center">
+          This is a private beta. Contact the team if you need an access code.
+        </p>
+      </div>
     </div>
   );
 }
