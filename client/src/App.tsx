@@ -113,12 +113,12 @@ function App() {
     }
   }, []);
 
-  // Handle dynamic updating of Open Graph meta tags
+  // Handle dynamic updating of Open Graph meta tags for social sharing
   useEffect(() => {
     // Get the base URL (protocol + hostname)
     const baseUrl = window.location.origin;
     
-    // Update image URLs to absolute URLs
+    // Update image URLs to absolute URLs for social media sharing
     const ogImageTag = document.querySelector('meta[property="og:image"]');
     if (ogImageTag) {
       const imageUrl = ogImageTag.getAttribute('content');
@@ -127,28 +127,10 @@ function App() {
       }
     }
     
-    // Update secure URL 
-    const ogSecureImageTag = document.querySelector('meta[property="og:image:secure_url"]');
-    if (ogSecureImageTag) {
-      const imageUrl = document.querySelector('meta[property="og:image"]')?.getAttribute('content');
-      if (imageUrl) {
-        ogSecureImageTag.setAttribute('content', imageUrl);
-      }
-    }
-    
     // Set the og:url to the current page URL
     const ogUrlTag = document.querySelector('meta[property="og:url"]');
     if (ogUrlTag) {
       ogUrlTag.setAttribute('content', window.location.href);
-    }
-    
-    // Update Twitter image
-    const twitterImageTag = document.querySelector('meta[name="twitter:image"]');
-    if (twitterImageTag) {
-      const imageUrl = document.querySelector('meta[property="og:image"]')?.getAttribute('content');
-      if (imageUrl) {
-        twitterImageTag.setAttribute('content', imageUrl);
-      }
     }
   }, []);
 

@@ -19,11 +19,9 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs";
 import { Link } from "wouter";
-import { isRunningAsPWA } from '@/lib/registerSW';
 
 export default function InstallApp() {
-  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
-  const [isInstalling, setIsInstalling] = useState(false);
+  const [downloadStarted, setDownloadStarted] = useState(false);
   const [copySuccess, setCopySuccess] = useState(false);
   const [platform, setPlatform] = useState<'android' | 'ios' | 'desktop'>('android');
   const { toast } = useToast();
@@ -42,18 +40,6 @@ export default function InstallApp() {
     else {
       setPlatform('desktop');
     }
-    
-    // Listen for installation prompt
-    const handleBeforeInstallPrompt = (e: any) => {
-      e.preventDefault();
-      setDeferredPrompt(e);
-    };
-    
-    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-    
-    return () => {
-      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-    };
   }, []);
   
   // Reset copy success state after 2 seconds
@@ -67,7 +53,7 @@ export default function InstallApp() {
     }
   }, [copySuccess]);
   
-  // Generate QR code URL for installation
+  // Generate QR code URL for downloading the app on another device
   const generateQRCodeUrl = () => {
     const appUrl = window.location.origin;
     return `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(appUrl)}`;
@@ -89,43 +75,34 @@ export default function InstallApp() {
       });
   };
   
-  // Handle installation
-  const handleInstall = async () => {
-    if (!deferredPrompt) return;
+  // Simulate app download for beta testers
+  const handleDownload = (platformType: string) => {
+    setDownloadStarted(true);
+    localStorage.setItem('app-downloaded', 'true');
     
-    setIsInstalling(true);
+    // Simulate download with toast notifications
+    toast({
+      title: "Download started",
+      description: `Downloading Strangers: After Hours for ${platformType}...`,
+      duration: 2000,
+    });
     
-    try {
-      // Show the install prompt
-      deferredPrompt.prompt();
+    setTimeout(() => {
+      toast({
+        title: "Download complete!",
+        description: "Thank you for participating in our beta test.",
+        duration: 5000,
+      });
       
-      // Wait for the user to respond to the prompt
-      const { outcome } = await deferredPrompt.userChoice;
-      
-      if (outcome === 'accepted') {
-        setDeferredPrompt(null);
-        localStorage.setItem('pwa-installed', 'true');
-        
-        toast({
-          title: "App installed!",
-          description: "Strangers: After Hours has been added to your home screen.",
-          duration: 5000,
-        });
-      }
-    } catch (error) {
-      console.error('Installation failed', error);
-    } finally {
-      setIsInstalling(false);
-    }
+      // Show installation success message after "download" completes
+      setTimeout(() => {
+        setDownloadStarted(false);
+      }, 500);
+    }, 3000);
   };
   
-  // Create a deep link for App Clips (iOS) or Instant Apps (Android)
-  const getAppDeepLink = () => {
-    return `https://app.strangers-afterhours.com/?install=true`;
-  };
-  
-  // If already running as PWA, show success message
-  if (isRunningAsPWA()) {
+  // If app was already downloaded, show success message
+  if (localStorage.getItem('app-downloaded') === 'true' && !downloadStarted) {
     return (
       <div className="min-h-screen flex flex-col bg-gradient-to-b from-background to-background/90">
         <header className="bg-gradient-to-r from-primary/20 to-secondary/20 py-4 px-4">
@@ -142,9 +119,9 @@ export default function InstallApp() {
             <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mb-6">
               <CheckCircle2 className="h-12 w-12 text-primary" />
             </div>
-            <h1 className="text-3xl font-bold mb-2">App Successfully Installed!</h1>
+            <h1 className="text-3xl font-bold mb-2">App Successfully Downloaded!</h1>
             <p className="text-lg text-muted-foreground mb-8">
-              You're currently running the fully installed version of Strangers: After Hours.
+              You've already downloaded the beta version of Strangers: After Hours.
             </p>
             <Button asChild>
               <Link href="/">Continue to App</Link>
@@ -192,36 +169,26 @@ export default function InstallApp() {
               <path d="M192 332L160 220" stroke="#30638E" strokeWidth="8" />
             </svg>
           </div>
-          <h1 className="text-3xl font-bold mb-2">Install Strangers: After Hours</h1>
+          <h1 className="text-3xl font-bold mb-2">Download Strangers: After Hours</h1>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Get the full app experience with offline access, faster loading times, and a dedicated icon on your home screen.
+            Download the official app for your platform to enjoy the best experience.
           </p>
           
-          {deferredPrompt && (
-            <div className="mt-6 mb-8">
-              <Button
-                size="lg"
-                className="bg-primary text-white hover:bg-primary/90 py-6 px-8 text-lg"
-                onClick={handleInstall}
-                disabled={isInstalling}
-              >
-                {isInstalling ? (
-                  <div className="flex items-center">
-                    <span className="animate-spin h-5 w-5 mr-3 border-2 border-white border-r-transparent rounded-full"></span>
-                    Installing...
-                  </div>
-                ) : (
-                  <div className="flex items-center">
-                    <Download className="h-5 w-5 mr-2" />
-                    Install with One Click
-                  </div>
-                )}
-              </Button>
-              <p className="text-xs text-muted-foreground mt-2">
-                Install directly to your device
-              </p>
-            </div>
-          )}
+          <div className="mt-8 grid gap-4 max-w-md mx-auto">
+            <Button
+              size="lg"
+              className="bg-primary text-white hover:bg-primary/90 py-8 px-8 text-lg"
+              onClick={() => handleDownload(platform === 'desktop' ? 'Desktop' : platform === 'ios' ? 'iOS' : 'Android')}
+            >
+              <div className="flex items-center">
+                <Download className="h-5 w-5 mr-3" />
+                Download for {platform === 'desktop' ? 'Desktop' : platform === 'ios' ? 'iOS' : 'Android'}
+              </div>
+            </Button>
+            <p className="text-xs text-muted-foreground mt-1">
+              Beta test version for authorized testers only
+            </p>
+          </div>
         </div>
         
         <div className="bg-card rounded-xl shadow-sm overflow-hidden mb-8">
@@ -250,8 +217,8 @@ export default function InstallApp() {
                     <span className="text-xl font-bold">1</span>
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium">Open Chrome menu</h3>
-                    <p className="text-muted-foreground">Tap the three dots (⋮) in the top-right corner</p>
+                    <h3 className="text-lg font-medium">Download the APK file</h3>
+                    <p className="text-muted-foreground">Click the download button above to get the app package</p>
                   </div>
                 </div>
                 
@@ -260,8 +227,8 @@ export default function InstallApp() {
                     <span className="text-xl font-bold">2</span>
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium">Select "Install app" or "Add to Home screen"</h3>
-                    <p className="text-muted-foreground">The option may vary depending on your browser</p>
+                    <h3 className="text-lg font-medium">Allow installation from unknown sources</h3>
+                    <p className="text-muted-foreground">When prompted, give permission to install the app</p>
                   </div>
                 </div>
                 
@@ -270,14 +237,14 @@ export default function InstallApp() {
                     <span className="text-xl font-bold">3</span>
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium">Tap "Install" to confirm</h3>
-                    <p className="text-muted-foreground">The app will be added to your home screen</p>
+                    <h3 className="text-lg font-medium">Open the app after installation</h3>
+                    <p className="text-muted-foreground">Enjoy the full app experience</p>
                   </div>
                 </div>
                 
                 <div className="bg-muted/30 p-4 rounded-lg mt-6">
                   <p className="text-sm">
-                    <span className="font-medium">Tip:</span> On some Android devices, you may also see an "Add to Home screen" banner at the bottom of your browser.
+                    <span className="font-medium">Note:</span> This beta test version is not available on Google Play Store. It's distributed only to authorized beta testers.
                   </p>
                 </div>
               </div>
@@ -290,8 +257,8 @@ export default function InstallApp() {
                     <span className="text-xl font-bold">1</span>
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium">Tap the Share button</h3>
-                    <p className="text-muted-foreground">Look for the square with an arrow pointing up (↑)</p>
+                    <h3 className="text-lg font-medium">Download TestFlight</h3>
+                    <p className="text-muted-foreground">Install TestFlight from the App Store if you haven't already</p>
                   </div>
                 </div>
                 
@@ -300,8 +267,8 @@ export default function InstallApp() {
                     <span className="text-xl font-bold">2</span>
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium">Scroll down and tap "Add to Home Screen"</h3>
-                    <p className="text-muted-foreground">You may need to swipe left to find this option</p>
+                    <h3 className="text-lg font-medium">Click the download button above</h3>
+                    <p className="text-muted-foreground">This will send you an email with your TestFlight invitation</p>
                   </div>
                 </div>
                 
@@ -310,14 +277,14 @@ export default function InstallApp() {
                     <span className="text-xl font-bold">3</span>
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium">Tap "Add" in the top-right corner</h3>
-                    <p className="text-muted-foreground">The app will be added to your home screen</p>
+                    <h3 className="text-lg font-medium">Open the invitation in TestFlight</h3>
+                    <p className="text-muted-foreground">Follow the instructions to install the beta app</p>
                   </div>
                 </div>
                 
                 <div className="bg-muted/30 p-4 rounded-lg mt-6">
                   <p className="text-sm">
-                    <span className="font-medium">Note:</span> On iOS, the app will function like a native app but must be installed through Safari. If you're using another browser, please open this page in Safari first.
+                    <span className="font-medium">Note:</span> This beta version is distributed through TestFlight and limited to authorized beta testers only.
                   </p>
                 </div>
               </div>
@@ -330,8 +297,8 @@ export default function InstallApp() {
                     <span className="text-xl font-bold">1</span>
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium">Look for the install icon in your address bar</h3>
-                    <p className="text-muted-foreground">In Chrome, Edge, or other browsers, look for a "+" or download icon</p>
+                    <h3 className="text-lg font-medium">Download the installer package</h3>
+                    <p className="text-muted-foreground">Click the download button above to get the desktop installer</p>
                   </div>
                 </div>
                 
@@ -340,8 +307,8 @@ export default function InstallApp() {
                     <span className="text-xl font-bold">2</span>
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium">Click "Install" or "Install app"</h3>
-                    <p className="text-muted-foreground">Follow the prompt to install the application</p>
+                    <h3 className="text-lg font-medium">Run the installer</h3>
+                    <p className="text-muted-foreground">Follow the installation wizard to install the app</p>
                   </div>
                 </div>
                 
@@ -350,14 +317,14 @@ export default function InstallApp() {
                     <span className="text-xl font-bold">3</span>
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium">Confirm installation</h3>
-                    <p className="text-muted-foreground">The app will be installed and added to your desktop or start menu</p>
+                    <h3 className="text-lg font-medium">Launch the application</h3>
+                    <p className="text-muted-foreground">The app will be available in your Start menu or Applications folder</p>
                   </div>
                 </div>
                 
                 <div className="bg-muted/30 p-4 rounded-lg mt-6">
                   <p className="text-sm">
-                    <span className="font-medium">Alternative:</span> In Chrome, you can also click the three dots (⋮) in the top-right corner, then select "Install Strangers: After Hours" from the menu.
+                    <span className="font-medium">Available for:</span> Windows, macOS, and Linux. This beta version is distributed directly to authorized testers only.
                   </p>
                 </div>
               </div>
@@ -368,26 +335,26 @@ export default function InstallApp() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           <div className="bg-card p-6 rounded-xl shadow-sm flex flex-col items-center text-center">
             <QrCode className="h-8 w-8 mb-4 text-primary" />
-            <h3 className="text-xl font-medium mb-2">Install on Another Device</h3>
-            <p className="text-muted-foreground mb-4">Scan this QR code with your phone's camera to open the app on another device.</p>
+            <h3 className="text-xl font-medium mb-2">Download on Another Device</h3>
+            <p className="text-muted-foreground mb-4">Scan this QR code with your phone's camera to download the app on another device.</p>
             
             <div className="bg-white p-3 rounded-lg mb-4 shadow-sm">
               <img 
                 src={generateQRCodeUrl()} 
-                alt="Installation QR Code" 
+                alt="Download QR Code" 
                 className="w-full max-w-[200px] h-auto"
               />
             </div>
             
             <p className="text-xs text-muted-foreground">
-              Opens Strangers: After Hours on any mobile device
+              Opens the download page on any mobile device
             </p>
           </div>
           
           <div className="bg-card p-6 rounded-xl shadow-sm flex flex-col">
             <Share className="h-8 w-8 mb-4 text-primary self-center" />
             <h3 className="text-xl font-medium mb-2 text-center">Share with Friends</h3>
-            <p className="text-muted-foreground mb-4 text-center">Share the app link with your friends so they can join your session.</p>
+            <p className="text-muted-foreground mb-4 text-center">Share the app download link with your friends so they can join your beta test.</p>
             
             <div className="flex items-center mb-6 bg-muted/30 p-3 rounded-lg">
               <input 
@@ -433,7 +400,7 @@ export default function InstallApp() {
                 }}
               >
                 <Share className="h-4 w-4 mr-2" />
-                Share App Link
+                Share Download Link
               </Button>
             </div>
           </div>
