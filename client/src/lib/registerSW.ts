@@ -5,21 +5,47 @@
  */
 
 /**
- * Check if the app is already installed/downloaded
+ * This is a helper function to track download counts for analytics 
+ * It does NOT prevent repeated downloads
  */
-export function isAppDownloaded(): boolean {
-  return localStorage.getItem('app-downloaded') === 'true';
+export function trackDownload(platform: string): void {
+  const downloadCount = localStorage.getItem('download-count') || '0';
+  const count = parseInt(downloadCount) + 1;
+  localStorage.setItem('download-count', count.toString());
+  
+  // Track platform-specific downloads
+  const platformKey = `download-count-${platform.toLowerCase()}`;
+  const platformCount = localStorage.getItem(platformKey) || '0';
+  const pCount = parseInt(platformCount) + 1;
+  localStorage.setItem(platformKey, pCount.toString());
 }
 
 /**
- * Mark the app as downloaded
+ * Get download count for analytics
  */
-export function markAppAsDownloaded(): void {
-  localStorage.setItem('app-downloaded', 'true');
+export function getDownloadCount(): number {
+  const downloadCount = localStorage.getItem('download-count') || '0';
+  return parseInt(downloadCount);
 }
 
-// This is a replacement for the old PWA-related function
-// Now it just checks if the app is already downloaded
+/**
+ * For compatibility with existing code - always returns false
+ * to ensure users can always download again
+ */
+export function isAppDownloaded(): boolean {
+  return false;
+}
+
+/**
+ * Legacy function, no longer prevents re-downloading
+ */
+export function markAppAsDownloaded(): void {
+  trackDownload('general');
+}
+
+/**
+ * Legacy function, always returns false to remove PWA behavior
+ */
 export function isRunningAsPWA(): boolean {
-  return isAppDownloaded();
+  return false;
 }

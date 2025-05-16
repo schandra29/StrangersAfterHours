@@ -19,6 +19,7 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs";
 import { Link } from "wouter";
+import { trackDownload } from '@/lib/registerSW';
 
 export default function InstallApp() {
   const [downloadStarted, setDownloadStarted] = useState(false);
@@ -78,6 +79,7 @@ export default function InstallApp() {
   // Handle app download for beta testers
   const handleDownload = (platformType: string) => {
     setDownloadStarted(true);
+    trackDownload(platformType); // Track download for analytics
     
     // Define platform-specific file names and paths
     const downloadFiles = {
@@ -97,66 +99,99 @@ export default function InstallApp() {
     
     const fileInfo = downloadFiles[platformType as keyof typeof downloadFiles];
     
-    // Show download starting toast
+    // Show download starting notification
     toast({
-      title: "Download starting",
+      title: "Download Starting",
       description: `Downloading Strangers: After Hours for ${platformType}...`,
       duration: 2000,
     });
     
-    // For Android, simulate downloading the APK file
+    // For Android, download the APK file with detailed instructions
     if (platformType === 'Android') {
       setTimeout(() => {
-        // Create a temporary anchor element to trigger download
+        // Create a download link and trigger it
         const downloadLink = document.createElement('a');
-        // This would be an actual file in production
         downloadLink.href = `/download/${fileInfo.filename}`;
         downloadLink.download = fileInfo.filename;
         downloadLink.click();
         
-        // Show instructions on how to locate and install the APK
+        // First notification about download completion
+        toast({
+          title: "APK Download Complete",
+          description: "The APK file has been downloaded to your device.",
+          duration: 3000,
+        });
+        
+        // Second notification with installation instructions
         setTimeout(() => {
           toast({
-            title: "APK Downloaded",
-            description: "Check your Downloads folder. Tap on the file to install and follow the security prompts to enable installation from unknown sources.",
+            title: "Installation Instructions",
+            description: "1. Open your Downloads folder or notification\n2. Tap the APK file\n3. If prompted, enable 'Install from unknown sources'",
+            duration: 10000,
+          });
+          
+          // Final notification to help user locate the file
+          setTimeout(() => {
+            toast({
+              title: "Can't find the APK?",
+              description: "Check your Download notifications in the notification panel or open your file manager and go to the Downloads folder.",
+              duration: 8000,
+            });
+            setDownloadStarted(false);
+          }, 5000);
+        }, 3500);
+      }, 1500);
+    } 
+    // For iOS, open TestFlight invitation HTML page
+    else if (platformType === 'iOS') {
+      setTimeout(() => {
+        // Open the TestFlight invitation page
+        window.open(`/download/${fileInfo.filename}`, '_blank');
+        
+        // First notification
+        toast({
+          title: "TestFlight Page Opened",
+          description: "Follow the instructions on the page to join our TestFlight beta.",
+          duration: 5000,
+        });
+        
+        // Second notification with extra guidance
+        setTimeout(() => {
+          toast({
+            title: "iOS Installation Help",
+            description: "Make sure you have TestFlight installed from the App Store before using the invitation link.",
             duration: 8000,
           });
           setDownloadStarted(false);
-        }, 1500);
-      }, 1500);
-    } 
-    // For iOS, open TestFlight invitation page
-    else if (platformType === 'iOS') {
-      setTimeout(() => {
-        window.open('https://testflight.apple.com/join/beta-code-here', '_blank');
-        
-        toast({
-          title: "TestFlight Invitation Sent",
-          description: "We've opened the TestFlight registration page. Follow the instructions to install the beta app.",
-          duration: 6000,
-        });
-        
-        setDownloadStarted(false);
+        }, 5500);
       }, 1500);
     }
     // For Desktop, trigger file download
     else {
       setTimeout(() => {
-        // Create a temporary anchor element to trigger download
+        // Create a download link and trigger it
         const downloadLink = document.createElement('a');
-        // This would be an actual file in production
         downloadLink.href = `/download/${fileInfo.filename}`;
         downloadLink.download = fileInfo.filename;
         downloadLink.click();
         
+        // First notification about download completion
         toast({
-          title: "Download Complete",
-          description: "Installer downloaded. Open the file to install the application.",
-          duration: 5000,
+          title: "Installer Downloaded",
+          description: "The installer file has been downloaded to your computer.",
+          duration: 4000,
         });
         
-        setDownloadStarted(false);
-      }, 2000);
+        // Second notification with installation instructions
+        setTimeout(() => {
+          toast({
+            title: "Installation Instructions",
+            description: `Open the downloaded file and follow the installation wizard to complete setup.`,
+            duration: 8000,
+          });
+          setDownloadStarted(false);
+        }, 4500);
+      }, 1500);
     }
   };
   
