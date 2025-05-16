@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import InstallPWAButton from "./InstallPWAButton";
+import InstallButton from "./InstallButton";
 
 export default function AccessCodeScreen() {
   const [accessCode, setAccessCode] = useState("");
@@ -103,10 +103,10 @@ export default function AccessCodeScreen() {
       </Card>
       <div className="mt-6 flex flex-col gap-3">
         <p className="text-center text-sm">Want a better experience?</p>
-        <InstallPWAButton 
+        <InstallButton 
           variant="outline" 
-          fullWidth 
-          text="Install App to Home Screen" 
+          className="w-full rounded-lg py-6 text-base font-medium" 
+          text="Download Official App" 
         />
         <p className="mt-2 text-sm text-muted-foreground text-center">
           This is a private beta. Contact the team if you need an access code.
