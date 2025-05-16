@@ -1,740 +1,451 @@
 level,intensity,text,category
-1,1,"What's the most interesting thing you've learned recently?","Icebreaker"
-1,1,"What's your favorite way to spend a free afternoon?","Icebreaker"
-1,1,"What's a skill you'd love to learn?","Icebreaker"
-1,1,"What's your go-to comfort food?","Icebreaker"
-1,1,"What's the best concert you've ever been to?","Icebreaker"
-1,1,"What's a book, movie, or TV show you'd recommend to everyone?","Icebreaker"
-1,1,"What's your favorite travel destination (or one you'd love to visit)?","Icebreaker"
-1,1,"What's a hobby you're passionate about?","Icebreaker"
-1,1,"What's a small act of kindness you've witnessed recently?","Icebreaker"
-1,1,"What's the most fun thing you've done this past week?","Icebreaker"
-1,1,"What’s your favorite animal and why?","Icebreaker"
-1,1,"If you could have any superpower, what would it be and why?","Icebreaker"
-1,1,"If you were a teacher, what subject would you want to teach?","Icebreaker"
-1,1,"What is the best purchase you have ever made?","Icebreaker"
-1,1,"What is your favorite outdoor activity?","Icebreaker"
-1,1,"What is the most useful app on your phone?","Icebreaker"
-1,1,"If you could eat dinner with anyone, dead or alive, who would it be?",Icebreaker
-1,1,"What's the craziest thing you've ever done on a dare?",Icebreaker
-1,1,"If you could only bring three things with you to a deserted island, what would they be?",Icebreaker
-1,1,"What job would you be terrible at?",Icebreaker
-1,1,"What’s the weirdest tradition your family has?",Icebreaker
-1,1,"If animals could talk, which would be the rudest?",Icebreaker
-1,1,"What is your biggest pet peeve?",Icebreaker
-1,1,"If you were a ghost, who would you haunt?",Icebreaker
-1,1,"What fictional place would you most like to go?",Icebreaker
-1,1,"What is something that a lot of people are obsessed with but you just don’t get?",Icebreaker
-1,1,"What is one thing you wish you knew when you were younger?",Icebreaker
-1,1,"What’s the dumbest way you’ve ever been injured?",Icebreaker
-1,1,"What’s the most interesting thing you can see out your window right now?",Icebreaker
-1,1,"What song do you have completely memorized?",Icebreaker
-1,1,"What app do you waste the most time on?",Icebreaker
-1,1,"What is the most embarrassing thing you've ever worn?",Icebreaker
-1,1,"What did you name your first pet?",Icebreaker
-1,1,"What is one thing that makes you laugh no matter what?",Icebreaker
-1,1,"What’s the most annoying habit someone can have?",Icebreaker
-1,1,"What is the strangest dream you have ever had?",Icebreaker
-1,1,"What is one thing you are irrationally afraid of?",Icebreaker
-1,1,"What is the worst pickup line you have ever heard?",Icebreaker
-1,1,"What do you look for in a friend?",Icebreaker
-1,1,Have you traveled abroad?,Icebreaker
-1,1,What are you studying?,Icebreaker
-1,1,What are you hoping to do in life?,Icebreaker
-1,1,Is there a book that has changed your point of view?,Icebreaker
-1,1,What is your favorite song?,Icebreaker
-1,1,What do you value?,Icebreaker
-1,1,What would you like to learn about someone before considering friendship?,Icebreaker
-1,1,"What’s the one thing you could eat for the rest of your life?",Icebreaker
-1,1,"If you could trade places with any celebrity for a day, who would it be and why?",Icebreaker
-1,1,"If you could have any superpower, what would it be and why?",Icebreaker
-1,1,"If you were a teacher, what subject would you want to teach?",Icebreaker
-1,1,"If you could have any animal as a pet (real or fictional), what would it be?",Icebreaker
-1,1,"What's your go-to dance move when nobody's watching?",Icebreaker
-1,1,"What's a skill you'd love to learn if you had the time and resources?",Icebreaker
-1,1,What's the worst movie you secretly love?,Icebreaker
-1,1,What's the weirdest thing you've ever seen someone do in public?,Icebreaker
-1,1,"If you could only eat one type of cuisine for the rest of your life, what would it be?",Icebreaker
-1,1,What's your favorite board game or card game?,Icebreaker
-1,1,What's the most spontaneous thing you've ever done?,Icebreaker
-1,1,What's a song that always makes you want to dance?,Icebreaker
-1,1,What's your favorite holiday tradition?,Icebreaker
-1,1,What's the most interesting place you've ever traveled to?,Icebreaker
-1,1,What's your favorite way to spend a lazy Sunday?,Icebreaker
-1,1,What's the best gift you've ever received?,Icebreaker
-1,1,What's a small thing that always makes you happy?,Icebreaker
-1,1,What's the most interesting fact you know?,Icebreaker
-1,1,What's a trend you just don't understand?,Icebreaker
-1,1,What's your favorite season and why?,Icebreaker
-1,1,What's your favorite type of weather?,Icebreaker
-1,1,What kind of music makes you want to dance?,Icebreaker
-1,1,What are you hoping to get out of life?,Icebreaker
-1,1,What’s the biggest item you could fit in your pockets?,Icebreaker
-1,1,What did you want to be when you grew up?,Icebreaker
-1,1,What is something that you think should be taught in schools?,Icebreaker
-1,1,What is the best piece of technology you have ever used?,Icebreaker
-1,1,Are you a traveler?,Icebreaker
-1,1,What is your favorite song?,Icebreaker
-1,1,Do you consider yourself to be an introvert or extrovert?,Icebreaker
-1,1,Are you comfortable speaking in large groups?,Icebreaker
-1,1,What is something that you value in a friend?,Icebreaker
-1,1,What do you think makes you unique?,Icebreaker
-1,1,"What's your favorite thing to do on a rainy day?",Icebreaker
-1,1,"What's the most overrated travel destination?",Icebreaker
-1,1,"What's a movie that always makes you cry?",Icebreaker
-1,1,"What's the most impressive thing you know how to cook?",Icebreaker
-1,1,"What's one thing you're grateful for today?",Icebreaker
-1,1,"What's a small thing that instantly makes your day better?",Icebreaker
-1,1,"What's one place you'd love to travel to someday?",Icebreaker
-1,1,"What's a book that changed your perspective?",Icebreaker
-1,1,"What's a hobby you've always wanted to try?",Icebreaker
-1,1,"What's one piece of advice you'd give to your younger self?",Icebreaker
-2,1,"What's a goal you're currently working towards?",Getting to Know You
-1,2,"What's a silly thing you do when you're trying to cheer yourself up?",Icebreaker
-1,2,"What's a small risk you're glad you took?",Icebreaker
-1,2,"What's a time you felt truly proud of yourself?",Icebreaker
-1,2,"What's the most embarrassing song on your playlist?",Icebreaker
-1,2,"What's a hobby that is often misconstrued?",Icebreaker
-1,2,"What's the most exciting day of your life?",Icebreaker
-1,2,"What’s the one superpower you would choose?",Icebreaker
-1,2,"What’s the last song that made you cry?",Icebreaker
-1,2,"What movie always makes you feel good?",Icebreaker
-1,2,"If you could instantly learn anything, what would it be?",Icebreaker
-1,2,"Where is the coolest place that you have ever traveled?",Icebreaker
-1,2,"What’s your hidden talent?",Icebreaker
-1,2,"When did you last step outside of your comfort zone?",Icebreaker
-1,2,"What is a song you listen to when you’re sad?",Icebreaker
-1,2,"What is one thing you would change about the area that you grew up in?",Icebreaker
-1,2,"What are you passionate about creating?",Icebreaker
-1,2,"What are the small things that make you feel happy or at peace?",Icebreaker
-1,2,"What job do you secretly find fascinating?",Icebreaker
-1,2,"If you could have any animal as a pet, what would it be and why?",Icebreaker
-1,2,"What is the best party you have ever been to and why was it so great?",Icebreaker
-1,2,"What is your hidden talent?",Icebreaker
-1,2,"What song makes you dance every time you hear it?",Icebreaker
-1,2,"What fictional world do you wish was real?",Icebreaker
-1,2,"What is the best movie of all time?",Icebreaker
-1,2,"Do you believe in fate?",Icebreaker
-1,2,"What is something you want to learn to do well?",Icebreaker
-1,2,"What do you secretly judge other people for?",Icebreaker
-1,2,"What would your ideal vacation look like?",Icebreaker
-1,2,"Do you think that you can still live without friends, family or partners?",Icebreaker
-1,2,"What makes someone a good person?",Icebreaker
-1,2,"How good are you at giving advice?",Icebreaker
-1,2,"What do you consider to be one of your best traits?",Icebreaker
-1,2,"What are you looking forward to this week?",Icebreaker
-1,2,"What is a goal that seems hard to get to, but still has hope of getting there?",Icebreaker
-1,2,"Have you ever had a brush with the law?",Icebreaker
-1,2,"Does fame scare you, or fascinate you?",Icebreaker
-1,2,"Do you like helping other people, why or why not?",Icebreaker
-1,2,"What life achievement are you most proud of?",Icebreaker
-1,2,"Does a lack of money worry you?",Icebreaker
-1,2,"Do you find it hard to open up to others?",Icebreaker
-1,2,"If you could give up one of your senses, what would you give up?",Icebreaker
-1,2,"What is the best compliment you’ve ever received?",Icebreaker
-1,2,"What is the most beautiful piece of nature that you have ever seen?",Icebreaker
-1,2,"How are the people you care about most different from you?",Icebreaker
-1,2,"What would make your heart the happiest?",Icebreaker
-1,2,"What is something that the world needs more of?",Icebreaker
-1,2,"Where is a place that makes you feel at peace?",Icebreaker
-1,2,"What do you do to make the world a better place?",Icebreaker
-1,2,"What are you passionate about creating?",Icebreaker
-1,2,"What do you do when you are feeling down?",Icebreaker
-1,2,"What are you passionate about?",Icebreaker
-1,2,"What do you think you’ll never understand about other people?",Icebreaker
-1,2,"Why do you think some people are cruel?",Icebreaker
-1,2,"Why is the world in this state right now?",Icebreaker
-1,2,"What is something that you value in a friend?",Icebreaker
-1,2,"What do you think makes you unique?",Icebreaker
-1,2,"What kind of animal do you think defines you the best and why?",Icebreaker
-1,2,"If you could only watch one movie for the rest of your life, what would it be?",Icebreaker
-1,2,"What type of music do you enjoy the most?",Icebreaker
-1,2,"What is something that you are looking forward to this year?",Icebreaker
-1,2,"Why do you believe there’s a need for friendship?",Icebreaker
-1,2,"What is something small that you find funny?",Icebreaker
-1,2,"When do you find people to be their most authentic?",Icebreaker
-1,2,"What makes you feel secure?",Icebreaker
-1,2,"What does the perfect life look like to you?",Icebreaker
-1,2,"How would you like to be remembered?",Icebreaker
-1,2,"When was a time you felt you were right about something, but couldn’t prove it?",Icebreaker
-1,2,"What is something that you would want for free?",Icebreaker
-1,2,"What has been your luckiest encounter in life?",Icebreaker
-1,2,"How do you act differently around new people?",Icebreaker
-1,2,"When do you think you are the most productive?",Icebreaker
-1,2,"Where is the most amazing place that you have ever been?",Icebreaker
-1,2,"If your life was a movie, what would the title be?",Icebreaker
-1,2,"What is something that makes you different from anyone else in this room?",Icebreaker
-1,2,"What brings you the most joy when hanging out with your family?",Icebreaker
-1,2,"What is one word that you would never say?",Icebreaker
-1,2,"How old do you feel most of the time?",Icebreaker
-1,2,"Does what you see on the internet scare you at all?",Icebreaker
-1,2,"Does the end ever justify the means?",Icebreaker
-1,2,"What small thing has helped you through a really hard time?",Icebreaker
-1,2,"Who makes you want to be a better person?",Icebreaker
-1,2,"When was the last time that you felt proud of yourself?",Icebreaker
-1,2,"What quality is more important, love or luck?",Icebreaker
-1,2,"What skill is on the top of your list to learn?",Icebreaker
-1,2,"Do you like to be spontaneous or do you prefer routines?",Icebreaker"
-1,2,"If you were a professional athlete, what sport would you want to play?",Icebreaker
-1,2,"What is your favorite thing that you did as a child?",Icebreaker
-1,3,What made you decide to be in this group of friends?,Icebreaker
-1,3,When have you lost faith in humanity?,Icebreaker
-1,3,When was a time that you felt you should've made a different choice?,Icebreaker
-1,3,Where did you travel that felt life changing?,Icebreaker
-1,3,What is one thing you need to forgive yourself for?,Icebreaker
-1,3,When was the last time you cried in public?,Icebreaker
-1,3,Who has shaped you the most in your life?,Icebreaker
-1,3,What do you believe is the key to success in love?,Icebreaker
-1,3,What is something that everyone loves that you find annoying?,Icebreaker
-1,3,What is a habit or trait that you get on very well with?,Icebreaker
-1,3,When did you realize something needed to change in your life?,Icebreaker
-1,3,Do you think you appreciate art more or less than others?,Icebreaker
-1,3,What is a social issue you think everyone needs to be more aware of?,Icebreaker
-1,3,What keeps you up at night?,Icebreaker
-1,3,What is a topic that you wish you understood better?,Icebreaker
-1,3,Who is someone you want to be more like?,Icebreaker
-1,3,In what parts of your life are you content with mediocrity?,Icebreaker
-1,3,What is a trend or a fad that you just can't get on board with?,Icebreaker
-1,3,What are you good at that has little to no practical use?,Icebreaker
-1,3,What has been the best day of your life so far?,Icebreaker
-1,3,How often do you step back and analyze the decisions that you have been making?,Icebreaker
-1,3,What has been the most embarrassing moment in your life so far?,Icebreaker
-1,3,What do you admire in those closet to you?,Icebreaker
-1,3,What personality traits help you deal with the harsh parts of life?,Icebreaker
-1,3,What are you most afraid of and why?,Icebreaker
-1,3,How have you been kind to yourself recently?,Icebreaker
-1,3,What have you found to be the greatest way of connecting to others?,Icebreaker
-1,3,What do you find to be the most confusing aspects of others?,Icebreaker
-1,3,Where do you feel the safest?,Icebreaker
-1,3,How do you feel you have helped those in your life to become more comfortable with themselves?,Icebreaker
-1,3,What do you do to keep from getting bored?,Icebreaker
-1,3,Are there any beliefs from your childhood that no longer make sense?,Icebreaker
-1,3,What do you need to change about yourself to live a better life?,Icebreaker
-1,3,Is being on time important to you or are you usually running late?,Icebreaker
-1,3,What has a stranger done for you that you have never forgotten?,Icebreaker
-1,3,What is one way you would change yourself to be better liked?,Icebreaker
-1,3,What do you think makes you the happiest as a person?,Icebreaker
-1,3,How do you think the world is going to change after you’re gone?,Icebreaker
-1,3,What does it mean to be respected by others?,Icebreaker
-1,3,What are you most curious about and want to find out in your life?,Icebreaker
-1,3,Do you think that the world can change with one individual?,Icebreaker
-1,3,What do you do to give back to the world around you?,Icebreaker
-1,3,What kind of activities do you find enjoyable that you think would be frowned upon by those who know you best?,Icebreaker
-1,3,What has been your favorite job or school experience and why did you like it so much?,Icebreaker
-1,3,What do you think is most missing from today’s music?,Icebreaker
-1,3,Who is someone that has changed your life the most?,Icebreaker
-1,3,If you could recommend three things to try, what would you suggest?,Icebreaker
-1,3,How do you deal with grief and pain?,Icebreaker
-1,3,How do you deal with people that think they know more than you do about your business?,Icebreaker
-1,3,What part of this world are you most scared about?,Icebreaker
-1,3,Are there any habits you want to ditch in your everyday life?,Icebreaker
-1,3,What kind of impression do you leave on others upon the first meeting?",Icebreaker
-1,3,Do you think it is worth the cost to do the right thing even if you suffer a lot in the process?,Icebreaker
-1,3,How do you see yourself in the mirror?,Icebreaker
-1,3,Does it bother you knowing how much of history has been lost over time?",Icebreaker
-1,3,What kind of art do you most connect with?",Icebreaker
-2,1,"What's a skill you're currently trying to improve?",Getting to Know You
-2,1,"What's a podcast you're currently enjoying?",Getting to Know You
-2,1,"What's a random act of kindness you've done for a stranger?",Getting to Know You
-2,1,"What's a tradition from your childhood that you cherish?",Getting to Know You
-2,1,"What's a hobby you'd recommend to others and why?",Getting to Know You
-2,1,"What's a small accomplishment you're proud of?",Getting to Know You
-2,1,"What's a small thing you do to brighten someone's day?",Getting to Know You
-2,1,"What's a topic you're eager to learn more about?",Getting to Know You
-2,1,What's a quality you admire in your friends?,Getting to Know You
-2,1,"What's a goal you're determined to achieve this year?",Getting to Know You
-2,1,What are some of your greatest memories?,Getting to Know You
-2,1,What song always makes you smile?,Getting to Know You
-2,1,What makes you happy?,Getting to Know You
-2,1,What is the greatest gift you have ever received?,Getting to Know You
-2,1,What is the most amazing thing in the world to you?,Getting to Know You
-2,1,What small thing is guaranteed to make you smile every time?,Getting to Know You
-2,1,What is your idea of a perfect day?,Getting to Know You
-2,1,What is a happy memory you think about often?,Getting to Know You
-2,1,What is something you have accomplished that you are most proud of?,Getting to Know You
-2,1,What makes you the most happy?,Getting to Know You
-2,1,What activities do you enjoy doing?,Getting to Know You
-2,1,What one thing makes you laugh the hardest?,Getting to Know You
-2,1,"What is your definition of ""happiness?""",Getting to Know You
-2,1,Where is your happy place?,Getting to Know You
-2,1,Who are you most grateful for and why?,Getting to Know You
-2,1,What is the greatest compliment you have ever received?,Getting to Know You
-2,1,What do you do to relax?,Getting to Know You
-2,1,What are you most looking forward to in the next 30 days?,Getting to Know You
-2,1,What does the phrase “living in the moment” mean to you?,Getting to Know You
-2,1,What is the best way to spend quality time with friends and family?,Getting to Know You
-2,1,What’s a book that everyone should read?,Getting to Know You
-2,1,What is the most beautiful place on earth in your opinion?,Getting to Know You
-2,1,"What job were you definitely unqualified for, but got hired anyway?",Getting to Know You
-2,1,What's one thing you're willing to spend more money on to make your life easier?,Getting to Know You
-2,1,What odd skill or talent do you have that you’re secretly good at?,Getting to Know You
-2,1,What always brings a smile to your face?,Getting to Know You
-2,1,What do you value most in a friendship?,Getting to Know You
-2,1,What is your definition of success?,Getting to Know You
-2,1,What is a skill you would like to learn?,Getting to Know You
-2,1,What is one thing you are most proud of in your life?,Getting to Know You
-2,1,What's your biggest motivator in life?,Getting to Know You
-2,1,Who is someone you admire and why?,Getting to Know You
-2,1,What's a challenge you're currently working on overcoming?,Getting to Know You
-2,1,What's a skill you're currently trying to master?,Getting to Know You
-2,1,"What's a book, movie, or TV show that has had a profound impact on you?",Getting to Know You
-2,1,"What's a place you've always dreamed of visiting, and why?",Getting to Know You
-2,1,"What's a cause that's important to you, and what are you doing to support it?",Getting to Know You
-2,1,What's a goal you're working toward that excites you?,Getting to Know You
-2,1,"What's a time you stepped outside your comfort zone, and what did you learn?",Getting to Know You
-2,1,What's a small act of kindness you've witnessed or experienced recently?,Getting to Know You
-2,1,What's a habit you're trying to develop?,Getting to Know You
-2,1,What's a piece of advice you've received that's really stuck with you?,Getting to Know You
-2,1,What's a skill you're proud to have learned?,Getting to Know You
-2,1,What's a tradition you'd like to start with your friends or family?,Getting to Know You
-2,1,What's a cause you're passionate about?,Getting to Know You
-2,1,What's a place you'd love to live someday?,Getting to Know You
-2,1,What's a dream you're actively pursuing?,Getting to Know You
-2,1,What's a quality you admire in others?,Getting to Know You
-2,1,What's a goal you've already achieved that you're proud of?,Getting to Know You
-2,1,What's a lesson you've learned that you think everyone should know?,Getting to Know You
-2,1,"If you were to donate a million dollars, who would you donate it to?",Getting to Know You
-2,1,What is your definition of success?,Getting to Know You
-2,1,What are you most passionate about in life?,Getting to Know You
-2,1,What motivates you to work hard?,Getting to Know You
-2,1,"Who is someone that you admire, and why?",Getting to Know You
-2,1,What is something that you are good at?,Getting to Know You
-2,1,What is something that you know a lot about?,Getting to Know You
-2,1,What is something that you value a lot?,Getting to Know You
-2,1,"What makes you, you?",Getting to Know You
-2,1,What is your mission in life?,Getting to Know You
-2,1,What is a value that is important in your life?,Getting to Know You
-2,1,What are you good at?,Getting to Know You
-2,1,What is something that you appreciate about yourself?,Getting to Know You
-2,1,What is a personal goal you want to work towards?,Getting to Know You
-2,1,What does it mean to be authentic?,Getting to Know You
-2,1,What kind of energy do you like to bring to a room?,Getting to Know You
-2,1,How important is it to you to be your authentic self with others?,Getting to Know You
-2,1,What is something that you like to do for self care?,Getting to Know You
-2,1,What motivates you in the morning?,Getting to Know You
-2,1,What is a small win that you had this week?,Getting to Know You
-2,1,What's something you're looking forward to in the future?,Getting to Know You
-2,1,What's something that makes you feel fulfilled?,Getting to Know You
-2,1,What's a value that guides your decision-making?,Getting to Know You
-2,1,What's something you're learning right now?,Getting to Know You
-2,1,What's a skill that makes you feel empowered?,Getting to Know You
-2,1,What's a place that holds special meaning for you?,Getting to Know You
-2,1,What's a memory that always makes you smile?,Getting to Know You
-2,1,What's a lesson you've learned that's helped you grow?,Getting to Know You
-2,1,What's a goal you're excited to achieve?,Getting to Know You
-2,1,What's something you're grateful for today?,Getting to Know You
-2,1,What’s more important, love or happiness?,Getting to Know You
-2,1,What makes you so proud to be who you are?,Getting to Know You
-2,1,What about being alone scares you the most?,Getting to Know You
-2,1,What personal motto are you living by at the moment?,Getting to Know You
-2,1,What's a story you've always wanted to tell?,Getting to Know You
-2,1,How do you think you are going to change the world?,Getting to Know You
-2,1,What are you most passionate about in life?,Getting to Know You
-2,1,What are some small things that you look forward to in your day?,Getting to Know You
-2,1,What's one thing you wish more people understood?,Getting to Know You
-2,1,What part of your culture do you feel most connected to?,Getting to Know You
-2,2, What's a goal you're currently working towards?,Getting to Know You
-2,2, What’s a habit you’re trying to break and why?,Getting to Know You
-2,2, When was a time you had to make a difficult decision that had negative consequences?,Getting to Know You
-2,2, What has a friendship positively impacted your life?,Getting to Know You
-2,2, What is the perfect way to receive a compliment?,Getting to Know You
-2,2, What value do you never compromise on?,Getting to Know You
-2,2, What's the best day you have ever had?",Getting to Know You
-2,2, What is your favorite song and why does it move you?",Getting to Know You
-2,2, How often do you check up on the people in your life?",Getting to Know You
-2,2, Are you generally a nice person?",Getting to Know You
-2,2, Can you be described as thoughtful or insightful?",Getting to Know You
-2,2, What is a tradition you hope to start when you create a family?",Getting to Know You
-2,2, What kind of job do you think will lead to a more fulfilling life?",Getting to Know You
-2,2, If you were guaranteed to be a success in any field you choose, what would it be?",Getting to Know You
-2,2, What is your proudest decision?",Getting to Know You
-2,2, Has anyone ever been so wrong that it made you think you were in a different world?",Getting to Know You
-2,2, Who knows you best?",Getting to Know You
-2,2, Have you felt that there was a time in your life when you lost yourself?",Getting to Know You
-2,2, What do you think people look for the most in a friend?",Getting to Know You
-2,2, What is something small that you find funny?",Getting to Know You
-2,2, When do you feel you are most authentic?",Getting to Know You
-2,2, Does fame bother you more or less?",Getting to Know You
-2,2, Are you in your lifetime what makes you the happiest?",Getting to Know You
-2,2, What kind of person do you find to be the most inspiring?",Getting to Know You
-2,2, Do you find yourself apathetic, or empathetic to people’s feelings?",Getting to Know You
-2,2, What is the moment that you realized what you wanted to do in life?",Getting to Know You
-2,2, Have you always wanted what you have or have you made something out of very little?",Getting to Know You
-2,2, What is something small that most people take advantage of?",Getting to Know You
-2,2, Is there one thing that someone could say to hurt you the most?",Getting to Know You
-2,2, What is the best way to get over an embarrassment?",Getting to Know You
-2,2, Are you comfortable being upfront with your partners or family?",Getting to Know You
-2,2, What have you had to work hardest to acquire?",Getting to Know You
-2,2, Are there any secrets you wish that you could get away with telling?",Getting to Know You
-2,2, What is the greatest adventure that you have been on so far?",Getting to Know You
-2,2, What has helped you make it through a difficult time?",Getting to Know You
-2,2, What is something you wish that you were good at?",Getting to Know You
-2,2, What has made you the most comfortable with yourself?",Getting to Know You
-2,2, If you could go back in time to change one thing, what would you change?",Getting to Know You
-2,2, What have you learned about the world that you wish you never found out?",Getting to Know You
-2,2, Where do you see yourself in 5 years?",Getting to Know You
-2,2, What are some values that you prioritize in life?",Getting to Know You
-2,2, Have you ever had to decide between love and responsibility?",Getting to Know You
-2,2, Are you more proud of being intelligent, beautiful, or rich?",Getting to Know You
-2,2, What are you most grateful for?",Getting to Know You
-2,2, When did you make a mistake that had the biggest consequence?",Getting to Know You
-2,2, If you could have one superpower what would it be and why?",Getting to Know You
-2,2, What do you think the universe is made of?",Getting to Know You
-2,2, How many people do you think know the real you?",Getting to Know You
-2,2, What do you try to teach every person you meet?",Getting to Know You
-2,2, If the world was ending what song would you want to listen to?",Getting to Know You
-2,2, Do you consider yourself a leader or follower?",Getting to Know You
-2,2, What motivates you when you’re feeling down and hopeless?",Getting to Know You
-2,2, What do you believe is the key to a successful relationship?",Getting to Know You
-2,2, Does true love exist?",Getting to Know You
-2,2, Are you more analytical or emotional?",Getting to Know You
-2,2, What small things impact your mood the most?",Getting to Know You
-2,2, What do you think is the biggest misconception about you?",Getting to Know You
-2,2, What advice that you’ve received has stuck with you the most?",Getting to Know You
-2,2, What is something about someone that you need to know before becoming friends?",Getting to Know You
-2,2,"What is something that you want to accomplish but may never get around to?",Getting to Know You
-2,2,"As a kid, what did you think you'd be doing at your age now?",Getting to Know You
-2,2,"What's your most unrealistic goal?",Getting to Know You
-2,2,Are you more afraid of being alone or being in a bad relationship?",Getting to Know You
-2,2,"If you were to get a tattoo, what would it be of and where would you get it?",Getting to Know You
-2,3,What's your most controversial opinion about relationships?,Getting to Know You
-2,3,What's something you're secretly judgmental about?,Getting to Know You
-2,3,"What's a time you felt like you were treated unfairly because of your race, gender, or sexual orientation?",Getting to Know You
-2,3,What's your opinion on affirmative action?,Getting to Know You
-2,3,What's a time you felt conflicted between your values and your desires?,Getting to Know You
-2,3,What's your biggest fear about getting older?,Getting to Know You
-2,3,What's your opinion on the role of government in healthcare?,Getting to Know You
-2,3,What's a time you felt like you were treated unfairly by the justice system?,Getting to Know You
-2,3,What's your opinion on the use of animals in scientific research?,Getting to Know You
-2,3,What do you think is the key to a successful relationship?,Getting to Know You
-2,3,What’s the best sexual experience you’ve ever had?,Getting to Know You
-2,3,Do you believe in polyamory?,Getting to Know You
-2,3,What do you consider unforgivable in a partner?,Getting to Know You
-2,3,What's your honest opinion of your best friend’s significant other?,Getting to Know You
-2,3,What are you looking for in a partner that you haven't found yet?,Getting to Know You
-2,3,"If you could change one thing about your family, what would it be?",Getting to Know You
-2,3,What are you most afraid to tell your parents?,Getting to Know You
-2,3,What has someone said about you that has affected you the most?,Getting to Know You
-2,3,How do you want to be remembered?,Getting to Know You
-2,3,Are you concerned that the people in your life are bad influences on you?,Getting to Know You
-2,3,What's your stance on open relationships?,Getting to Know You
-2,3,What are your thoughts on cultural appropriation?,Getting to Know You
-2,3,Have you ever experienced or witnessed racism or prejudice?,Getting to Know You
-2,3,How do you feel about the wage gap between men and women?,Getting to Know You
-2,3,What are your thoughts on capital punishment?,Getting to Know You
-2,3,"Have you ever been unfaithful in a relationship, and how did it affect you?",Getting to Know You
-2,3,What is something you wish you could change about the world?,Getting to Know You
-2,3,What do you think is the biggest threat to society today?,Getting to Know You
-2,3,What are your thoughts on cancel culture?,Getting to Know You
-2,3,Are some people bad and without hope of redemption, why or why not,Getting to Know You
-2,3,What personality trait gets you mad at others,Getting to Know You
-2,3,What keeps you inspired on your darkest days,Getting to Know You
-2,3,What do you consider unforgivable in a relationship,Getting to Know You
-2,3,What has made you the most fearful of death?,Getting to Know You
-2,3,What is something about your family that you can’t stand?,Getting to Know You
-2,3,What has gotten you the angriest that you can remember,Getting to Know You
-2,3,Has it ever felt like you have a darkness inside you that you can’t get rid of,Getting to Know You
-2,3,Do you care more about others or about yourself,Getting to Know You
-2,3,Where do you see yourself in 10 years and how will you get there,Getting to Know You
-2,3,What do you think is your biggest advantage in life,Getting to Know You
-2,3,Are you concerned about anything happening to your mind as you age,Getting to Know You
-2,3,Is true love rare, or can everyone experience the same level of satisfaction with another,Getting to Know You
-2,3,What are things that you will make fun of with other but actually don’t appreciate?,Getting to Know You
-2,3,Are there any thoughts that you are too afraid to ever say to others?,Getting to Know You
-2,3,What type of person would make you stop speaking to them no matter your history?,Getting to Know You
-2,3,Did you lose your faith when tragedy struck, or does it still carry you through it all?,Getting to Know You
-2,3,What are your true opinions about the concept of working and the economic structures behind that?",Getting to Know You
-2,3,Are you afraid of dying alone?",Getting to Know You
-2,3,Have you ever had someone who wasn’t your family or partner make you feel at home?",Getting to Know You
-2,3,Did you meet your parent's expectations in life so far?",Getting to Know You
-2,3,How long do you think it will be before the world ends?",Getting to Know You
-2,3,In your opinion, is the world getting better or getting worse?",Getting to Know You
-2,3,When it comes to your most embarrassing memories, can you laugh about them now?",Getting to Know You
-2,3,What do you believe is the greatest failure that you have had?",Getting to Know You
-2,3,Can you tell when people are not being sincere with you?",Getting to Know You
-2,3,What are some values that you want instilled in your children?",Getting to Know You
-2,3,Do you believe that anyone will miss you when you are gone?",Getting to Know You
-2,3,Do you believe you are on the right path to be the best version of yourself?",Getting to Know You
-2,3,Have your dreams kept you from enjoying the present moment?",Getting to Know You
-2,3,Can animals feel happiness in a way that we can perceive?",Getting to Know You
-2,3,Where do you turn for advice when you feel unsure?",Getting to Know You
-2,3,What do you think has been the reason that you haven’t found love yet?",Getting to Know You
-2,3,Why do you value your closest friends so much?",Getting to Know You
-2,3,When did you start seeing the world in a new light?",Getting to Know You
-2,3,Can you always see the good in other people, or does it depend on them?",Getting to Know You
-2,3,When did you start to feel like an adult?",Getting to Know You
-2,3,Is there one thing that always seems to get you out of bed in the morning?",Getting to Know You
-2,3,Does it worry you that the future is unpredictable?",Getting to Know You
-2,3,What is the biggest lesson that your mother has ever taught you?",Getting to Know You
-2,3,Do you value power more than wealth?",Getting to Know You
-2,3,What kind of people do you just not get along with?",Getting to Know You
-2,3,Do you consider yourself to be more intelligent or more wise?",Getting to Know You
-2,3,If you could get rid of one habit that you have what would it be?",Getting to Know You
-2,3,How hard is it for you to express your feelings honestly?",Getting to Know You
-2,3,What terrible event has lead you to feel most afraid?",Getting to Know You
-2,3,Where do you feel has been the best place that you have ever gone to relax?",Getting to Know You
-2,3,Have you accomplished more or less than you thought you would have at this point in your life?",Getting to Know You
-2,3,What has been the most embarrassing thing to happen to you on a date?",Getting to Know You
-2,3,Do you ever feel like you aren't enough of a person?",Getting to Know You
-2,3,What has driven you to chase money, or chase power as a source of happiness?",Getting to Know You
-2,3,How do you plan on making the world a better place?",Getting to Know You
-2,3,When was the last time you felt fulfilled and completely at peace?",Getting to Know You
-2,3,What piece of yourself do you struggle to manage?",Getting to Know You
-2,3,Who is one celebrity you would change places with and why?",Getting to Know You
-2,3,Does anyone think that you are strange or out of touch with reality?",Getting to Know You
-2,3,Are you mostly focused on thinking about the past or the future?",Getting to Know You
-2,3,Do you have any irrational phobias or fears?",Getting to Know You
-2,3,Do you find it hard to be truthful with others even when you are trying to protect them?",Getting to Know You
-2,3,What value do you think you should focus on to improve as a person?",Getting to Know You
-2,3,Does it bother you if no one ever remembers you or if you fade into history?",Getting to Know You
-2,3,Do you think there is ever too much love?",Getting to Know You
-2,3,What has been the most dangerous situation you have ever been in?",Getting to Know You
-2,3,Does the truth set you free?",Getting to Know You
-2,3,Do you think the world is on the verge of destruction?",Getting to Know You
-2,3,What do you think is humanity’s purpose, or do you think there isn’t one?",Getting to Know You
-2,3,Would you rather have world peace or be rich?",Getting to Know You
-2,3,Are the people in your life good influences or bad influences?",Getting to Know You
-2,3,What is the biggest thing you want to get rid of about your life right now?",Getting to Know You
-2,3,What is an achievement that has meant the most to you?",Getting to Know You
-3,1,If you had to be a kind of element, what would you want to be,Deeper Dive
-3,1,Is the world ever fair,Deeper Dive
-3,1,Are you happy with who you have become?,Deeper Dive
-3,1,Is it better to be at peace or have ambition,Deeper Dive
-3,1,What do you think the next revolution will consist of and why,Deeper Dive
-3,1,Would you have a strong code to live by or allow yourself to adapt as life goes on,Deeper Dive
-3,1,Is it more admirable to be intelligent, creative, or rich?,Deeper Dive
-3,1,What do you think has been your greatest impact on others?,Deeper Dive
-3,1,If you were to create a religion, what would it be about?,Deeper Dive
-3,1,Are all people equal and should be treated with a general sense of respect?,Deeper Dive
-3,1,What did you have to give up when you found what you wanted to do in life?,Deeper Dive
-3,1,How do you want the world to remember you after you are gone?,Deeper Dive
-3,1,What is more interesting to you, the world or its inhabitants?,Deeper Dive
-3,1,Do you believe that you know people better than they know themselves?,Deeper Dive
-3,1,What do you value more than most people?,Deeper Dive
-3,1,How much should we focus on preparing for the future,Deeper Dive
-3,1,How grateful are you for your place in the world?,Deeper Dive
-3,1,If you could be saved from anything, what would you pick?,Deeper Dive
-3,1,How big of a fan are you of art?,Deeper Dive
-3,1,How kind are you to yourself, really?,Deeper Dive
-3,1,What’s more important, power or respect?,Deeper Dive
-3,1,What type of challenges do you always run from,Deeper Dive
-3,1,What are some bad choices you have made over the last few years?,Deeper Dive
-3,1,What has been your best accomplishment so far,Deeper Dive
-3,1,What is a bad habit you hope to overcome,Deeper Dive
-3,1,How do you recharge when you are feeling drained?,Deeper Dive
-3,1,Where did you last travel and how did that change you?,Deeper Dive
-3,1,Who makes you want to become a better person, Deeper Dive
-3,1,How good are you at standing up for your friends?,Deeper Dive
-3,1,What inspires you to want to learn and to keep moving forward,Deeper Dive
-3,1,What makes you a good partner or spouse, or will make you a great one someday?,Deeper Dive
-3,1,Does anything stop you from giving to others when you feel that you have enough,Deeper Dive
-3,1,Are you more concerned about your past, present, or future?,Deeper Dive
-3,1,Where do you see yourself putting your life, if you can only pick one goal to put all your effort to?,Deeper Dive
-3,1,Have you always been comfortable with yourself or do you continue to struggle with it even now?,Deeper Dive
-3,1,Are you at peace with the place where your life is at currently?,Deeper Dive
-3,1,What is something you are the most proud of that you think other people don’t notice about you?",Deeper Dive
-3,1,What is your happiest memory and why is it something you value so much?",Deeper Dive
-3,1,Do you make plans and schedules or just let life carry you away?",Deeper Dive
-3,1,What is something that you have learned to let go in your life?",Deeper Dive
-3,1,If you could be granted one goal in your life, what would it be?",Deeper Dive
-3,1,What keeps you inspired in life,Deeper Dive
-3,1,What are you doing that you feel is more important than anything?,Deeper Dive
-3,1,Does it ever make you sad thinking about people who have passed on and lost out on today?,Deeper Dive
-3,1,Who has had the biggest impact on how you turned out in life?,Deeper Dive
-3,1,How do you balance making sure you are taken care of with caring for others who may need you as well?",Deeper Dive
-3,1,What have you been trying to find purpose in lately?",Deeper Dive
-3,1,What has made you change your mind most recently?",Deeper Dive
-3,1,What lesson would you teach your kids and why is that one your biggest priority?,Deeper Dive
-3,1,Can someone truly have an ego and still be a good person to be around?",Deeper Dive
-3,1,Has time had any effect on your morals and how you feel about certain aspects of the world?",Deeper Dive
-3,1,What about yourself do you refuse to ever change?",Deeper Dive
-3,1,If you could have one question to be answered about yourself what would you pick to know for sure?",Deeper Dive
-3,1,Does religion scare you or bring you to a better place",Deeper Dive
-3,1,In general what do you look for in a partner, Deeper Dive
-3,1,Can you describe one of your biggest turning points to this very day,Deeper Dive
-3,1,What are you doing that gives others a sense of awe,Deeper Dive
-3,1,Why have you had the friendships you have been a part of end and move on through life, Deeper Dive
-3,1, What is an experience that you think everyone should do in their life, Deeper Dive
-3,1, If you had more money how would you try and leave this world behind in a better position?
-3,1, In your opinion, what does it mean to be successful",Deeper Dive
-3,1, What is the silliest thing that you think other people are so serious about , Deeper Dive
-3,1, How often do you practice self care and what has that helped you with?",Deeper Dive
-3,1, In your opinion, what does it mean to be yourself, Deeper Dive
-3,1, Do you find it easier to love yourself or to have other people love you, Deeper Dive
-3,1, Where do you see yourself being the happiest if you were to settle down permanently",Deeper Dive
-3,1, In your opinion, what does it mean to live life to the fullest?, Deeper Dive
-3,1, What can you do to bring yourself back up when you feel like you're heading towards a spiral downward, Deeper Dive
-3,1, What is one value that has gotten you where you are today as a person?, Deeper Dive
-3,1, In your opinion, how should someone try to make the world a better place, Deeper Dive
-3,1, What part of your childhood do you think shaped who you are and why, Deeper Dive
-3,1, What is something about yourself that you have always wanted to change for the better , Deeper Dive
-3,1, What song always picks you up and puts you in a better mood , Deeper Dive
-3,1, Are you the most honest with yourself or do you find yourself hiding a lot of the truth, Deeper Dive
-3,1, Would you rather have all the money or all the friends, and why , Deeper Dive
-3,1, When was the last time that you were humbled by what another has accomplished, Deeper Dive
-3,1, How do you maintain a good moral code to do what is correct even in the face of hardship?, Deeper Dive
-3,1, What’s something that keeps you motivated every day, Deeper Dive
-3,1, Is there a dream you’re still chasing, or has the sun set on all your biggest ambitions?, Deeper Dive
-3,1, If you could leave the world in a better place than you found it, what would you do?, Deeper Dive
-3,1, What is the most amazing vacation that you have ever taken and why do you consider it to be so amazing?, Deeper Dive
-3,1, What does a perfect night look like for you?, Deeper Dive
-3,1, Are you chasing peace of mind? Happiness? Something else entirely?, Deeper Dive
-3,1, What piece of history do you wish you could have been a part of and why?, Deeper Dive
-3,1, Do you have a favorite quote that you always turn to?", Deeper Dive
-3,1, What has it taught you the most about yourself so far this year?, Deeper Dive
-3,1, What has been your biggest accomplishment so far this year?", Deeper Dive
-3,1, What is the kindest thing that someone has ever done for you in this year?, Deeper Dive
-3,1, Who do you look up to the most in your life right now?", Deeper Dive
-3,1, How do you cope with your own failures and mistakes to continue to move on and to improve yourself for the better?", Deeper Dive
-3,1, What do you do to maintain a healthy relationship with yourself? , Deeper Dive
-3,1, What steps do you take to ensure that you will have a good life well into the future? , Deeper Dive
-3,1, Have you gotten to the point where you have found what you want out of life? If so, what is it?, Deeper Dive
-3,1, Do you believe in the power of random acts of kindness? If so, what small things do you do on a regular basis?, Deeper Dive
-3,2,What is a moment when you realized someone cared about you? ,Deeper Dive
-3,2,What makes you feel like you are at peace? ,Deeper Dive
-3,2,Is there someone who you admire and respect, but they wouldn’t give you the time of day? ,Deeper Dive
-3,2,Do you have more reasons to love the world, or to hate the world?,Deeper Dive
-3,2,What is something that you wish you had handled differently in your past and what did you learn from it?",Deeper Dive
-3,2,What causes you the biggest source of anxiety?",Deeper Dive
-3,2,Are you still in touch with the person who caused you the most pain?",Deeper Dive
-3,2,Do you tend to look for what could be better in your life or to be happy with what you have?",Deeper Dive
-3,2,Do you think that you're happy enough at this moment in your life?",Deeper Dive
-3,2,Have you come to terms with the path that your life has taken?",Deeper Dive
-3,2,If you could make your best friend stay by your side forever, would you do it or let them grow in their way? ,Deeper Dive
-3,2,Would you say that you are more creative or more logical and how do you feel that has benefited your life the most?",Deeper Dive
-3,2,What does beauty mean to you?",Deeper Dive
-3,2,In what small ways do you try to treat yourself nicely on a daily basis?",Deeper Dive
-3,2,Do you want to have kids and would you be a good parent?",Deeper Dive
-3,2,What do you most seek from someone that you are going to commit to long-term?",Deeper Dive
-3,2,Who or what do you feel the most indebted to?",Deeper Dive
-3,2,What gets you excited to wake up and begin your day, or do you think you may be missing that inspiration entirely?,Deeper Dive
-3,2,Which of your memories make you smile just thinking about it?",Deeper Dive
-3,2,Would you say that you look more towards your past for wisdom, or the future for inspiration?",Deeper Dive
-3,2,What small kindness has someone done for you that you will never forget?",Deeper Dive
-3,2,Are you easy to read or do you think people have a hard time telling how you feel?",Deeper Dive
-3,2,What do you do to try and take care of yourself emotionally?",Deeper Dive
-3,2,What do you expect to feel as you approach the end of your life?",Deeper Dive
-3,2,When you have been in a tough place, who has been someone that you leaned on the most?",Deeper Dive
-3,2,Do you believe in fate or do you trust in luck?",Deeper Dive
-3,2,What is the one thing that you remember most from your childhood?",Deeper Dive
-3,2,Has more happened to you by chance or by planning?",Deeper Dive
-3,2,What is the most important value that you try to live by and why is it that one specifically?",Deeper Dive
-3,2,In your opinion, what does it mean to be a good person?",Deeper Dive
-3,2,Does it ever make you feel sad that you don’t know everything?",Deeper Dive
-3,2,Is there a topic you would love to discuss with someone but it never seems to come up with your friends and family?",Deeper Dive
-3,2,What is one small thing that someone can do that means a lot to you?",Deeper Dive
-3,2,What moment in your life has made you grow the most?",Deeper Dive
-3,2,What makes you consider yourself worthy of being loved?",Deeper Dive
-3,2,What is a part of your culture you wish more people understood?",Deeper Dive
-3,2,If you could only save one thing from a fire what would you grab?",Deeper Dive
-3,2,Does it make you afraid knowing that your life will one day cease?",Deeper Dive
-3,2,If you could leave one message for the future, what would it be?",Deeper Dive
-3,2,What one thing could make this world a little bit better?",Deeper Dive
-3,2,Does there ever feel like something that is missing from your life, and if so what?",Deeper Dive
-3,2,How do you want people to describe you to others?",Deeper Dive
-3,2,What are some little things in life that always make you feel at peace and relaxed?",Deeper Dive
-3,2,When have you had to take the most difficult leap of faith?",Deeper Dive
-3,2,Has it been difficult to learn to listen to your heart instead of your mind?",Deeper Dive
-3,2,Have you learned to forgive those who did you wrong",Deeper Dive
-3,2,Is money the root of all evil or has that belief been overblown by people who weren’t able to obtain it anyway?",Deeper Dive
-3,2,What do you struggle to do for yourself that others find so easy?,Deeper Dive
-3,2,Have you come to terms with your own mortality?",Deeper Dive
-3,2,Do you let the world control you, or do you find yourself easily breaking the rules laid out by society?",Deeper Dive
-3,2,In what ways have your opinions on the world changed as you've become older?",Deeper Dive
-3,2,What motivates you to try new things when you would much rather stay inside your comfort zone?",Deeper Dive
-3,2,Can you think of one thing that would make society better if it was changed immediately?",Deeper Dive
-3,2,Has there been an event in your life that changed you for the worse?",Deeper Dive
-3,2,What memory do you find yourself drifting back to no matter how hard you try to change the subject in your mind?",Deeper Dive
-3,2,Do you consider the world to be a cruel place?",Deeper Dive
-3,2,What are some beliefs that you think are very important for a friendship?",Deeper Dive
-3,2,Which of your friends do you confide in the most and why did you pick them to trust that much?",Deeper Dive
-3,2,What song makes you feel like you want to take on the world?",Deeper Dive
-3,2,What are some things that you consider to be the most valuable about humanity?",Deeper Dive
-3,2,If your life was a movie, who would you want to play you and why would they be perfect for the role?",Deeper Dive
-3,2,Does living with other people wear you down?",Deeper Dive
-3,2,What are you most insecure about when meeting someone for the first time?",Deeper Dive
-3,2,What would you do if you knew that everything you said for the rest of your life would be taken as fact by others?",Deeper Dive
-3,2,Has it been difficult or easy for you to meet new people throughout your life?",Deeper Dive
-3,2,Do you think there is an objective way to define something as beautiful?",Deeper Dive
-3,2,What small things do you look for to know that you can trust someone?",Deeper Dive
-3,2,What has it been like dealing with change and evolution in your life, or do you tend to stick with what you know?",Deeper Dive
-3,2,Is there anything that you think we need to lose as a society to be better, even if it is hard to part with?",Deeper Dive
-3,2,What do you think about when you want to escape your current reality and the life that you are living?",Deeper Dive
-3,2,What do you think has the greatest impact on the world?",Deeper Dive
-3,2,How would you like your life story to be taught in schools to children many years from now?",Deeper Dive
-3,2,Would you rather have more money to follow your dreams or have more friends to experience your life?",Deeper Dive
-3,2,Have you ever felt like you were betraying yourself by following the path that was laid out by others around you?",Deeper Dive
-3,2,What have you learned from love?",Deeper Dive
-3,2,Are you good at giving advice?",Deeper Dive
-3,2,When was a time that you felt like you were someone other than yourself?",Deeper Dive
-3,2,Are you comfortable with the idea that there are people in this world who will hate you simply for existing?",Deeper Dive
-3,2,Have you found any good ways to handle stress and improve your mental well being?",Deeper Dive
-3,2,Is there anyone that you truly think you can trust with everything that you are?",Deeper Dive
-3,2,If you were to give some advice to your parents, what would it be?",Deeper Dive
-3,2,When did you realize how important family really is?",Deeper Dive
-3,2,When was the first time that you felt true guilt?",Deeper Dive
-3,3,To this day, do you hold a grudge for something?,Deeper Dive
-3,3,Who is a person you are quick to judge,Deeper Dive
-3,3,How do you feel about humanity’s inevitable doom?,Deeper Dive
-3,3,Does religion have an impact on your life in the slightest?,Deeper Dive
-3,3,What do you expect from me to continue this relationship,Deeper Dive
-3,3,At what point does someone go from your friend to your enemy,Deeper Dive
-3,3,Is there anything you have to stop yourself from doing from time to time?,Deeper Dive
-3,3,What is something you are afraid to ask?,Deeper Dive
-3,3,How would you describe yourself after you’ve been drinking?,Deeper Dive
-3,3,What do you think is one of your biggest flaws in life?",Deeper Dive
-3,3,Where will we all end up when we fade away?",Deeper Dive
-3,3,If you could start a cult with any value that comes to mind what would you pick?",Deeper Dive
-3,3,What is your greatest act of deception,Deeper Dive
-3,3,Are you a follower of God?,Deeper Dive
-3,3,What would your ideal death be and where would you go,Deeper Dive
-3,3,Can you describe a moment where you felt completely alone without anyone knowing,Deeper Dive
-3,3,What are your biggest fears on a daily basis?,Deeper Dive
-3,3,What traits do you think are a product of privilege in the world,Deeper Dive
-3,3,Do you think that fate is involved in what happens in our daily lives?,Deeper Dive
-3,3,If you had one wish that would change the world, but it would take a lot away as well, what would it be?,Deeper Dive
-3,3,What belief makes you sleep at night?,Deeper Dive
-3,3,What are your options about friendship in general?",Deeper Dive
-3,3,Are you afraid to grow old?",Deeper Dive
-3,3,Who would you want to be after death, if that was a possible choice?",Deeper Dive
-3,3,What traits could I get rid of to be viewed as a perfect individual?",Deeper Dive
-3,3,Do you hold a deep-seated sense of hatred for any people?",Deeper Dive
-3,3,Would the world be better off if everyone was the same, or would that cause it to collapse?",Deeper Dive
-3,3,If you could save another person, would you be able to make the ultimate sacrifice and give your life for them?",Deeper Dive
-3,3,What do you think is the most shocking fact that someone should know?",Deeper Dive
-3,3,Is it too late for our world to recover in your opinion?",Deeper Dive
-3,3,Does it ever make you wonder if your friends are secretly laughing at you when you're not around?",Deeper Dive
-3,3,How has your life changed as you have drifted further away from your childhood?",Deeper Dive
-3,3,What are your opinions about war and death, are they both bad to you?",Deeper Dive
-3,3,What do you feel you need to have a better hold on to get to where you want to be?,Deeper Dive
-3,3,What about life confuses you the most, or do you think you get it all?",Deeper Dive
-3,3,Who is a person that you wish you could simply take out of this world?",Deeper Dive
-3,3,What makes you cry most of the time?",Deeper Dive
-3,3,When did you make a deal with the devil, even if metaphorically?",Deeper Dive
-3,3,Does it give you anxiety or comfort knowing how small we are in the grand scheme of it all?",Deeper Dive
-3,3,What would you like people to forget about you if that was an option?",Deeper Dive
-3,3,What was the last time that you thought about taking your own life and why?",Deeper Dive
-3,3,Who is the person you most wish you could reach out to from the past? What would you say?",Deeper Dive
-3,3,In your opinion, is there an afterlife? If so, what is it like?",Deeper Dive
-3,3,Do you think that anyone you know is a bad person? If so, what has led you to that conclusion?",Deeper Dive
-3,3,What belief about the world do you think is stupid and ridiculous? What do you think is a reality that people won’t accept?",Deeper Dive
-3,3,What makes you lose hope?",Deeper Dive
-3,3,What is a secret you have never shared, because you are afraid of how you would be judged?",Deeper Dive
-3,3,When did you feel like you had to give up on a friendship?",Deeper Dive
-3,3,What is something that you can do right now to be a better person?",Deeper Dive
-3,3,If you could have more of anything what would you want? Why would you pick that one in particular?",Deeper Dive
-3,3,What is the one moment in your life that you think defines you as a human being?",Deeper Dive
-3,3,If you had an animal version of yourself what would they be doing?",Deeper Dive
-3,3,Have you ever gone through any abuse? And how has this experience impacted you in your life?",Deeper Dive
-3,3,If you were to be brutally honest about any single moment of your life with what you know now, what would it be?",Deeper Dive
-3,3,What event do you think you will not be able to escape when you die?",Deeper Dive
-3,3,Do you find it difficult to trust others, or do you fall for people too easily?",Deeper Dive
-3,3,Is there anything you don’t do because you are afraid of looking silly?",Deeper Dive
-3,3,If you could go back and change the trajectory of your life to have better finances, would you, and why?",Deeper Dive
-3,3,What do you think will happen to the world after you are gone?",Deeper Dive
-3,3,If you could pick one world to make a reality, what would you choose?",Deeper Dive
-3,3,Do you put on a face for the world, or are you honest no matter the situation?",Deeper Dive
-3,3,Do you value wealth, power, or wisdom as a person?",Deeper Dive
-3,3,Where do you think you will find yourself going when you die?",Deeper Dive
-3,3,Does it bother you that someone will not remember who you are down the line, or that history may be unkind to you?",Deeper Dive
-3,3,How would you try to take over the world, if you could do so without any backlash?",Deeper Dive
+1,1,Name the street food you’d hunt down at midnight.,Icebreaker
+1,1,If you could crash a Bollywood movie set, which role would you steal?,Icebreaker
+1,1,Spill the beans: what’s the oddest food combo you’ve ever tried?,Icebreaker
+1,1,What’s the cheekiest excuse you’ve used to skip a family party?,Icebreaker
+1,1,Describe the wildest festival vibe you’ve ever soaked up.,Icebreaker
+1,1,Pick a song you’d blast to empty a party.,Icebreaker
+1,1,What’s the silliest nickname you’ve ever been called?,Icebreaker
+1,1,Name a gadget you’d panic without.,Icebreaker
+1,1,What’s the most overrated dish you’ve eaten?,Icebreaker
+1,1,If you could rename your hometown, what’d you call it?,Icebreaker
+1,1,Tell us about a cricket match moment that had you screaming.,Icebreaker
+1,1,Share the weirdest snack you’ve seen at a roadside stall.,Icebreaker
+1,1,What’s a movie you’ve rewatched a million times?,Icebreaker
+1,1,Describe the most chaotic family gathering you’ve survived.,Icebreaker
+1,1,What’s a trend you jumped on and now cringe at?,Icebreaker
+1,1,Reveal the best prank you’ve ever pulled.,Icebreaker
+1,1,What’s a local slang word you’re obsessed with?,Icebreaker
+1,1,Name the most useless app on your phone.,Icebreaker
+1,1,What’s a hobby you’d try with endless cash?,Icebreaker
+1,1,Share the strangest gift you’ve ever gotten.,Icebreaker
+1,1,What’s a childhood game you’d still dominate?,Icebreaker
+1,1,Describe your most epic road trip.,Icebreaker
+1,1,Name a dessert you’d trade your phone for.,Icebreaker
+1,1,What’s the funniest billboard you’ve seen?,Icebreaker
+1,1,Tell us about a TV show you binged in one sitting.,Icebreaker
+1,1,What’s the most random thing you’ve Googled?,Icebreaker
+1,1,Share a quirky habit you got from your family.,Icebreaker
+1,1,Describe the best street market you’ve explored.,Icebreaker
+1,1,What’s a dance move you rock when alone?,Icebreaker
+1,1,What’s the most absurd rule you had as a kid?,Icebreaker
+1,1,Name a festival dish that’s pure bliss.,Icebreaker
+1,1,What’s the most iconic outfit you’ve worn?,Icebreaker
+1,1,If you could travel anywhere for food, where’d you go?,Icebreaker
+1,1,Share the funniest thing you’ve overheard in a crowd.,Icebreaker
+1,1,What’s a smell that brings back childhood memories?,Icebreaker
+1,1,What’s the most ridiculous argument you’ve had?,Icebreaker
+1,1,Name a toy you wish you still had.,Icebreaker
+1,1,Describe the coolest street performer you’ve seen.,Icebreaker
+1,1,What’s a food you’d eat every day?,Icebreaker
+1,1,Tell us about the most memorable ad you’ve laughed at.,Icebreaker
+1,1,What’s a place you’d sneak into for fun?,Icebreaker
+1,1,Name the most annoying jingle stuck in your head.,Icebreaker
+1,1,What’s a sport you’d try if you were fearless?,Icebreaker
+1,1,Share the best thing you’ve haggled for.,Icebreaker
+1,1,What’s a cartoon you still secretly love?,Icebreaker
+1,1,Reveal your weirdest food craving.,Icebreaker
+1,1,What’s a festival prop you’d keep as decor?,Icebreaker
+1,1,Name the funniest pet name you’ve heard.,Icebreaker
+1,1,If you could get lost anywhere, where’d it be?,Icebreaker
+1,1,Describe the most bizarre thing you’ve seen in traffic.,Icebreaker
+1,2,Baat karo: what’s the funniest excuse you’ve used to dodge a matchmaking meet?,Icebreaker
+1,2,If you ran a roadside stall, what’d you sell and how’d you pitch it?,Icebreaker
+1,2,Share the most unexpected place you’ve made a friend.,Icebreaker
+1,2,Tell us the most hilarious thing your parents caught you doing.,Icebreaker
+1,2,Which regional dish would you fight for in a food debate?,Icebreaker
+1,2,What’s the most dramatic thing you’ve done for a crush?,Icebreaker
+1,2,Describe a politician’s stunt that had you laughing hard.,Icebreaker
+1,2,Share the weirdest thing you’ve seen at a wedding.,Icebreaker
+1,2,What’s a song you’re embarrassed to love?,Icebreaker
+1,2,Reveal the most ridiculous thing you’ve bought online.,Icebreaker
+1,2,Which stereotype about your state is totally true?,Icebreaker
+1,2,Paint a picture of your wildest monsoon moment.,Icebreaker
+1,2,What’s a family tradition you secretly adore?,Icebreaker
+1,2,Describe the most chaotic bus ride you’ve been on.,Icebreaker
+1,2,Share a movie quote you slip into chats.,Icebreaker
+1,2,Tell us about the funniest viral video you’ve seen.,Icebreaker
+1,2,What’s the most awkward gift you’ve given?,Icebreaker
+1,2,Reveal a quirky thing you do to cheer up.,Icebreaker
+1,2,What’s the most random place you’ve napped?,Icebreaker
+1,2,Share a food you tried just to brag about it.,Icebreaker
+1,2,Describe the most hilarious thing you’ve misheard.,Icebreaker
+1,2,What’s a trend you predicted before it blew up?,Icebreaker
+1,2,Tell us about the most absurd thing you’ve done for a bet.,Icebreaker
+1,2,Share a place you’ve visited that felt surreal.,Icebreaker
+1,2,What’s the funniest thing you’ve seen a kid do?,Icebreaker
+1,2,Reveal a weird food combo you love.,Icebreaker
+1,2,What’s the most random compliment you’ve gotten?,Icebreaker
+1,2,Describe a festival moment that stunned you.,Icebreaker
+1,2,What’s the most outrageous outfit you’ve worn?,Icebreaker
+1,2,Name a game you’d challenge anyone to.,Icebreaker
+1,2,Share the most surprising thing you’ve learned.,Icebreaker
+1,2,Tell us about a street food you’ve overhyped to friends.,Icebreaker
+1,2,What’s the funniest thing you’ve seen in a shop?,Icebreaker
+1,2,If you could crash a party anywhere, where’d it be?,Icebreaker
+1,2,Reveal the most absurd rumor you’ve heard.,Icebreaker
+1,2,Describe the chaos on a packed Indian train.,Icebreaker
+1,2,What’s a quirky superstition you stick to?,Icebreaker
+1,2,Share the most hilarious thing you’ve seen on a menu.,Icebreaker
+1,2,Tell us about the weirdest talent you’ve shown off.,Icebreaker
+1,2,What’s the most unexpected thing you’ve found in your bag?,Icebreaker
+1,2,Describe the biggest bargaining win you’ve had at a market.,Icebreaker
+1,2,What’s the funniest thing you’ve mispronounced?,Icebreaker
+1,2,Reveal a festival prank you’ve pulled or seen.,Icebreaker
+1,2,Share the most chaotic thing you’ve seen at a college fest.,Icebreaker
+1,2,Tell us about the most epic moment from a family dinner.,Icebreaker
+1,2,What’s the most unexpected thing you’ve learned from a stranger?,Icebreaker
+1,2,Describe the most ridiculous billboard you’ve seen.,Icebreaker
+1,2,Share the most memorable moment from a sports event.,Icebreaker
+1,3,Spill the chai: what’s the juiciest gossip you heard at a family wedding?,Icebreaker
+1,3,What’s the cheesiest pickup line you’ve heard in a market?,Icebreaker
+1,3,Reveal the wittiest comeback you gave a nosy uncle.,Icebreaker
+1,3,Describe the wildest thing you’ve seen someone do for a viral reel.,Icebreaker
+1,3,Share the most hilarious mix-up in a family WhatsApp group.,Icebreaker
+1,3,Baat karo: what’s the cheekiest thing you’ve texted by mistake?,Icebreaker
+1,3,What’s the most awkward moment you’ve had at a family function?,Icebreaker
+1,3,Tell us about the most absurd thing you’ve seen at a fair.,Icebreaker
+1,3,Share the wildest thing you’ve seen on a dating app.,Icebreaker
+1,3,Describe the most embarrassing thing you’ve done at a festival.,Icebreaker
+1,3,What’s the most shocking thing you’ve overheard on a train?,Icebreaker
+1,3,Reveal the weirdest food dare you’ve taken.,Icebreaker
+1,3,Tell us about the most awkward run-in with a stranger.,Icebreaker
+1,3,Share the most ridiculous thing you’ve done on a dare.,Icebreaker
+1,3,What’s the spiciest gossip you’ve shared with a friend?,Icebreaker
+1,3,Describe the most bizarre thing you’ve seen on TV.,Icebreaker
+1,3,What’s the most inappropriate moment you burst out laughing?,Icebreaker
+1,3,Tell us about the most scandalous thing you’ve heard at a college party.,Icebreaker
+1,3,Reveal the boldest thing you’ve said to a teacher.,Icebreaker
+1,3,Share the most absurd thing you’ve seen at a roadside dhaba.,Icebreaker
+1,3,What’s the most ridiculous thing you’ve heard about dating?,Icebreaker
+1,3,Describe the wildest thing you’ve seen someone do for a selfie.,Icebreaker
+1,3,Tell us about the most cringe-worthy karaoke moment you’ve seen.,Icebreaker
+1,3,Share a quirky custom you’ve laughed at.,Icebreaker
+1,3,What’s the most outrageous thing you’ve seen in a group chat?,Icebreaker
+1,3,Spill the chai: what’s the wildest rumor you heard at a college fest?,Icebreaker
+1,3,Reveal the cheekiest thing you’ve shouted at a street vendor.,Icebreaker
+1,3,Describe the most awkward dance move you’ve seen at a wedding.,Icebreaker
+1,3,Baat karo: what’s the boldest thing you’ve posted on Instagram?,Icebreaker
+1,3,Tell us about the most cringe-worthy moment you’ve seen at a dhaba.,Icebreaker
+1,3,Share the sassiest reply you gave during a family dinner debate.,Icebreaker
+1,3,What’s the most shocking thing you’ve seen on a bus ride?,Icebreaker
+1,3,Reveal the funniest excuse you’ve heard for failing an exam.,Icebreaker
+1,3,What’s the most embarrassing thing you’ve done to get a celebrity’s attention?,Icebreaker
+1,3,Describe the wildest outfit you’ve seen at a party.,Icebreaker
+1,3,Tell us about the most awkward thing you’ve said on a date.,Icebreaker
+1,3,Share the most ridiculous thing you’ve seen in a movie theater.,Icebreaker
+1,3,What’s the boldest thing you’ve done to skip a boring class?,Icebreaker
+1,3,Reveal the most outrageous meme you’ve sent in a group chat.,Icebreaker
+1,3,Describe the most chaotic thing you’ve seen at a concert.,Icebreaker
+1,3,Tell us about the most embarrassing mix-up you’ve had with a stranger.,Icebreaker
+1,3,What’s the most absurd thing you’ve heard about a coworker?,Icebreaker
+1,3,Share the wildest thing you’ve done to win a game.,Icebreaker
+1,3,What’s the most cringe-worthy trend you’ve followed?,Icebreaker
+1,3,Reveal the funniest thing you’ve overheard at a cafe.,Icebreaker
+1,3,Describe the most ridiculous thing you’ve seen someone do for a discount.,Icebreaker
+1,3,Tell us about the most awkward moment you’ve had at a gym.,Icebreaker
+1,3,What’s the boldest thing you’ve said to a crush?,Icebreaker
+1,3,Share the most hilarious thing you’ve seen at a mall.,Icebreaker
+1,3,Reveal the cheekiest thing you’ve done to get revenge.,Icebreaker
+2,1,Tell us a family story that always gets everyone laughing.,Getting to Know You
+2,1,What’s a quirky skill you learned from an elder?,Getting to Know You
+2,1,Reflect on a moment you felt proud of your roots.,Getting to Know You
+2,1,What’s a hobby you’d love to teach this group?,Getting to Know You
+2,1,Recall a childhood memory that shaped your humor.,Getting to Know You
+2,1,Share a movie or book that changed your perspective.,Getting to Know You
+2,1,What’s a small act of kindness you’ll never forget?,Getting to Know You
+2,1,Name a goal you’re chasing right now.,Getting to Know You
+2,1,What’s a tradition you want to keep alive?,Getting to Know You
+2,1,Describe a place that feels like your safe haven.,Getting to Know You
+2,1,Tell us about a dish you make that always impresses.,Getting to Know You
+2,1,What’s a moment you felt truly connected to someone?,Getting to Know You
+2,1,Share a value you picked up from your community.,Getting to Know You
+2,1,What’s a song that lifts you up every time?,Getting to Know You
+2,1,Reveal a quirky habit you’re proud of.,Getting to Know You
+2,1,Describe a festival that brings out your best self.,Getting to Know You
+2,1,What’s a life lesson you learned the hard way?,Getting to Know You
+2,1,Name a random talent you’re secretly great at.,Getting to Know You
+2,1,What’s a place you’d love to call home someday?,Getting to Know You
+2,1,Share a memory that makes you smile instantly.,Getting to Know You
+2,1,What’s a cause you’d stand up for?,Getting to Know You
+2,1,Tell us a story you love sharing with new people.,Getting to Know You
+2,1,What’s a dream you’re saving up for?,Getting to Know You
+2,1,Reveal a compliment that’s stuck with you.,Getting to Know You
+2,1,What’s a habit you’re trying to kick?,Getting to Know You
+2,1,Describe a moment you felt unstoppable.,Getting to Know You
+2,1,Share a street food that reminds you of home.,Getting to Know You
+2,1,What’s a time you surprised yourself?,Getting to Know You
+2,1,Name a value that guides your choices.,Getting to Know You
+2,1,Tell us about a small win you celebrated recently.,Getting to Know You
+2,1,What’s a family recipe you’d never share?,Getting to Know You
+2,1,Reflect on a time you felt like you belonged.,Getting to Know You
+2,1,Reveal a quirky thing you do to relax.,Getting to Know You
+2,1,Describe a place you’d revisit for the memories.,Getting to Know You
+2,1,What’s a moment you felt truly inspired?,Getting to Know You
+2,1,Share a festival memory that warms your heart.,Getting to Know You
+2,1,Tell us about a time you helped a stranger.,Getting to Know You
+2,1,What’s a skill you’re itching to learn?,Getting to Know You
+2,1,Reveal a moment you felt proud of a friend.,Getting to Know You
+2,1,Describe a regional tradition you’d brag about.,Getting to Know You
+2,1,What’s a time you laughed so hard you cried?,Getting to Know You
+2,1,Share a value you wish more people lived by.,Getting to Know You
+2,1,What’s a memory tied to a specific smell?,Getting to Know You
+2,1,Reflect on a time you felt like a kid again.,Getting to Know You
+2,1,What’s a place you’d take someone to know you better?,Getting to Know You
+2,1,Reveal a life hack you swear by.,Getting to Know You
+2,1,What’s a moment you felt truly grateful?,Getting to Know You
+2,1,Share a family saying you live by.,Getting to Know You
+2,1,Tell us about a time you took a chance and it paid off.,Getting to Know You
+2,1,What’s a personal ritual that keeps you grounded?,Getting to Know You
+2,2,Describe the most ridiculous career advice your family gave you.,Getting to Know You
+2,2,When did you break a rule and feel like a rockstar?,Getting to Know You
+2,2,Which hometown stereotype do you secretly agree with?,Getting to Know You
+2,2,Tell us about a choice that shocked your friends.,Getting to Know You
+2,2,Paint a picture of the chaos on your first Indian train journey.,Getting to Know You
+2,2,What’s a family expectation you’ve dodged like a pro?,Getting to Know You
+2,2,Share a time you stood up for something unpopular.,Getting to Know You
+2,2,Describe a moment you felt judged by your community.,Getting to Know You
+2,2,What’s the wildest thing you’ve done during a festival?,Getting to Know You
+2,2,Tell us about a risk you took that paid off big.,Getting to Know You
+2,2,Reveal a politician’s stunt that made you roll your eyes.,Getting to Know You
+2,2,Share a time you laughed off something awkward.,Getting to Know You
+2,2,What’s a family tradition you’ve questioned?,Getting to Know You
+2,2,Describe a moment you felt proud to be different.,Getting to Know You
+2,2,Tell us about the most chaotic wedding you’ve attended.,Getting to Know You
+2,2,When did you go against the crowd and love it?,Getting to Know You
+2,2,Reveal a quirky trait you got from your parents.,Getting to Know You
+2,2,What’s a time you felt like an outsider?,Getting to Know You
+2,2,Share a regional rivalry you secretly enjoy.,Getting to Know You
+2,2,Describe a moment you realized you’re stronger than you thought.,Getting to Know You
+2,2,What’s a decision you made just for you?,Getting to Know You
+2,2,Tell us about a time you felt misunderstood.,Getting to Know You
+2,2,Share a choice that made you rethink your priorities.,Getting to Know You
+2,2,What’s a moment you stood your ground?,Getting to Know You
+2,2,Describe a festival that pushed you out of your comfort zone.,Getting to Know You
+2,2,When did you prove someone wrong?,Getting to Know You
+2,2,Reveal a quirky thing you do when stressed.,Getting to Know You
+2,2,What’s a time you felt out of place but stayed?,Getting to Know You
+2,2,Share a regional dish you’ve defended in an argument.,Getting to Know You
+2,2,Tell us about a moment you felt you grew up.,Getting to Know You
+2,2,What’s a choice you made against advice?,Getting to Know You
+2,2,Describe a time you laughed at your own mistake.,Getting to Know You
+2,2,What’s a family rule you’ve challenged?,Getting to Know You
+2,2,Share a moment you felt truly brave.,Getting to Know You
+2,2,Reveal a time you embraced your quirks.,Getting to Know You
+2,2,Describe a place that changed how you see the world.,Getting to Know You
+2,2,When did you take a leap of faith?,Getting to Know You
+2,2,What’s a moment you felt you let someone down?,Getting to Know You
+2,2,Share a cultural norm you’ve pushed back on.,Getting to Know You
+2,2,Tell us about a time you surprised your family.,Getting to Know You
+2,2,What’s a moment you found your voice?,Getting to Know You
+2,2,Describe a regional quirk you’ve explained to outsiders.,Getting to Know You
+2,2,Share a time you stood up for a friend.,Getting to Know You
+2,2,What’s a choice that felt like a rebellion?,Getting to Know You
+2,2,Tell us about a moment you felt truly accepted.,Getting to Know You
+2,2,What’s a time you questioned a tradition?,Getting to Know You
+2,2,Describe a place that made you rethink home.,Getting to Know You
+2,2,When did you let go of a fear?,Getting to Know You
+2,2,Share a time you owned your mistakes.,Getting to Know You
+2,2,What’s a family story you’ve retold with your own spin?,Getting to Know You
+2,2,Reveal a moment you felt you earned respect.,Getting to Know You
+2,3,Spill the chai: when did you defy your family’s rules about love?,Getting to Know You
+2,3,What’s the boldest bribe you’ve seen someone pull off?,Getting to Know You
+2,3,Reveal a spicy topic you wish your community would face openly.,Getting to Know You
+2,3,Share a time you got flak for your dating choices.,Getting to Know You
+2,3,Filmi style mein bolo: what’s the most dramatic matchmaking flop you’ve seen?,Getting to Know You
+2,3,Tell us about a time you stood up to a toxic relative.,Getting to Know You
+2,3,What’s a moment you felt judged for your lifestyle?,Getting to Know You
+2,3,Describe a time you broke free from a cultural expectation.,Getting to Know You
+2,3,Share a scandal you heard that shook your community.,Getting to Know You
+2,3,When did you feel betrayed by a norm you trusted?,Getting to Know You
+2,3,Reveal a time you challenged someone’s prejudice.,Getting to Know You
+2,3,What’s a moment you hid your true feelings to keep peace?,Getting to Know You
+2,3,Share a regional bias you’ve had to confront.,Getting to Know You
+2,3,Tell us about a time you felt you betrayed your values.,Getting to Know You
+2,3,Describe a moment you laughed off a serious jab.,Getting to Know You
+2,3,What’s a family pressure you’ve resisted?,Getting to Know You
+2,3,Share a time you lost trust in someone close.,Getting to Know You
+2,3,When did you question your place in society?,Getting to Know You
+2,3,Reveal a juicy story you’ve kept under wraps.,Getting to Know You
+2,3,Tell us about a time you ignored a mentor’s advice.,Getting to Know You
+2,3,What’s a moment you felt judged for your career path?,Getting to Know You
+2,3,Share a bold secret you’ve kept from your best friend.,Getting to Know You
+2,3,Describe a time you challenged a backward community belief.,Getting to Know You
+2,3,When did you feel you had to hide your true self?,Getting to Know You
+2,3,Reveal the most absurd thing you’ve heard at a matchmaking pitch.,Getting to Know You
+2,3,Share a time you laughed off a hurtful stereotype.,Getting to Know You
+2,3,What’s a moment you felt pressured to uphold a cultural lie?,Getting to Know You
+2,3,Tell us about a time you stood up to a corrupt system.,Getting to Know You
+2,3,Describe a bold choice you made that felt freeing.,Getting to Know You
+2,3,What’s a time you felt shamed for your appearance?,Getting to Know You
+2,3,Share a moment you defied a religious expectation.,Getting to Know You
+2,3,Reveal a scandal you’ve stayed quiet about.,Getting to Know You
+2,3,When did you feel you compromised your principles?,Getting to Know You
+2,3,Tell us about a time you broke a family taboo.,Getting to Know You
+2,3,What’s a moment you laughed to hide your anger?,Getting to Know You
+2,3,Share a time you rejected a family’s matchmaking plan.,Getting to Know You
+2,3,Reveal a moment you felt judged for your friendships.,Getting to Know You
+2,3,Describe a time you broke a societal rule and loved it.,Getting to Know You
+2,3,What’s a secret you’ve kept to avoid a community clash?,Getting to Know You
+2,3,Tell us about a moment you felt you lost your way.,Getting to Know You
+2,3,Share a time you laughed to mask your frustration.,Getting to Know You
+2,3,What’s a moment you felt you disappointed your family?,Getting to Know You
+2,3,Reveal a time you challenged a cultural norm.,Getting to Know You
+2,3,Describe a moment you felt judged for your ambitions.,Getting to Know You
+2,3,When did you stand up to a family elder?,Getting to Know You
+2,3,Share a time you felt you had to hide your dreams.,Getting to Know You
+2,3,Tell us about a moment you broke a community rule.,Getting to Know You
+2,3,What’s a time you felt pressured to conform?,Getting to Know You
+2,3,Reveal a bold choice you made that surprised everyone.,Getting to Know You
+2,3,Describe a moment you felt you found your strength.,Getting to Know You
+level,intensity,text,category
+3,1,If you could rewrite one societal norm, what would it be and why?,Deeper Dive
+3,1,What’s a place in India that feels like it holds your soul?,Deeper Dive
+3,1,Reflect on a lesson that turned your life upside down.,Deeper Dive
+3,1,Tell us about a moment someone truly saw you for who you are.,Deeper Dive
+3,1,What’s a tradition you’d fight to keep alive?,Deeper Dive
+3,1,Share a dream you’re scared to chase.,Deeper Dive
+3,1,Describe a festival that taught you something profound.,Deeper Dive
+3,1,What’s a time you felt proud to break a mold?,Deeper Dive
+3,1,Reveal a story you wish you could tell the world.,Deeper Dive
+3,1,What’s a place you’d escape to when life gets heavy?,Deeper Dive
+3,1,Share a value you learned from a stranger.,Deeper Dive
+3,1,Reflect on a moment you discovered your own strength.,Deeper Dive
+3,1,What’s a song that feels like your life’s anthem?,Deeper Dive
+3,1,Describe a memory that makes you feel alive.,Deeper Dive
+3,1,What’s a cause you’d give everything for?,Deeper Dive
+3,1,Tell us about a time you forgave someone who didn’t deserve it.,Deeper Dive
+3,1,Share a regional quirk you’re proud to claim.,Deeper Dive
+3,1,What’s a moment you felt at peace with yourself?,Deeper Dive
+3,1,Reveal a life choice you made against all odds.,Deeper Dive
+3,1,Describe a family heirloom that means the world to you.,Deeper Dive
+3,1,What’s a time you stood up for someone else?,Deeper Dive
+3,1,Share a dream you’ve let go of and why.,Deeper Dive
+3,1,What’s a value that’s guided you through tough times?,Deeper Dive
+3,1,Reflect on a moment you felt truly free.,Deeper Dive
+3,1,Tell us about a street food that sparks a core memory.,Deeper Dive
+3,1,What’s a time you surprised yourself with courage?,Deeper Dive
+3,1,Reveal a lesson you’d teach your younger self.,Deeper Dive
+3,1,Describe a place that holds your heart.,Deeper Dive
+3,1,What’s a belief you hold that others might challenge?,Deeper Dive
+3,1,Share a time you felt you belonged completely.,Deeper Dive
+3,1,Tell us about a family story that shaped your values.,Deeper Dive
+3,1,What’s a moment you felt you made a difference?,Deeper Dive
+3,1,Describe a regional tradition that grounds you.,Deeper Dive
+3,1,Reflect on a time you found hope in a dark moment.,Deeper Dive
+3,1,What’s a memory tied to a specific taste?,Deeper Dive
+3,1,Share a time you earned someone’s trust.,Deeper Dive
+3,1,Tell us about a festival that changed your outlook.,Deeper Dive
+3,1,What’s a moment you felt you found your purpose?,Deeper Dive
+3,1,Reveal a choice that defined who you are.,Deeper Dive
+3,1,Describe a time you felt truly understood.,Deeper Dive
+3,1,What’s a place you’d return to for closure?,Deeper Dive
+3,1,Share a value you’ve fought to uphold.,Deeper Dive
+3,1,Reflect on a time you overcame a fear.,Deeper Dive
+3,1,Tell us about a memory that feels like a treasure.,Deeper Dive
+3,1,What’s a time you stood by your principles?,Deeper Dive
+3,1,Describe a regional place you’d call sacred.,Deeper Dive
+3,1,What’s a moment you felt you grew wiser?,Deeper Dive
+3,1,Share a belief you’ve held since childhood.,Deeper Dive
+3,1,Reveal a time you felt inspired by a stranger’s kindness.,Deeper Dive
+3,1,Tell us about a moment you redefined success for yourself.,Deeper Dive
+3,2,Describe the most extravagant wedding you’ve ever attended.,Deeper Dive
+3,2,When did you choose your heart over your duties?,Deeper Dive
+3,2,What’s an outdated mindset you’ve challenged or mocked?,Deeper Dive
+3,2,Recall a time someone close let you down big time.,Deeper Dive
+3,2,Tell us about a political scandal that shook you.,Deeper Dive
+3,2,Share a family secret you uncovered by chance.,Deeper Dive
+3,2,What’s a time you questioned your core beliefs?,Deeper Dive
+3,2,Describe a regional rivalry that shaped your identity.,Deeper Dive
+3,2,Reflect on a moment you felt you belonged nowhere.,Deeper Dive
+3,2,When did you laugh through a painful moment?,Deeper Dive
+3,2,Reveal a choice that changed your life’s path.,Deeper Dive
+3,2,What’s a taboo you’ve confronted in your life?,Deeper Dive
+3,2,Share a time you felt judged for your roots.,Deeper Dive
+3,2,Describe a festival that broke or lifted your heart.,Deeper Dive
+3,2,Tell us about a moment you felt you lost yourself.,Deeper Dive
+3,2,What’s a time you stood up to injustice?,Deeper Dive
+3,2,Reveal a secret you’ve kept to protect someone.,Deeper Dive
+3,2,When did you defy a cultural norm?,Deeper Dive
+3,2,Share a moment you felt truly understood.,Deeper Dive
+3,2,Reflect on a time you were torn between two worlds.,Deeper Dive
+3,2,Tell us about a politician’s promise you believed and regretted.,Deeper Dive
+3,2,What’s a family expectation you’ve wrestled with?,Deeper Dive
+3,2,Describe a time you felt you disappointed someone you love.,Deeper Dive
+3,2,Share a regional bias you’ve had to navigate.,Deeper Dive
+3,2,When did you feel you betrayed someone?,Deeper Dive
+3,2,Reveal a moment you laughed to avoid crying.,Deeper Dive
+3,2,What’s a choice that scared you but felt right?,Deeper Dive
+3,2,Tell us about a taboo topic you’ve grappled with.,Deeper Dive
+3,2,Describe a time you felt shamed for your choices.,Deeper Dive
+3,2,Share a festival that revealed a hidden side of you.,Deeper Dive
+3,2,What’s a moment you felt you let someone down?,Deeper Dive
+3,2,Reflect on a time you stood up for your identity.,Deeper Dive
+3,2,Reveal a secret you’ve kept out of shame.,Deeper Dive
+3,2,When did you break a family rule?,Deeper Dive
+3,2,Tell us about a moment you found your truth.,Deeper Dive
+3,2,Describe a regional quirk you’ve had to defend.,Deeper Dive
+3,2,What’s a time you lost trust in someone?,Deeper Dive
+3,2,Share a choice that made you question your morals.,Deeper Dive
+3,2,Reflect on a time you felt judged for your beliefs.,Deeper Dive
+3,2,Tell us about a moment you had to hide your pain.,Deeper Dive
+3,2,What’s a time you stood up to a powerful person?,Deeper Dive
+3,2,Reveal a secret you’ve kept to avoid judgment.,Deeper Dive
+3,2,Describe a time you defied a societal expectation.,Deeper Dive
+3,2,Share a moment you felt you regained your power.,Deeper Dive
+3,2,Tell us about a regional story that broke your heart.,Deeper Dive
+3,2,When did you laugh off a deep wound?,Deeper Dive
+3,2,What’s a choice that made you feel alive?,Deeper Dive
+3,2,Reflect on a time you felt you failed yourself.,Deeper Dive
+3,2,Share a moment you felt torn between duty and freedom.,Deeper Dive
+3,2,Describe a time you challenged a family norm.,Deeper Dive
+3,3,Spill the chai: what’s a wild fantasy you’ve never shared?,Deeper Dive
+3,3,Describe the most absurd thing you’ve seen at a political rally.,Deeper Dive
+3,3,Reveal a time a caste or class bias cut you deeply.,Deeper Dive
+3,3,Baat karo: what’s a daring truth about your life you’ve held back?,Deeper Dive
+3,3,Tell us about a moment you laughed to mask deep pain.,Deeper Dive
+3,3,Share a corrupt act you’ve witnessed that still haunts you.,Deeper Dive
+3,3,What’s a family expectation you’ve flat-out rejected?,Deeper Dive
+3,3,Reveal a taboo you’ve explored in secret.,Deeper Dive
+3,3,Describe a time you felt shamed for your desires.,Deeper Dive
+3,3,Filmi style mein bolo: what’s the most dramatic matchmaking pitch you’ve heard?,Deeper Dive
+3,3,What’s a societal flaw you’d risk everything to fix?,Deeper Dive
+3,3,Share a secret you’ve kept out of fear of judgment.,Deeper Dive
+3,3,Tell us about a time you faced a harsh truth about yourself.,Deeper Dive
+3,3,Reveal a backward norm that’s hurt you personally.,Deeper Dive
+3,3,What’s a moment you felt betrayed by your culture?,Deeper Dive
+3,3,Share a truth you’ve hidden from your closest friends.,Deeper Dive
+3,3,Describe a time you defied a religious norm and felt free.,Deeper Dive
+3,3,Tell us about a community scandal you’ve stayed silent about.,Deeper Dive
+3,3,What’s a time you felt you lost your moral compass?,Deeper Dive
+3,3,Reveal a secret you’ve kept to protect your family’s honor.,Deeper Dive
+3,3,Share a moment you laughed to hide your fear.,Deeper Dive
+3,3,Describe a corrupt system you’ve navigated to survive.,Deeper Dive
+3,3,Tell us about a family taboo you broke without regret.,Deeper Dive
+3,3,What’s a truth about your identity you’ve struggled to accept?,Deeper Dive
+3,3,Reveal a time you felt shamed for your body.,Deeper Dive
+3,3,Share a regional injustice you’ve witnessed firsthand.,Deeper Dive
+3,3,What’s a moment you felt you sold out your values?,Deeper Dive
+3,3,Tell us about a secret you’ve kept due to societal pressure.,Deeper Dive
+3,3,Describe a time you defied a cultural taboo and paid a price.,Deeper Dive
+3,3,Reveal a truth you’ve hidden to avoid conflict.,Deeper Dive
+3,3,Share a moment you laughed to mask your anger.,Deeper Dive
+3,3,What’s a time you rejected a family’s matchmaking plan?,Deeper Dive
+3,3,Tell us about a moment you felt judged for your friendships.,Deeper Dive
+3,3,Describe a time you broke a societal rule and felt alive.,Deeper Dive
+3,3,Reveal a secret you’ve kept to avoid a community clash.,Deeper Dive
+3,3,What’s a time you felt you lost your way?,Deeper Dive
+3,3,Share a moment you felt judged for your ambitions.,Deeper Dive
+3,3,Tell us about a time you stood up to a family elder.,Deeper Dive
+3,3,Reveal a time you hid your dreams to keep peace.,Deeper Dive
+3,3,Describe a moment you challenged a community norm.,Deeper Dive
+3,3,What’s a time you felt pressured to conform?,Deeper Dive
+3,3,Share a bold choice that shocked everyone around you.,Deeper Dive
+3,3,Tell us about a moment you found your inner strength.,Deeper Dive
+3,3,Reveal a time you laughed to hide your frustration.,Deeper Dive
+3,3,What’s a moment you felt you disappointed your family?,Deeper Dive
+3,3,Share a time you challenged a cultural expectation.,Deeper Dive
+3,3,Describe a moment you felt judged for your career path.,Deeper Dive
+3,3,Tell us about a time you broke a family rule and felt empowered.,Deeper Dive
+3,3,Reveal a secret you’ve kept to shield someone close.,Deeper Dive
+3,3,What’s a moment you felt you had to hide your true self?,Deeper Dive
