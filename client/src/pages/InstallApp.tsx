@@ -54,20 +54,42 @@ export default function InstallApp() {
     }
   }, [copySuccess]);
   
-  // Generate QR code URL for downloading the app on another device
-  const generateQRCodeUrl = () => {
-    const appUrl = window.location.origin;
-    return `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(appUrl)}`;
+  // Generate direct download links for each platform
+  const getDirectDownloadUrl = (devicePlatform: string) => {
+    const baseUrl = window.location.origin;
+    
+    switch(devicePlatform) {
+      case 'android':
+        return `${baseUrl}/files/android-app`;
+      case 'ios':
+        return `${baseUrl}/files/ios-invite`;
+      case 'macos':
+        return `${baseUrl}/files/macos-app`;
+      case 'windows':
+        return `${baseUrl}/files/windows-app`;
+      default:
+        // Default to a download landing page with auto-platform detection
+        return `${baseUrl}/install?auto=true`;
+    }
   };
   
-  // Copy app link to clipboard
+  // Generate QR code URL for downloading the app directly on another device
+  const generateQRCodeUrl = () => {
+    // Use the detected platform to generate a direct download QR code
+    const directDownloadUrl = getDirectDownloadUrl(platform);
+    return `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(directDownloadUrl)}`;
+  };
+  
+  // Copy direct download link to clipboard
   const copyAppLink = () => {
-    navigator.clipboard.writeText(window.location.origin)
+    const directDownloadUrl = getDirectDownloadUrl(platform);
+    
+    navigator.clipboard.writeText(directDownloadUrl)
       .then(() => {
         setCopySuccess(true);
         toast({
-          title: "Link copied!",
-          description: "App link copied to clipboard",
+          title: "Direct Download Link Copied!",
+          description: `Link for ${platform === 'desktop' ? 'Desktop' : platform === 'ios' ? 'iOS' : 'Android'} copied to clipboard`,
           duration: 3000,
         });
       })
@@ -495,11 +517,12 @@ export default function InstallApp() {
                 className="w-full" 
                 variant="outline"
                 onClick={() => {
+                  const directDownloadUrl = getDirectDownloadUrl(platform);
                   if (navigator.share) {
                     navigator.share({
                       title: 'Strangers: After Hours - A Party Game for Building Connections',
-                      text: 'Join me in playing Strangers: After Hours, the party game that builds real connections!',
-                      url: window.location.origin,
+                      text: `Download Strangers: After Hours for ${platform === 'desktop' ? 'Desktop' : platform === 'ios' ? 'iOS' : 'Android'} - the party game that builds real connections!`,
+                      url: directDownloadUrl,
                     });
                   } else {
                     copyAppLink();
