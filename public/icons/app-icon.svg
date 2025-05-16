@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <rect width="512" height="512" rx="128" fill="url(#paint0_linear)" />
+  
+  <!-- Outer circle of people -->
+  <g transform="translate(256, 256)">
+    <!-- Person 1 -->
+    <circle cx="150" cy="0" r="40" fill="#ffffff" fill-opacity="0.9" />
+    <circle cx="150" cy="0" r="28" stroke="#121212" stroke-width="6" fill="none" />
+    
+    <!-- Person 2 -->
+    <circle cx="106" cy="106" r="40" fill="#ffffff" fill-opacity="0.9" />
+    <circle cx="106" cy="106" r="28" stroke="#121212" stroke-width="6" fill="none" />
+    
+    <!-- Person 3 -->
+    <circle cx="0" cy="150" r="40" fill="#ffffff" fill-opacity="0.9" />
+    <circle cx="0" cy="150" r="28" stroke="#121212" stroke-width="6" fill="none" />
+    
+    <!-- Person 4 -->
+    <circle cx="-106" cy="106" r="40" fill="#ffffff" fill-opacity="0.9" />
+    <circle cx="-106" cy="106" r="28" stroke="#121212" stroke-width="6" fill="none" />
+    
+    <!-- Person 5 -->
+    <circle cx="-150" cy="0" r="40" fill="#ffffff" fill-opacity="0.9" />
+    <circle cx="-150" cy="0" r="28" stroke="#121212" stroke-width="6" fill="none" />
+    
+    <!-- Person 6 -->
+    <circle cx="-106" cy="-106" r="40" fill="#ffffff" fill-opacity="0.9" />
+    <circle cx="-106" cy="-106" r="28" stroke="#121212" stroke-width="6" fill="none" />
+    
+    <!-- Person 7 -->
+    <circle cx="0" cy="-150" r="40" fill="#ffffff" fill-opacity="0.9" />
+    <circle cx="0" cy="-150" r="28" stroke="#121212" stroke-width="6" fill="none" />
+    
+    <!-- Person 8 -->
+    <circle cx="106" cy="-106" r="40" fill="#ffffff" fill-opacity="0.9" />
+    <circle cx="106" cy="-106" r="28" stroke="#121212" stroke-width="6" fill="none" />
+  </g>
+  
+  <!-- Central element: connection lines -->
+  <g transform="translate(256, 256)">
+    <circle cx="0" cy="0" r="90" fill="#FF6B6B" />
+    <circle cx="0" cy="0" r="78" stroke="#ffffff" stroke-width="4" stroke-dasharray="15,10" fill="none" />
+    
+    <!-- Inner patterns -->
+    <path d="M-30,0 L30,0" stroke="#ffffff" stroke-width="8" stroke-linecap="round" />
+    <path d="M0,-30 L0,30" stroke="#ffffff" stroke-width="8" stroke-linecap="round" />
+    
+    <!-- Speech bubble markers -->
+    <circle cx="40" cy="-30" r="12" fill="#ffffff" />
+    <circle cx="-40" cy="30" r="12" fill="#ffffff" />
+  </g>
+  
+  <!-- Definitions -->
+  <defs>
+    <linearGradient id="paint0_linear" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#121212" />
+      <stop offset="100%" stop-color="#2A2A2A" />
+    </linearGradient>
+  </defs>
+</svg>
