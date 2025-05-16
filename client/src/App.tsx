@@ -116,8 +116,7 @@ function App() {
         <AuthProvider>
           <Toaster />
           <Router />
-          {/* PWA Install Prompt - Only shows when conditions are right for installation */}
-          <AddToHomeScreen timing="delayed" delay={5000} />
+          {/* PWA Install Button will be shown in UI, no automatic prompts */}
         </AuthProvider>
       </TooltipProvider>
     </QueryClientProvider>
