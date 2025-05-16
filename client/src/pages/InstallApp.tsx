@@ -81,19 +81,25 @@ export default function InstallApp() {
     setDownloadStarted(true);
     trackDownload(platformType); // Track download for analytics
     
-    // Define platform-specific file names and paths
+    // Define platform-specific file paths and proper MIME types to ensure correct file extensions
     const downloadFiles = {
       'Android': {
-        filename: 'strangers-after-hours.apk',
-        mime: 'application/vnd.android.package-archive'
+        filePath: '/download/android/strangers-after-hours.apk',
+        fileName: 'strangers-after-hours.apk',
+        mime: 'application/vnd.android.package-archive',
+        size: '1.1 MB'
       },
       'iOS': {
-        filename: 'strangers-beta-invitation.html',
-        mime: 'text/html'
+        filePath: '/download/strangers-beta-invitation.html',
+        fileName: 'strangers-beta-invitation.html',
+        mime: 'text/html',
+        size: '4 KB'
       },
       'Desktop': {
-        filename: platformType === 'macOS' ? 'strangers-after-hours.dmg' : 'strangers-after-hours-setup.exe',
-        mime: 'application/octet-stream'
+        filePath: `/download/desktop/${platformType === 'macOS' ? 'strangers-after-hours.dmg' : 'strangers-after-hours-setup.exe'}`,
+        fileName: platformType === 'macOS' ? 'strangers-after-hours.dmg' : 'strangers-after-hours-setup.exe',
+        mime: platformType === 'macOS' ? 'application/x-apple-diskimage' : 'application/x-msdownload',
+        size: '1.1 MB'
       }
     };
     
@@ -102,95 +108,135 @@ export default function InstallApp() {
     // Show download starting notification
     toast({
       title: "Download Starting",
-      description: `Downloading Strangers: After Hours for ${platformType}...`,
+      description: `Downloading Strangers: After Hours (${fileInfo.size}) for ${platformType}...`,
       duration: 2000,
     });
     
     // For Android, download the APK file with detailed instructions
     if (platformType === 'Android') {
       setTimeout(() => {
-        // Create a download link and trigger it
-        const downloadLink = document.createElement('a');
-        downloadLink.href = `/download/${fileInfo.filename}`;
-        downloadLink.download = fileInfo.filename;
-        downloadLink.click();
-        
-        // First notification about download completion
-        toast({
-          title: "APK Download Complete",
-          description: "The APK file has been downloaded to your device.",
-          duration: 3000,
-        });
-        
-        // Second notification with installation instructions
-        setTimeout(() => {
+        try {
+          // Create a download link element with proper attributes to preserve file extension
+          const downloadLink = document.createElement('a');
+          downloadLink.href = fileInfo.filePath;
+          downloadLink.setAttribute('download', fileInfo.fileName); // Force download with correct filename
+          downloadLink.setAttribute('type', fileInfo.mime); // Set MIME type
+          
+          // Trigger the download
+          document.body.appendChild(downloadLink); // Needed for Firefox
+          downloadLink.click();
+          document.body.removeChild(downloadLink);
+          
+          // First notification about download completion
           toast({
-            title: "Installation Instructions",
-            description: "1. Open your Downloads folder or notification\n2. Tap the APK file\n3. If prompted, enable 'Install from unknown sources'",
-            duration: 10000,
+            title: "APK Download Complete",
+            description: "The APK file has been downloaded to your device (filename: strangers-after-hours.apk).",
+            duration: 3000,
           });
           
-          // Final notification to help user locate the file
+          // Second notification with installation instructions
           setTimeout(() => {
             toast({
-              title: "Can't find the APK?",
-              description: "Check your Download notifications in the notification panel or open your file manager and go to the Downloads folder.",
-              duration: 8000,
+              title: "Installation Instructions",
+              description: "1. Open your Downloads folder or notification\n2. Tap the APK file (strangers-after-hours.apk)\n3. If prompted, enable 'Install from unknown sources' in settings",
+              duration: 10000,
             });
-            setDownloadStarted(false);
-          }, 5000);
-        }, 3500);
+            
+            // Final notification to help user locate the file
+            setTimeout(() => {
+              toast({
+                title: "Can't find the APK?",
+                description: "Check your Downloads folder in Files app or look for 'strangers-after-hours.apk' in your download notifications.",
+                duration: 8000,
+              });
+              setDownloadStarted(false);
+            }, 5000);
+          }, 3500);
+        } catch (error) {
+          console.error("Download error:", error);
+          toast({
+            title: "Download Error",
+            description: "There was an error downloading the APK. Please try again.",
+            duration: 5000,
+          });
+          setDownloadStarted(false);
+        }
       }, 1500);
     } 
     // For iOS, open TestFlight invitation HTML page
     else if (platformType === 'iOS') {
       setTimeout(() => {
-        // Open the TestFlight invitation page
-        window.open(`/download/${fileInfo.filename}`, '_blank');
-        
-        // First notification
-        toast({
-          title: "TestFlight Page Opened",
-          description: "Follow the instructions on the page to join our TestFlight beta.",
-          duration: 5000,
-        });
-        
-        // Second notification with extra guidance
-        setTimeout(() => {
+        try {
+          // Open the TestFlight invitation page
+          window.open(fileInfo.filePath, '_blank');
+          
+          // First notification
           toast({
-            title: "iOS Installation Help",
-            description: "Make sure you have TestFlight installed from the App Store before using the invitation link.",
-            duration: 8000,
+            title: "TestFlight Page Opened",
+            description: "Follow the instructions on the page to join our TestFlight beta.",
+            duration: 5000,
+          });
+          
+          // Second notification with extra guidance
+          setTimeout(() => {
+            toast({
+              title: "iOS Installation Help",
+              description: "Make sure you have TestFlight installed from the App Store before using the invitation link.",
+              duration: 8000,
+            });
+            setDownloadStarted(false);
+          }, 5500);
+        } catch (error) {
+          console.error("iOS download error:", error);
+          toast({
+            title: "Error Opening TestFlight Page",
+            description: "There was an error opening the TestFlight page. Please try again.",
+            duration: 5000,
           });
           setDownloadStarted(false);
-        }, 5500);
+        }
       }, 1500);
     }
     // For Desktop, trigger file download
     else {
       setTimeout(() => {
-        // Create a download link and trigger it
-        const downloadLink = document.createElement('a');
-        downloadLink.href = `/download/${fileInfo.filename}`;
-        downloadLink.download = fileInfo.filename;
-        downloadLink.click();
-        
-        // First notification about download completion
-        toast({
-          title: "Installer Downloaded",
-          description: "The installer file has been downloaded to your computer.",
-          duration: 4000,
-        });
-        
-        // Second notification with installation instructions
-        setTimeout(() => {
+        try {
+          // Create a download link with proper attributes to preserve file extension
+          const downloadLink = document.createElement('a');
+          downloadLink.href = fileInfo.filePath;
+          downloadLink.setAttribute('download', fileInfo.fileName); // Force download with correct filename
+          downloadLink.setAttribute('type', fileInfo.mime); // Set MIME type
+          
+          // Trigger the download
+          document.body.appendChild(downloadLink); // Needed for Firefox
+          downloadLink.click();
+          document.body.removeChild(downloadLink);
+          
+          // First notification about download completion
           toast({
-            title: "Installation Instructions",
-            description: `Open the downloaded file and follow the installation wizard to complete setup.`,
-            duration: 8000,
+            title: "Installer Downloaded",
+            description: `The ${platformType} installer file has been downloaded (${fileInfo.fileName}).`,
+            duration: 4000,
+          });
+          
+          // Second notification with installation instructions
+          setTimeout(() => {
+            toast({
+              title: "Installation Instructions",
+              description: `Open the downloaded file (${fileInfo.fileName}) and follow the installation wizard to complete setup.`,
+              duration: 8000,
+            });
+            setDownloadStarted(false);
+          }, 4500);
+        } catch (error) {
+          console.error("Desktop download error:", error);
+          toast({
+            title: "Download Error",
+            description: "There was an error downloading the installer. Please try again.",
+            duration: 5000,
           });
           setDownloadStarted(false);
-        }, 4500);
+        }
       }, 1500);
     }
   };

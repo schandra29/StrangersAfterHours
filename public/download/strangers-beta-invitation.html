@@ -1,88 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Strangers: After Hours - TestFlight Invitation</title>
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 20px;
-      line-height: 1.6;
-      color: #333;
-    }
-    h1 {
-      color: #FF6B6B;
-    }
-    .card {
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-      padding: 20px;
-      margin: 20px 0;
-      background-color: #f9f9f9;
-    }
-    .button {
-      display: inline-block;
-      background-color: #FF6B6B;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-    .steps {
-      margin-top: 20px;
-    }
-    .step {
-      margin-bottom: 15px;
-    }
-    .step-number {
-      display: inline-block;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background-color: #FF6B6B;
-      color: white;
-      text-align: center;
-      line-height: 28px;
-      margin-right: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strangers: After Hours - iOS TestFlight Invitation</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f7;
+        }
+        .container {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        h1 {
+            color: #111;
+            font-size: 28px;
+            margin-bottom: 24px;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .logo img {
+            width: 120px;
+            height: auto;
+        }
+        .step {
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        .step:last-child {
+            border-bottom: none;
+        }
+        .step h2 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: #0071e3;
+        }
+        .step-number {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            background-color: #0071e3;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            margin-right: 8px;
+            font-weight: bold;
+        }
+        .note {
+            background-color: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 12px 16px;
+            margin: 24px 0;
+            border-radius: 4px;
+        }
+        .button {
+            display: inline-block;
+            background-color: #0071e3;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 24px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 8px;
+            text-align: center;
+        }
+        .button:hover {
+            background-color: #0058b1;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 16px;
+            }
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>Welcome to Strangers: After Hours Beta Testing</h1>
-  
-  <p>You've been invited to join our beta testing program for Strangers: After Hours, an interactive party game designed to foster meaningful connections.</p>
-  
-  <div class="card">
-    <h2>TestFlight Invitation</h2>
-    <p>Follow these steps to install the beta version on your iOS device:</p>
-    
-    <div class="steps">
-      <div class="step">
-        <span class="step-number">1</span>
-        <strong>Download TestFlight</strong> from the App Store if you don't already have it.
-      </div>
-      
-      <div class="step">
-        <span class="step-number">2</span>
-        <strong>Click the invitation link</strong> below to join our beta test.
-      </div>
-      
-      <div class="step">
-        <span class="step-number">3</span>
-        <strong>Follow TestFlight instructions</strong> to install the app on your device.
-      </div>
+    <div class="container">
+        <div class="logo">
+            <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="120" height="120" rx="24" fill="#5046E5"/>
+                <path d="M38 40C38 38.8954 38.8954 38 40 38H80C81.1046 38 82 38.8954 82 40V80C82 81.1046 81.1046 82 80 82H40C38.8954 82 38 81.1046 38 80V40Z" fill="white"/>
+                <path d="M50 55C53.866 55 57 51.866 57 48C57 44.134 53.866 41 50 41C46.134 41 43 44.134 43 48C43 51.866 46.134 55 50 55Z" fill="#5046E5"/>
+                <path d="M70 55C73.866 55 77 51.866 77 48C77 44.134 73.866 41 70 41C66.134 41 63 44.134 63 48C63 51.866 66.134 55 70 55Z" fill="#5046E5"/>
+                <path d="M50 75C53.866 75 57 71.866 57 68C57 64.134 53.866 61 50 61C46.134 61 43 64.134 43 68C43 71.866 46.134 75 50 75Z" fill="#5046E5"/>
+                <path d="M70 75C73.866 75 77 71.866 77 68C77 64.134 73.866 61 70 61C66.134 61 63 64.134 63 68C63 71.866 66.134 75 70 75Z" fill="#5046E5"/>
+            </svg>
+        </div>
+        
+        <h1>Strangers: After Hours - iOS Beta Access</h1>
+        
+        <div class="step">
+            <h2><span class="step-number">1</span> Install TestFlight</h2>
+            <p>Before you can join our beta, you'll need to install the TestFlight app from the App Store if you don't already have it.</p>
+            <a href="https://apps.apple.com/us/app/testflight/id899247664" class="button" target="_blank">Download TestFlight</a>
+        </div>
+        
+        <div class="step">
+            <h2><span class="step-number">2</span> Redeem Beta Code</h2>
+            <p>Use your exclusive beta access code to join our beta program.</p>
+            <p><strong>Your beta code: STRANGERSBETA2025</strong></p>
+            <p>Tap the button below to redeem your code in TestFlight:</p>
+            <a href="https://testflight.apple.com/join/STRANGERSBETA2025" class="button">Redeem in TestFlight</a>
+            <p><small>Note: In a real TestFlight build, this would be an actual TestFlight link with a valid redemption code.</small></p>
+        </div>
+        
+        <div class="step">
+            <h2><span class="step-number">3</span> Install Strangers: After Hours</h2>
+            <p>Once you've successfully redeemed your code, TestFlight will prompt you to install the beta version of Strangers: After Hours. Follow the on-screen instructions to complete the installation.</p>
+        </div>
+        
+        <div class="note">
+            <p><strong>Note:</strong> This is a beta version of the app. You may encounter some bugs or features that are still in development. Your feedback during this phase is incredibly valuable to us!</p>
+        </div>
+        
+        <div class="step">
+            <h2><span class="step-number">4</span> Help & Support</h2>
+            <p>If you encounter any issues during installation or while using the app, please contact our beta support team at:</p>
+            <p><strong>beta-support@strangers-game.com</strong></p>
+        </div>
     </div>
-    
-    <a href="https://testflight.apple.com/join/beta-code-here" class="button">Open in TestFlight</a>
-  </div>
-  
-  <p>If you encounter any issues or have feedback during testing, please contact us through the app's feedback feature or email us at support@example.com.</p>
-  
-  <p>Thank you for helping us improve Strangers: After Hours!</p>
 </body>
 </html>
