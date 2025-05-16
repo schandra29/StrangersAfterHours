@@ -57,9 +57,7 @@ export default function WelcomeScreen({ onStartGame, onHowToPlay, onAboutGame }:
         Start New Game
       </Button>
       
-      <div className="mt-4 mb-5">
-        <InstallPWAButton fullWidth variant="secondary" text="Install App to Home Screen" />
-      </div>
+      {/* App install button removed per client request */}
       
       <div className="flex justify-center space-x-6">
         <button 
