@@ -7,6 +7,7 @@ import Home from "@/pages/Home";
 import NotFound from "@/pages/not-found";
 import { AuthProvider, useAuth } from "@/hooks/useAuth";
 import AccessCodeScreen from "@/components/AccessCodeScreen";
+import AdminDashboard from "@/pages/AdminDashboard";
 
 function ProtectedRoute({ component: Component, ...rest }: any) {
   const { isAuthenticated, isLoading } = useAuth();
@@ -54,6 +55,9 @@ function Router() {
           // If not authenticated, show access code screen
           return <AccessCodeScreen />;
         }}
+      </Route>
+      <Route path="/admin">
+        <AdminDashboard />
       </Route>
       <Route path="/">
         {(params) => <ProtectedRoute component={Home} params={params} />}
