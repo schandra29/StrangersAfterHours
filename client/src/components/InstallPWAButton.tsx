@@ -110,6 +110,12 @@ export default function InstallPWAButton({
     window.open("https://www.macrumors.com/how-to/add-a-web-site-to-iphone-home-screen/", "_blank");
   };
   
+  // Generate a PWA installation QR code that leads to this app
+  const generateQRCode = () => {
+    const appUrl = window.location.href.split("#")[0];
+    return `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(appUrl)}`;
+  };
+  
   // Detect device type
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
   const isAndroid = /Android/.test(navigator.userAgent);
@@ -241,7 +247,40 @@ export default function InstallPWAButton({
                 </Button>
               )}
               
-              {/* General Option */}
+              {/* QR Code for cross-device installation */}
+              <Button
+                variant="outline"
+                className="w-full justify-between py-6 text-left"
+                onClick={() => {
+                  setIsOpen(false);
+                  window.open(generateQRCode(), "_blank");
+                  toast({
+                    title: "QR Code opened",
+                    description: "Scan this code with another device to install the app",
+                    duration: 3000,
+                  });
+                }}
+              >
+                <div className="flex items-center">
+                  <div className="bg-primary/10 p-2 rounded-full mr-3">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" strokeWidth="2" />
+                      <rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" strokeWidth="2" />
+                      <rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" strokeWidth="2" />
+                      <path d="M14 14H21V17H14V14Z" stroke="currentColor" strokeWidth="2" />
+                      <path d="M14 19H17V21H14V19Z" stroke="currentColor" strokeWidth="2" />
+                      <path d="M19 19H21V21H19V19Z" stroke="currentColor" strokeWidth="2" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-medium">Scan QR Code</p>
+                    <p className="text-sm text-muted-foreground">Open on another device to install</p>
+                  </div>
+                </div>
+                <ExternalLink className="h-4 w-4 flex-shrink-0" />
+              </Button>
+
+            {/* Copy link option */}
               <Button
                 variant="outline"
                 className="w-full justify-between py-6 text-left"
@@ -273,11 +312,28 @@ export default function InstallPWAButton({
               <div className="bg-gray-800 p-2 rounded-2xl shadow-lg w-32">
                 <div className="bg-gray-900 rounded-xl p-2 flex flex-col items-center">
                   <div className="w-16 h-16 bg-primary rounded-xl mb-1 flex items-center justify-center overflow-hidden">
-                    <img 
-                      src="/icons/icon-192x192.png" 
-                      alt="App icon" 
-                      className="w-full h-full object-cover"
-                    />
+                    <svg 
+                      width="100%" 
+                      height="100%" 
+                      viewBox="0 0 512 512" 
+                      fill="none" 
+                      xmlns="http://www.w3.org/2000/svg"
+                      style={{ borderRadius: '12px' }}
+                    >
+                      <rect width="512" height="512" rx="128" fill="#FF6B6B" />
+                      <circle cx="256" cy="256" r="200" fill="#D1495B" />
+                      <circle cx="256" cy="256" r="150" fill="#EDAE49" />
+                      <path d="M160 220C177.673 220 192 205.673 192 188C192 170.327 177.673 156 160 156C142.327 156 128 170.327 128 188C128 205.673 142.327 220 160 220Z" fill="white" />
+                      <path d="M224 260C241.673 260 256 245.673 256 228C256 210.327 241.673 196 224 196C206.327 196 192 210.327 192 228C192 245.673 206.327 260 224 260Z" fill="white" />
+                      <path d="M320 252C337.673 252 352 237.673 352 220C352 202.327 337.673 188 320 188C302.327 188 288 202.327 288 220C288 237.673 302.327 252 320 252Z" fill="white" />
+                      <path d="M288 332C305.673 332 320 317.673 320 300C320 282.327 305.673 268 288 268C270.327 268 256 282.327 256 300C256 317.673 270.327 332 288 332Z" fill="white" />
+                      <path d="M192 332C209.673 332 224 317.673 224 300C224 282.327 209.673 268 192 268C174.327 268 160 282.327 160 300C160 317.673 174.327 332 192 332Z" fill="white" />
+                      <path d="M160 220L224 260" stroke="#30638E" strokeWidth="8" />
+                      <path d="M224 260L320 252" stroke="#30638E" strokeWidth="8" />
+                      <path d="M320 252L288 332" stroke="#30638E" strokeWidth="8" />
+                      <path d="M288 332L192 332" stroke="#30638E" strokeWidth="8" />
+                      <path d="M192 332L160 220" stroke="#30638E" strokeWidth="8" />
+                    </svg>
                   </div>
                   <span className="text-xs text-white">Strangers</span>
                 </div>
