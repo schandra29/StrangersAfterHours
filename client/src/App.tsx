@@ -9,7 +9,7 @@ import NotFound from "@/pages/not-found";
 import { AuthProvider, useAuth } from "@/hooks/useAuth";
 import AccessCodeScreen from "@/components/AccessCodeScreen";
 import AdminDashboard from "@/pages/AdminDashboard";
-import AddToHomeScreen from "@/components/AddToHomeScreen";
+import InstallApp from "@/pages/InstallApp";
 
 function ProtectedRoute({ component: Component, ...rest }: any) {
   const { isAuthenticated, isLoading } = useAuth();
@@ -61,6 +61,9 @@ function Router() {
       <Route path="/admin">
         <AdminDashboard />
       </Route>
+      <Route path="/install">
+        <InstallApp />
+      </Route>
       <Route path="/">
         {(params) => <ProtectedRoute component={Home} params={params} />}
       </Route>
@@ -110,13 +113,51 @@ function App() {
     }
   }, []);
 
+  // Handle dynamic updating of Open Graph meta tags
+  useEffect(() => {
+    // Get the base URL (protocol + hostname)
+    const baseUrl = window.location.origin;
+    
+    // Update image URLs to absolute URLs
+    const ogImageTag = document.querySelector('meta[property="og:image"]');
+    if (ogImageTag) {
+      const imageUrl = ogImageTag.getAttribute('content');
+      if (imageUrl && imageUrl.startsWith('/')) {
+        ogImageTag.setAttribute('content', `${baseUrl}${imageUrl}`);
+      }
+    }
+    
+    // Update secure URL 
+    const ogSecureImageTag = document.querySelector('meta[property="og:image:secure_url"]');
+    if (ogSecureImageTag) {
+      const imageUrl = document.querySelector('meta[property="og:image"]')?.getAttribute('content');
+      if (imageUrl) {
+        ogSecureImageTag.setAttribute('content', imageUrl);
+      }
+    }
+    
+    // Set the og:url to the current page URL
+    const ogUrlTag = document.querySelector('meta[property="og:url"]');
+    if (ogUrlTag) {
+      ogUrlTag.setAttribute('content', window.location.href);
+    }
+    
+    // Update Twitter image
+    const twitterImageTag = document.querySelector('meta[name="twitter:image"]');
+    if (twitterImageTag) {
+      const imageUrl = document.querySelector('meta[property="og:image"]')?.getAttribute('content');
+      if (imageUrl) {
+        twitterImageTag.setAttribute('content', imageUrl);
+      }
+    }
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <AuthProvider>
           <Toaster />
           <Router />
-          {/* PWA Install Button will be shown in UI, no automatic prompts */}
         </AuthProvider>
       </TooltipProvider>
     </QueryClientProvider>
