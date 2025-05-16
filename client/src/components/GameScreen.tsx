@@ -6,7 +6,6 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { getLevelName, getIntensityName } from "@/lib/gameData";
 import { getCompletionPercentage } from "@/lib/utils";
 import { Progress } from "@/components/ui/progress";
-import ScreenCastButton from "./ScreenCastButton";
 
 interface GameScreenProps {
   currentLevel: number;
@@ -159,7 +158,6 @@ export default function GameScreen({
           </span>
         </div>
         <div className="flex items-center gap-2">
-          <ScreenCastButton className="text-white bg-card/50 hover:bg-card/70" />
           <button 
             className="text-white bg-card/50 rounded-full p-2 hover:bg-card/70"
             onClick={onMenu}
@@ -170,7 +168,7 @@ export default function GameScreen({
       </div>
       
       {/* Prompt Card */}
-      <div className="card game-prompt-card bg-card/90 rounded-3xl p-8 mb-6 border border-primary/20 shadow-xl">
+      <div className="card bg-card/90 rounded-3xl p-8 mb-6 border border-primary/20 shadow-xl">
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
             <div className="bg-primary/20 rounded-full py-1 px-4 text-sm text-white font-bold">
