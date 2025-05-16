@@ -143,6 +143,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       // The createdAt field is now sent from the client
       const validatedData = insertGameSessionSchema.parse(req.body);
+      
+      // Add access code tracking from the session if available
+      if (req.session.accessCode) {
+        validatedData.accessCode = req.session.accessCode;
+      }
+      
       const session = await storage.createGameSession(validatedData);
       res.status(201).json(session);
     } catch (error) {

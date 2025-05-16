@@ -136,7 +136,9 @@ export class DatabaseStorage implements IStorage {
       usedPromptIds: [],
       currentLevel: insertSession.currentLevel ?? 1,
       currentIntensity: insertSession.currentIntensity ?? 1,
-      isDrinkingGame: insertSession.isDrinkingGame ?? false
+      isDrinkingGame: insertSession.isDrinkingGame ?? false,
+      // Track access code for analytics if provided
+      accessCode: insertSession.accessCode || null
     };
     
     const [session] = await db.insert(gameSessions).values(sessionData).returning();
