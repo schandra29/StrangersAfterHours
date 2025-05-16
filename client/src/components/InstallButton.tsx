@@ -23,12 +23,10 @@ export default function InstallButton({
   showIcon = true,
   text = "Download App"
 }: InstallButtonProps) {
-  // Check for previously downloaded app
-  const isAppDownloaded = localStorage.getItem('app-downloaded') === 'true';
+  // Hidden per client request - preserving code for future use
+  return null;
   
-  // If user has already downloaded the app, don't show the button
-  if (isAppDownloaded) return null;
-
+  /* Original implementation preserved as comment for future use
   return (
     <Button
       variant={variant}
@@ -42,4 +40,5 @@ export default function InstallButton({
       </Link>
     </Button>
   );
+  */
 }

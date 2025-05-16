@@ -102,12 +102,7 @@ export default function AccessCodeScreen() {
         </form>
       </Card>
       <div className="mt-6 flex flex-col gap-3">
-        <p className="text-center text-sm">Want a better experience?</p>
-        <InstallButton 
-          variant="outline" 
-          className="w-full rounded-lg py-6 text-base font-medium" 
-          text="Download Official App" 
-        />
+        {/* App download prompt removed per client request */}
         <p className="mt-2 text-sm text-muted-foreground text-center">
           This is a private beta. Contact the team if you need an access code.
         </p>

@@ -18,9 +18,14 @@ import { useToast } from "@/hooks/use-toast";
 import { useLocation } from 'wouter';
 
 /**
- * A visually appealing banner that helps users download the app
+ * A visually appealing banner for app promotion - currently hidden per client request
+ * Code is preserved for future use
  */
 export default function AppDownloadBanner() {
+  // Hidden implementation - return null
+  return null;
+  
+  /* Original implementation preserved as comment for future use
   const [showBanner, setShowBanner] = useState(false);
   const [, setLocation] = useLocation();
   const { toast } = useToast();
@@ -147,4 +152,5 @@ export default function AppDownloadBanner() {
       </div>
     </div>
   );
+  */
 }

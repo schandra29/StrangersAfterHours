@@ -4,7 +4,8 @@ import { useState } from "react";
 import PromptStatsModal from "./PromptStatsModal";
 import { resetUsedPrompts } from "@/lib/utils";
 import { toast } from "@/hooks/use-toast";
-import InstallPWAButton from "./InstallPWAButton";
+// Import removed per client request
+// import InstallPWAButton from "./InstallPWAButton";
 import { 
   RefreshCw, 
   Settings, 
@@ -12,8 +13,8 @@ import {
   BarChart2, 
   RotateCcw,
   Plus,
-  Heart,
-  Download
+  Heart
+  // Download icon removed per client request
 } from "lucide-react";
 
 interface GameMenuModalProps {
@@ -46,7 +47,8 @@ export default function GameMenuModal({
     });
   };
   
-  const [showInstallDialog, setShowInstallDialog] = useState(false);
+  // State for prompt stats modal only
+  // Download functionality has been removed per client request
   
   const menuOptions = [
     {
@@ -58,18 +60,6 @@ export default function GameMenuModal({
       Icon: Settings,
       label: "Change Settings",
       action: onSettings
-    },
-    {
-      Icon: Download,
-      label: "Download App",
-      action: () => setShowInstallDialog(true),
-      renderCustom: () => (
-        <InstallPWAButton 
-          variant="menu" 
-          text="Download App"
-          showIcon={false} 
-        />
-      )
     },
     {
       Icon: HelpCircle,
@@ -111,26 +101,16 @@ export default function GameMenuModal({
           </DialogTitle>
           
           <div className="grid grid-cols-1 gap-3 mb-6">
-            {menuOptions.map((option, index) => 
-              option.renderCustom ? (
-                <div 
-                  key={index} 
-                  className="bg-white/10 hover:bg-white/20 text-white py-3 px-4 rounded-xl text-left flex items-center"
-                >
-                  <option.Icon className="text-primary mr-3 w-5 h-5" />
-                  {option.renderCustom()}
-                </div>
-              ) : (
-                <button 
-                  key={index}
-                  className="bg-white/10 hover:bg-white/20 text-white py-3 px-4 rounded-xl text-left flex items-center"
-                  onClick={option.action}
-                >
-                  <option.Icon className="text-primary mr-3 w-5 h-5" />
-                  <span>{option.label}</span>
-                </button>
-              )
-            )}
+            {menuOptions.map((option, index) => (
+              <button 
+                key={index}
+                className="bg-white/10 hover:bg-white/20 text-white py-3 px-4 rounded-xl text-left flex items-center"
+                onClick={option.action}
+              >
+                <option.Icon className="text-primary mr-3 w-5 h-5" />
+                <span>{option.label}</span>
+              </button>
+            ))}
           </div>
           
           <Button 
