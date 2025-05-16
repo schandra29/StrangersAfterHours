@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import thumbnailImage from "@/assets/thumbnail.jpg";
+import InstallPWAButton from "./InstallPWAButton";
 
 interface WelcomeScreenProps {
   onStartGame: () => void;
@@ -56,7 +57,11 @@ export default function WelcomeScreen({ onStartGame, onHowToPlay, onAboutGame }:
         Start New Game
       </Button>
       
-      <div className="mt-4 flex justify-center space-x-6">
+      <div className="mt-4 mb-5">
+        <InstallPWAButton fullWidth variant="secondary" text="Install App to Home Screen" />
+      </div>
+      
+      <div className="flex justify-center space-x-6">
         <button 
           className="text-primary underline text-sm hover:text-primary/80 transition-colors"
           onClick={onHowToPlay}
