@@ -61,9 +61,10 @@ function Router() {
       <Route path="/admin">
         <AdminDashboard />
       </Route>
+      {/* App install route hidden from users but code preserved for future use
       <Route path="/install">
         <InstallApp />
-      </Route>
+      </Route> */}
       <Route path="/">
         {(params) => <ProtectedRoute component={Home} params={params} />}
       </Route>
