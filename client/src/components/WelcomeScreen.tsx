@@ -56,7 +56,8 @@ export default function WelcomeScreen({ onStartGame, onHowToPlay, onAboutGame }:
         Start New Game
       </Button>
       
-      {/* App install button removed per client request */}
+      {/* Added spacing below Start New Game button */}
+      <div className="mt-6"></div>
       
       <div className="flex justify-center space-x-6">
         <button 
