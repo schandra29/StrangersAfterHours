@@ -8,6 +8,7 @@ import NotFound from "@/pages/not-found";
 import { AuthProvider, useAuth } from "@/hooks/useAuth";
 import AccessCodeScreen from "@/components/AccessCodeScreen";
 import AdminDashboard from "@/pages/AdminDashboard";
+import AddToHomeScreen from "@/components/AddToHomeScreen";
 
 function ProtectedRoute({ component: Component, ...rest }: any) {
   const { isAuthenticated, isLoading } = useAuth();
@@ -74,6 +75,8 @@ function App() {
         <AuthProvider>
           <Toaster />
           <Router />
+          {/* PWA Install Prompt - Only shows when conditions are right for installation */}
+          <AddToHomeScreen timing="delayed" delay={5000} />
         </AuthProvider>
       </TooltipProvider>
     </QueryClientProvider>
