@@ -13,43 +13,28 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { isRunningAsPWA } from '@/lib/registerSW';
+import { isAppDownloaded, markAppAsDownloaded } from '@/lib/registerSW';
 import { useToast } from "@/hooks/use-toast";
+import { useLocation } from 'wouter';
 
 /**
- * A visually appealing banner that helps users install the app on their device
+ * A visually appealing banner that helps users download the app
  */
 export default function AppDownloadBanner() {
   const [showBanner, setShowBanner] = useState(false);
-  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
-  const [isInstalling, setIsInstalling] = useState(false);
+  const [, setLocation] = useLocation();
   const { toast } = useToast();
   
-  // Check if already installed as PWA or previously dismissed
+  // Check if already downloaded or previously dismissed
   useEffect(() => {
-    // Don't show if already running as PWA
-    if (isRunningAsPWA()) return;
+    // Don't show if already downloaded
+    if (isAppDownloaded()) return;
     
-    // Don't show if user has dismissed or installed
+    // Don't show if user has dismissed
     if (localStorage.getItem('app-banner-dismissed') === 'true') return;
-    if (localStorage.getItem('pwa-installed') === 'true') return;
     
     // Show banner
     setShowBanner(true);
-    
-    // Listen for install prompt
-    const handleBeforeInstallPrompt = (e: any) => {
-      // Prevent Chrome from automatically showing the prompt
-      e.preventDefault();
-      // Save the event so it can be triggered later
-      setDeferredPrompt(e);
-    };
-    
-    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-    
-    return () => {
-      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-    };
   }, []);
   
   // Handle dismiss
@@ -58,43 +43,14 @@ export default function AppDownloadBanner() {
     localStorage.setItem('app-banner-dismissed', 'true');
   };
   
-  // Handle installation
-  const handleInstall = async () => {
-    if (!deferredPrompt) {
-      // If no installation prompt is available, show instructions
-      window.open('/install', '_blank');
-      return;
-    }
-    
-    setIsInstalling(true);
-    
-    try {
-      // Show the install prompt
-      deferredPrompt.prompt();
-      
-      // Wait for the user to respond to the prompt
-      const { outcome } = await deferredPrompt.userChoice;
-      
-      if (outcome === 'accepted') {
-        setDeferredPrompt(null);
-        localStorage.setItem('pwa-installed', 'true');
-        
-        toast({
-          title: "App installed!",
-          description: "Strangers: After Hours has been added to your home screen.",
-          duration: 5000,
-        });
-      }
-    } catch (error) {
-      console.error('Installation failed', error);
-    } finally {
-      setIsInstalling(false);
-    }
+  // Go to download page
+  const handleDownload = () => {
+    setLocation('/install');
   };
   
-  // Generate QR code for installation on another device
+  // Generate QR code for download on another device
   const generateQRCodeUrl = () => {
-    const appUrl = window.location.origin;
+    const appUrl = `${window.location.origin}/install`;
     return `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(appUrl)}`;
   };
   
@@ -104,12 +60,12 @@ export default function AppDownloadBanner() {
     
     toast({
       title: "QR Code opened",
-      description: "Scan with another device to install the app",
+      description: "Scan with another device to download the app",
       duration: 3000,
     });
   };
   
-  // If already running as PWA or banner dismissed, don't show anything
+  // If already downloaded or banner dismissed, don't show anything
   if (!showBanner) return null;
   
   return (
@@ -154,20 +110,12 @@ export default function AppDownloadBanner() {
         <div className="flex items-center gap-2 mt-3">
           <Button 
             className="bg-white text-primary hover:bg-white/90 flex-1 h-9 rounded-full text-sm shadow-md"
-            onClick={handleInstall}
-            disabled={isInstalling}
+            onClick={handleDownload}
           >
-            {isInstalling ? (
-              <span className="flex items-center">
-                <span className="animate-spin h-4 w-4 mr-2 border-2 border-primary border-r-transparent rounded-full"></span>
-                Installing...
-              </span>
-            ) : (
-              <span className="flex items-center">
-                <Download className="h-4 w-4 mr-1" />
-                Install App
-              </span>
-            )}
+            <span className="flex items-center">
+              <Download className="h-4 w-4 mr-1" />
+              Download App
+            </span>
           </Button>
           
           <TooltipProvider>
@@ -178,7 +126,7 @@ export default function AppDownloadBanner() {
                 </Button>
               </TooltipTrigger>
               <TooltipContent>
-                <p>Install on another device</p>
+                <p>Download on another device</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
@@ -191,7 +139,7 @@ export default function AppDownloadBanner() {
                 </Button>
               </TooltipTrigger>
               <TooltipContent>
-                <p>Installation help</p>
+                <p>Download help</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>

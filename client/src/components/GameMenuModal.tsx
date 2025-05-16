@@ -61,12 +61,12 @@ export default function GameMenuModal({
     },
     {
       Icon: Download,
-      label: "Install App to Home Screen",
+      label: "Download App",
       action: () => setShowInstallDialog(true),
       renderCustom: () => (
         <InstallPWAButton 
           variant="menu" 
-          text="Install App to Home Screen"
+          text="Download App"
           showIcon={false} 
         />
       )
