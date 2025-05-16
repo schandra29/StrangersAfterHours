@@ -75,62 +75,96 @@ export default function InstallApp() {
       });
   };
   
-  // Simulate app download for beta testers
+  // Handle app download for beta testers
   const handleDownload = (platformType: string) => {
     setDownloadStarted(true);
-    localStorage.setItem('app-downloaded', 'true');
     
-    // Simulate download with toast notifications
+    // Define platform-specific file names and paths
+    const downloadFiles = {
+      'Android': {
+        filename: 'strangers-after-hours.apk',
+        mime: 'application/vnd.android.package-archive'
+      },
+      'iOS': {
+        filename: 'strangers-beta-invitation.html',
+        mime: 'text/html'
+      },
+      'Desktop': {
+        filename: platformType === 'macOS' ? 'strangers-after-hours.dmg' : 'strangers-after-hours-setup.exe',
+        mime: 'application/octet-stream'
+      }
+    };
+    
+    const fileInfo = downloadFiles[platformType as keyof typeof downloadFiles];
+    
+    // Show download starting toast
     toast({
-      title: "Download started",
+      title: "Download starting",
       description: `Downloading Strangers: After Hours for ${platformType}...`,
       duration: 2000,
     });
     
-    setTimeout(() => {
-      toast({
-        title: "Download complete!",
-        description: "Thank you for participating in our beta test.",
-        duration: 5000,
-      });
-      
-      // Show installation success message after "download" completes
+    // For Android, simulate downloading the APK file
+    if (platformType === 'Android') {
       setTimeout(() => {
+        // Create a temporary anchor element to trigger download
+        const downloadLink = document.createElement('a');
+        // This would be an actual file in production
+        downloadLink.href = `/download/${fileInfo.filename}`;
+        downloadLink.download = fileInfo.filename;
+        downloadLink.click();
+        
+        // Show instructions on how to locate and install the APK
+        setTimeout(() => {
+          toast({
+            title: "APK Downloaded",
+            description: "Check your Downloads folder. Tap on the file to install and follow the security prompts to enable installation from unknown sources.",
+            duration: 8000,
+          });
+          setDownloadStarted(false);
+        }, 1500);
+      }, 1500);
+    } 
+    // For iOS, open TestFlight invitation page
+    else if (platformType === 'iOS') {
+      setTimeout(() => {
+        window.open('https://testflight.apple.com/join/beta-code-here', '_blank');
+        
+        toast({
+          title: "TestFlight Invitation Sent",
+          description: "We've opened the TestFlight registration page. Follow the instructions to install the beta app.",
+          duration: 6000,
+        });
+        
         setDownloadStarted(false);
-      }, 500);
-    }, 3000);
+      }, 1500);
+    }
+    // For Desktop, trigger file download
+    else {
+      setTimeout(() => {
+        // Create a temporary anchor element to trigger download
+        const downloadLink = document.createElement('a');
+        // This would be an actual file in production
+        downloadLink.href = `/download/${fileInfo.filename}`;
+        downloadLink.download = fileInfo.filename;
+        downloadLink.click();
+        
+        toast({
+          title: "Download Complete",
+          description: "Installer downloaded. Open the file to install the application.",
+          duration: 5000,
+        });
+        
+        setDownloadStarted(false);
+      }, 2000);
+    }
   };
   
-  // If app was already downloaded, show success message
-  if (localStorage.getItem('app-downloaded') === 'true' && !downloadStarted) {
-    return (
-      <div className="min-h-screen flex flex-col bg-gradient-to-b from-background to-background/90">
-        <header className="bg-gradient-to-r from-primary/20 to-secondary/20 py-4 px-4">
-          <div className="container mx-auto">
-            <Link href="/" className="flex items-center text-muted-foreground hover:text-primary transition-colors">
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              <span>Back to App</span>
-            </Link>
-          </div>
-        </header>
-        
-        <main className="flex-1 container mx-auto px-4 py-10 max-w-3xl">
-          <div className="flex flex-col items-center justify-center text-center py-16 px-6 bg-card rounded-xl shadow-sm">
-            <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mb-6">
-              <CheckCircle2 className="h-12 w-12 text-primary" />
-            </div>
-            <h1 className="text-3xl font-bold mb-2">App Successfully Downloaded!</h1>
-            <p className="text-lg text-muted-foreground mb-8">
-              You've already downloaded the beta version of Strangers: After Hours.
-            </p>
-            <Button asChild>
-              <Link href="/">Continue to App</Link>
-            </Button>
-          </div>
-        </main>
-      </div>
-    );
-  }
+  // Create download directories/files for the app
+  useEffect(() => {
+    // This would create download files in a real app
+    // For now, we're just simulating downloads
+  }, []);
   
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-background to-background/90">
