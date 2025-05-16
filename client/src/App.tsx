@@ -9,7 +9,6 @@ import NotFound from "@/pages/not-found";
 import { AuthProvider, useAuth } from "@/hooks/useAuth";
 import AccessCodeScreen from "@/components/AccessCodeScreen";
 import AdminDashboard from "@/pages/AdminDashboard";
-import InstallApp from "@/pages/InstallApp";
 
 function ProtectedRoute({ component: Component, ...rest }: any) {
   const { isAuthenticated, isLoading } = useAuth();
@@ -61,10 +60,6 @@ function Router() {
       <Route path="/admin">
         <AdminDashboard />
       </Route>
-      {/* App install route hidden from users but code preserved for future use
-      <Route path="/install">
-        <InstallApp />
-      </Route> */}
       <Route path="/">
         {(params) => <ProtectedRoute component={Home} params={params} />}
       </Route>

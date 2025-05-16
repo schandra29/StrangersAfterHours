@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import thumbnailImage from "@/assets/thumbnail.jpg";
-import InstallPWAButton from "./InstallPWAButton";
 
 interface WelcomeScreenProps {
   onStartGame: () => void;

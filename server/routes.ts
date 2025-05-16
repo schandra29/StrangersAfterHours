@@ -9,7 +9,6 @@ import {
 import { importRouter } from "./routes/import";
 import { authRouter } from "./routes/auth";
 import { adminRouter } from "./routes/admin";
-import { downloadRouter } from "./routes/downloads";
 import { fileServeRouter } from "./routes/fileServe";
 import { sessionMiddleware, isAuthenticated } from "./session";
 import path from "path";
@@ -20,10 +19,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Set up session middleware
   app.use(sessionMiddleware);
   
-  // Set up static file serving for downloads with proper MIME types
-  app.use('/download', downloadRouter);
-  
-  // Direct file serving endpoints for platform-specific downloads
+  // Direct file serving endpoints for files
   app.use('/files', fileServeRouter);
   
   // Auth routes (not protected)

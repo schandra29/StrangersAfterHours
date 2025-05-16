@@ -4,8 +4,6 @@ import { useState } from "react";
 import PromptStatsModal from "./PromptStatsModal";
 import { resetUsedPrompts } from "@/lib/utils";
 import { toast } from "@/hooks/use-toast";
-// Import removed per client request
-// import InstallPWAButton from "./InstallPWAButton";
 import { 
   RefreshCw, 
   Settings, 
@@ -14,7 +12,6 @@ import {
   RotateCcw,
   Plus,
   Heart
-  // Download icon removed per client request
 } from "lucide-react";
 
 interface GameMenuModalProps {

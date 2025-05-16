@@ -4,61 +4,28 @@ import fs from 'fs';
 
 export const fileServeRouter = Router();
 
-// HTML experience for Android users instead of synthetic APK
-fileServeRouter.get('/android-app', (req, res) => {
-  const filePath = path.join(process.cwd(), 'public', 'download', 'android-app.html');
-  
-  if (fs.existsSync(filePath)) {
-    res.set('Content-Type', 'text/html');
-    fs.createReadStream(filePath).pipe(res);
-  } else {
-    res.status(404).send('Android app experience not found');
-  }
-});
-
-fileServeRouter.get('/macos-app', (req, res) => {
-  const filePath = path.join(process.cwd(), 'public', 'download', 'desktop', 'strangers-after-hours.dmg');
+// Generic file serving endpoint for static assets that require special headers
+fileServeRouter.get('/assets/:filename', (req, res) => {
+  const { filename } = req.params;
+  const filePath = path.join(process.cwd(), 'public', 'assets', filename);
   
   if (fs.existsSync(filePath)) {
     const stats = fs.statSync(filePath);
+    const ext = path.extname(filename).toLowerCase();
+    
+    let contentType = 'application/octet-stream';
+    if (ext === '.jpg' || ext === '.jpeg') contentType = 'image/jpeg';
+    if (ext === '.png') contentType = 'image/png';
+    if (ext === '.svg') contentType = 'image/svg+xml';
+    if (ext === '.pdf') contentType = 'application/pdf';
     
     res.set({
-      'Content-Type': 'application/x-apple-diskimage',
-      'Content-Length': stats.size,
-      'Content-Disposition': 'attachment; filename="strangers-after-hours.dmg"'
+      'Content-Type': contentType,
+      'Content-Length': stats.size
     });
     
     fs.createReadStream(filePath).pipe(res);
   } else {
-    res.status(404).send('DMG file not found');
-  }
-});
-
-fileServeRouter.get('/windows-app', (req, res) => {
-  const filePath = path.join(process.cwd(), 'public', 'download', 'desktop', 'strangers-after-hours-setup.exe');
-  
-  if (fs.existsSync(filePath)) {
-    const stats = fs.statSync(filePath);
-    
-    res.set({
-      'Content-Type': 'application/x-msdownload',
-      'Content-Length': stats.size,
-      'Content-Disposition': 'attachment; filename="strangers-after-hours-setup.exe"'
-    });
-    
-    fs.createReadStream(filePath).pipe(res);
-  } else {
-    res.status(404).send('EXE file not found');
-  }
-});
-
-fileServeRouter.get('/ios-invite', (req, res) => {
-  const filePath = path.join(process.cwd(), 'public', 'download', 'strangers-beta-invitation.html');
-  
-  if (fs.existsSync(filePath)) {
-    res.set('Content-Type', 'text/html');
-    fs.createReadStream(filePath).pipe(res);
-  } else {
-    res.status(404).send('Invitation page not found');
+    res.status(404).send('File not found');
   }
 });
