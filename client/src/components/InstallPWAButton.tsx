@@ -19,12 +19,20 @@ interface InstallPWAButtonProps {
   text?: string;
 }
 
+/**
+ * This component is completely hidden per client request.
+ * Code is preserved for future use.
+ */
 export default function InstallPWAButton({ 
   variant = "primary", 
   fullWidth = false, 
   showIcon = true,
   text = "Download App"
 }: InstallPWAButtonProps) {
+  // Hidden implementation - return null
+  return null;
+  
+  /* Original implementation preserved as comment for future use
   const [, setLocation] = useLocation();
   const [isDownloaded, setIsDownloaded] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -76,6 +84,7 @@ export default function InstallPWAButton({
         console.error('Could not copy text: ', err);
       });
   };
+  */
   
   // Generate a QR code that leads to download page
   const generateQRCode = () => {

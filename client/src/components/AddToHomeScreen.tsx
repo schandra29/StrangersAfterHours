@@ -18,13 +18,17 @@ interface AddToHomeScreenProps {
 }
 
 /**
- * This component has been completely redesigned to use direct downloads
- * instead of PWA installation. It now redirects users to the download page.
+ * This component is completely hidden per client request.
+ * Code is preserved for future use.
  */
 export default function AddToHomeScreen({ 
   timing = 'delayed', 
   delay = 3000 
 }: AddToHomeScreenProps) {
+  // Hidden implementation - returning null
+  return null;
+  
+  /* Original implementation preserved as comment for future use
   const [, setLocation] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -154,4 +158,5 @@ export default function AddToHomeScreen({
       </SheetContent>
     </Sheet>
   );
+  */
 }

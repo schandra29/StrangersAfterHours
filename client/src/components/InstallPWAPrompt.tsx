@@ -16,10 +16,14 @@ interface InstallPWAPromptProps {
 }
 
 /**
- * This component has been completely redesigned to use direct downloads
- * instead of PWA installation. It now redirects users to the download page.
+ * This component is completely hidden per client request.
+ * Code is preserved for future use.
  */
 export default function InstallPWAPrompt({ autoPrompt = true }: InstallPWAPromptProps) {
+  // Hidden implementation - return null
+  return null;
+  
+  /* Original implementation preserved as comment for future use
   const [, setLocation] = useLocation();
   const [showPrompt, setShowPrompt] = useState(false);
   const [isAlreadyDownloaded, setIsAlreadyDownloaded] = useState(false);
@@ -102,4 +106,5 @@ export default function InstallPWAPrompt({ autoPrompt = true }: InstallPWAPrompt
       </Dialog>
     </>
   );
+  */
 }
