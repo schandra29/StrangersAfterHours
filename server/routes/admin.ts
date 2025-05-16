@@ -1,9 +1,9 @@
 import { Router } from "express";
 import { storage } from "../storage";
 import { z } from "zod";
-import { insertAccessCodeSchema, accessCodes, gameSessions } from "@shared/schema";
+import { insertAccessCodeSchema, accessCodes, gameSessions, prompts, challenges } from "@shared/schema";
 import { db } from "../db";
-import { eq } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 
 export const adminRouter = Router();
 
@@ -12,7 +12,7 @@ const ADMIN_KEY = process.env.ADMIN_KEY || "strangers_admin";
 
 // Basic admin key validation middleware
 const validateAdminKey = (req: any, res: any, next: any) => {
-  const adminKey = req.headers["x-admin-key"];
+  const adminKey = req.headers["x-admin-key"] || req.headers["authorization"]?.replace('Bearer ', '');
   if (adminKey !== ADMIN_KEY) {
     return res.status(401).json({ message: "Unauthorized" });
   }
@@ -106,5 +106,41 @@ adminRouter.get("/access-codes/stats", async (req, res) => {
   } catch (error) {
     console.error("Error getting access code statistics:", error);
     return res.status(500).json({ message: "Failed to retrieve access code statistics" });
+  }
+});
+
+// Purge all prompts - used when reimporting the entire prompts dataset
+adminRouter.post("/purge-prompts", async (req, res) => {
+  try {
+    console.log("Admin request to purge all prompts");
+    
+    // Delete all prompts from the database using raw SQL to avoid ID conflicts
+    const result = await db.execute(sql`DELETE FROM prompts`);
+    
+    return res.status(200).json({ 
+      message: "Successfully purged all prompts", 
+      count: result.rowCount || 0
+    });
+  } catch (error) {
+    console.error("Error purging prompts:", error);
+    return res.status(500).json({ message: "Failed to purge prompts" });
+  }
+});
+
+// Purge all challenges - used when reimporting the entire challenges dataset
+adminRouter.post("/purge-challenges", async (req, res) => {
+  try {
+    console.log("Admin request to purge all challenges");
+    
+    // Delete all challenges from the database
+    const result = await db.execute(sql`DELETE FROM challenges`);
+    
+    return res.status(200).json({ 
+      message: "Successfully purged all challenges", 
+      count: result.rowCount || 0
+    });
+  } catch (error) {
+    console.error("Error purging challenges:", error);
+    return res.status(500).json({ message: "Failed to purge challenges" });
   }
 });
