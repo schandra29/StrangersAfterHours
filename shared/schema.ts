@@ -56,6 +56,8 @@ export const gameSessions = pgTable("game_sessions", {
   promptsAnswered: integer("prompts_answered").default(0),
   fullHouseMoments: integer("full_house_moments").default(0),
   levelStats: jsonb("level_stats").default({}),
+  // Access tracking for analytics
+  accessCode: text("access_code"),
 });
 
 export const insertGameSessionSchema = createInsertSchema(gameSessions).omit({
