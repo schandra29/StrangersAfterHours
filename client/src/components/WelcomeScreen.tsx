@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 
 interface WelcomeScreenProps {
@@ -36,7 +37,7 @@ export default function WelcomeScreen({ onStartGame }: WelcomeScreenProps) {
               <div className="bg-primary/20 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-2">
                 <i className="ri-chat-3-line text-xl text-white"></i>
               </div>
-              <p className="text-xs text-gray-300">Answer prompts</p>
+              <p className="text-xs text-gray-300">Share stories</p>
             </div>
             <div className="text-center">
               <div className="bg-primary/20 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-2">
@@ -48,17 +49,11 @@ export default function WelcomeScreen({ onStartGame }: WelcomeScreenProps) {
         </div>
 
         <Button 
-          className="btn-primary w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 px-6 rounded-xl shadow-lg flex items-center justify-center mb-4"
           onClick={onStartGame}
+          className="w-full py-3 text-lg font-semibold bg-primary hover:bg-primary/90 text-white rounded-xl"
         >
-          <i className="ri-play-circle-line mr-2 text-xl"></i> Start Game
+          Start Playing
         </Button>
-
-        <div className="text-center">
-          <p className="text-sm text-gray-400">
-            Perfect for parties, dates, or friend gatherings
-          </p>
-        </div>
       </div>
     </div>
   );
