@@ -43,7 +43,6 @@ export const insertChallengeSchema = createInsertSchema(challenges).omit({
   id: true,
 });
 
-// Game session table
 export const gameSessions = pgTable("game_sessions", {
   id: serial("id").primaryKey(),
   currentLevel: integer("current_level").notNull().default(1),
@@ -57,7 +56,6 @@ export const gameSessions = pgTable("game_sessions", {
   fullHouseMoments: integer("full_house_moments").default(0),
   levelStats: jsonb("level_stats").default({}),
   // Access tracking for analytics
-  accessCode: text("access_code"),
 });
 
 export const insertGameSessionSchema = createInsertSchema(gameSessions).omit({
@@ -82,16 +80,7 @@ export type InsertChallenge = z.infer<typeof insertChallengeSchema>;
 export type GameSession = typeof gameSessions.$inferSelect;
 export type InsertGameSession = z.infer<typeof insertGameSessionSchema>;
 
-// Access codes for limiting application access
-export const accessCodes = pgTable("access_codes", {
-  id: serial("id").primaryKey(),
-  code: text("code").notNull().unique(),
-  description: text("description"),
-  isActive: boolean("is_active").default(true).notNull(),
-  usageCount: integer("usage_count").default(0).notNull(),
-  maxUsages: integer("max_usages").default(10), // null means unlimited
-  createdAt: timestamp("created_at").defaultNow().notNull(),
-});
+// Access codes removed - application is now open access
 
 // Session storage for express-session with connect-pg-simple
 export const sessions = pgTable("sessions", {
@@ -99,12 +88,3 @@ export const sessions = pgTable("sessions", {
   sess: jsonb("sess").notNull(),
   expire: timestamp("expire").notNull(),
 });
-
-export const insertAccessCodeSchema = createInsertSchema(accessCodes).omit({
-  id: true,
-  usageCount: true,
-  createdAt: true,
-});
-
-export type AccessCode = typeof accessCodes.$inferSelect;
-export type InsertAccessCode = z.infer<typeof insertAccessCodeSchema>;

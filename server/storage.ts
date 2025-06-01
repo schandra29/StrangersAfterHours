@@ -11,7 +11,7 @@ export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
-  
+
   // Prompt operations
   createPrompt(prompt: InsertPrompt): Promise<Prompt>;
   getPromptsByLevelAndIntensity(level: number, intensity: number): Promise<Prompt[]>;
@@ -20,7 +20,7 @@ export interface IStorage {
   getPromptById(id: number): Promise<Prompt | undefined>;
   getCustomPromptsByUser(userId: number): Promise<Prompt[]>;
   batchImportPrompts(prompts: InsertPrompt[]): Promise<number>; // Returns count of imported prompts
-  
+
   // Challenge operations
   createChallenge(challenge: InsertChallenge): Promise<Challenge>;
   getChallengesByIntensity(intensity: number): Promise<Challenge[]>;
@@ -28,7 +28,7 @@ export interface IStorage {
   getChallengesByType(type: string, intensity: number): Promise<Challenge[]>;
   getCustomChallengesByUser(userId: number): Promise<Challenge[]>;
   batchImportChallenges(challenges: InsertChallenge[]): Promise<number>; // Returns count of imported challenges
-  
+
   // Game session operations
   createGameSession(session: InsertGameSession): Promise<GameSession>;
   getGameSession(id: number): Promise<GameSession | undefined>;
@@ -38,12 +38,12 @@ export interface IStorage {
   incrementPromptsAnswered(id: number): Promise<GameSession>;
   updateTotalTimeSpent(id: number, timeSpent: number): Promise<GameSession>;
   updateLevelStats(id: number, level: number, intensity: number): Promise<GameSession>;
-  
+
   // Access code operations
-  createAccessCode(accessCode: InsertAccessCode): Promise<AccessCode>;
-  getAccessCodeByCode(code: string): Promise<AccessCode | undefined>;
-  validateAccessCode(code: string): Promise<boolean>;
-  incrementAccessCodeUsage(id: number): Promise<AccessCode>;
+  // createAccessCode(accessCode: InsertAccessCode): Promise<AccessCode>;
+  // getAccessCodeByCode(code: string): Promise<AccessCode | undefined>;
+  // validateAccessCode(code: string): Promise<boolean>;
+  // incrementAccessCodeUsage(id: number): Promise<AccessCode>;
 }
 
 export class MemStorage implements IStorage {
@@ -69,7 +69,7 @@ export class MemStorage implements IStorage {
     this.challengeIdCounter = 1;
     this.sessionIdCounter = 1;
     this.accessCodeIdCounter = 1;
-    
+
     // Initialize with default prompts and challenges
     this.initializeDefaultPrompts();
     this.initializeDefaultChallenges();
@@ -111,7 +111,7 @@ export class MemStorage implements IStorage {
       (prompt) => prompt.level === level && prompt.intensity <= intensity
     );
   }
-  
+
   async getAllPrompts(): Promise<Prompt[]> {
     return Array.from(this.prompts.values());
   }
@@ -120,11 +120,11 @@ export class MemStorage implements IStorage {
     // Filter out excluded prompts
     const availablePrompts = Array.from(this.prompts.values())
       .filter(prompt => !excludeIds.includes(prompt.id));
-    
+
     if (availablePrompts.length === 0) {
       return undefined;
     }
-    
+
     // Get a random prompt from the filtered collection
     const randomIndex = Math.floor(Math.random() * availablePrompts.length);
     return availablePrompts[randomIndex];
@@ -165,7 +165,7 @@ export class MemStorage implements IStorage {
         (challenge) => challenge.type === type
       );
     }
-    
+
     // For other challenge types, continue to respect intensity level
     return Array.from(this.challenges.values()).filter(
       (challenge) => challenge.type === type && challenge.intensity <= intensity
@@ -204,22 +204,22 @@ export class MemStorage implements IStorage {
     if (!existingSession) {
       throw new Error(`Game session with id ${id} not found`);
     }
-    
+
     const updatedSession = {
       ...existingSession,
       ...data
     };
-    
+
     this.gameSessions.set(id, updatedSession);
     return updatedSession;
   }
-  
+
   async incrementFullHouseMoments(id: number): Promise<GameSession> {
     const session = this.gameSessions.get(id);
     if (!session) {
       throw new Error(`Game session with id ${id} not found`);
     }
-    
+
     const fullHouseMoments = (session.fullHouseMoments || 0) + 1;
     const updatedSession = { ...session, fullHouseMoments };
     this.gameSessions.set(id, updatedSession);
@@ -231,7 +231,7 @@ export class MemStorage implements IStorage {
     if (!session) {
       throw new Error(`Game session with id ${id} not found`);
     }
-    
+
     const promptsAnswered = (session.promptsAnswered || 0) + 1;
     const updatedSession = { ...session, promptsAnswered };
     this.gameSessions.set(id, updatedSession);
@@ -243,7 +243,7 @@ export class MemStorage implements IStorage {
     if (!session) {
       throw new Error(`Game session with id ${id} not found`);
     }
-    
+
     const totalTimeSpent = (session.totalTimeSpent || 0) + timeSpent;
     const updatedSession = { ...session, totalTimeSpent };
     this.gameSessions.set(id, updatedSession);
@@ -255,16 +255,16 @@ export class MemStorage implements IStorage {
     if (!session) {
       throw new Error(`Game session with id ${id} not found`);
     }
-    
+
     const key = `${level}-${intensity}`;
     const levelStats = session.levelStats as Record<string, number> || {};
     levelStats[key] = (levelStats[key] || 0) + 1;
-    
+
     const updatedSession = { ...session, levelStats };
     this.gameSessions.set(id, updatedSession);
     return updatedSession;
   }
-  
+
   async batchImportPrompts(promptsToImport: InsertPrompt[]): Promise<number> {
     let count = 0;
     for (const prompt of promptsToImport) {
@@ -273,7 +273,7 @@ export class MemStorage implements IStorage {
     }
     return count;
   }
-  
+
   async batchImportChallenges(challengesToImport: InsertChallenge[]): Promise<number> {
     let count = 0;
     for (const challenge of challengesToImport) {
@@ -396,7 +396,7 @@ export class MemStorage implements IStorage {
       isCustom: false,
       userId: null
     });
-    
+
     // Level 2: Getting to Know You (Medium)
     this.createPrompt({
       text: "What's a belief or value you hold that has changed significantly over time?",
@@ -422,7 +422,7 @@ export class MemStorage implements IStorage {
       isCustom: false,
       userId: null
     });
-    
+
     // Level 2: Getting to Know You (Wild)
     this.createPrompt({
       text: "What's something that deeply moved you or changed your perspective?",
@@ -440,7 +440,7 @@ export class MemStorage implements IStorage {
       isCustom: false,
       userId: null
     });
-    
+
     // Level 3: Deeper Dive (Mild)
     this.createPrompt({
       text: "What values or principles do you try to live by?",
@@ -466,7 +466,7 @@ export class MemStorage implements IStorage {
       isCustom: false,
       userId: null
     });
-    
+
     // Level 3: Deeper Dive (Medium)
     this.createPrompt({
       text: "What's something you're passionate about that you wish more people understood?",
@@ -492,7 +492,7 @@ export class MemStorage implements IStorage {
       isCustom: false,
       userId: null
     });
-    
+
     // Level 3: Deeper Dive (Wild)
     this.createPrompt({
       text: "What's a moment in your life where you felt truly vulnerable?",
@@ -536,7 +536,7 @@ export class MemStorage implements IStorage {
       isCustom: false,
       userId: null
     });
-    
+
     // Truth or Dare challenges (Medium)
     this.createChallenge({
       type: "Truth or Dare",
@@ -552,7 +552,7 @@ export class MemStorage implements IStorage {
       isCustom: false,
       userId: null
     });
-    
+
     // Truth or Dare challenges (Wild)
     this.createChallenge({
       type: "Truth or Dare",
@@ -568,7 +568,7 @@ export class MemStorage implements IStorage {
       isCustom: false,
       userId: null
     });
-    
+
     // Act It Out challenges (Mild)
     this.createChallenge({
       type: "Act It Out",
@@ -584,7 +584,7 @@ export class MemStorage implements IStorage {
       isCustom: false,
       userId: null
     });
-    
+
     // Act It Out challenges (Medium)
     this.createChallenge({
       type: "Act It Out",
@@ -600,7 +600,7 @@ export class MemStorage implements IStorage {
       isCustom: false,
       userId: null
     });
-    
+
     // Act It Out challenges (Wild)
     this.createChallenge({
       type: "Act It Out",
@@ -616,77 +616,77 @@ export class MemStorage implements IStorage {
       isCustom: false,
       userId: null
     });
-    
+
     // Create a default access code
-    this.createAccessCode({
-      code: "TESTCODE",
-      description: "Default test access code",
-      isActive: true,
-      maxUsages: 100
-    });
+    // this.createAccessCode({
+    //   code: "TESTCODE",
+    //   description: "Default test access code",
+    //   isActive: true,
+    //   maxUsages: 100
+    // });
   }
-  
+
   // Access code operations
-  async createAccessCode(accessCode: InsertAccessCode): Promise<AccessCode> {
-    const id = this.accessCodeIdCounter++;
-    const now = new Date().toISOString();
-    const newAccessCode: AccessCode = {
-      id,
-      code: accessCode.code,
-      description: accessCode.description || null,
-      isActive: accessCode.isActive !== undefined ? accessCode.isActive : true,
-      usageCount: 0,
-      maxUsages: accessCode.maxUsages || 10,
-      createdAt: now
-    };
-    
-    this.accessCodes.set(id, newAccessCode);
-    return newAccessCode;
-  }
-  
-  async getAccessCodeByCode(code: string): Promise<AccessCode | undefined> {
-    for (const accessCode of this.accessCodes.values()) {
-      if (accessCode.code === code) {
-        return accessCode;
-      }
-    }
-    return undefined;
-  }
-  
-  async validateAccessCode(code: string): Promise<boolean> {
-    const accessCode = await this.getAccessCodeByCode(code);
-    
-    if (!accessCode) {
-      return false;
-    }
-    
-    // Check if code is active
-    if (!accessCode.isActive) {
-      return false;
-    }
-    
-    // Check if code has reached max usages
-    if (accessCode.maxUsages !== null && accessCode.usageCount >= accessCode.maxUsages) {
-      return false;
-    }
-    
-    return true;
-  }
-  
-  async incrementAccessCodeUsage(id: number): Promise<AccessCode> {
-    const accessCode = this.accessCodes.get(id);
-    if (!accessCode) {
-      throw new Error(`Access code with ID ${id} not found`);
-    }
-    
-    const updatedAccessCode = {
-      ...accessCode,
-      usageCount: accessCode.usageCount + 1
-    };
-    
-    this.accessCodes.set(id, updatedAccessCode);
-    return updatedAccessCode;
-  }
+  // async createAccessCode(accessCode: InsertAccessCode): Promise<AccessCode> {
+  //   const id = this.accessCodeIdCounter++;
+  //   const now = new Date().toISOString();
+  //   const newAccessCode: AccessCode = {
+  //     id,
+  //     code: accessCode.code,
+  //     description: accessCode.description || null,
+  //     isActive: accessCode.isActive !== undefined ? accessCode.isActive : true,
+  //     usageCount: 0,
+  //     maxUsages: accessCode.maxUsages || 10,
+  //     createdAt: now
+  //   };
+
+  //   this.accessCodes.set(id, newAccessCode);
+  //   return newAccessCode;
+  // }
+
+  // async getAccessCodeByCode(code: string): Promise<AccessCode | undefined> {
+  //   for (const accessCode of this.accessCodes.values()) {
+  //     if (accessCode.code === code) {
+  //       return accessCode;
+  //     }
+  //   }
+  //   return undefined;
+  // }
+
+  // async validateAccessCode(code: string): Promise<boolean> {
+  //   const accessCode = await this.getAccessCodeByCode(code);
+
+  //   if (!accessCode) {
+  //     return false;
+  //   }
+
+  //   // Check if code is active
+  //   if (!accessCode.isActive) {
+  //     return false;
+  //   }
+
+  //   // Check if code has reached max usages
+  //   if (accessCode.maxUsages !== null && accessCode.usageCount >= accessCode.maxUsages) {
+  //     return false;
+  //   }
+
+  //   return true;
+  // }
+
+  // async incrementAccessCodeUsage(id: number): Promise<AccessCode> {
+  //   const accessCode = this.accessCodes.get(id);
+  //   if (!accessCode) {
+  //     throw new Error(`Access code with ID ${id} not found`);
+  //   }
+
+  //   const updatedAccessCode = {
+  //     ...accessCode,
+  //     usageCount: accessCode.usageCount + 1
+  //   };
+
+  //   this.accessCodes.set(id, updatedAccessCode);
+  //   return updatedAccessCode;
+  // }
 }
 
 import { DatabaseStorage } from "./storage.database";
