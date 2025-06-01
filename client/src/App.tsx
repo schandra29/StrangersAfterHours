@@ -1,191 +1,143 @@
-import { useState } from "react";
-import { Route, Switch } from "wouter";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useEffect } from "react";
+import { Switch, Route, Redirect } from "wouter";
+import { queryClient } from "./lib/queryClient";
+import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
-import AccessCodeScreen from "@/components/AccessCodeScreen";
-import WelcomeScreen from "@/components/WelcomeScreen";
-import SetupScreen from "@/components/SetupScreen";
-import GameScreen from "@/components/GameScreen";
-import ChallengeModal from "@/components/ChallengeModal";
-import GameMenuModal from "@/components/GameMenuModal";
-import HowToPlayModal from "@/components/HowToPlayModal";
-import AboutGameModal from "@/components/AboutGameModal";
-import GameSummaryModal from "@/components/GameSummaryModal";
-import PromptStatsModal from "@/components/PromptStatsModal";
-import AdminDashboard from "@/pages/AdminDashboard";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import Home from "@/pages/Home";
 import NotFound from "@/pages/not-found";
-import { useGame } from "@/hooks/useGame";
+import { AuthProvider, useAuth } from "@/hooks/useAuth";
+import AccessCodeScreen from "@/components/AccessCodeScreen";
+import AdminDashboard from "@/pages/AdminDashboard";
 
-const queryClient = new QueryClient();
+function ProtectedRoute({ component: Component, ...rest }: any) {
+  const { isAuthenticated, isLoading } = useAuth();
 
-function GameApp() {
-  const [currentScreen, setCurrentScreen] = useState<"access" | "welcome" | "setup" | "game">("access");
-  const [showGameMenu, setShowGameMenu] = useState(false);
-  const [showHowToPlay, setShowHowToPlay] = useState(false);
-  const [showAboutGame, setShowAboutGame] = useState(false);
-  const [showGameSummary, setShowGameSummary] = useState(false);
-  const [showStats, setShowStats] = useState(false);
+  // Show loading screen while checking auth status
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-primary"></div>
+      </div>
+    );
+  }
+
+  // Redirect to access code screen if not authenticated
+  if (!isAuthenticated) {
+    // Use more forceful redirect to ensure it happens
+    window.location.href = "/access";
+    return null;
+  }
+
+  return <Component {...rest} />;
+}
+
+function Router() {
+  const { isAuthenticated, isLoading } = useAuth();
   
-  const {
-    currentLevel,
-    currentIntensity,
-    currentPrompt,
-    isDrinkingGame,
-    isLoadingPrompts,
-    currentChallenge,
-    setCurrentLevel,
-    setCurrentIntensity,
-    setIsDrinkingGame,
-    loadNextPrompt,
-    loadRandomPrompt,
-    handleChallenge,
-    closeChallenge,
-    sessionId,
-    restartGame,
-    endGame,
-    recordTimeSpent,
-    handleFullHouse
-  } = useGame();
-
-  const handleAccessGranted = () => {
-    setCurrentScreen("welcome");
-  };
-
-  const handleStartGame = () => {
-    setCurrentScreen("setup");
-  };
-
-  const handleGameSetup = () => {
-    setCurrentScreen("game");
-  };
-
-  const handleBackToWelcome = () => {
-    setCurrentScreen("welcome");
-  };
-
-  const handleMenu = () => {
-    setShowGameMenu(true);
-  };
-
-  const handleRestart = () => {
-    restartGame();
-    setShowGameMenu(false);
-    setCurrentScreen("setup");
-  };
-
-  const handleEndGame = () => {
-    endGame();
-    setShowGameSummary(true);
-  };
-
-  const handleStartNewGame = () => {
-    setShowGameSummary(false);
-    setCurrentScreen("welcome");
-    restartGame();
-  };
-
   return (
-    <div className="min-h-screen text-foreground font-body">
-      {currentScreen === "access" && (
-        <AccessCodeScreen onAccessGranted={handleAccessGranted} />
-      )}
-      
-      {currentScreen === "welcome" && (
-        <WelcomeScreen onStartGame={handleStartGame} />
-      )}
-      
-      {currentScreen === "setup" && (
-        <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center p-4">
-          <SetupScreen
-            selectedLevel={currentLevel}
-            selectedIntensity={currentIntensity}
-            isDrinkingGame={isDrinkingGame}
-            onSelectLevel={setCurrentLevel}
-            onSelectIntensity={setCurrentIntensity}
-            onToggleDrinkingGame={() => setIsDrinkingGame(!isDrinkingGame)}
-            onBack={handleBackToWelcome}
-            onStartPlaying={handleGameSetup}
-          />
-        </div>
-      )}
-      
-      {currentScreen === "game" && (
-        <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 p-4">
-          <div className="max-w-2xl mx-auto py-8">
-            <GameScreen
-              currentLevel={currentLevel}
-              currentIntensity={currentIntensity}
-              currentPrompt={currentPrompt}
-              isDrinkingGame={isDrinkingGame}
-              isLoadingPrompts={isLoadingPrompts}
-              onMenu={handleMenu}
-              onNextPrompt={loadNextPrompt}
-              onChallenge={handleChallenge}
-              onLevelChange={() => setCurrentScreen("setup")}
-              onRandomPrompt={loadRandomPrompt}
-              onFullHouse={handleFullHouse}
-              onEndGame={handleEndGame}
-              onRecordTimeSpent={recordTimeSpent}
-              onShowStats={() => setShowStats(true)}
-            />
-          </div>
-        </div>
-      )}
-
-      {/* Modals */}
-      {currentChallenge && (
-        <ChallengeModal
-          isOpen={!!currentChallenge}
-          onClose={closeChallenge}
-          challenge={currentChallenge}
-        />
-      )}
-
-      <GameMenuModal
-        isOpen={showGameMenu}
-        onClose={() => setShowGameMenu(false)}
-        onRestart={handleRestart}
-        onSettings={() => setCurrentScreen("setup")}
-        onHowToPlay={() => setShowHowToPlay(true)}
-        onAboutGame={() => setShowAboutGame(true)}
-      />
-
-      <HowToPlayModal
-        isOpen={showHowToPlay}
-        onClose={() => setShowHowToPlay(false)}
-      />
-
-      <AboutGameModal
-        isOpen={showAboutGame}
-        onClose={() => setShowAboutGame(false)}
-      />
-
-      <GameSummaryModal
-        isOpen={showGameSummary}
-        onClose={() => setShowGameSummary(false)}
-        sessionId={sessionId}
-        onStartNewGame={handleStartNewGame}
-      />
-
-      <PromptStatsModal
-        isOpen={showStats}
-        onClose={() => setShowStats(false)}
-      />
-    </div>
+    <Switch>
+      <Route path="/access">
+        {() => {
+          // If loading, show loading screen
+          if (isLoading) {
+            return (
+              <div className="flex items-center justify-center min-h-screen">
+                <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-primary"></div>
+              </div>
+            );
+          }
+          
+          // If authenticated, redirect to home page
+          if (isAuthenticated) {
+            return <Redirect to="/" />;
+          }
+          
+          // If not authenticated, show access code screen
+          return <AccessCodeScreen />;
+        }}
+      </Route>
+      <Route path="/admin">
+        <AdminDashboard />
+      </Route>
+      <Route path="/">
+        {(params) => <ProtectedRoute component={Home} params={params} />}
+      </Route>
+      <Route component={NotFound} />
+    </Switch>
   );
 }
 
 function App() {
+  // Update social media sharing meta tags when the app loads
+  useEffect(() => {
+    // Get the base URL (protocol + hostname)
+    const baseUrl = window.location.origin;
+    
+    // Set the og:url to the current page URL
+    const ogUrlTag = document.querySelector('meta[property="og:url"]');
+    if (ogUrlTag) {
+      ogUrlTag.setAttribute('content', window.location.href);
+    }
+    
+    // Update image URLs to absolute URLs
+    const ogImageTag = document.querySelector('meta[property="og:image"]');
+    if (ogImageTag) {
+      const imageUrl = ogImageTag.getAttribute('content');
+      if (imageUrl && imageUrl.startsWith('/')) {
+        const absoluteImageUrl = `${baseUrl}${imageUrl}`;
+        ogImageTag.setAttribute('content', absoluteImageUrl);
+      }
+    }
+    
+    // Update secure image URL
+    const ogSecureImageTag = document.querySelector('meta[property="og:image:secure_url"]');
+    if (ogSecureImageTag) {
+      const imageUrl = document.querySelector('meta[property="og:image"]')?.getAttribute('content');
+      if (imageUrl) {
+        ogSecureImageTag.setAttribute('content', imageUrl);
+      }
+    }
+    
+    // Update Twitter image
+    const twitterImageTag = document.querySelector('meta[name="twitter:image"]');
+    if (twitterImageTag) {
+      const imageUrl = document.querySelector('meta[property="og:image"]')?.getAttribute('content');
+      if (imageUrl) {
+        twitterImageTag.setAttribute('content', imageUrl);
+      }
+    }
+  }, []);
+
+  // Handle dynamic updating of Open Graph meta tags for social sharing
+  useEffect(() => {
+    // Get the base URL (protocol + hostname)
+    const baseUrl = window.location.origin;
+    
+    // Update image URLs to absolute URLs for social media sharing
+    const ogImageTag = document.querySelector('meta[property="og:image"]');
+    if (ogImageTag) {
+      const imageUrl = ogImageTag.getAttribute('content');
+      if (imageUrl && imageUrl.startsWith('/')) {
+        ogImageTag.setAttribute('content', `${baseUrl}${imageUrl}`);
+      }
+    }
+    
+    // Set the og:url to the current page URL
+    const ogUrlTag = document.querySelector('meta[property="og:url"]');
+    if (ogUrlTag) {
+      ogUrlTag.setAttribute('content', window.location.href);
+    }
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen bg-background">
-        <Switch>
-          <Route path="/" component={GameApp} />
-          <Route path="/admin" component={AdminDashboard} />
-          <Route component={NotFound} />
-        </Switch>
-        <Toaster />
-      </div>
+      <TooltipProvider>
+        <AuthProvider>
+          <Toaster />
+          <Router />
+        </AuthProvider>
+      </TooltipProvider>
     </QueryClientProvider>
   );
 }
