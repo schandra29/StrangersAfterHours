@@ -1,16 +1,11 @@
 import { useState } from "react";
-import WelcomeScreen from "@/components/WelcomeScreen";
-import SetupScreen from "@/components/SetupScreen";
-import GameScreen from "@/components/GameScreen";
+import WelcomeScreen from "../components/WelcomeScreen";
+import GameScreen from "../components/GameScreen";
 
 export default function Home() {
-  const [currentScreen, setCurrentScreen] = useState<"welcome" | "setup" | "game">("welcome");
+  const [currentScreen, setCurrentScreen] = useState<"welcome" | "game">("welcome");
 
   const handleStartGame = () => {
-    setCurrentScreen("setup");
-  };
-
-  const handleGameSetup = () => {
     setCurrentScreen("game");
   };
 
@@ -19,15 +14,9 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen text-foreground font-body">
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
       {currentScreen === "welcome" && (
         <WelcomeScreen onStartGame={handleStartGame} />
-      )}
-      {currentScreen === "setup" && (
-        <SetupScreen 
-          onStartGame={handleGameSetup}
-          onBack={handleBackToWelcome}
-        />
       )}
       {currentScreen === "game" && (
         <GameScreen onBack={handleBackToWelcome} />
