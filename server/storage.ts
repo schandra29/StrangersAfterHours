@@ -2,8 +2,7 @@ import {
   users, type User, type InsertUser,
   prompts, type Prompt, type InsertPrompt,
   challenges, type Challenge, type InsertChallenge,
-  gameSessions, type GameSession, type InsertGameSession,
-  accessCodes, type AccessCode, type InsertAccessCode
+  gameSessions, type GameSession, type InsertGameSession
 } from "@shared/schema";
 
 export interface IStorage {
