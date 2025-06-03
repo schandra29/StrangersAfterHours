@@ -1,0 +1,14 @@
+# Dependency directories
+node_modules/
+
+# Environment files containing secrets
+.env
+.env.local
+
+# Build outputs
+dist/
+build/
+
+# Logs
+logs/
+*.log

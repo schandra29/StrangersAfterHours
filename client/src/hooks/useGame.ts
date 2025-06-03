@@ -2,17 +2,22 @@ import { useState, useEffect } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
-import { type Prompt, type GameSession } from "@shared/schema";
+import { type Prompt, type GameSession, type ActivityBreak, type ReflectionPause } from "@shared/schema";
 import { fallbackPrompts, getLevelName } from "@/lib/gameData";
 import { getUsedPromptIds, markPromptAsUsed } from "@/lib/utils";
 
 export function useGame() {
   const [currentLevel, setLevel] = useState<number>(1);
   const [currentIntensity, setIntensity] = useState<number>(1);
+  const [currentDeck, setCurrentDeck] = useState<string>("Strangers");
   const [isDrinkingGame, setIsDrinkingGame] = useState<boolean>(false);
   const [currentPrompt, setCurrentPrompt] = useState<Prompt | null>(null);
-  const [sessionId, setSessionId] = useState<number | null>(null);
+  const [currentActivityBreak, setCurrentActivityBreak] = useState<ActivityBreak | null>(null);
+  const [currentReflectionPause, setCurrentReflectionPause] = useState<ReflectionPause | null>(null);
+  const [sessionId, setSessionId] = useState<string | null>(null);
   const [usedPromptIds, setUsedPromptIds] = useState<number[]>([]);
+  const [promptsShown, setPromptsShown] = useState<number>(0);
+  const [contentType, setContentType] = useState<'prompt' | 'activity-break' | 'reflection-pause'>('prompt');
   
   const { toast } = useToast();
   const queryClient = useQueryClient();
@@ -45,18 +50,23 @@ export function useGame() {
 
   // Create new game session
   const createSession = useMutation({
-    mutationFn: async (data: { currentLevel: number; currentIntensity: number; isDrinkingGame: boolean }) => {
+    mutationFn: async (data: { 
+      currentLevel: number; 
+      currentIntensity: number; 
+      currentDeck: string;
+      isDrinkingGame: boolean 
+    }) => {
       // Include the createdAt field
       const sessionData = {
         ...data,
         createdAt: new Date().toISOString()
       };
-      const res = await apiRequest("POST", "/api/sessions", sessionData);
+      const res = await apiRequest("POST", "/api/game-sessions", sessionData);
       return res.json();
     },
     onSuccess: (data: GameSession) => {
       setSessionId(data.id);
-      queryClient.invalidateQueries({ queryKey: [`/api/sessions/${data.id}`] });
+      queryClient.invalidateQueries({ queryKey: [`/api/game-sessions/${data.id}`] });
     },
     onError: () => {
       toast({
@@ -91,86 +101,92 @@ export function useGame() {
   // Start a new game
   const startNewGame = () => {
     setUsedPromptIds([]);
+    setPromptsShown(0);
+    setContentType('prompt');
     
     // Create new session in the backend
     createSession.mutate({
       currentLevel,
       currentIntensity,
+      currentDeck,
       isDrinkingGame,
     });
     
     // Initialize with first prompt
-    getNextPrompt();
+    getNextContent();
   };
 
-  // Get next prompt
-  const getNextPrompt = () => {
-    let availablePrompts: Prompt[] = [];
-    
-    console.log(`Getting next prompt for Level ${currentLevel}/Intensity ${currentIntensity}`);
-    
-    if (prompts && prompts.length > 0) {
-      // Filter prompts not yet used in the current session
-      availablePrompts = prompts.filter(
-        prompt => !usedPromptIds.includes(prompt.id)
-      );
+  // Get next content (prompt, activity break, or reflection pause)
+  const getNextContent = async () => {
+    if (!sessionId) {
+      console.error("No session ID available");
+      return;
     }
     
-    // If we run out of prompts in the current session, reset session IDs but avoid the most recent one
-    if (availablePrompts.length === 0) {
-      const mostRecentId = currentPrompt?.id;
-      setUsedPromptIds(mostRecentId ? [mostRecentId] : []);
+    try {
+      const response = await apiRequest("GET", `/api/game-sessions/${sessionId}/next-prompt`, {});
+      const data = await response.json();
       
-      // Check if we've seen all prompts in this level/intensity in localStorage
-      const storedUsedIds = getUsedPromptIds();
-      const allUsedInLocalStorage = prompts && prompts.every(prompt => storedUsedIds.includes(prompt.id));
+      // Increment prompts shown counter
+      setPromptsShown(prev => prev + 1);
       
-      if (allUsedInLocalStorage && prompts && prompts.length > 0) {
-        // Show toast message that all prompts have been seen at this level
-        toast({
-          title: "All prompts seen!",
-          description: `You've seen all prompts at this level and intensity. Consider increasing the level or intensity, or reset used prompts in the Game Menu.`,
-        });
+      // Handle different content types
+      setContentType(data.type);
+      
+      if (data.type === 'prompt') {
+        setCurrentPrompt(data.content);
+        setCurrentActivityBreak(null);
+        setCurrentReflectionPause(null);
+        
+        // Update level and intensity if they've changed
+        if (data.content.level !== currentLevel) {
+          setLevel(data.content.level);
+        }
+        
+        if (data.content.intensity !== currentIntensity) {
+          setIntensity(data.content.intensity);
+        }
+        
+        // Track in localStorage for long-term persistence
+        markPromptAsUsed(data.content.id);
+      } 
+      else if (data.type === 'activity-break') {
+        setCurrentActivityBreak(data.content);
+        setCurrentPrompt(null);
+        setCurrentReflectionPause(null);
+      } 
+      else if (data.type === 'reflection-pause') {
+        setCurrentReflectionPause(data.content);
+        setCurrentPrompt(null);
+        setCurrentActivityBreak(null);
       }
+    } catch (error) {
+      console.error("Error getting next content:", error);
+      toast({
+        title: "Error",
+        description: "Failed to get next content. Using fallback prompts.",
+        variant: "destructive",
+      });
       
-      if (prompts && prompts.length > 0) {
-        availablePrompts = prompts.filter(
-          prompt => prompt.id !== mostRecentId
-        );
-      } else {
-        // Use fallback prompts if API fails
-        availablePrompts = fallbackPrompts
-          .filter(p => p.level === currentLevel && (p.intensity || 1) <= currentIntensity)
-          .map((p, index) => ({
-            id: index,
-            text: p.text || "Prompt not available",
-            level: p.level || 1,
-            intensity: p.intensity || 1,
-            category: p.category || getLevelName(p.level || 1),
-            isCustom: false,
-            userId: null
-          }));
-      }
-    }
-    
-    // Select random prompt
-    if (availablePrompts.length > 0) {
-      const randomIndex = Math.floor(Math.random() * availablePrompts.length);
-      const newPrompt = availablePrompts[randomIndex];
+      // Use fallback prompts if API fails
+      const fallbackPrompt = fallbackPrompts
+        .filter(p => p.level === currentLevel && (p.intensity || 1) <= currentIntensity)
+        .map((p, index) => ({
+          id: index,
+          text: p.text || "Prompt not available",
+          level: p.level || 1,
+          intensity: p.intensity || 1,
+          category: p.category || getLevelName(p.level || 1),
+          isCustom: false,
+          userId: null,
+          isGroup: false
+        }))[0];
       
-      setCurrentPrompt(newPrompt);
-      setUsedPromptIds(prev => [...prev, newPrompt.id]);
-      
-      // Track in localStorage for long-term persistence
-      markPromptAsUsed(newPrompt.id);
-      
-      // Update session in backend with current level/intensity and used prompt IDs
-      if (sessionId) {
-        updateSession.mutate({ 
-          currentLevel,
-          currentIntensity,
-          usedPromptIds: [...usedPromptIds, newPrompt.id] 
-        });
+      if (fallbackPrompt) {
+        setContentType('prompt');
+        setCurrentPrompt(fallbackPrompt);
+        setCurrentActivityBreak(null);
+        setCurrentReflectionPause(null);
       }
     }
   };
@@ -232,42 +248,53 @@ export function useGame() {
     }
   };
   
-  // Game statistics mutations
-  const recordFullHouse = useMutation({
+  // Complete activity break
+  const completeActivityBreak = useMutation({
     mutationFn: async () => {
-      if (!sessionId) return null;
-      const res = await apiRequest("POST", `/api/sessions/${sessionId}/full-house`, {});
+      if (!sessionId || !currentActivityBreak) return null;
+      const res = await apiRequest("POST", `/api/game-sessions/${sessionId}/activity-breaks/${currentActivityBreak.id}/complete`, {});
       return res.json();
     },
     onSuccess: () => {
       toast({
-        title: "Full House!",
-        description: "Everyone has shared! Great participation!",
+        title: "Activity Break Completed",
+        description: "Great job completing the activity!",
       });
       
-      if (sessionId) {
-        queryClient.invalidateQueries({ queryKey: [`/api/sessions/${sessionId}`] });
-      }
+      // Move to the next content
+      getNextContent();
     },
     onError: () => {
       toast({
         title: "Error",
-        description: "Failed to record full house moment",
+        description: "Failed to complete activity break",
         variant: "destructive",
       });
     },
   });
   
-  const recordPromptAnswered = useMutation({
+  // Complete reflection pause
+  const completeReflectionPause = useMutation({
     mutationFn: async () => {
-      if (!sessionId) return null;
-      const res = await apiRequest("POST", `/api/sessions/${sessionId}/prompt-answered`, {});
+      if (!sessionId || !currentReflectionPause) return null;
+      const res = await apiRequest("POST", `/api/game-sessions/${sessionId}/reflection-pauses/${currentReflectionPause.id}/complete`, {});
       return res.json();
     },
     onSuccess: () => {
-      if (sessionId) {
-        queryClient.invalidateQueries({ queryKey: [`/api/sessions/${sessionId}`] });
-      }
+      toast({
+        title: "Reflection Pause Completed",
+        description: "Time to continue the game!",
+      });
+      
+      // Move to the next content
+      getNextContent();
+    },
+    onError: () => {
+      toast({
+        title: "Error",
+        description: "Failed to complete reflection pause",
+        variant: "destructive",
+      });
     },
   });
   
@@ -399,18 +426,39 @@ export function useGame() {
   };
 
   return {
+    // State
     currentLevel,
     currentIntensity,
+    currentDeck,
     isDrinkingGame,
     currentPrompt,
-    usedPromptIds,
-    isLoadingPrompts,
+    currentActivityBreak,
+    currentReflectionPause,
+    contentType,
     sessionId,
-    startNewGame,
-    getNextPrompt,
-    getRandomPrompt,
+    usedPromptIds,
+    promptsShown,
+    isLoadingPrompts,
+    
+    // State setters
     setLevel: setLevelCustom,  // Use our custom function with side effects
     setIntensity: setIntensityCustom,  // Use our custom function with side effects
+    setCurrentDeck,
+    setIsDrinkingGame,
+    
+    // Actions
+    startNewGame,
+    getNextContent,
+    getRandomPrompt,
+    resetUsedPrompts,
+    
+    // Game content actions
+    completeActivityBreak,
+    completeReflectionPause,
+    
+    // Game statistics
+    updateTimeSpent,
+    updateLevelStatistics,
     toggleDrinkingGame,
     updateSessionLevelIntensity,
     recordTimeSpent,

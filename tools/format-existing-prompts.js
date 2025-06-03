@@ -8,7 +8,6 @@
 
 import { Pool } from 'pg';
 
-// Environment variables are automatically loaded in Replit
 
 // Create a connection to the database
 const pool = new Pool({

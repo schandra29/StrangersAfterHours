@@ -1,0 +1,39 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start Client",
+      "type": "npm",
+      "script": "dev",
+      "path": "${workspaceFolder}/client",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "isBackground": true,
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Start Server",
+      "type": "npm",
+      "script": "dev",
+      "path": "${workspaceFolder}/server",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "isBackground": true
+    },
+    {
+      "label": "Start Full Stack",
+      "dependsOn": ["Start Server", "Start Client"],
+      "problemMatcher": [],
+      "group": "build"
+    }
+  ]
+}

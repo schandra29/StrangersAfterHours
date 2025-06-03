@@ -252,23 +252,24 @@ export default function Home() {
         )}
         
         {currentScreen === "game" && (
-          <GameScreen 
+          <GameScreen
             currentLevel={game.currentLevel}
             currentIntensity={game.currentIntensity}
             currentPrompt={game.currentPrompt}
+            currentActivityBreak={game.currentActivityBreak}
+            currentReflectionPause={game.currentReflectionPause}
+            contentType={game.contentType}
             isDrinkingGame={game.isDrinkingGame}
             isLoadingPrompts={game.isLoadingPrompts}
             onMenu={() => setShowGameMenu(true)}
-            onNextPrompt={() => {
-              game.getNextPrompt();
-              game.recordPromptComplete(); // Record that a prompt was answered
-            }}
+            onNextContent={game.getNextContent}
+            onCompleteActivityBreak={game.completeActivityBreak.mutate}
+            onCompleteReflectionPause={game.completeReflectionPause.mutate}
             onChallenge={handleOpenChallenge}
             onLevelChange={handleLevelChange}
             onRandomPrompt={handleRandomPrompt}
-            onFullHouse={handleFullHouseMoment}
-            onEndGame={handleEndGame}
-            onRecordTimeSpent={handleRecordTimeSpent}
+            onEndGame={() => setShowGameSummary(true)}
+            onRecordTimeSpent={game.updateTimeSpent.mutate}
             onShowStats={() => setShowPromptStats(true)}
           />
         )}

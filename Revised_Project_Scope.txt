@@ -1,0 +1,223 @@
+# Strangers: After Hours - Project Document for Agile Team
+## Project Overview
+**App Name**: Strangers: After Hours  
+**Platform**: Replit (web-based, mobile-friendly)  
+**Goal**: Transform strangers into best friends through conversational prompts across three decks (*Strangers*, *Friends*, *BFFs*), with 150 prompts per deck (450 total). Levels: Icebreaker (light), Getting to Know You (reflective), Deeper Dive (profound); Intensities: Mild (low-stakes), Moderate (personal), Bold (daring). 50% Indian-specific (Bollywood, festivals, etc.), 50% universal prompts.  
+**Current State**: 450 prompts completed for *Strangers: After Hours*. Full-House functionality (button, confetti, participation tracking) exists but needs removal. Unlockable Prompt Packs (Spicy Bollywood Challenges, Festival Frenzy, 50 prompts each, spice level 6) unlock after 10 prompts answered.  
+**Objective**: Refine game flow by adding activity breaks (after every 4 prompts), reflection pauses (after 10 prompts), removing Full-House, and adjusting unlock logic. Prepare the framework for future prompt additions.
+
+## Sprint Goal (2 Weeks - Starting June 02, 2025)
+- Remove Full-House functionality.  
+- Implement activity breaks after every 4 prompts, reflection pauses after 10 prompts, and unlock prompt packs after 10 prompts.  
+- Update architecture and dependencies to support the new flow.
+
+## Team Roles
+- **Product Owner**: Oversees vision, backlog prioritization.  
+- **Scrum Master**: Facilitates Agile process, removes blockers.  
+- **Developers (Frontend/Backend)**: Code implementation, testing.  
+- **UI/UX Designer**: Designs activity break UI, reflection pause messages.  
+- **QA Engineer**: Tests new flow, ensures no bugs.
+
+## Backlog Tasks
+### Epic 1: Remove Full-House Functionality
+- **Task 1: Remove Full-House UI**  
+  - **Assignee**: Frontend Developer  
+  - **Description**: Remove Full-House button (`<button id="fullHouseBtn">`) and confetti animation from `index.html`.  
+  - **Acceptance Criteria**: Button and confetti no longer appear in UI; no errors in console.  
+  - **Story Points**: 2
+
+- **Task 2: Remove Full-House Logic**  
+  - **Assignee**: Backend Developer  
+  - **Description**: Delete participation tracking (`participation` array, `markParticipation`, `isFullHouse`, `resetParticipation`) and `onFullHouse` function from `game.js`.  
+  - **Acceptance Criteria**: Code related to Full-House is removed; app functions without errors.  
+  - **Story Points**: 3
+
+### Epic 2: Implement Activity Breaks
+- **Task 3: Add Activity Break Logic**  
+  - **Assignee**: Backend Developer  
+  - **Description**: Add a counter (`promptCount`) in `game.js` to track prompts shown. After every 4th prompt, trigger an activity break by randomly selecting an activity from `activities.js`.  
+  - **Code Snippet (game.js)**:  
+    ```javascript
+    let promptCount = 0;
+    let currentActivity = null;
+    function onPromptAnswered() {
+      promptCount++;
+      if (promptCount % 4 === 0) {
+        currentActivity = activities[Math.floor(Math.random() * activities.length)];
+        showActivityBreak(currentActivity);
+      }
+      if (promptCount % 10 === 0) {
+        unlockPromptPack();
+        showReflectionPause();
+      }
+    }
+    ```
+  - **Acceptance Criteria**: Activity break triggers after 4 prompts; a random activity is selected and displayed.  
+  - **Story Points**: 5
+
+- **Task 4: Create Activities List**  
+  - **Assignee**: Backend Developer  
+  - **Description**: Create `activities.js` with a list of 10 activity breaks (Bollywood Charades, Festival Memory Mashup, Song Swap, Street Food Swap, Dialogue Mashup, Rapid-Fire Q&A, Guess the Festival, Memory Chain, Cultural Swap, Soundtrack Challenge).  
+  - **Code Snippet (activities.js)**:  
+    ```javascript
+    const activities = [
+      { name: "Bollywood Charades", desc: "One player acts out a Bollywood movie title (e.g., Dilwale Dulhania Le Jayenge) without speaking; others guess within 30 seconds." },
+      { name: "Festival Memory Mashup", desc: "Each player shares one word related to a festival memory (e.g., Diwali, firecracker, sweets); the group creates a silly one-sentence story." },
+      { name: "Song Swap", desc: "Players name a song (Bollywood or universal) they’d play to lift the group’s mood, no explanation needed." },
+      { name: "Street Food Swap", desc: "Each player names a street food they’d bring to a group party (e.g., vada pav, pani puri, ice cream); the group votes on the most drool-worthy pick in 30 seconds." },
+      { name: "Dialogue Mashup", desc: "Players take turns saying a famous Bollywood dialogue (e.g., Bade bade deshon mein…) in a funny accent or tone; the group picks the funniest delivery." },
+      { name: "Rapid-Fire Q&A", desc: "One player asks rapid-fire yes/no questions (e.g., Have you danced to a Bollywood song at a wedding?) for 30 seconds; others answer fast." },
+      { name: "Guess the Festival", desc: "One player describes a festival in three clues without naming it (e.g., Lights, sweets, firecrackers for Diwali); others guess within 30 seconds." },
+      { name: "Memory Chain", desc: "First player says a word (e.g., Bollywood); each adds a related word (e.g., song, dance); continues until someone repeats or stalls—last one wins." },
+      { name: "Cultural Swap", desc: "Each player shares one cultural item they’d gift the group (e.g., a lehenga, a playlist); the group picks the most unique gift in 30 seconds." },
+      { name: "Soundtrack Challenge", desc: "Players hum or whistle a Bollywood or universal song for 10 seconds; others guess the song or movie—first to guess picks the next tune." }
+    ];
+    ```
+  - **Acceptance Criteria**: `activities.js` contains 10 activities with names and descriptions; activities are accessible for random selection.  
+  - **Story Points**: 3
+
+- **Task 5: Design Activity Break UI**  
+  - **Assignee**: UI/UX Designer  
+  - **Description**: Design a modal or overlay for activity breaks, displaying the activity name and description (e.g., “Bollywood Charades: One player acts out…”). Add a 30-second timer and a “Done” button to close. Use Indian-inspired colors (e.g., red, ochre) and playful fonts.  
+  - **Code Snippet (index.html)**:  
+    ```html
+    <div id="activityModal" class="modal">
+      <div class="modal-content">
+        <h3 id="activityName"></h3>
+        <p id="activityDesc"></p>
+        <p>Time Left: <span id="timer">30</span> seconds</p>
+        <button onclick="closeActivity()">Done</button>
+      </div>
+    </div>
+    ```
+  - **Code Snippet (styles.css)**:  
+    ```css
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; }
+    .modal-content { background: #FF6347; color: white; margin: 15% auto; padding: 20px; width: 80%; max-width: 500px; border-radius: 10px; text-align: center; font-family: 'Arial', sans-serif; }
+    ```
+  - **Code Snippet (game.js)**:  
+    ```javascript
+    function showActivityBreak(activity) {
+      document.getElementById("activityModal").style.display = "block";
+      document.getElementById("activityName").textContent = activity.name;
+      document.getElementById("activityDesc").textContent = activity.desc;
+      let timeLeft = 30;
+      const timer = setInterval(() => {
+        timeLeft--;
+        document.getElementById("timer").textContent = timeLeft;
+        if (timeLeft <= 0) {
+          clearInterval(timer);
+          closeActivity();
+        }
+      }, 1000);
+    }
+    function closeActivity() {
+      document.getElementById("activityModal").style.display = "none";
+    }
+    ```
+  - **Acceptance Criteria**: Modal displays with activity name, description, and timer; auto-closes after 30 seconds or on “Done” click; styled with Indian-inspired colors.  
+  - **Story Points**: 5
+
+### Epic 3: Implement Reflection Pauses
+- **Task 6: Add Reflection Pause Logic**  
+  - **Assignee**: Backend Developer  
+  - **Description**: After every 10th prompt, trigger a 30-second reflection pause with a message (e.g., “Take a breather—grab some chai!”). Use the same counter (`promptCount`) from activity breaks.  
+  - **Code Snippet (game.js)**:  
+    ```javascript
+    function showReflectionPause() {
+      document.getElementById("pauseModal").style.display = "block";
+      setTimeout(() => {
+        document.getElementById("pauseModal").style.display = "none";
+      }, 30000);
+    }
+    ```
+  - **Acceptance Criteria**: Pause triggers after 10 prompts; displays for 30 seconds; resumes game flow.  
+  - **Story Points**: 3
+
+- **Task 7: Design Reflection Pause UI**  
+  - **Assignee**: UI/UX Designer  
+  - **Description**: Design a modal for reflection pauses, displaying a playful message (e.g., “Take a breather—grab some chai and think about the wildest Bollywood moment you’ve shared so far!”). Use festive colors (e.g., yellow, gold) and a 30-second timer.  
+  - **Code Snippet (index.html)**:  
+    ```html
+    <div id="pauseModal" class="modal">
+      <div class="modal-content">
+        <h3>Take a Breather!</h3>
+        <p id="pauseMessage">Take a breather—grab some chai and think about the wildest Bollywood moment you’ve shared so far!</p>
+        <p>Resuming in: <span id="pauseTimer">30</span> seconds</p>
+      </div>
+    </div>
+    ```
+  - **Code Snippet (styles.css)**:  
+    ```css
+    .modal-content { background: #FFD700; color: #333; /* Same styles as activity modal */ }
+    ```
+  - **Acceptance Criteria**: Modal displays with message and timer; auto-closes after 30 seconds; styled with festive colors.  
+  - **Story Points**: 3
+
+### Epic 4: Adjust Unlockable Prompt Packs Logic
+- **Task 8: Update Unlock Logic**  
+  - **Assignee**: Backend Developer  
+  - **Description**: Modify unlock logic to trigger after 10 prompts answered (instead of Full-House). Use the `promptCount` counter in `game.js`.  
+  - **Code Snippet (game.js)**:  
+    ```javascript
+    let unlockedPacks = JSON.parse(localStorage.getItem("unlockedPacks")) || [];
+    function unlockPromptPack() {
+      let packToUnlock = null;
+      if (!unlockedPacks.includes("spicyBollywood")) {
+        packToUnlock = "spicyBollywood";
+      } else if (!unlockedPacks.includes("festivalFrenzy")) {
+        packToUnlock = "festivalFrenzy";
+      }
+      if (packToUnlock) {
+        unlockedPacks.push(packToUnlock);
+        localStorage.setItem("unlockedPacks", JSON.stringify(unlockedPacks));
+        showUnlockNotification(`Congrats! You’ve unlocked the ${packToUnlock === "spicyBollywood" ? "Spicy Bollywood Challenges" : "Festival Frenzy"} pack!`);
+        addPromptsToGame(bonusPrompts[packToUnlock]);
+      }
+    }
+    ```
+  - **Acceptance Criteria**: Packs unlock after 10 prompts; notification shows; new prompts are added to the game pool.  
+  - **Story Points**: 3
+
+### Epic 5: Alternate Solo and Group Prompts
+- **Task 9: Add Prompt Type Tagging**  
+  - **Assignee**: Backend Developer  
+  - **Description**: Add a `type` column to the prompt CSV (`solo` or `group`) to alternate between solo and group prompts. Update prompt display logic to alternate types.  
+  - **Code Snippet (game.js)**:  
+    ```javascript
+    let lastPromptType = "group";
+    function showNextPrompt() {
+      const nextType = lastPromptType === "solo" ? "group" : "solo";
+      const nextPrompt = gamePrompts.find(prompt => prompt.type === nextType && !prompt.shown);
+      if (nextPrompt) {
+        nextPrompt.shown = true;
+        lastPromptType = nextType;
+        document.getElementById("currentPrompt").textContent = nextPrompt.text;
+        onPromptAnswered();
+      }
+    }
+    ```
+  - **Acceptance Criteria**: Prompts alternate between solo and group; game flow reflects the alternation.  
+  - **Story Points**: 5
+
+### Dependencies
+- **Local Storage**: For tracking `promptCount`, `unlockedPacks`, and prompt states (`shown` flag).  
+- **JavaScript**: Core logic for game flow, activity breaks, pauses, and unlocks.  
+- **CSS**: Styling for modals (activity breaks, reflection pauses).  
+- **Optional**: Sound library (e.g., Howler.js) for future audio additions (e.g., Bollywood jingle on unlock).
+
+### Acceptance Criteria for Sprint
+- Activity breaks trigger after every 4 prompts; 10 activities (Bollywood Charades, etc.) are implemented with UI modal.  
+- Reflection pauses trigger after every 10 prompts; modal displays for 30 seconds.  
+- Full-House functionality (button, confetti, tracking) is removed; no errors in app.  
+- Prompt packs unlock after 10 prompts; notification shows, and new prompts are added.  
+- Prompts alternate between solo and group types; flow is seamless.  
+- UI reflects Indian cultural elements (colors, patterns); modals are accessible (high contrast, clear fonts).
+
+### Timeline
+- **Sprint Start**: June 02, 2025  
+- **Daily Standups**: 10:15 AM IST (15 mins)  
+- **Sprint Review**: June 13, 2025, 10:00 AM IST  
+- **Sprint Retrospective**: June 13, 2025, 11:00 AM IST
+
+Let’s make this flow smooth and fun—hit me up with any blockers! 🚀

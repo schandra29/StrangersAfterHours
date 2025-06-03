@@ -1,0 +1,70 @@
+version: '3.8'
+
+services:
+  # PostgreSQL database
+  db:
+    image: postgres:15-alpine
+    container_name: strangers-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: strangers
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # Supabase for local development
+  supabase:
+    image: supabase/postgres:15.1.0.117
+    container_name: strangers-supabase
+    environment:
+      POSTGRES_PASSWORD: your-super-secret-password
+      JWT_SECRET: your-super-secret-jwt-token
+      SITE_URL: http://localhost:3000
+      ADDITIONAL_REDIRECT_URLS: http://localhost:5173
+    ports:
+      - '54321:5432'  # Expose a different port to avoid conflict with local Postgres
+    volumes:
+      - supabase_data:/var/lib/postgresql/data
+    depends_on:
+      db:
+        condition: service_healthy
+
+  # Redis for caching and rate limiting
+  redis:
+    image: redis:7-alpine
+    container_name: strangers-redis
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis_data:/data
+
+  # MailHog for email testing
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: strangers-mailhog
+    ports:
+      - '1025:1025'  # SMTP server
+      - '8025:8025'  # Web UI
+
+  # Adminer for database management
+  adminer:
+    image: adminer:latest
+    container_name: strangers-adminer
+    ports:
+      - '8080:8080'
+    environment:
+      ADMINER_DEFAULT_SERVER: db
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
+  supabase_data:
+  redis_data:

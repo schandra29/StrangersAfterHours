@@ -1,6 +1,7 @@
 import { pgTable, text, serial, integer, boolean, jsonb, timestamp } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
+import { promptTypeEnum, promptPacks } from "./game-schema";
 
 // Base user table
 export const users = pgTable("users", {
@@ -20,9 +21,13 @@ export const prompts = pgTable("prompts", {
   text: text("text").notNull(),
   level: integer("level").notNull(), // 1-3: Icebreaker, Getting to Know You, Deeper Dive
   intensity: integer("intensity").notNull(), // 1-3: Mild, Medium, Wild
+  type: promptTypeEnum("type").default('solo').notNull(), // solo or group
   category: text("category").notNull(),
+  packId: integer("pack_id").references(() => promptPacks.id),
   isCustom: boolean("is_custom").default(false).notNull(),
-  userId: integer("user_id").references(() => users.id),
+  userId: integer("user_id").references(() => users.id, { onDelete: 'set null' }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
 
 export const insertPromptSchema = createInsertSchema(prompts).omit({
@@ -50,10 +55,15 @@ export const gameSessions = pgTable("game_sessions", {
   currentIntensity: integer("current_intensity").notNull().default(1),
   isDrinkingGame: boolean("is_drinking_game").notNull().default(false),
   usedPromptIds: jsonb("used_prompt_ids").notNull().default([]),
+  usedActivityBreakIds: jsonb("used_activity_break_ids").default([]),
+  usedReflectionPauseIds: jsonb("used_reflection_pause_ids").default([]),
+  currentDeck: text("current_deck"), // Strangers, Friends, BFFs
   createdAt: text("created_at").notNull(),
   // Game statistics
   totalTimeSpent: integer("total_time_spent").default(0), // Total time in seconds
   promptsAnswered: integer("prompts_answered").default(0),
+  activityBreaksCompleted: integer("activity_breaks_completed").default(0),
+  reflectionPausesCompleted: integer("reflection_pauses_completed").default(0),
   fullHouseMoments: integer("full_house_moments").default(0),
   levelStats: jsonb("level_stats").default({}),
   // Access tracking for analytics
@@ -81,6 +91,19 @@ export type InsertChallenge = z.infer<typeof insertChallengeSchema>;
 
 export type GameSession = typeof gameSessions.$inferSelect;
 export type InsertGameSession = z.infer<typeof insertGameSessionSchema>;
+
+// Re-export types from game-schema
+export { 
+  promptTypeEnum,
+  ActivityBreak,
+  InsertActivityBreak,
+  ReflectionPause,
+  InsertReflectionPause,
+  PromptPack,
+  InsertPromptPack,
+  UserProgress,
+  InsertUserProgress
+} from "./game-schema";
 
 // Access codes for limiting application access
 export const accessCodes = pgTable("access_codes", {

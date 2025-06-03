@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { type Prompt } from "@shared/schema";
+import { type Prompt, type ActivityBreak, type ReflectionPause } from "@shared/schema";
 import Confetti from "react-confetti";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { getLevelName, getIntensityName } from "@/lib/gameData";
@@ -11,14 +11,18 @@ interface GameScreenProps {
   currentLevel: number;
   currentIntensity: number;
   currentPrompt: Prompt | null;
+  currentActivityBreak: ActivityBreak | null;
+  currentReflectionPause: ReflectionPause | null;
+  contentType: 'prompt' | 'activity-break' | 'reflection-pause';
   isDrinkingGame: boolean;
   isLoadingPrompts: boolean; // Added to show loading state
   onMenu: () => void;
-  onNextPrompt: () => void;
+  onNextContent: () => void;
+  onCompleteActivityBreak: () => void;
+  onCompleteReflectionPause: () => void;
   onChallenge: (type: "Dare" | "R-Rated Dare" | "Take a Sip") => void;
   onLevelChange: (type: "level" | "intensity") => void;
   onRandomPrompt: () => void;
-  onFullHouse?: () => void;
   onEndGame?: () => void;
   onRecordTimeSpent?: (seconds: number) => void;
   onShowStats?: () => void; // Added for stats modal
@@ -28,14 +32,18 @@ export default function GameScreen({
   currentLevel,
   currentIntensity,
   currentPrompt,
+  currentActivityBreak,
+  currentReflectionPause,
+  contentType,
   isDrinkingGame,
   isLoadingPrompts,
   onMenu,
-  onNextPrompt,
+  onNextContent,
+  onCompleteActivityBreak,
+  onCompleteReflectionPause,
   onChallenge,
   onLevelChange,
   onRandomPrompt,
-  onFullHouse,
   onEndGame,
   onRecordTimeSpent,
   onShowStats
@@ -74,24 +82,33 @@ export default function GameScreen({
     setTimeElapsed(0);
   }, [currentPrompt]);
   
-  // Handle full house celebration
-  const handleFullHouse = () => {
-    if (onFullHouse) {
-      // Stop the timer if it's running and record the time
-      if (isTimerRunning && onRecordTimeSpent) {
-        stopTimer();
-        onRecordTimeSpent(timeElapsed);
-      }
-      
-      // Show confetti and trigger the full house celebration
-      setShowConfetti(true);
-      onFullHouse();
-      
-      // Hide confetti after 5 seconds
-      setTimeout(() => {
-        setShowConfetti(false);
-      }, 5000);
+  // Handle activity break completion
+  const handleCompleteActivityBreak = () => {
+    // Stop the timer if it's running and record the time
+    if (isTimerRunning && onRecordTimeSpent) {
+      stopTimer();
+      onRecordTimeSpent(timeElapsed);
     }
+    
+    // Show confetti for celebration
+    setShowConfetti(true);
+    onCompleteActivityBreak();
+    
+    // Hide confetti after 3 seconds
+    setTimeout(() => {
+      setShowConfetti(false);
+    }, 3000);
+  };
+  
+  // Handle reflection pause completion
+  const handleCompleteReflectionPause = () => {
+    // Stop the timer if it's running and record the time
+    if (isTimerRunning && onRecordTimeSpent) {
+      stopTimer();
+      onRecordTimeSpent(timeElapsed);
+    }
+    
+    onCompleteReflectionPause();
   };
 
   const startTimer = () => {
@@ -167,23 +184,89 @@ export default function GameScreen({
         </div>
       </div>
       
-      {/* Prompt Card */}
-      <div className="card bg-card/90 rounded-3xl p-8 mb-6 border border-primary/20 shadow-xl">
-        <div className="text-center mb-8">
-          <div className="flex justify-center mb-4">
-            <div className="bg-primary/20 rounded-full py-1 px-4 text-sm text-white font-bold">
-              {currentPrompt?.category || "Icebreaker"}
-            </div>
-          </div>
-          {isLoadingPrompts ? (
-            <div className="flex flex-col items-center justify-center py-6">
-              <div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4"></div>
-              <p className="text-gray-300">Loading new prompt...</p>
-            </div>
-          ) : (
-            <h2 className="font-prompt font-semibold text-3xl text-white leading-tight prompt-text">
-              {currentPrompt?.text || "If you could have dinner with any historical figure, who would it be and why?"}
-            </h2>
+      {/* Main content card - could be prompt, activity break, or reflection pause */}
+      <div className="relative w-full max-w-md mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+        <div className="px-4 py-5 sm:p-6">
+          {contentType === 'prompt' && (
+            <>
+              {/* Level/Intensity indicator for prompts */}
+              <div className="flex justify-between items-center mb-4">
+                <div className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                  {getLevelName(currentLevel)} · {getIntensityName(currentIntensity)}
+                </div>
+                <div className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                  Level {currentLevel} · Intensity {currentIntensity}
+                </div>
+              </div>
+              
+              {/* Prompt text */}
+              <div className="text-center">
+                {isLoadingPrompts ? (
+                  <div className="animate-pulse">
+                    <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mx-auto mb-2"></div>
+                    <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-1/2 mx-auto"></div>
+                  </div>
+                ) : (
+                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
+                    {currentPrompt?.text || "No prompt available"}
+                  </h2>
+                )}
+              </div>
+            </>
+          )}
+          
+          {contentType === 'activity-break' && (
+            <>
+              {/* Activity Break header */}
+              <div className="flex justify-center items-center mb-4">
+                <div className="text-lg font-bold text-blue-600 dark:text-blue-400">
+                  ACTIVITY BREAK
+                </div>
+              </div>
+              
+              {/* Activity Break content */}
+              <div className="text-center">
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                  {currentActivityBreak?.title || "Time for an activity!"}
+                </h2>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  {currentActivityBreak?.description || "Let's take a break and do something fun together!"}
+                </p>
+                <Button 
+                  onClick={handleCompleteActivityBreak}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                >
+                  Complete Activity
+                </Button>
+              </div>
+            </>
+          )}
+          
+          {contentType === 'reflection-pause' && (
+            <>
+              {/* Reflection Pause header */}
+              <div className="flex justify-center items-center mb-4">
+                <div className="text-lg font-bold text-purple-600 dark:text-purple-400">
+                  REFLECTION PAUSE
+                </div>
+              </div>
+              
+              {/* Reflection Pause content */}
+              <div className="text-center">
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                  {currentReflectionPause?.title || "Time to reflect"}
+                </h2>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  {currentReflectionPause?.description || "Take a moment to reflect on the conversations you've had so far."}
+                </p>
+                <Button 
+                  onClick={handleCompleteReflectionPause}
+                  className="w-full bg-purple-600 hover:bg-purple-700 text-white"
+                >
+                  Continue Playing
+                </Button>
+              </div>
+            </>
           )}
         </div>
         
@@ -219,39 +302,80 @@ export default function GameScreen({
           </Button>
         )}
         
-        {/* Full house celebration button */}
-        <Button
-          className="btn-secondary w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg flex items-center justify-center mb-4"
-          onClick={handleFullHouse}
-        >
-          <i className="ri-group-line mr-2"></i> Full-house!
-        </Button>
+        {/* Action buttons - only show for prompts */}
+        {contentType === 'prompt' && (
+          <>
+            <div className="mt-6 grid grid-cols-2 gap-3">
+              <Button 
+                onClick={onNextContent}
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+              >
+                Next Prompt
+              </Button>
+              
+              <Button 
+                onClick={onMenu}
+                variant="outline"
+                className="w-full"
+              >
+                Game Menu
+              </Button>
+            </div>
+            
+            {/* Challenge buttons */}
+            <div className="mt-4 grid grid-cols-2 gap-3">
+              <Button 
+                onClick={() => onChallenge("Dare")}
+                variant="outline"
+                className="w-full border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white"
+              >
+                Dare
+              </Button>
+              
+              <Button 
+                onClick={() => onChallenge(isDrinkingGame ? "Take a Sip" : "R-Rated Dare")}
+                variant="outline"
+                className={`w-full ${isDrinkingGame 
+                  ? "border-red-500 text-red-500 hover:bg-red-500 hover:text-white" 
+                  : "border-pink-500 text-pink-500 hover:bg-pink-500 hover:text-white"}`}
+              >
+                {isDrinkingGame ? "Take a Sip" : "R-Rated Dare"}
+              </Button>
+            </div>
+            
+            {/* Special action buttons */}
+            <div className="mt-4 grid grid-cols-2 gap-3">
+              <Button 
+                onClick={() => onLevelChange("level")}
+                variant="outline"
+                className="w-full border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white"
+              >
+                Change Level
+              </Button>
+              
+              <Button 
+                onClick={onRandomPrompt}
+                variant="outline"
+                className="w-full border-green-500 text-green-500 hover:bg-green-500 hover:text-white"
+              >
+                Random Prompt
+              </Button>
+            </div>
+          </>
+        )}
         
-        <Button
-          className="btn-primary w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 px-6 rounded-xl shadow-lg flex items-center justify-center mb-3"
-          onClick={onNextPrompt}
-        >
-          <i className="ri-arrow-right-line mr-2"></i> Next Prompt
-        </Button>
-        
-        {/* Game Controls */}
-        <div className="grid grid-cols-2 gap-3">
-          <button 
-            className="bg-primary/20 hover:bg-primary/30 text-white py-3 px-4 rounded-xl text-center"
-            onClick={() => onLevelChange("level")}
-          >
-            <i className="ri-game-line mb-1 text-xl block"></i>
-            <span className="block text-sm font-medium leading-tight">Select Level/<wbr/>Intensity</span>
-          </button>
-          <button 
-            className="bg-primary/20 hover:bg-primary/30 text-white py-3 px-4 rounded-xl text-center relative overflow-hidden group"
-            onClick={() => onRandomPrompt()}
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-20 transition-opacity"></div>
-            <i className="ri-magic-line mb-1 text-xl block relative z-10"></i>
-            <span className="block text-sm font-medium leading-tight relative z-10">Take a Chance</span>
-          </button>
-        </div>
+        {/* Menu button for activity breaks and reflection pauses */}
+        {(contentType === 'activity-break' || contentType === 'reflection-pause') && (
+          <div className="mt-4">
+            <Button 
+              onClick={onMenu}
+              variant="outline"
+              className="w-full"
+            >
+              Game Menu
+            </Button>
+          </div>
+        )}
       </div>
       
       {/* Challenge Section */}
