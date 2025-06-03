@@ -11,8 +11,7 @@ export default defineConfig({
     },
   },
   server: {
-    port: 3000,
-    strictPort: true,
+
     open: true,
     hmr: {
       overlay: false, // Disable the HMR overlay to prevent the error message

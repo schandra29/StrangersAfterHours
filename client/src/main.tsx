@@ -1,10 +1,13 @@
 import { createRoot } from "react-dom/client";
-import { QueryClientProvider } from "@tanstack/react-query";
-import { queryClient } from "./lib/queryClient"; // Import the shared client
 import { createClient } from '@supabase/supabase-js';
-import { SupabaseProvider } from '@supabase/auth-helpers-react';
+import { createContext } from 'react';
 import App from "./App";
 import "./index.css";
+
+import type { SupabaseClient } from '@supabase/supabase-js';
+
+// Create a properly typed Supabase context for use throughout the app
+export const SupabaseContext = createContext<SupabaseClient | undefined>(undefined);
 
 // Initialize Supabase client
 // Try both Vite-style and Node-style environment variables
@@ -40,9 +43,7 @@ supabase.from('prompts').select('count').then(({ data, error }) => {
 
 // Render the app
 createRoot(document.getElementById("root")!).render(
-  <SupabaseProvider supabaseClient={supabase}>
-    <QueryClientProvider client={queryClient}>
-      <App />
-    </QueryClientProvider>
-  </SupabaseProvider>
+  <SupabaseContext.Provider value={supabase}>
+    <App />
+  </SupabaseContext.Provider>
 );

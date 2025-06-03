@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Switch, Route, Redirect } from "wouter";
-import { QueryClientProvider } from "@tanstack/react-query"; // This import might become unused, but let's keep for now if other parts of App.tsx use it directly, though unlikely.
 // Import components with relative paths instead of aliases
 import TestConnection from "./pages/test-connection";
 
@@ -81,7 +80,9 @@ function Router() {
       <Route path="/test-connection">
         <TestConnection />
       </Route>
-      <Route component={NotFound} />
+      <Route path="*">
+        <NotFound />
+      </Route>
     </Switch>
   );
 }
