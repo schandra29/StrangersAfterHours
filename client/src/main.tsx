@@ -8,8 +8,8 @@ import "./index.css";
 
 // Initialize Supabase client
 // Try both Vite-style and Node-style environment variables
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || process.env.VITE_SUPABASE_URL || "https://vrgvoyjvpdqqtednoqru.supabase.co";
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || process.env.VITE_SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZyZ3ZveWp2cGRxcXRlZG5vcXJ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg3NzgyNDQsImV4cCI6MjA2NDM1NDI0NH0.-YbnEYmVKdlQVA2alcXuUxtW4sx__7GiKXfVWhfP8UE";
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || "https://vrgvoyjvpdqqtednoqru.supabase.co";
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZyZ3ZveWp2cGRxcXRlZG5vcXJ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg3NzgyNDQsImV4cCI6MjA2NDM1NDI0NH0.-YbnEYmVKdlQVA2alcXuUxtW4sx__7GiKXfVWhfP8UE";
 
 // Always log what we're using (for debugging)
 console.log('Using Supabase URL:', supabaseUrl);

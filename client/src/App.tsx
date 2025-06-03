@@ -9,7 +9,7 @@ const Toaster = () => <div>Toaster Component</div>;
 const TooltipProvider = ({ children }: { children: React.ReactNode }) => <div>{children}</div>;
 const Home = () => <div>Home Page</div>;
 const NotFound = () => <div>404 Not Found</div>;
-const AccessCodeScreen = () => <div>Access Code Screen</div>;
+
 const AdminDashboard = () => <div>Admin Dashboard</div>;
 
 // Mock auth context until we implement the real one
@@ -69,7 +69,7 @@ function Router() {
           }
           
           // If not authenticated, show access code screen
-          return <AccessCodeScreen />;
+          return <Home />; // or your main entry component
         }}
       </Route>
       <Route path="/admin">
