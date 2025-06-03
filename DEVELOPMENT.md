@@ -31,15 +31,44 @@ This document contains useful information for setting up and working on the Stra
    cp .env.example .env.local
    ```
    Then edit `.env.local` with your local configuration.
+   Ensure `VITE_SUPABASE_URL` points to your Supabase local dev CLI URL (default `http://localhost:54321`) and `DATABASE_URL` points to its database (default `postgresql://postgres:postgres@localhost:54321/postgres`). The client runs on port 5173 and the server on port 3001 (configurable via `PORT` in `.env.local`).
 
 4. **Start the development environment**
+
+   **Option 1: Using Supabase CLI (Recommended for most app development)**
+
+   1. Start Supabase local development services:
+      ```bash
+      supabase start
+      ```
+      This will provide you with local Supabase URLs and keys. Ensure these are in your `.env.local`.
+
+   2. Initialize the database (if not already done):
+      ```bash
+      pnpm db:setup
+      ```
+      This targets the database managed by `supabase start`.
+
+   3. Start the Vite client (port 5173):
+      ```bash
+      # From the project root
+      pnpm dev
+      ```
+
+   4. Start the backend server (port 3001):
+      ```bash
+      # From the project root, in a new terminal
+      cd server && pnpm dev
+      ```
+
+   **Option 2: Using Docker Compose for Backing Services**
+
+   If you need other services defined in `docker-compose.yml` (e.g., a standalone PostgreSQL, Redis), or prefer to run Supabase services via Docker Compose:
    ```bash
-   # Start all services (PostgreSQL, Redis, etc.)
+   # Start backing services defined in docker-compose.yml
    docker-compose up -d
-   
-   # Start the development server
-   pnpm dev
    ```
+   Then, start the client and server as described in Option 1 (steps 3 and 4). Note that if you use `docker-compose` for Supabase, you'll need to adjust your `.env.local` variables accordingly to point to the services managed by Docker Compose instead of the Supabase CLI.
 
 ## Available Scripts
 

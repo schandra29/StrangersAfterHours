@@ -47,74 +47,101 @@ We're currently facing the following testing challenges:
 - **Authentication**: Supabase Auth
 - **Deployment**: Vercel (Frontend), Supabase (Database)
 
-## Prerequisites
+## Complete Local Development Setup Guide
 
-- Node.js (v18 or later)
-- pnpm (recommended) or npm
-- PostgreSQL (or Supabase for local development)
-- Supabase CLI (for local development)
+This guide provides step-by-step instructions to set up and run the Strangers: After Hours application on your local machine.
 
-## Getting Started
+### 1. Prerequisites
 
-### 1. Clone the repository
+Ensure you have the following installed:
+- **Node.js**: Version 18 or later.
+- **pnpm**: While `npm` can work, `pnpm` is recommended for this project. Install it via `npm install -g pnpm`.
+- **Supabase CLI**: Follow the installation instructions on the [official Supabase documentation](https://supabase.com/docs/guides/cli/getting-started).
+- **Git**: For cloning the repository.
 
+### 2. Clone the Repository
+
+Open your terminal and run the following commands:
 ```bash
 git clone https://github.com/your-username/strangers-after-hours.git
 cd strangers-after-hours
 ```
+(Replace `your-username` with the actual repository path if different)
 
-### 2. Install dependencies
+### 3. Install Dependencies
 
-Using pnpm (recommended):
-
+From the project root directory (`strangers-after-hours`), install all necessary packages:
 ```bash
 pnpm install
 ```
 
-Or using npm:
+### 4. Configure Environment Variables
 
-```bash
-npm install
-```
-
-### 3. Set up environment variables
-
-Copy the example environment file and update the values:
-
+Create your local environment file by copying the example:
 ```bash
 cp .env.example .env.local
 ```
+Now, open `.env.local` in your text editor and carefully verify or update the following variables:
 
-Edit `.env.local` with your Supabase and database credentials.
+-   `VITE_SUPABASE_URL`: Should match the API URL provided by `supabase start` (defaults to `http://localhost:54321`).
+-   `VITE_SUPABASE_ANON_KEY`: Use the `anon key` provided by `supabase start`.
+-   `VITE_SUPABASE_SERVICE_ROLE_KEY`: Use the `service_role key` provided by `supabase start`. (Primarily for admin tasks if the server-side Supabase client is used; the backend mainly uses `DATABASE_URL`).
+-   `DATABASE_URL`: This is the connection string for your PostgreSQL database. For local Supabase, it defaults to `postgresql://postgres:postgres@localhost:54321/postgres`.
+-   `PORT`: The port for your backend server. Defaults to `3001`.
+-   `VITE_API_BASE_URL`: The base URL for client-side API calls to your backend. Should match your backend server's address (e.g., `http://localhost:3001`).
+-   `SESSION_SECRET`: **Important!** Change this to a long, random, and secure string. This is crucial for session security.
 
-### 4. Set up Supabase (Local Development)
+### 5. Start Supabase Services
 
-1. Install the Supabase CLI:
-   ```bash
-   npm install -g supabase
-   ```
-
-2. Start the local Supabase stack:
-   ```bash
-   npm run supabase:start
-   ```
-
-3. Initialize the database (run migrations and seed data):
-   ```bash
-   npm run db:setup
-   ```
-
-### 5. Run the development server
-
+In your terminal, from the project root, start the local Supabase services:
 ```bash
-# Start the Vite dev server
-npm run dev
-
-# In a separate terminal, start the backend server
-npm run dev:server
+supabase start
 ```
+This command will initialize your local Supabase instance (PostgreSQL database, authentication, etc.). It will output your local Supabase URL, anon key, and service role key. **Ensure these values are correctly set in your `.env.local` file.**
 
-The app should now be running at `http://localhost:5173`.
+### 6. Set Up the Database
+
+Once Supabase services are running, set up your database schema and seed it with initial data. From the project root, run:
+```bash
+pnpm db:setup
+```
+This command executes scripts to create database tables (migrations) and populate them with necessary initial data (seeding), targeting the local Supabase database you just started.
+
+### 7. Run the Application (Requires Two Terminals)
+
+You'll need two separate terminal windows/tabs running concurrently: one for the backend server and one for the frontend client.
+
+**Terminal 1: Start the Backend Server**
+Navigate to the project root and run:
+```bash
+pnpm dev:server
+```
+This will start the backend (Express.js) server. By default, it should be running on `http://localhost:3001` (as specified by `PORT` in `.env.local`).
+
+**Terminal 2: Start the Frontend Client**
+Navigate to the project root and run:
+```bash
+pnpm dev
+```
+This will start the Vite development server for the React frontend. By default, it should be running on `http://localhost:5173`. Your browser might open automatically to this address.
+
+### 8. Access the Application
+
+Open your web browser and navigate to:
+`http://localhost:5173`
+
+You should now see the Strangers: After Hours application running locally!
+
+### 9. Verification and Troubleshooting
+
+If you encounter issues, here are some common things to check:
+
+-   **Browser Developer Console:** Open your browser's developer tools (usually by pressing F12). Check the "Console" tab for any JavaScript errors or failed network requests.
+-   **Network Tab:** In the developer tools, switch to the "Network" tab. Verify that API calls (typically to paths starting with `/api/...`) are being made to your backend URL (e.g., `http://localhost:3001`) and are returning successful status codes (like 200 OK).
+-   **Terminal Output:** Check the output in both your backend server terminal and frontend client terminal for any error messages or warnings.
+-   **`.env.local` Configuration:** Double-check that all values in your `.env.local` file are correct, especially those obtained from the `supabase start` command. Ensure there are no typos or extra spaces.
+-   **Supabase Status:** Make sure the `supabase start` command ran successfully and that the Supabase Docker containers (if listed by `docker ps`) are running.
+-   **Port Conflicts:** Ensure that ports `5173`, `3001`, and `54321` (and any others used by Supabase) are not already in use by other applications on your system.
 
 ## Database Management
 
@@ -145,6 +172,10 @@ To completely reset the database (be careful, this will delete all data):
 ```bash
 npm run db:reset
 ```
+
+## Docker Compose
+
+The `docker-compose.yml` file in this project can be used to run ancillary services like a standalone PostgreSQL database (if you prefer not to use Supabase CLI for local development or need it for other purposes), Redis, or other services. However, the primary local development setup for the application itself relies on running the client and server directly via `pnpm dev` (or `npm run dev`) as described above.
 
 ## Project Structure
 

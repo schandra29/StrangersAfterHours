@@ -8,6 +8,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "start": "NODE_ENV=production node dist/index.js",
+    "dev:server": "cd server && pnpm dev",
     "check": "tsc",
     "typecheck": "tsc --noEmit",
     "test:db": "tsx --tsconfig tsconfig.scripts.json scripts/test-db-connection.ts",
