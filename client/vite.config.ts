@@ -11,10 +11,16 @@ export default defineConfig({
     },
   },
   server: {
-
     open: true,
     hmr: {
       overlay: false, // Disable the HMR overlay to prevent the error message
+    },
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3001',
+        changeOrigin: true,
+        secure: false,
+      }
     },
   },
   build: {

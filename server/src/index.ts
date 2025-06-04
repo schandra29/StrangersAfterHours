@@ -1,4 +1,22 @@
 import express, { type Request, type Response, type NextFunction } from 'express';
+
+// --- GLOBAL ERROR LOGGING PATCH ---
+process.on('uncaughtException', (err) => {
+  const msg = `[${new Date().toISOString()}] UNCAUGHT EXCEPTION: ${err.stack || err}`;
+  console.error(msg);
+  try {
+    require('fs').appendFileSync(require('path').join(__dirname, '../logs/error.log'), msg + '\n');
+  } catch {}
+});
+process.on('unhandledRejection', (reason) => {
+  const msg = `[${new Date().toISOString()}] UNHANDLED REJECTION: ${reason}`;
+  console.error(msg);
+  try {
+    require('fs').appendFileSync(require('path').join(__dirname, '../logs/error.log'), msg + '\n');
+  } catch {}
+});
+// --- END GLOBAL ERROR LOGGING PATCH ---
+
 import cors from 'cors';
 import dotenv from 'dotenv';
 import fs from 'fs';
@@ -48,11 +66,18 @@ const logger = {
 };
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:5173', 'http://127.0.0.1:5173'],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
 
 // Request logging middleware
 app.use((req: Request, res: Response, next: NextFunction) => {
+  // DEBUG: Log every incoming request
+  logger.info(`[DEBUG] Incoming request: ${req.method} ${req.originalUrl}`);
   const start = Date.now();
   
   res.on('finish', () => {

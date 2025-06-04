@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Switch, Route, Redirect } from "wouter";
 // Import components with relative paths instead of aliases
 import TestConnection from "./pages/test-connection";
+import GamePage from "./pages/Game";
 
 // Placeholder components until we implement the real ones
 const Toaster = () => <div>Toaster Component</div>;
@@ -79,6 +80,9 @@ function Router() {
       </Route>
       <Route path="/test-connection">
         <TestConnection />
+      </Route>
+      <Route path="/game">
+        {(params) => <ProtectedRoute component={GamePage} params={params} />}
       </Route>
       <Route path="*">
         <NotFound />

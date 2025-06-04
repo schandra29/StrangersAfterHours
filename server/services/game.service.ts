@@ -4,11 +4,12 @@ import type { InferSelectModel } from 'drizzle-orm';
 
 // Import tables from schema
 import { prompts } from "@shared/schema";
-import { activities, promptPacks, userProgress } from "@shared/game-schema";
+import { activityBreaks, promptPacks, userProgress, reflectionPauses } from "@shared/game-schema";
 
 // Define types based on the schema
 type Prompt = InferSelectModel<typeof prompts>;
-type Activity = InferSelectModel<typeof activities>;
+type ActivityBreak = InferSelectModel<typeof activityBreaks>;
+type ReflectionPause = InferSelectModel<typeof reflectionPauses>;
 type PromptPack = InferSelectModel<typeof promptPacks>;
 type UserProgress = InferSelectModel<typeof userProgress>;
 
@@ -55,16 +56,29 @@ export class GameService {
   }
 
   /**
-   * Get a random activity
+   * Get a random activity break
    */
-  static async getRandomActivity(): Promise<Activity | null> {
+  static async getRandomActivity(): Promise<ActivityBreak | null> {
     const [activity] = await db.select()
-      .from(activities)
-      .where(eq(activities.isActive, true))
+      .from(activityBreaks)
+      .where(eq(activityBreaks.isActive, true))
       .orderBy(sql`RANDOM()`)
       .limit(1);
     
     return activity || null;
+  }
+
+  /**
+   * Get a random reflection pause
+   */
+  static async getRandomReflection(): Promise<ReflectionPause | null> {
+    const [reflection] = await db.select()
+      .from(reflectionPauses)
+      .where(eq(reflectionPauses.isActive, true))
+      .orderBy(sql`RANDOM()`)
+      .limit(1);
+    
+    return reflection || null;
   }
 
   /**

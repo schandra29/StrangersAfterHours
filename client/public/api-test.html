@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 4px;
+            overflow: auto;
+        }
+        .success { color: green; }
+        .error { color: red; }
+        button {
+            padding: 8px 16px;
+            margin: 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>API Test Page</h1>
+    
+    <div>
+        <button onclick="testServerDirect()">Test Direct Server Connection</button>
+        <button onclick="testServerProxy()">Test Server via Proxy</button>
+        <button onclick="testGameEndpoints()">Test Game Endpoints</button>
+    </div>
+    
+    <h2>Results:</h2>
+    <div id="results"></div>
+    
+    <script>
+        const resultsDiv = document.getElementById('results');
+        
+        function appendResult(title, content, isError = false) {
+            const resultDiv = document.createElement('div');
+            resultDiv.innerHTML = `
+                <h3 class="${isError ? 'error' : 'success'}">${title}</h3>
+                <pre>${typeof content === 'object' ? JSON.stringify(content, null, 2) : content}</pre>
+            `;
+            resultsDiv.appendChild(resultDiv);
+        }
+        
+        async function testServerDirect() {
+            try {
+                appendResult('Testing direct server connection...', 'Sending request to http://localhost:3001/api/test');
+                const response = await fetch('http://localhost:3001/api/test');
+                const data = await response.json();
+                appendResult('Direct server response:', data);
+            } catch (error) {
+                appendResult('Direct server connection failed', error.toString(), true);
+            }
+        }
+        
+        async function testServerProxy() {
+            try {
+                appendResult('Testing server via proxy...', 'Sending request to /api/test');
+                const response = await fetch('/api/test');
+                const data = await response.json();
+                appendResult('Proxy server response:', data);
+            } catch (error) {
+                appendResult('Proxy server connection failed', error.toString(), true);
+            }
+        }
+        
+        async function testGameEndpoints() {
+            try {
+                // Test activity endpoint
+                appendResult('Testing game activity endpoint...', 'Sending request to /api/game/activity');
+                const activityRes = await fetch('/api/game/activity');
+                const activityData = await activityRes.json();
+                appendResult('Activity endpoint response:', activityData);
+                
+                // Test reflection endpoint
+                appendResult('Testing game reflection endpoint...', 'Sending request to /api/game/reflection');
+                const reflectionRes = await fetch('/api/game/reflection');
+                const reflectionData = await reflectionRes.json();
+                appendResult('Reflection endpoint response:', reflectionData);
+                
+                // Test progress endpoint
+                appendResult('Testing game progress endpoint...', 'Sending request to /api/game/progress');
+                const progressRes = await fetch('/api/game/progress');
+                const progressData = await progressRes.json();
+                appendResult('Progress endpoint response:', progressData);
+            } catch (error) {
+                appendResult('Game endpoints test failed', error.toString(), true);
+            }
+        }
+    </script>
+</body>
+</html>
