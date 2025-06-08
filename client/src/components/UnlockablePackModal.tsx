@@ -25,7 +25,7 @@ export default function UnlockablePackModal({
   const handleUnlock = async () => {
     setIsUnlocking(true);
     try {
-      const success = await onUnlock(pack.id);
+      const success = await onUnlock(String(pack.id));
       if (success) {
         setIsUnlocked(true);
         setShowConfetti(true);

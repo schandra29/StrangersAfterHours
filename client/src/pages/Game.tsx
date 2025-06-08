@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useGameState } from '@/hooks/useGameState';
 import GameScreen from '@/components/GameScreen';
 import ActivityBreak from '@/components/ActivityBreak';
@@ -19,12 +19,9 @@ export default function GamePage() {
     handleUnlockPack,
     handleSetLevel,
     handleSetIntensity,
-    handleToggleGroupMode,
     handleDismissUnlockablePack
   } = useGameState();
-  
-  const [showMenu, setShowMenu] = useState(false);
-  const [location, setLocation] = useLocation();
+  const [, setLocation] = useLocation();
   // Handle errors - redirect to home if critical error occurs
   useEffect(() => {
     if (error) {
@@ -95,7 +92,7 @@ export default function GamePage() {
         contentType={gameState.contentType}
         isDrinkingGame={false} // Set based on your game mode
         isLoadingPrompts={isLoading}
-        onMenu={() => setShowMenu(true)}
+        onMenu={() => {}}
         onNextContent={handleNextContent}
         onCompleteActivityBreak={handleCompleteActivityBreak}
         onCompleteReflectionPause={handleCompleteReflectionPause}

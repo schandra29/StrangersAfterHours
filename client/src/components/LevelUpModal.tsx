@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
-import { useGame } from "@/hooks/useGame";
 import { Settings } from "lucide-react";
 
 interface LevelUpModalProps {

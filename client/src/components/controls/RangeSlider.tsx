@@ -1,7 +1,12 @@
 
-import React from 'react';
+interface RangeSliderProps {
+  min: number;
+  max: number;
+  value: number;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
-export default function RangeSlider({ min, max, value, onChange }) {
+export default function RangeSlider({ min, max, value, onChange }: RangeSliderProps) {
   return (
     <div className="flex flex-col gap-2 w-full">
       <input

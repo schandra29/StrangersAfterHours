@@ -1,7 +1,12 @@
 
-import React from 'react';
+interface PromptCardWithActionsProps {
+  prompt: string;
+  player: string;
+  onNext: () => void;
+  onSkip: () => void;
+}
 
-export default function PromptCardWithActions({ prompt, player, onNext, onSkip }) {
+export default function PromptCardWithActions({ prompt, player, onNext, onSkip }: PromptCardWithActionsProps) {
   return (
     <div className="flex flex-col justify-between h-full p-4 bg-white rounded-xl shadow-md">
       <div>

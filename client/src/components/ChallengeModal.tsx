@@ -4,7 +4,7 @@ import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useQuery } from "@tanstack/react-query";
 import { type Challenge } from "@shared/schema";
-import { Flame, Video, FlipHorizontal, Check, X, Trophy, Wine, User, Camera, FileQuestion } from "lucide-react";
+import { Flame, Video, Trophy, Wine, User, Camera, FileQuestion } from "lucide-react";
 
 type ChallengeView = "challenge" | "consent" | "recording" | "completion";
 

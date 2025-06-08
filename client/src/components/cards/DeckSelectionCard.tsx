@@ -1,7 +1,12 @@
 
-import React from 'react';
+import type { PromptPack } from '@shared/schema';
 
-export default function DeckSelectionCard({ deck, locked }) {
+interface DeckSelectionCardProps {
+  deck: PromptPack;
+  locked: boolean;
+}
+
+export default function DeckSelectionCard({ deck, locked }: DeckSelectionCardProps) {
   return (
     <div className="p-4 rounded-xl bg-[#FFF8F2] shadow border-l-4" style={{ borderColor: locked ? '#D8CFE6' : '#FFD166' }}>
       <h3 className="text-xl font-bold text-gray-900">{deck.name}</h3>

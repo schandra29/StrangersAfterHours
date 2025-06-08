@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import thumbnailImage from "@/assets/thumbnail.jpg";
 
 interface WelcomeScreenProps {
   onStartGame: () => void;

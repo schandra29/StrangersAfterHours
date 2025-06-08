@@ -2,9 +2,6 @@ import { useState, useEffect } from "react";
 import WelcomeScreen from "@/components/WelcomeScreen";
 import SetupScreen from "@/components/SetupScreen";
 import GameScreen from "@/components/GameScreen";
-import DeckSelectionCard from "@/components/cards/DeckSelectionCard";
-import PlayerProfileCard from "@/components/cards/PlayerProfileCard";
-import TextInput from "@/components/inputs/TextInput";
 import HowToPlayModal from "@/components/HowToPlayModal";
 import AboutGameModal from "@/components/AboutGameModal";
 import GameMenuModal from "@/components/GameMenuModal";
@@ -16,6 +13,7 @@ import PromptStatsModal from "@/components/PromptStatsModal";
 import { SpecialWelcomeMessage } from "@/components/SpecialWelcomeMessage";
 import { useGame } from "@/hooks/useGame";
 import { useToast } from "@/hooks/use-toast";
+import { getLevelName } from "@/lib/gameData";
 
 type Screen = "welcome" | "setup" | "game";
 
@@ -36,10 +34,6 @@ export default function Home() {
   const { toast } = useToast();
   const game = useGame();
 
-  const handleStartGame = () => {
-    setCurrentScreen("setup");
-  };
-
   const handleBackToWelcome = () => {
     setCurrentScreen("welcome");
   };
@@ -56,7 +50,7 @@ export default function Home() {
 
   const handleRandomPrompt = async () => {
     // First show a loading toast to indicate we're getting a random prompt
-    const loadingToast = toast({
+    toast({
       title: "Taking a Chance...",
       description: "Getting a random prompt from any level or intensity",
       duration: 1000, // Only show for 1 second
@@ -118,12 +112,12 @@ export default function Home() {
     setShowGameMenu(false);
   };
 
-  const handleConfirmLevelUp = (type: "level" | "intensity", newLevel: number, newIntensity: number) => {
+  const handleConfirmLevelUp = (_type: "level" | "intensity", newLevel: number, newIntensity: number) => {
     // Get the new values directly from the modal component
     console.log(`Applying changes: Level ${newLevel}, Intensity ${newIntensity}`);
     
     // Show a loading toast
-    const loadingToast = toast({
+    toast({
       title: "Updating...",
       description: "Getting a new prompt with your updated settings",
       duration: 1000, // Only show for 1 second
@@ -157,49 +151,6 @@ export default function Home() {
     setShowGameMenu(false); // Close the menu when opening the form
   };
   
-  // Handle full house moments - when everyone has participated
-  const handleFullHouseMoment = () => {
-    game.recordFullHouseMoment();
-    
-    // Array of more engaging full house messages
-    const fullHouseMessages = [
-      "Wow! The chemistry in this room is electric! You all rock at opening up! 🙌",
-      "This group's on fire! Love how everyone's bringing their A-game! ✨",
-      "Look at y'all connecting! This is what authentic bonding looks like! 💯",
-      "Squad goals achieved! Your willingness to share is making magic happen!",
-      "That's what I'm talking about! This crew knows how to keep it real!"
-    ];
-    
-    // Pick a random message
-    const randomIndex = Math.floor(Math.random() * fullHouseMessages.length);
-    
-    toast({
-      title: "Full House! 🎉",
-      description: fullHouseMessages[randomIndex],
-      duration: 1500, // Show for 1.5 seconds since message is longer
-    });
-  };
-  
-  // Handle end game and show summary
-  const handleEndGame = () => {
-    // If the timer is running, stop it and record the time
-    if (game.sessionId) {
-      setShowGameSummary(true);
-    } else {
-      toast({
-        title: "Error",
-        description: "No active game session found",
-        variant: "destructive",
-      });
-    }
-  };
-  
-  // Record time spent on prompts
-  const handleRecordTimeSpent = (seconds: number) => {
-    if (seconds > 0) {
-      game.recordTimeSpent(seconds);
-    }
-  };
 
   // Check for special access code on component mount
   useEffect(() => {
@@ -312,11 +263,12 @@ export default function Home() {
           game.recordPromptComplete();
         }}
       />
-      <LevelUpModal 
+      <LevelUpModal
         isOpen={showLevelUp}
         onClose={() => setShowLevelUp(false)}
         currentLevel={game.currentLevel}
         currentIntensity={game.currentIntensity}
+        onConfirm={handleConfirmLevelUp}
       />
       <CustomChallengeForm
         isOpen={showCustomChallengeForm}
@@ -330,7 +282,7 @@ export default function Home() {
         onStartNewGame={() => {
           setShowGameSummary(false);
           game.startNewGame();
-          setCurrentScreen("deck-selection");
+          setCurrentScreen("setup");
         }}
       />
       <PromptStatsModal
