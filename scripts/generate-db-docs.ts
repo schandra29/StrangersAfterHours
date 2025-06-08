@@ -15,28 +15,17 @@ async function generateDbDocs() {
   try {
     // Get all tables in the public schema
     const tables = await db.execute<TableRow>(sql`
-      SELECT 
+      SELECT
         table_name,
         obj_description(('public.' || table_name)::regclass, 'pg_class') as description
-      FROM 
-        information_schema.tables 
-      WHERE 
-        table_schema = 'public' 
+      FROM
+        information_schema.tables
+      WHERE
+        table_schema = 'public'
         AND table_type = 'BASE TABLE'
-      ORDER BY 
+      ORDER BY
         table_name;
     `) as QueryResult<TableRow>;
-      SELECT 
-        table_name,
-        obj_description(('public.' || table_name)::regclass, 'pg_class') as description
-      FROM 
-        information_schema.tables 
-      WHERE 
-        table_schema = 'public' 
-        AND table_type = 'BASE TABLE'
-      ORDER BY 
-        table_name;
-    `);
 
     // Get columns for each table
     const tablesWithColumns = await Promise.all(

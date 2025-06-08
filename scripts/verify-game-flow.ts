@@ -21,6 +21,12 @@ function log(message: string) {
     process.stdout.write(`${message}\n`);
     // Also write to log file
     logFile.write(`${message}\n`);
+  } catch (error) {
+    // If there's an error writing to the log file, at least try to write to console
+    console.error('Error writing to log:', error);
+  }
+}
+
 // Console colors for better readability
 const colors = {
   reset: '\x1b[0m',
@@ -30,7 +36,7 @@ const colors = {
   blink: '\x1b[5m',
   reverse: '\x1b[7m',
   hidden: '\x1b[8m',
-  
+
   fg: {
     black: '\x1b[30m',
     red: '\x1b[31m',
@@ -41,7 +47,7 @@ const colors = {
     cyan: '\x1b[36m',
     white: '\x1b[37m'
   },
-  
+
   bg: {
     black: '\x1b[40m',
     red: '\x1b[41m',
@@ -59,32 +65,13 @@ const supabaseUrl = process.env.SUPABASE_URL || '';
 const supabaseKey = process.env.SUPABASE_ANON_KEY || '';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-// Create log file for output
-const logFile = fs.createWriteStream('./scripts/game-flow-verification.log', { flags: 'w' });
-
-// Helper function to log to both console and file
-function log(message: string) {
-  try {
-    // Force output to console
-    process.stdout.write(`${message}\n`);
-    // Also write to log file
-    logFile.write(`${message}\n`);
-  } catch (error) {
-    // If there's an error writing to the log file, at least try to write to console
-    console.error('Error writing to log:', error);
-  }
-}
-
 // Add a header to the log output
 log(`${colors.bright}${colors.fg.cyan}🧪 GAME FLOW VERIFICATION SCRIPT${colors.reset}`);
 log(`${colors.fg.yellow}This script will verify the game flow for activity breaks and reflection pauses${colors.reset}`);
 log(`${colors.fg.white}Database URL: ${process.env.DATABASE_URL?.replace(/:[^:]*@/, ':****@') || 'Not set'}${colors.reset}`);
 log(`${colors.fg.white}Time: ${new Date().toISOString()}${colors.reset}\n`);
 
-log(`${colors.bright}${colors.fg.cyan}🧪 GAME FLOW VERIFICATION SCRIPT${colors.reset}`);
-log(`${colors.fg.yellow}This script will verify the game flow for activity breaks and reflection pauses${colors.reset}`);
-log(`${colors.fg.white}Database URL: ${process.env.DATABASE_URL?.replace(/:[^:]*@/, ':****@')}${colors.reset}`);
-log(`${colors.fg.white}Time: ${new Date().toISOString()}${colors.reset}\n`);
+
 
 // Seed test data for activity breaks and reflection pauses
 async function seedTestData() {

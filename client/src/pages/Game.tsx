@@ -4,7 +4,7 @@ import GameScreen from '@/components/GameScreen';
 import ActivityBreak from '@/components/ActivityBreak';
 import ReflectionPause from '@/components/ReflectionPause';
 import UnlockablePackModal from '@/components/UnlockablePackModal';
-import { useSupabase } from '@/lib/supabaseProvider';
+import { supabase } from '@/lib/supabaseProvider';
 import { Loader2 } from 'lucide-react';
 import { useLocation } from 'wouter';
 
@@ -26,7 +26,6 @@ export default function GamePage() {
   
   const [showMenu, setShowMenu] = useState(false);
   const [location, setLocation] = useLocation();
-  const supabase = useSupabase();
   
   // Handle errors - redirect to home if critical error occurs
   useEffect(() => {

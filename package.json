@@ -4,8 +4,8 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "dev": "vite --config client/vite.config.ts client",
+    "build": "vite build --config client/vite.config.ts client",
     "preview": "vite preview",
     "start": "NODE_ENV=production node dist/index.js",
     "check": "tsc",
@@ -91,6 +91,7 @@
     "postgres": "^3.4.7",
     "react": "^18.3.1",
     "react-confetti": "^6.4.0",
+    "react-confetti-explosion": "^3.0.3",
     "react-day-picker": "^8.10.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.55.0",
