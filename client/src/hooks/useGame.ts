@@ -4,7 +4,7 @@ import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { type Prompt, type GameSession, type ActivityBreak, type ReflectionPause } from "@shared/schema";
 import { fallbackPrompts, getLevelName } from "@/lib/gameData";
-import { getUsedPromptIds, markPromptAsUsed } from "@/lib/utils";
+import { getUsedPromptIds, markPromptAsUsed, resetUsedPrompts } from "@/lib/utils";
 
 export function useGame() {
   const [currentLevel, setLevel] = useState<number>(1);
@@ -14,7 +14,7 @@ export function useGame() {
   const [currentPrompt, setCurrentPrompt] = useState<Prompt | null>(null);
   const [currentActivityBreak, setCurrentActivityBreak] = useState<ActivityBreak | null>(null);
   const [currentReflectionPause, setCurrentReflectionPause] = useState<ReflectionPause | null>(null);
-  const [sessionId, setSessionId] = useState<string | null>(null);
+  const [sessionId, setSessionId] = useState<number | null>(null);
   const [usedPromptIds, setUsedPromptIds] = useState<number[]>([]);
   const [promptsShown, setPromptsShown] = useState<number>(0);
   const [contentType, setContentType] = useState<'prompt' | 'activity-break' | 'reflection-pause'>('prompt');
@@ -184,12 +184,15 @@ export function useGame() {
       
       if (fallbackPrompt) {
         setContentType('prompt');
-        setCurrentPrompt(fallbackPrompt);
+        setCurrentPrompt(fallbackPrompt as unknown as Prompt);
         setCurrentActivityBreak(null);
         setCurrentReflectionPause(null);
       }
     }
   };
+
+  // Alias for backwards compatibility
+  const getNextPrompt = getNextContent;
   
   // Get a completely random prompt (from any level or intensity)
   const getRandomPrompt = async () => {
@@ -327,6 +330,22 @@ export function useGame() {
     },
   });
 
+  const recordFullHouse = useMutation({
+    mutationFn: async () => {
+      if (!sessionId) return null;
+      const res = await apiRequest("POST", `/api/sessions/${sessionId}/full-house`, {});
+      return res.json();
+    }
+  });
+
+  const recordPromptAnswered = useMutation({
+    mutationFn: async () => {
+      if (!sessionId) return null;
+      const res = await apiRequest("POST", `/api/sessions/${sessionId}/prompt-answered`, {});
+      return res.json();
+    }
+  });
+
   // Toggle drinking game setting
   const toggleDrinkingGame = () => {
     setIsDrinkingGame(prev => !prev);
@@ -449,6 +468,7 @@ export function useGame() {
     // Actions
     startNewGame,
     getNextContent,
+    getNextPrompt,
     getRandomPrompt,
     resetUsedPrompts,
     

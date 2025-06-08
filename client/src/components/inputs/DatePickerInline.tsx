@@ -1,7 +1,10 @@
 
-import React from 'react';
+interface DatePickerInlineProps {
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
-export default function DatePickerInline({ value, onChange }) {
+export default function DatePickerInline({ value, onChange }: DatePickerInlineProps) {
   return (
     <input
       type="date"

@@ -12,7 +12,6 @@ import { type GameSession } from "@shared/schema";
 import Confetti from "react-confetti";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { getIntensityName } from "@/lib/gameData";
-import { useToast } from "@/hooks/use-toast";
 
 interface GameSummaryModalProps {
   isOpen: boolean;
@@ -29,7 +28,6 @@ export default function GameSummaryModal({
 }: GameSummaryModalProps) {
   const [showConfetti, setShowConfetti] = useState(false);
   const isMobile = useIsMobile();
-  const { toast } = useToast();
   
   const formatTime = (seconds: number): string => {
     if (!seconds) return "0 minutes";

@@ -1,7 +1,12 @@
 
-import React from 'react';
+interface DropdownProps {
+  label: string;
+  options: string[];
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+}
 
-export default function Dropdown({ label, options, value, onChange }) {
+export default function Dropdown({ label, options, value, onChange }: DropdownProps) {
   return (
     <label className="block text-sm font-medium text-gray-700">
       {label}

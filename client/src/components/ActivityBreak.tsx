@@ -11,14 +11,14 @@ interface ActivityBreakProps {
 }
 
 export default function ActivityBreak({ activityBreak, onComplete }: ActivityBreakProps) {
-  const [timeRemaining, setTimeRemaining] = useState(activityBreak.durationSeconds);
+  const [timeRemaining, setTimeRemaining] = useState(activityBreak.duration);
   const [isActive, setIsActive] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
   
   // Calculate progress percentage
   const progressPercentage = Math.max(
     0,
-    Math.min(100, ((activityBreak.durationSeconds - timeRemaining) / activityBreak.durationSeconds) * 100)
+    Math.min(100, ((activityBreak.duration - timeRemaining) / activityBreak.duration) * 100)
   );
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function ActivityBreak({ activityBreak, onComplete }: ActivityBre
     
     if (isActive && timeRemaining > 0) {
       interval = window.setInterval(() => {
-        setTimeRemaining((prevTime) => {
+        setTimeRemaining((prevTime: number) => {
           if (prevTime <= 1) {
             setIsActive(false);
             setIsCompleted(true);

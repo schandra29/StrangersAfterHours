@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import GameController, { GameState, initialGameState, GameContentType } from '@/lib/gameController';
+import GameController, { GameState, initialGameState } from '@/lib/gameController';
 import { supabase } from '@/lib/supabaseProvider';
 import { type PromptPack } from '@shared/schema';
 

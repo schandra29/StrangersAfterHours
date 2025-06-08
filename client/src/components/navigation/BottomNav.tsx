@@ -1,8 +1,11 @@
 
-import React from 'react';
 import { Home, Layers, PlayCircle, Settings } from 'lucide-react';
 
-export default function BottomNav({ activeTab }) {
+interface BottomNavProps {
+  activeTab: string;
+}
+
+export default function BottomNav({ activeTab }: BottomNavProps) {
   const tabs = [
     { name: "Home", icon: <Home size={24} />, key: "home" },
     { name: "Decks", icon: <Layers size={24} />, key: "decks" },

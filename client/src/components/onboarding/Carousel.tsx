@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const slides = [
   "Welcome to the party! Get ready to laugh and connect.",

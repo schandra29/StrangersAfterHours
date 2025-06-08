@@ -1,7 +1,7 @@
 
-import React from 'react';
+import type { PropsWithChildren, ButtonHTMLAttributes } from 'react';
 
-export default function PrimaryButton({ children, ...props }) {
+export default function PrimaryButton({ children, ...props }: PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>) {
   return (
     <button
       {...props}

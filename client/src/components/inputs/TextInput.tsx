@@ -1,7 +1,11 @@
 
-import React from 'react';
+import type { InputHTMLAttributes } from 'react';
 
-export default function TextInput({ label, ...props }) {
+interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  label: string;
+}
+
+export default function TextInput({ label, ...props }: TextInputProps) {
   return (
     <label className="block text-sm font-medium text-gray-700">
       {label}
