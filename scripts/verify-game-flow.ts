@@ -21,6 +21,10 @@ function log(message: string) {
     process.stdout.write(`${message}\n`);
     // Also write to log file
     logFile.write(`${message}\n`);
+  } catch (error) {
+    console.error("Error writing to log:", error);
+  }
+}
 // Console colors for better readability
 const colors = {
   reset: '\x1b[0m',

@@ -125,7 +125,7 @@ const reflectionPauses = [
   {
     id: uuidv4(),
     question: 'If you could ask the group one question that everyone must answer honestly, what would it be?',
-    description: 'Think about what you're curious to know',
+    description: "Think about what you're curious to know",
     duration_seconds: '120',
     is_active: true,
     theme: 'curiosity',

@@ -1,15 +1,17 @@
 {
+  "extends": "./tsconfig.paths.json",
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "scripts/**/*.ts",
+    "server/**/*.ts",
     "vite.config.ts"
   ],
   "exclude": [
     "node_modules",
     "dist",
     "**/*.test.ts",
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "scripts/**/*.ts",
   ],
   "compilerOptions": {
     /* Base Options */
