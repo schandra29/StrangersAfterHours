@@ -8,7 +8,8 @@
     "simple": "tsx src/simple-server.ts",
     "test-server": "tsx src/test-server.ts",
     "ultra": "tsx src/ultra-simple-server.ts",
-    "build": "tsc",
+    "typecheck": "tsc --noEmit -p ./tsconfig.json",
+    "build": "npm run typecheck && tsc",
     "start": "node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "check-prompts": "tsx scripts/check-prompts.ts"
@@ -20,8 +21,10 @@
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "drizzle-orm": "^0.44.2",
+    "drizzle-zod": "^0.8.2",
     "express": "^4.21.2",
-    "uuid": "^11.1.0"
+    "uuid": "^11.1.0",
+    "zod": "^3.25.56"
   },
   "devDependencies": {
     "@types/cors": "^2.8.18",

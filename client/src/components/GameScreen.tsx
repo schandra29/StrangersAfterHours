@@ -191,7 +191,7 @@ export default function GameScreen({
           {contentType === 'prompt' && currentPrompt && (
             <PromptCardWithActions
               prompt={currentPrompt.text}
-              player={currentPrompt.player || "Player"}
+              player={"Player"}
               onNext={onNextContent}
               onSkip={onMenu}
             />

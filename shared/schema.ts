@@ -93,8 +93,7 @@ export type GameSession = typeof gameSessions.$inferSelect;
 export type InsertGameSession = z.infer<typeof insertGameSessionSchema>;
 
 // Re-export types from game-schema
-export { 
-  promptTypeEnum,
+export type {
   ActivityBreak,
   InsertActivityBreak,
   ReflectionPause,
@@ -104,6 +103,8 @@ export {
   UserProgress,
   InsertUserProgress
 } from "./game-schema";
+
+export { promptTypeEnum } from "./game-schema";
 
 // Access codes for limiting application access
 export const accessCodes = pgTable("access_codes", {

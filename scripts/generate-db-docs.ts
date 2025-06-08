@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { sql } from '../src/lib/db';
+import { db, sql, QueryResult } from '../src/lib/db';
 
 // --- Types ---
 type TableRow = { table_name: string; description: string | null };
@@ -41,7 +41,7 @@ async function generateDbDocs() {
     // Get columns for each table
     const tablesWithColumns = await Promise.all(
       tables.rows.map(async (table) => {
-        const columnsResult = await db.execute<ColumnDefinition>(sql`
+        const columnsResult = await db.execute<ColumnRow>(sql`
           SELECT 
             column_name,
             data_type,
@@ -55,12 +55,12 @@ async function generateDbDocs() {
             AND table_name = ${table.table_name}
           ORDER BY 
             ordinal_position;
-        `) as QueryResult<ColumnDefinition>;
+        `) as QueryResult<ColumnRow>;
 
         const columns = columnsResult.rows;
 
         // Get foreign key constraints
-        const constraintsResult = await db.execute<ForeignKeyConstraint>(sql`
+        const constraintsResult = await db.execute<ConstraintRow>(sql`
           SELECT
             tc.constraint_name,
             tc.constraint_type,
@@ -79,12 +79,12 @@ async function generateDbDocs() {
             tc.table_schema = 'public' 
             AND tc.table_name = ${table.table_name}
             AND tc.constraint_type = 'FOREIGN KEY';
-        `) as QueryResult<ForeignKeyConstraint>;
+        `) as QueryResult<ConstraintRow>;
 
         const constraints = constraintsResult.rows;
 
         // Get indexes
-        const indexesResult = await db.execute<IndexDefinition>(sql`
+        const indexesResult = await db.execute<IndexRow>(sql`
           SELECT
             indexname,
             indexdef
@@ -93,7 +93,7 @@ async function generateDbDocs() {
           WHERE 
             schemaname = 'public' 
             AND tablename = ${table.table_name};
-        `) as QueryResult<IndexDefinition>;
+        `) as QueryResult<IndexRow>;
 
         const indexes = indexesResult.rows;
 
