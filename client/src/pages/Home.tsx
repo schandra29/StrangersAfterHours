@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import WelcomeScreen from "@/components/WelcomeScreen";
 import SetupScreen from "@/components/SetupScreen";
 import GameScreen from "@/components/GameScreen";
+import DeckSelectionCard from "@/components/cards/DeckSelectionCard";
+import PlayerProfileCard from "@/components/cards/PlayerProfileCard";
+import TextInput from "@/components/inputs/TextInput";
 import HowToPlayModal from "@/components/HowToPlayModal";
 import AboutGameModal from "@/components/AboutGameModal";
 import GameMenuModal from "@/components/GameMenuModal";
@@ -13,7 +16,6 @@ import PromptStatsModal from "@/components/PromptStatsModal";
 import { SpecialWelcomeMessage } from "@/components/SpecialWelcomeMessage";
 import { useGame } from "@/hooks/useGame";
 import { useToast } from "@/hooks/use-toast";
-import { getLevelName } from "@/lib/gameData";
 
 type Screen = "welcome" | "setup" | "game";
 
@@ -52,10 +54,6 @@ export default function Home() {
     setShowChallenge(true);
   };
 
-  const handleLevelChange = (type: "level" | "intensity") => {
-    setShowLevelUp(true);
-  };
-  
   const handleRandomPrompt = async () => {
     // First show a loading toast to indicate we're getting a random prompt
     const loadingToast = toast({
@@ -202,7 +200,7 @@ export default function Home() {
       game.recordTimeSpent(seconds);
     }
   };
-  
+
   // Check for special access code on component mount
   useEffect(() => {
     const specialCode = localStorage.getItem('specialCodeType');
@@ -211,7 +209,7 @@ export default function Home() {
       setShowSpecialWelcome(true);
     }
   }, []);
-  
+
   // Handle closing special welcome message
   const handleCloseSpecialWelcome = () => {
     setShowSpecialWelcome(false);
@@ -225,128 +223,120 @@ export default function Home() {
       {showSpecialWelcome && specialCodeType && (
         <SpecialWelcomeMessage 
           type={specialCodeType} 
-          onClose={handleCloseSpecialWelcome} 
+          onClose={handleCloseSpecialWelcome}
         />
       )}
-    
-      <div className="container mx-auto px-4 py-8 max-w-md">
-        {currentScreen === "welcome" && (
-          <WelcomeScreen 
-            onStartGame={handleStartGame} 
-            onHowToPlay={() => setShowHowToPlay(true)}
-            onAboutGame={() => setShowAboutGame(true)}
-          />
-        )}
-        
-        {currentScreen === "setup" && (
-          <SetupScreen 
-            selectedLevel={game.currentLevel}
-            selectedIntensity={game.currentIntensity}
-            isDrinkingGame={game.isDrinkingGame}
-            onSelectLevel={game.setLevel}
-            onSelectIntensity={game.setIntensity}
-            onToggleDrinkingGame={game.toggleDrinkingGame}
-            onBack={handleBackToWelcome}
-            onStartPlaying={handleStartPlaying}
-          />
-        )}
-        
-        {currentScreen === "game" && (
-          <GameScreen
-            currentLevel={game.currentLevel}
-            currentIntensity={game.currentIntensity}
-            currentPrompt={game.currentPrompt}
-            currentActivityBreak={game.currentActivityBreak}
-            currentReflectionPause={game.currentReflectionPause}
-            contentType={game.contentType}
-            isDrinkingGame={game.isDrinkingGame}
-            isLoadingPrompts={game.isLoadingPrompts}
-            onMenu={() => setShowGameMenu(true)}
-            onNextContent={game.getNextContent}
-            onCompleteActivityBreak={game.completeActivityBreak.mutate}
-            onCompleteReflectionPause={game.completeReflectionPause.mutate}
-            onChallenge={handleOpenChallenge}
-            onLevelChange={handleLevelChange}
-            onRandomPrompt={handleRandomPrompt}
-            onEndGame={() => setShowGameSummary(true)}
-            onRecordTimeSpent={game.updateTimeSpent.mutate}
-            onShowStats={() => setShowPromptStats(true)}
-          />
-        )}
-        
-        <HowToPlayModal 
-          isOpen={showHowToPlay} 
-          onClose={() => setShowHowToPlay(false)} 
+
+      {/* Welcome Screen */}
+      {currentScreen === "welcome" && (
+        <WelcomeScreen 
+          onStartGame={() => setCurrentScreen("setup")}
+          onHowToPlay={() => setShowHowToPlay(true)}
+          onAboutGame={() => setShowAboutGame(true)}
         />
-        
-        <AboutGameModal
-          isOpen={showAboutGame}
-          onClose={() => setShowAboutGame(false)}
-        />
-        
-        <GameMenuModal 
-          isOpen={showGameMenu} 
-          onClose={() => setShowGameMenu(false)}
-          onRestart={handleRestartGame}
-          onSettings={() => {
-            setCurrentScreen("setup");
-            setShowGameMenu(false);
-          }}
-          onHowToPlay={() => {
-            setShowHowToPlay(true);
-            setShowGameMenu(false);
-          }}
-          onAboutGame={() => {
-            setShowAboutGame(true);
-            setShowGameMenu(false);
-          }}
-          onAddCustomChallenge={handleAddCustomChallenge}
-        />
-        
-        <ChallengeModal 
-          isOpen={showChallenge}
-          onClose={() => setShowChallenge(false)}
-          type={selectedChallengeType}
-          intensity={game.currentIntensity}
+      )}
+
+      {/* Setup Screen (Level/Intensity/Drinking) */}
+      {currentScreen === "setup" && (
+        <SetupScreen 
+          selectedLevel={game.currentLevel}
+          selectedIntensity={game.currentIntensity}
           isDrinkingGame={game.isDrinkingGame}
-          onChallengeComplete={() => {
-            // Get a new prompt when challenge is completed and record completion
-            game.getNextPrompt();
-            game.recordPromptComplete(); // Also record this prompt as completed
-          }}
+          onSelectLevel={game.setLevel}
+          onSelectIntensity={game.setIntensity}
+          onToggleDrinkingGame={game.toggleDrinkingGame}
+          onBack={handleBackToWelcome}
+          onStartPlaying={handleStartPlaying}
         />
-        
-        <LevelUpModal 
-          isOpen={showLevelUp}
-          onClose={() => setShowLevelUp(false)}
+      )}
+
+      {/* Main Game Screen */}
+      {currentScreen === "game" && (
+        <GameScreen
           currentLevel={game.currentLevel}
           currentIntensity={game.currentIntensity}
-          onConfirm={handleConfirmLevelUp}
+          currentPrompt={game.currentPrompt}
+          currentActivityBreak={game.currentActivityBreak}
+          currentReflectionPause={game.currentReflectionPause}
+          contentType={game.contentType}
+          isDrinkingGame={game.isDrinkingGame}
+          isLoadingPrompts={game.isLoadingPrompts}
+          onMenu={() => setShowGameMenu(true)}
+          onNextContent={game.getNextContent}
+          onCompleteActivityBreak={game.completeActivityBreak.mutate}
+          onCompleteReflectionPause={game.completeReflectionPause.mutate}
+          onChallenge={handleOpenChallenge}
+          onLevelChange={() => setShowLevelUp(true)}
+          onRandomPrompt={handleRandomPrompt}
+          onEndGame={() => setShowGameSummary(true)}
+          onRecordTimeSpent={game.updateTimeSpent.mutate}
+          onShowStats={() => setShowPromptStats(true)}
         />
-        
-        <CustomChallengeForm
-          isOpen={showCustomChallengeForm}
-          onClose={() => setShowCustomChallengeForm(false)}
-          onSuccess={() => {
-            // Show a success message or refresh challenges if needed
-          }}
-        />
-        
-        <GameSummaryModal
-          isOpen={showGameSummary}
-          onClose={() => setShowGameSummary(false)}
-          sessionId={game.sessionId}
-          onStartNewGame={() => {
-            setShowGameSummary(false);
-            handleRestartGame();
-          }}
-        />
-        
-        <PromptStatsModal
-          isOpen={showPromptStats}
-          onClose={() => setShowPromptStats(false)}
-        />
-      </div>
+      )}
+
+      {/* Modals and overlays */}
+      <HowToPlayModal 
+        isOpen={showHowToPlay} 
+        onClose={() => setShowHowToPlay(false)} 
+      />
+      <AboutGameModal
+        isOpen={showAboutGame}
+        onClose={() => setShowAboutGame(false)}
+      />
+      <GameMenuModal 
+        isOpen={showGameMenu} 
+        onClose={() => setShowGameMenu(false)}
+        onRestart={handleRestartGame}
+        onSettings={() => {
+          setCurrentScreen("setup");
+          setShowGameMenu(false);
+        }}
+        onHowToPlay={() => {
+          setShowHowToPlay(true);
+          setShowGameMenu(false);
+        }}
+        onAboutGame={() => {
+          setShowAboutGame(true);
+          setShowGameMenu(false);
+        }}
+        onAddCustomChallenge={handleAddCustomChallenge}
+      />
+      <ChallengeModal 
+        isOpen={showChallenge}
+        onClose={() => setShowChallenge(false)}
+        type={selectedChallengeType}
+        intensity={game.currentIntensity}
+        isDrinkingGame={game.isDrinkingGame}
+        onChallengeComplete={() => {
+          game.getNextPrompt();
+          game.recordPromptComplete();
+        }}
+      />
+      <LevelUpModal 
+        isOpen={showLevelUp}
+        onClose={() => setShowLevelUp(false)}
+        currentLevel={game.currentLevel}
+        currentIntensity={game.currentIntensity}
+      />
+      <CustomChallengeForm
+        isOpen={showCustomChallengeForm}
+        onClose={() => setShowCustomChallengeForm(false)}
+        onSuccess={() => {}}
+      />
+      <GameSummaryModal
+        isOpen={showGameSummary}
+        onClose={() => setShowGameSummary(false)}
+        sessionId={game.sessionId}
+        onStartNewGame={() => {
+          setShowGameSummary(false);
+          game.startNewGame();
+          setCurrentScreen("deck-selection");
+        }}
+      />
+      <PromptStatsModal
+        isOpen={showPromptStats}
+        onClose={() => setShowPromptStats(false)}
+      />
     </div>
   );
 }

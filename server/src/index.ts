@@ -23,6 +23,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import apiRoutes from './routes/index.js';
+import debugRoutes from './routes/debug.routes.js';
 
 // Configure environment variables
 dotenv.config();
@@ -105,6 +106,7 @@ app.get('/api/health', (_req: Request, res: Response) => {
 
 // Mount API routes
 app.use('/api', apiRoutes);
+app.use('/api/debug', debugRoutes);
 
 // Simple test route
 app.get('/api/test', (_req: Request, res: Response) => {

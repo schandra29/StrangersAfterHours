@@ -6,6 +6,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { getLevelName, getIntensityName } from "@/lib/gameData";
 import { getCompletionPercentage } from "@/lib/utils";
 import { Progress } from "@/components/ui/progress";
+import PromptCardWithActions from "@/components/cards/PromptCardWithActions";
 
 interface GameScreenProps {
   currentLevel: number;
@@ -187,32 +188,13 @@ export default function GameScreen({
       {/* Main content card - could be prompt, activity break, or reflection pause */}
       <div className="relative w-full max-w-md mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
         <div className="px-4 py-5 sm:p-6">
-          {contentType === 'prompt' && (
-            <>
-              {/* Level/Intensity indicator for prompts */}
-              <div className="flex justify-between items-center mb-4">
-                <div className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                  {getLevelName(currentLevel)} · {getIntensityName(currentIntensity)}
-                </div>
-                <div className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                  Level {currentLevel} · Intensity {currentIntensity}
-                </div>
-              </div>
-              
-              {/* Prompt text */}
-              <div className="text-center">
-                {isLoadingPrompts ? (
-                  <div className="animate-pulse">
-                    <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mx-auto mb-2"></div>
-                    <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-1/2 mx-auto"></div>
-                  </div>
-                ) : (
-                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
-                    {currentPrompt?.text || "No prompt available"}
-                  </h2>
-                )}
-              </div>
-            </>
+          {contentType === 'prompt' && currentPrompt && (
+            <PromptCardWithActions
+              prompt={currentPrompt.text}
+              player={currentPrompt.player || "Player"}
+              onNext={onNextContent}
+              onSkip={onMenu}
+            />
           )}
           
           {contentType === 'activity-break' && (

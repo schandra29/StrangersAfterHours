@@ -1,0 +1,203 @@
+WindSurf IDE Development Guidelines v1.0
+SWE-1 Model Project Setup & Troubleshooting Guide
+Table of Contents
+Core Principles
+Project Initialization Checklist
+Common Pitfalls & Solutions
+Development Workflow
+Debugging Protocol
+Environment Setup
+Documentation Standards
+Performance Considerations
+Core Principles
+Assume Nothing, Verify Everything
+Never assume any part of the environment is set up correctly
+Verify all dependencies, environment variables, and configurations
+Document all assumptions and verify them systematically
+Start Simple, Then Scale
+Begin with the most basic working example
+Add complexity incrementally
+Test at each step
+Fail Fast, Fail Loudly
+Implement early validation
+Use descriptive error messages
+Include validation in setup scripts
+Project Initialization Checklist
+1. Environment Verification
+bash
+CopyInsert
+# Verify Node.js and npm versions
+node -v
+npm -v
+
+# Verify all dependencies are installed
+npm list --depth=0
+
+# Check for missing dependencies
+npm ls | grep "missing"
+2. Dependency Management
+[ ] Run npm install in all project subdirectories
+[ ] Verify all peer dependencies are satisfied
+[ ] Check for version conflicts
+[ ] Document all dependencies with their purposes
+3. Configuration Files
+[ ] .env files present and properly configured
+[ ] Build configuration (webpack/vite) verified
+[ ] Linter and formatter configurations in place
+[ ] Git hooks configured if needed
+4. Development Environment
+[ ] Backend server starts without errors
+[ ] Frontend development server starts
+[ ] Database connection verified
+[ ] API endpoints responding correctly
+Common Pitfalls & Solutions
+1. Missing Dependencies
+Symptoms:
+
+Module not found errors
+Runtime errors about missing packages
+Solution:
+
+bash
+CopyInsert
+# In each project directory
+rm -rf node_modules package-lock.json
+npm cache clean --force
+npm install
+2. Environment Variables
+Symptoms:
+
+Connection errors
+Missing configuration values
+Inconsistent behavior between environments
+Solution:
+
+Create .env.example with all required variables
+Document each variable's purpose
+Add validation on application startup
+3. Port Conflicts
+Symptoms:
+
+"Port already in use" errors
+Inability to start servers
+Solution:
+
+bash
+CopyInsert
+# Find and kill processes using a port
+lsof -i :3001
+kill -9 <PID>
+
+# Or on Windows
+netstat -ano | findstr :3001
+taskkill /PID <PID> /F
+4. Database Issues
+Symptoms:
+
+Connection timeouts
+Authentication failures
+Missing migrations
+Solution:
+
+Verify database service is running
+Check connection strings
+Run pending migrations
+Verify database user permissions
+Development Workflow
+1. Starting the Development Environment
+bash
+CopyInsert
+# Terminal 1 - Backend
+cd server
+npm run dev
+
+# Terminal 2 - Frontend
+cd client
+npm run dev
+2. Before Committing Code
+bash
+CopyInsert
+# Run tests
+npm test
+
+# Check linting
+npm run lint
+
+# Verify formatting
+npm run format:check
+3. When Things Break
+Check the most recent changes
+Review error messages carefully
+Check server logs
+Verify environment variables
+Check network requests in browser dev tools
+Debugging Protocol
+1. Frontend Issues
+Open browser dev tools (F12)
+Check Console for errors
+Review Network tab for failed requests
+Use React DevTools for component state
+2. Backend Issues
+Check server console output
+Review application logs
+Test API endpoints with Postman/curl
+Add debug logging if needed
+3. Database Issues
+Verify database service is running
+Check connection strings
+Review query logs
+Test with direct database client
+Environment Setup
+Required Tools
+Node.js (LTS version)
+npm or yarn
+Git
+Database client (if applicable)
+Postman/Insomnia for API testing
+Recommended VS Code Extensions
+ESLint
+Prettier
+EditorConfig
+Docker (if using containers)
+Thunder Client (API testing)
+Documentation Standards
+Project README.md
+markdown
+CopyInsert
+# Project Name
+
+## Setup
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Copy `.env.example` to `.env` and configure
+4. Start development servers:
+   - Backend: `cd server && npm run dev`
+   - Frontend: `cd client && npm run dev`
+
+## Environment Variables
+- `PORT`: Server port (default: 3001)
+- `DATABASE_URL`: Database connection string
+- `NODE_ENV`: Environment (development/production)
+
+## Available Scripts
+- `dev`: Start development server
+- `build`: Create production build
+- `test`: Run tests
+- `lint`: Check code style
+Performance Considerations
+Frontend
+Bundle size analysis
+Code splitting
+Lazy loading
+Image optimization
+Backend
+Database indexing
+Query optimization
+Caching strategy
+Connection pooling
+Monitoring
+Error tracking
+Performance metrics
+Uptime monitoring
+Log aggregation
+Remember: When in doubt, refer to this guide. Better to spend time verifying assumptions than debugging preventable issues.

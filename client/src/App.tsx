@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from "wouter";
 // Import components with relative paths instead of aliases
 import TestConnection from "./pages/test-connection";
 import GamePage from "./pages/Game";
+import DebugPrompts from "./components/DebugPrompts"; // Ensure this import is present
 
 // Placeholder components until we implement the real ones
 const Toaster = () => <div>Toaster Component</div>;
@@ -75,14 +76,17 @@ function Router() {
       <Route path="/admin">
         <AdminDashboard />
       </Route>
+      <Route path="/debug-prompts">
+        <DebugPrompts />
+      </Route>
       <Route path="/">
-        {(params) => <ProtectedRoute component={Home} params={params} />}
+        {(params: any) => <ProtectedRoute component={Home} params={params} />}
       </Route>
       <Route path="/test-connection">
         <TestConnection />
       </Route>
       <Route path="/game">
-        {(params) => <ProtectedRoute component={GamePage} params={params} />}
+        {(params: any) => <ProtectedRoute component={GamePage} params={params} />}
       </Route>
       <Route path="*">
         <NotFound />
